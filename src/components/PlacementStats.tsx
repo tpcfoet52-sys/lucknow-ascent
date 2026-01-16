@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { TrendingUp, Users, Building2, Award } from "lucide-react";
 
 const stats = [
-  { label: "Highest Package", value: "₹23.6", unit: "LPA", icon: Award },
-  { label: "Median Package (UG)", value: "₹8.0", unit: "LPA", icon: TrendingUp },
+  { label: "Highest Package (23-24)", value: "₹23.6", unit: "LPA", icon: Award },
+  { label: "Average Package (23-24)", value: "₹8.5", unit: "LPA", icon: TrendingUp },
   { label: "Students Placed (23-24)", value: "3451", unit: "+", icon: Users },
   { label: "Partner Companies", value: "500", unit: "+", icon: Building2 },
 ];
@@ -13,32 +13,32 @@ const yearlyData = [
     year: "2020-21", 
     ugPlaced: 888, 
     pgPlaced: 325, 
-    ugMedian: 4.7, 
-    pgMedian: 5.8,
+    avgPackage: 5.5,
+    highestPackage: 10,
     total: 1213
   },
   { 
     year: "2021-22", 
     ugPlaced: 935, 
     pgPlaced: 1218, 
-    ugMedian: 7.35, 
-    pgMedian: 7.21,
+    avgPackage: 7.0,
+    highestPackage: 15,
     total: 2153
   },
   { 
     year: "2022-23", 
     ugPlaced: 1011, 
     pgPlaced: 1249, 
-    ugMedian: 7.95, 
-    pgMedian: 7.45,
+    avgPackage: 8.25,
+    highestPackage: 23.6,
     total: 2260
   },
   { 
     year: "2023-24", 
     ugPlaced: 1507, 
     pgPlaced: 1944, 
-    ugMedian: 8.0, 
-    pgMedian: 7.8,
+    avgPackage: 8.5,
+    highestPackage: 23.6,
     total: 3451
   },
 ];
@@ -151,12 +151,12 @@ const PlacementStats = () => {
                   </div>
                   <div className="grid grid-cols-2 gap-4 text-xs text-muted-foreground">
                     <div>
-                      <span className="block">UG: {data.ugPlaced} students</span>
-                      <span className="text-accent">Median: ₹{data.ugMedian} LPA</span>
+                      <span className="block">UG: {data.ugPlaced} | PG: {data.pgPlaced}</span>
+                      <span className="text-accent font-medium">Avg: ₹{data.avgPackage} LPA</span>
                     </div>
                     <div>
-                      <span className="block">PG: {data.pgPlaced} students</span>
-                      <span className="text-accent">Median: ₹{data.pgMedian} LPA</span>
+                      <span className="block text-muted-foreground/70">Highest Package</span>
+                      <span className="text-accent font-semibold">₹{data.highestPackage} LPA</span>
                     </div>
                   </div>
                 </motion.div>
