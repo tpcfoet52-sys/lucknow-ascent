@@ -1,5 +1,8 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import CompanyLogoStrip from "@/components/CompanyLogoStrip";
+import PlacementStats from "@/components/PlacementStats";
+import DirectorMessage from "@/components/DirectorMessage";
 import RecruiterPortal from "@/components/RecruiterPortal";
 import StudentCorner from "@/components/StudentCorner";
 import PlacementGallery from "@/components/PlacementGallery";
@@ -12,6 +15,9 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
+        <CompanyLogoStrip />
+        <PlacementStats />
+        <DirectorMessage />
         <RecruiterPortal />
         <StudentCorner />
         <PlacementGallery />
