@@ -14,25 +14,27 @@ const HeroSection = () => {
           alt="University of Lucknow Campus"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/75 via-primary/60 to-primary/80" />
+        {/* Stronger, more professional overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-primary/50 to-primary/70" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container-narrow text-center pt-24 pb-12">
+      <div className="relative z-10 max-w-4xl mx-auto text-center px-6 py-32 md:py-40">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-6"
+          className="space-y-10"
         >
           {/* Subtitle */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="inline-flex flex-col items-center"
           >
-            <span className="text-primary-foreground/70 text-sm tracking-[0.25em] uppercase font-light">Est. 1867</span>
+            <span className="inline-block text-white/80 text-sm tracking-[0.3em] uppercase font-light border-b border-white/30 pb-2">
+              Est. 1867
+            </span>
           </motion.div>
 
           {/* Main Heading */}
@@ -40,23 +42,24 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
+            className="space-y-4"
           >
-            <h1 className="heading-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primary-foreground leading-[1.1]">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold leading-tight tracking-tight drop-shadow-lg">
               Training & Placement Cell
             </h1>
-            <p className="font-serif text-xl sm:text-2xl md:text-3xl text-gold-gradient mt-3 font-medium">
+            <p className="font-serif text-xl sm:text-2xl md:text-3xl text-accent font-medium tracking-wide">
               University of Lucknow
             </p>
           </motion.div>
 
-          {/* Subtitle */}
+          {/* Tagline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="max-w-xl mx-auto text-base md:text-lg text-primary-foreground/80 font-light leading-relaxed"
+            className="max-w-2xl mx-auto text-lg md:text-xl text-white/90 font-light leading-relaxed"
           >
-            Bridging academic excellence with industry opportunities since 1867.
+            Bridging academic excellence with industry opportunities
           </motion.p>
 
           {/* Stats Row */}
@@ -64,17 +67,17 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-wrap justify-center gap-8 md:gap-12 py-6"
+            className="flex flex-wrap justify-center gap-10 md:gap-16 pt-8 pb-4"
           >
             {[
               { value: "NAAC A++", label: "Accreditation" },
               { value: "Category 1", label: "University" },
               { value: "500+", label: "Companies" },
-              { value: "3400+", label: "Placed in 2023-24" },
+              { value: "3400+", label: "Placed 2023-24" },
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <p className="text-2xl md:text-3xl font-serif font-semibold text-accent">{stat.value}</p>
-                <p className="text-xs text-primary-foreground/60 mt-1 tracking-wide uppercase">{stat.label}</p>
+              <div key={index} className="text-center min-w-[100px]">
+                <p className="text-2xl md:text-3xl font-serif font-bold text-accent drop-shadow-md">{stat.value}</p>
+                <p className="text-xs text-white/70 mt-2 tracking-widest uppercase font-medium">{stat.label}</p>
               </div>
             ))}
           </motion.div>
@@ -84,16 +87,16 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2"
+            className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-6"
           >
             <Link to="/statistics">
-              <Button variant="gold" size="lg" className="group min-w-[180px]">
+              <Button variant="gold" size="lg" className="group min-w-[200px] text-base font-medium">
                 Placement 2026
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
             <Link to="/recruiters">
-              <Button variant="heroDark" size="lg" className="min-w-[180px]">
+              <Button variant="heroDark" size="lg" className="min-w-[200px] text-base font-medium">
                 For Recruiters
               </Button>
             </Link>
@@ -105,15 +108,15 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2"
         >
-          <Link to="/about" className="flex flex-col items-center gap-1 text-primary-foreground/50 hover:text-accent transition-colors">
-            <span className="text-xs uppercase tracking-wider">Explore</span>
+          <Link to="/about" className="flex flex-col items-center gap-2 text-white/60 hover:text-accent transition-colors">
+            <span className="text-xs uppercase tracking-widest font-medium">Explore</span>
             <motion.div
-              animate={{ y: [0, 6, 0] }}
+              animate={{ y: [0, 8, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <ChevronDown className="w-5 h-5" />
+              <ChevronDown className="w-6 h-6" />
             </motion.div>
           </Link>
         </motion.div>
