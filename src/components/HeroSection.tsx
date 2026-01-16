@@ -20,8 +20,8 @@ const HeroSection = () => {
           alt="University of Lucknow Campus"
           className="w-full h-full object-cover"
         />
-        {/* Stronger, more professional overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-primary/50 to-primary/70" />
+        {/* Strong dark overlay for maximum text visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-primary/80" />
       </div>
 
       {/* Content */}
@@ -50,10 +50,10 @@ const HeroSection = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="space-y-4"
           >
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold leading-tight tracking-tight drop-shadow-lg">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold leading-tight tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
               Training & Placement Cell
             </h1>
-            <p className="font-serif text-xl sm:text-2xl md:text-3xl text-accent font-medium tracking-wide">
+            <p className="font-serif text-xl sm:text-2xl md:text-3xl text-accent font-medium tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
               University of Lucknow
             </p>
           </motion.div>
