@@ -1,8 +1,14 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import heroImage from "@/assets/university-hero.jpg";
+
+const scrollToSection = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 const HeroSection = () => {
   return (
@@ -89,17 +95,23 @@ const HeroSection = () => {
             transition={{ delay: 0.7, duration: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-6"
           >
-            <Link to="/statistics">
-              <Button variant="gold" size="lg" className="group min-w-[200px] text-base font-medium">
-                Placement 2026
-                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
-            <Link to="/recruiters">
-              <Button variant="heroDark" size="lg" className="min-w-[200px] text-base font-medium">
-                For Recruiters
-              </Button>
-            </Link>
+            <Button 
+              variant="gold" 
+              size="lg" 
+              className="group min-w-[200px] text-base font-medium"
+              onClick={() => scrollToSection("statistics")}
+            >
+              Placement 2026
+              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+            </Button>
+            <Button 
+              variant="heroDark" 
+              size="lg" 
+              className="min-w-[200px] text-base font-medium"
+              onClick={() => scrollToSection("recruiters")}
+            >
+              For Recruiters
+            </Button>
           </motion.div>
         </motion.div>
 
@@ -110,7 +122,10 @@ const HeroSection = () => {
           transition={{ delay: 1.2, duration: 0.8 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
         >
-          <Link to="/about" className="flex flex-col items-center gap-2 text-white/60 hover:text-accent transition-colors">
+          <button 
+            onClick={() => scrollToSection("about")} 
+            className="flex flex-col items-center gap-2 text-white/60 hover:text-accent transition-colors cursor-pointer"
+          >
             <span className="text-xs uppercase tracking-widest font-medium">Explore</span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
@@ -118,7 +133,7 @@ const HeroSection = () => {
             >
               <ChevronDown className="w-6 h-6" />
             </motion.div>
-          </Link>
+          </button>
         </motion.div>
       </div>
     </section>
