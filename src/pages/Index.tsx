@@ -1,6 +1,12 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import CompanyLogoStrip from "@/components/CompanyLogoStrip";
+import DirectorMessage from "@/components/DirectorMessage";
+import PlacementStats from "@/components/PlacementStats";
+import RecruiterPortal from "@/components/RecruiterPortal";
+import StudentCorner from "@/components/StudentCorner";
+import PlacementGallery from "@/components/PlacementGallery";
+import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -10,8 +16,26 @@ const Index = () => {
       <main>
         <HeroSection />
         <CompanyLogoStrip />
+        <section id="about">
+          <DirectorMessage />
+        </section>
+        <section id="statistics">
+          <PlacementStats />
+        </section>
+        <section id="recruiters">
+          <RecruiterPortal />
+        </section>
+        <section id="students">
+          <StudentCorner />
+        </section>
+        <section id="gallery">
+          <PlacementGallery />
+        </section>
+        <Testimonials />
+        <section id="contact">
+          <Footer />
+        </section>
       </main>
-      <Footer />
     </div>
   );
 };
