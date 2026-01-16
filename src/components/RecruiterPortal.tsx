@@ -7,25 +7,21 @@ const stats = [
     icon: TrendingUp,
     value: "₹18 LPA",
     label: "Average Package",
-    sublabel: "2024 batch",
   },
   {
     icon: Trophy,
     value: "₹48 LPA",
     label: "Highest Package",
-    sublabel: "Microsoft, Google",
   },
   {
     icon: Building2,
     value: "200+",
     label: "Recruiting Partners",
-    sublabel: "Fortune 500 included",
   },
   {
     icon: Users,
     value: "3000+",
     label: "Students Placed",
-    sublabel: "Last 5 years",
   },
 ];
 
@@ -43,12 +39,12 @@ const whyRecruitPoints = [
   {
     icon: Briefcase,
     title: "Industry-Ready Talent",
-    description: "Students trained with latest industry practices, certifications, and real-world project experience.",
+    description: "Students trained with latest industry practices and real-world project experience.",
   },
   {
     icon: Users,
     title: "Diverse Talent Pool",
-    description: "Access to 50+ academic programs across Engineering, Management, Law, Sciences, and Humanities.",
+    description: "Access to 50+ academic programs across Engineering, Management, Law, and Sciences.",
   },
 ];
 
@@ -62,14 +58,14 @@ const RecruiterPortal = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <span className="text-accent font-semibold text-sm uppercase tracking-wider">For Recruiters</span>
-          <h2 className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mt-3">
-            Why Recruit from <span className="text-gold-gradient">University of Lucknow?</span>
+          <span className="text-accent font-medium text-sm uppercase tracking-wider">For Recruiters</span>
+          <h2 className="heading-display text-2xl md:text-3xl lg:text-4xl text-foreground mt-2">
+            Why Recruit from University of Lucknow?
           </h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground mt-4 text-lg">
-            Partner with one of India's most distinguished institutions and access exceptional talent that drives innovation.
+          <p className="max-w-xl mx-auto text-muted-foreground mt-3 text-base">
+            Partner with one of India's most distinguished institutions.
           </p>
         </motion.div>
 
@@ -78,42 +74,37 @@ const RecruiterPortal = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
         >
           {stats.map((stat, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="bg-card rounded-sm p-6 text-center shadow-elevated-sm border border-border/50 hover:shadow-elevated-md transition-shadow"
+              className="bg-card rounded-md p-5 text-center shadow-elevated-sm border border-border/50"
             >
-              <stat.icon className="w-8 h-8 text-accent mx-auto mb-3" />
-              <p className="text-2xl md:text-3xl font-serif font-bold text-foreground">{stat.value}</p>
-              <p className="text-sm font-medium text-foreground mt-1">{stat.label}</p>
-              <p className="text-xs text-muted-foreground mt-1">{stat.sublabel}</p>
-            </motion.div>
+              <stat.icon className="w-6 h-6 text-accent mx-auto mb-2" />
+              <p className="text-xl md:text-2xl font-serif font-semibold text-foreground">{stat.value}</p>
+              <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+            </div>
           ))}
         </motion.div>
 
         {/* Why Recruit Points */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
           {whyRecruitPoints.map((point, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="flex gap-4"
+              className="flex gap-3"
             >
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-                <point.icon className="w-6 h-6 text-primary-foreground" />
+              <div className="flex-shrink-0 w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center">
+                <point.icon className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h3 className="font-serif font-semibold text-lg text-foreground">{point.title}</h3>
+                <h3 className="font-serif font-semibold text-base text-foreground">{point.title}</h3>
                 <p className="text-muted-foreground mt-1 text-sm">{point.description}</p>
               </div>
             </motion.div>
@@ -126,23 +117,23 @@ const RecruiterPortal = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-primary rounded-sm p-8 md:p-12"
+          className="bg-primary rounded-md p-6 md:p-8"
         >
-          <h3 className="text-center font-serif text-xl md:text-2xl text-primary-foreground mb-8">
+          <h3 className="text-center font-serif text-lg md:text-xl text-primary-foreground mb-6">
             Trusted by Leading Organizations
           </h3>
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-8">
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
             {topRecruiters.map((company, index) => (
               <div
                 key={index}
-                className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-sm px-4 py-2 text-primary-foreground/90 text-sm font-medium"
+                className="bg-primary-foreground/10 border border-primary-foreground/20 rounded px-3 py-1.5 text-primary-foreground/90 text-sm"
               >
                 {company}
               </div>
             ))}
           </div>
           <div className="text-center">
-            <Button variant="gold" size="lg">
+            <Button variant="gold" size="default">
               Partner With Us
             </Button>
           </div>

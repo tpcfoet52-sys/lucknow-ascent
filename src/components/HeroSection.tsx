@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 import heroImage from "@/assets/university-hero.jpg";
+import uolLogo from "@/assets/uol-logo.png";
+import tpcBadge from "@/assets/tpc-badge.png";
 
 const HeroSection = () => {
   return (
@@ -13,11 +15,7 @@ const HeroSection = () => {
           alt="University of Lucknow Campus"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/70 to-primary/95" />
-        {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/65 to-primary/85" />
       </div>
 
       {/* Content */}
@@ -26,30 +24,21 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-8"
+          className="space-y-6"
         >
-          {/* University Crest */}
+          {/* University Logo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.6 }}
             className="inline-flex flex-col items-center"
           >
-            <div className="w-20 h-20 rounded-full bg-accent/20 border-2 border-accent flex items-center justify-center mb-4">
-              <span className="font-serif font-bold text-accent text-3xl">U</span>
-            </div>
-            <span className="text-primary-foreground/60 text-sm tracking-[0.3em] uppercase">Est. 1867</span>
-          </motion.div>
-
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-accent/15 backdrop-blur-sm border border-accent/30 rounded-full px-5 py-2.5"
-          >
-            <Calendar className="w-4 h-4 text-accent" />
-            <span className="text-accent text-sm font-semibold tracking-wide">Placement Season 2025-26 Now Open</span>
+            <img 
+              src={uolLogo} 
+              alt="University of Lucknow Crest" 
+              className="w-24 h-24 md:w-28 md:h-28 object-contain mb-3"
+            />
+            <span className="text-primary-foreground/70 text-sm tracking-[0.25em] uppercase font-light">Est. 1867</span>
           </motion.div>
 
           {/* Main Heading */}
@@ -61,7 +50,7 @@ const HeroSection = () => {
             <h1 className="heading-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primary-foreground leading-[1.1]">
               Training & Placement Cell
             </h1>
-            <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-gold-gradient mt-4 font-medium">
+            <p className="font-serif text-xl sm:text-2xl md:text-3xl text-gold-gradient mt-3 font-medium">
               University of Lucknow
             </p>
           </motion.div>
@@ -71,10 +60,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="max-w-2xl mx-auto text-lg md:text-xl text-primary-foreground/75 font-light leading-relaxed"
+            className="max-w-xl mx-auto text-base md:text-lg text-primary-foreground/80 font-light leading-relaxed"
           >
-            Bridging academic excellence with industry opportunities. 
-            Preparing tomorrow's leaders for a dynamic global workforce.
+            Bridging academic excellence with industry opportunities since 1867.
           </motion.p>
 
           {/* Stats Row */}
@@ -82,17 +70,17 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-wrap justify-center gap-8 md:gap-16 py-8"
+            className="flex flex-wrap justify-center gap-8 md:gap-12 py-6"
           >
             {[
-              { value: "150+", label: "Years of Excellence" },
-              { value: "500+", label: "Companies Visited" },
+              { value: "NAAC A++", label: "Accreditation" },
+              { value: "Category 1", label: "University" },
+              { value: "500+", label: "Companies" },
               { value: "95%", label: "Placement Rate" },
-              { value: "₹48L", label: "Highest Package" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <p className="text-3xl md:text-4xl font-serif font-bold text-accent">{stat.value}</p>
-                <p className="text-sm text-primary-foreground/60 mt-1 tracking-wide">{stat.label}</p>
+                <p className="text-2xl md:text-3xl font-serif font-semibold text-accent">{stat.value}</p>
+                <p className="text-xs text-primary-foreground/60 mt-1 tracking-wide uppercase">{stat.label}</p>
               </div>
             ))}
           </motion.div>
@@ -102,15 +90,29 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2"
           >
-            <Button variant="gold" size="xl" className="group min-w-[200px]">
+            <Button variant="gold" size="lg" className="group min-w-[180px]">
               Placement 2026
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button variant="heroDark" size="xl" className="min-w-[200px]">
+            <Button variant="heroDark" size="lg" className="min-w-[180px]">
               Explore Programs
             </Button>
+          </motion.div>
+
+          {/* TPC Badge */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="pt-4"
+          >
+            <img 
+              src={tpcBadge} 
+              alt="NIRF Ranking & NAAC Accreditation" 
+              className="w-28 h-28 md:w-32 md:h-32 object-contain mx-auto opacity-90"
+            />
           </motion.div>
         </motion.div>
 
@@ -119,12 +121,12 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2"
         >
-          <a href="#about" className="flex flex-col items-center gap-2 text-primary-foreground/50 hover:text-accent transition-colors">
-            <span className="text-xs uppercase tracking-wider">Scroll to explore</span>
+          <a href="#about" className="flex flex-col items-center gap-1 text-primary-foreground/50 hover:text-accent transition-colors">
+            <span className="text-xs uppercase tracking-wider">Scroll</span>
             <motion.div
-              animate={{ y: [0, 8, 0] }}
+              animate={{ y: [0, 6, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             >
               <ChevronDown className="w-5 h-5" />
