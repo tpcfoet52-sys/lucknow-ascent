@@ -6,7 +6,7 @@ const DirectorMessage = () => {
     <section className="section-padding bg-background">
       <div className="container-narrow">
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-center">
-          {/* Director Image */}
+          {/* Dean Image */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -20,10 +20,10 @@ const DirectorMessage = () => {
                 <div className="aspect-[4/5] bg-gradient-to-br from-primary/10 to-secondary rounded overflow-hidden flex items-end justify-center">
                   <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
                     <div className="w-24 h-24 rounded-full bg-primary/10 border-2 border-accent/50 flex items-center justify-center mb-4">
-                      <span className="font-serif text-4xl font-semibold text-primary">P</span>
+                      <span className="font-serif text-4xl font-semibold text-primary">S</span>
                     </div>
-                    <h4 className="font-serif text-lg text-foreground">Prof. Pankaj Kumar</h4>
-                    <p className="text-muted-foreground text-sm mt-1">Director, Training & Placement Cell</p>
+                    <h4 className="font-serif text-lg text-foreground">Prof. S.P. Singh</h4>
+                    <p className="text-muted-foreground text-sm mt-1">Dean, Faculty of Engineering & Technology</p>
                     <p className="text-accent text-xs mt-1">University of Lucknow</p>
                   </div>
                 </div>
@@ -42,9 +42,9 @@ const DirectorMessage = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-3"
           >
-            <span className="text-accent font-medium text-sm uppercase tracking-wider">From the Director's Desk</span>
+            <span className="text-accent font-medium text-sm uppercase tracking-wider">From the Dean's Desk</span>
             <h2 className="heading-display text-2xl md:text-3xl text-foreground mt-2 mb-5">
-              Message from the Director
+              Message from the Dean, FoET
             </h2>
             
             <div className="relative">
@@ -58,16 +58,17 @@ const DirectorMessage = () => {
             </div>
 
             <p className="text-foreground mt-5 leading-relaxed text-sm">
-              With over 150 years of academic heritage, we have consistently produced leaders 
-              who have made significant contributions across diverse industries. Our placement 
-              cell works tirelessly to connect our talented students with top recruiters.
+              With over 150 years of academic heritage, the Faculty of Engineering & Technology 
+              has consistently produced leaders who have made significant contributions across 
+              diverse industries. Our placement cell works tirelessly to connect our talented 
+              students with top recruiters, achieving record-breaking placements year after year.
             </p>
 
             <div className="mt-6 flex items-center gap-4">
               <div className="h-px flex-1 bg-border" />
               <div className="text-right">
-                <p className="font-serif font-semibold text-foreground">Prof. Pankaj Kumar</p>
-                <p className="text-sm text-muted-foreground">Director, TPC</p>
+                <p className="font-serif font-semibold text-foreground">Prof. Satendra Pal Singh</p>
+                <p className="text-sm text-muted-foreground">Dean, FoET</p>
               </div>
             </div>
           </motion.div>
