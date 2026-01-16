@@ -1,14 +1,14 @@
 import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
+import RecruiterPortal from "@/components/RecruiterPortal";
 import CompanyLogoStrip from "@/components/CompanyLogoStrip";
 import Footer from "@/components/Footer";
 
-const Index = () => {
+const Recruiters = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main>
-        <HeroSection />
+      <main className="pt-20">
+        <RecruiterPortal />
         <CompanyLogoStrip />
       </main>
       <Footer />
@@ -16,4 +16,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Recruiters;
