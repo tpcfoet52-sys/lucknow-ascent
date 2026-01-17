@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
+import profSpSingh from "@/assets/prof-sp-singh.jpg";
 
 const DirectorMessage = () => {
   return (
@@ -31,8 +32,12 @@ const DirectorMessage = () => {
             className="bg-card rounded-md p-6 md:p-8 shadow-elevated-sm border border-border/50"
           >
             <div className="flex items-start gap-5 mb-6">
-              <div className="flex-shrink-0 w-20 h-20 rounded-full bg-primary/10 border-2 border-accent/50 flex items-center justify-center">
-                <span className="font-serif text-3xl font-semibold text-primary">S</span>
+              <div className="flex-shrink-0 w-20 h-20 rounded-full overflow-hidden border-2 border-accent/50">
+                <img 
+                  src={profSpSingh} 
+                  alt="Prof. Satendra Pal Singh" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <h3 className="font-serif font-semibold text-lg text-foreground">Prof. Satendra Pal Singh</h3>
