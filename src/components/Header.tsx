@@ -6,6 +6,7 @@ import uolLogo from "@/assets/uol-logo.png";
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Events", href: "#events" },
   { name: "Statistics", href: "#statistics" },
   { name: "Recruiters", href: "#recruiters" },
   { name: "Students", href: "#students" },
