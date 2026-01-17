@@ -26,15 +26,16 @@ const stats = [
 ];
 
 const topRecruiters = [
-  "Microsoft", "Google", "Amazon", "TCS", "Infosys", "Wipro",
-  "Deloitte", "EY", "KPMG", "PwC", "Goldman Sachs", "JP Morgan"
+  "TCS", "Wipro", "Infosys", "HCL", "IBM", "Deloitte",
+  "Amazon", "Flipkart", "Jio", "HDFC Bank", "ICICI Bank", 
+  "Axis Bank", "MRF", "Godrej", "ONGC"
 ];
 
 const whyRecruitPoints = [
   {
     icon: GraduationCap,
     title: "Premier Institution",
-    description: "One of India's oldest and most prestigious universities with a legacy spanning over 150 years.",
+    description: "One of India's oldest and most prestigious universities with a legacy spanning over 100 years.",
   },
   {
     icon: Briefcase,

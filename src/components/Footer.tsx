@@ -21,7 +21,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-md">
-              Established in 1867, the University of Lucknow stands as a beacon of academic excellence. 
+              Established in 1920, the University of Lucknow stands as a beacon of academic excellence. 
               Our Training & Placement Cell bridges the gap between academia and industry.
             </p>
           </div>
