@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 
 const companies = [
-  "Microsoft", "Google", "Amazon", "TCS", "Infosys", "Wipro", 
-  "Deloitte", "EY", "KPMG", "PwC", "Goldman Sachs", "JP Morgan",
-  "Accenture", "IBM", "Oracle", "Cognizant", "HCL", "Tech Mahindra"
+  "TCS", "Wipro", "Infosys", "HCL", "IBM", "HDFC Bank", 
+  "ICICI Bank", "Axis Bank", "Deloitte", "Amazon", "Flipkart",
+  "Jio", "MRF", "Godrej", "ONGC"
 ];
 
 const CompanyLogoStrip = () => {

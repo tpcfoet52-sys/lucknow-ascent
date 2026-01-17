@@ -39,7 +39,7 @@ const HeroSection = () => {
             transition={{ delay: 0.1, duration: 0.6 }}
           >
             <span className="inline-block text-white/80 text-sm tracking-[0.3em] uppercase font-light border-b border-white/30 pb-2">
-              Est. 1867
+              Est. 1920
             </span>
           </motion.div>
 

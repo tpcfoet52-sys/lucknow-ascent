@@ -2,11 +2,11 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import CompanyLogoStrip from "@/components/CompanyLogoStrip";
 import DirectorMessage from "@/components/DirectorMessage";
+import Events from "@/components/Events";
 import PlacementStats from "@/components/PlacementStats";
 import RecruiterPortal from "@/components/RecruiterPortal";
 import StudentCorner from "@/components/StudentCorner";
 import PlacementGallery from "@/components/PlacementGallery";
-import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -18,6 +18,9 @@ const Index = () => {
         <CompanyLogoStrip />
         <section id="about">
           <DirectorMessage />
+        </section>
+        <section id="events">
+          <Events />
         </section>
         <section id="statistics">
           <PlacementStats />
@@ -31,7 +34,6 @@ const Index = () => {
         <section id="gallery">
           <PlacementGallery />
         </section>
-        <Testimonials />
         <section id="contact">
           <Footer />
         </section>
