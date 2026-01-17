@@ -1,11 +1,22 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Users, Building2, Award } from "lucide-react";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
 const stats = [
   { label: "Highest Package (23-24)", value: "₹23.6", unit: "LPA", icon: Award },
   { label: "Average Package (23-24)", value: "₹8.5", unit: "LPA", icon: TrendingUp },
   { label: "Students Placed (23-24)", value: "3451", unit: "+", icon: Users },
   { label: "Partner Companies", value: "500", unit: "+", icon: Building2 },
+];
+
+// FoET / Engineering (UG 4-Year) Students Placed Data
+const foetPlacementData = [
+  { year: "2020", students: 120 },
+  { year: "2021", students: 148 },
+  { year: "2022", students: 165 },
+  { year: "2023", students: 197 },
+  { year: "2024", students: 372 },
+  { year: "2025", students: 410, estimated: true },
 ];
 
 const yearlyData = [
@@ -42,6 +53,22 @@ const yearlyData = [
     total: 3451
   },
 ];
+
+const CustomTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    const data = foetPlacementData.find(d => d.year === label);
+    return (
+      <div className="bg-card border border-border rounded-md px-3 py-2 shadow-lg">
+        <p className="font-medium text-foreground text-sm">{label}</p>
+        <p className="text-accent font-semibold">
+          {payload[0].value} students
+          {data?.estimated && <span className="text-muted-foreground text-xs ml-1">(estimated)</span>}
+        </p>
+      </div>
+    );
+  }
+  return null;
+};
 
 const PlacementStats = () => {
   const maxPlacements = Math.max(...yearlyData.map(d => d.total));
@@ -89,6 +116,54 @@ const PlacementStats = () => {
           ))}
         </div>
 
+        {/* FoET Line Graph */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-card rounded-md p-5 md:p-6 shadow-elevated-sm border border-border/50 mb-8"
+        >
+          <div className="mb-5">
+            <h3 className="font-serif text-lg font-semibold text-foreground">
+              📊 FoET / Engineering (UG 4-Year) Students Placed
+            </h3>
+            <p className="text-sm text-muted-foreground mt-1">
+              University of Lucknow (2020–2025) • Best available official estimates
+            </p>
+          </div>
+          <div className="h-64 md:h-80">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={foetPlacementData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
+                <XAxis 
+                  dataKey="year" 
+                  tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }}
+                  axisLine={{ stroke: 'hsl(var(--border))' }}
+                />
+                <YAxis 
+                  tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }}
+                  axisLine={{ stroke: 'hsl(var(--border))' }}
+                  domain={[0, 450]}
+                />
+                <Tooltip content={<CustomTooltip />} />
+                <Line 
+                  type="monotone" 
+                  dataKey="students" 
+                  stroke="hsl(var(--accent))" 
+                  strokeWidth={3}
+                  dot={{ fill: 'hsl(var(--accent))', strokeWidth: 2, r: 5 }}
+                  activeDot={{ r: 8, fill: 'hsl(var(--primary))' }}
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
+            <span className="text-sm text-muted-foreground">5-Year Growth (2020-2025)</span>
+            <span className="text-base font-serif font-semibold text-accent">+242%</span>
+          </div>
+        </motion.div>
+
         {/* Year-wise Detailed Stats */}
         <div className="grid lg:grid-cols-2 gap-6">
           {/* Year-wise Growth Chart */}
@@ -99,7 +174,7 @@ const PlacementStats = () => {
             transition={{ duration: 0.6 }}
             className="bg-card rounded-md p-5 md:p-6 shadow-elevated-sm border border-border/50"
           >
-            <h3 className="font-serif text-lg font-semibold text-foreground mb-5">Total Students Placed</h3>
+            <h3 className="font-serif text-lg font-semibold text-foreground mb-5">Total Students Placed (All Streams)</h3>
             <div className="flex items-end justify-between gap-3 h-40">
               {yearlyData.map((data, index) => (
                 <div key={index} className="flex-1 flex flex-col items-center gap-2">
