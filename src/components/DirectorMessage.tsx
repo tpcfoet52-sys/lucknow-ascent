@@ -1,55 +1,49 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
 
 const DirectorMessage = () => {
   return (
     <section className="section-padding bg-background">
       <div className="container-narrow">
-        <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-center">
-          {/* Dean Image */}
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <span className="text-accent font-medium text-sm uppercase tracking-wider">Leadership</span>
+          <h2 className="heading-display text-2xl md:text-3xl lg:text-4xl text-foreground mt-2">
+            Messages from Our Leaders
+          </h2>
+        </motion.div>
+
+        {/* Messages Grid */}
+        <div className="grid lg:grid-cols-2 gap-10">
+          {/* Dean's Message */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-2"
+            className="bg-card rounded-md p-6 md:p-8 shadow-elevated-sm border border-border/50"
           >
-            <div className="relative max-w-sm mx-auto lg:mx-0">
-              {/* Main Image Frame */}
-              <div className="relative z-10 bg-secondary p-2 rounded-md shadow-elevated-md">
-                <div className="aspect-[4/5] bg-gradient-to-br from-primary/10 to-secondary rounded overflow-hidden flex items-end justify-center">
-                  <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
-                    <div className="w-24 h-24 rounded-full bg-primary/10 border-2 border-accent/50 flex items-center justify-center mb-4">
-                      <span className="font-serif text-4xl font-semibold text-primary">S</span>
-                    </div>
-                    <h4 className="font-serif text-lg text-foreground">Prof. S.P. Singh</h4>
-                    <p className="text-muted-foreground text-sm mt-1">Dean, Faculty of Engineering & Technology</p>
-                    <p className="text-accent text-xs mt-1">University of Lucknow</p>
-                  </div>
-                </div>
+            <div className="flex items-start gap-5 mb-6">
+              <div className="flex-shrink-0 w-20 h-20 rounded-full bg-primary/10 border-2 border-accent/50 flex items-center justify-center">
+                <span className="font-serif text-3xl font-semibold text-primary">S</span>
               </div>
-              
-              {/* Decorative Element */}
-              <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-accent/30 rounded-md -z-10" />
+              <div>
+                <h3 className="font-serif font-semibold text-lg text-foreground">Prof. Satendra Pal Singh</h3>
+                <p className="text-muted-foreground text-sm">Dean, Faculty of Engineering & Technology</p>
+                <p className="text-accent text-xs mt-1">University of Lucknow</p>
+              </div>
             </div>
-          </motion.div>
-
-          {/* Message Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-3"
-          >
-            <span className="text-accent font-medium text-sm uppercase tracking-wider">From the Dean's Desk</span>
-            <h2 className="heading-display text-2xl md:text-3xl text-foreground mt-2 mb-5">
-              Message from the Dean, FoET
-            </h2>
             
             <div className="relative">
-              <Quote className="absolute -top-1 -left-3 w-6 h-6 text-accent/30" />
-              <blockquote className="text-muted-foreground text-base leading-relaxed italic pl-5 border-l-2 border-accent/50">
+              <Quote className="absolute -top-1 -left-1 w-5 h-5 text-accent/30" />
+              <blockquote className="text-muted-foreground text-sm leading-relaxed italic pl-6 border-l-2 border-accent/50">
                 "The Training & Placement Cell of the University of Lucknow is committed to bridging 
                 the gap between academic excellence and industry requirements. Our mission is to 
                 empower every student with the skills, confidence, and opportunities they need to 
@@ -63,13 +57,61 @@ const DirectorMessage = () => {
               diverse industries. Our placement cell works tirelessly to connect our talented 
               students with top recruiters, achieving record-breaking placements year after year.
             </p>
+          </motion.div>
 
-            <div className="mt-6 flex items-center gap-4">
-              <div className="h-px flex-1 bg-border" />
-              <div className="text-right">
-                <p className="font-serif font-semibold text-foreground">Prof. Satendra Pal Singh</p>
-                <p className="text-sm text-muted-foreground">Dean, FoET</p>
+          {/* Dr. Himanshu Pandey's Message */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="bg-card rounded-md p-6 md:p-8 shadow-elevated-sm border border-border/50"
+          >
+            <div className="flex items-start gap-5 mb-6">
+              <div className="flex-shrink-0 w-20 h-20 rounded-full overflow-hidden border-2 border-accent/50">
+                <img 
+                  src={drHimanshuPandey} 
+                  alt="Dr. Himanshu Pandey" 
+                  className="w-full h-full object-cover"
+                />
               </div>
+              <div>
+                <h3 className="font-serif font-semibold text-lg text-foreground">Dr. Himanshu Pandey</h3>
+                <p className="text-muted-foreground text-sm leading-snug">
+                  Associate Professor & Program Coordinator – M.Tech (CSE)
+                </p>
+                <p className="text-accent text-xs mt-1">
+                  Additional Director – Central Placement Cell
+                </p>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <Quote className="absolute -top-1 -left-1 w-5 h-5 text-accent/30" />
+              <blockquote className="text-muted-foreground text-sm leading-relaxed italic pl-6 border-l-2 border-accent/50">
+                "Innovation and employability are at the core of what we do. Our goal is to prepare 
+                students not just for jobs, but for impactful careers. Through industry collaborations, 
+                mentorship programs, and incubation support, we ensure every student is ready to 
+                excel in the professional world."
+              </blockquote>
+            </div>
+
+            <p className="text-foreground mt-5 leading-relaxed text-sm">
+              As the Incharge of T&P Cell, FoET and Member of the Incubation Cell, Dr. Pandey 
+              is dedicated to mentoring innovation and enhancing employability. His vision focuses 
+              on building strong industry-academia partnerships and providing students with 
+              hands-on exposure to emerging technologies and career opportunities.
+            </p>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              {["T&P Cell, FoET", "Incubation Cell", "M.Tech CSE"].map((tag, index) => (
+                <span 
+                  key={index}
+                  className="text-xs bg-secondary text-muted-foreground px-2 py-1 rounded"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
           </motion.div>
         </div>
