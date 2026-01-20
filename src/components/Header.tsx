@@ -102,13 +102,13 @@ const Header = () => {
               variant={!isScrolled ? "goldOutline" : "outline"} 
               size="sm"
             >
-              Student Login
+              Team Login
             </Button>
             <Button 
               variant={!isScrolled ? "gold" : "default"} 
               size="default"
             >
-              Recruiter Portal
+              Admin Portal
             </Button>
           </div>
 
