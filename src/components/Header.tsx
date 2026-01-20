@@ -8,9 +8,9 @@ const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Events", href: "#events" },
-  { name: "Placement Records", href: "#recruiters" }, // Changed from "Recruiters"
   { name: "Students", href: "#students" },
   { name: "Media", href: "#gallery" }, // Changed from "Gallery"
+  { name: "Placement Records", href: "#recruiters" }, // Changed from "Recruiters"
   { name: "Contact", href: "#contact" },
 ];
 
