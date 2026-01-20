@@ -69,13 +69,15 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-accent flex-shrink-0" />
-                <a href="mailto:placement_foet@lkouni.ac.in" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
-                  placement_foet@lkouni.ac.in
-                </a>
-                <br />
-                <a href="mailto:trainingfoet@gmail.com" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
-                  trainingfoet@gmail.com
-                </a>
+                <span className="text-primary-foreground/80 text-sm">
+                  <a href="mailto:placement_foet@lkouni.ac.in" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
+                    placement_foet@lkouni.ac.in
+                  </a>
+                  <br />
+                  <a href="mailto:trainingfoet@gmail.com" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
+                    trainingfoet@gmail.com
+                  </a>
+                </span>
               </li>
             </ul>
           </div>
