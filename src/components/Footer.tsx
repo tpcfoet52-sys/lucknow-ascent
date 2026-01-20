@@ -26,38 +26,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Social Media Links */}
-            <div className="flex items-center gap-4">
-              <a 
-                href="https://www.linkedin.com/company/training-and-placement-cell-foet-university-of-lucknow/posts/?feedView=all" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 group"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a 
-                href="https://www.instagram.com/tpcfoet/?hl=en" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 group"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a 
-                href="https://x.com/PlacementEnggLU" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 group"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-
           {/* Quick Links */}
           <div>
             <h4 className="font-serif font-semibold text-base mb-4">Quick Links</h4>
