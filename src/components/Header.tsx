@@ -145,10 +145,10 @@ const Header = () => {
             ))}
             <div className="pt-4 space-y-2">
               <Button variant="outline" className="w-full">
-                Student Login
+                Team Login
               </Button>
               <Button variant="default" className="w-full">
-                Recruiter Portal
+                Admin Portal
               </Button>
             </div>
           </div>
