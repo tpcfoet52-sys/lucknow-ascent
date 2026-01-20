@@ -110,7 +110,7 @@ const HeroSection = () => {
               className="min-w-[200px] text-base font-medium"
               onClick={() => scrollToSection("recruiters")}
             >
-              For Recruiters
+              For Coordinator
             </Button>
           </motion.div>
         </motion.div>
