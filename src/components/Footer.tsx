@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, ExternalLink } from "lucide-react";
+import { MapPin, Phone, Mail, ExternalLink, Linkedin, Instagram, Twitter } from "lucide-react";
 import uolLogo from "@/assets/uol-logo.png";
 
 const Footer = () => {
@@ -7,7 +7,7 @@ const Footer = () => {
       {/* Main Footer */}
       <div className="container-narrow py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* About */}
+          {/* About & Socials */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <img 
@@ -20,10 +20,41 @@ const Footer = () => {
                 <p className="text-sm text-primary-foreground/70">Training & Placement Cell</p>
               </div>
             </div>
-            <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-md">
+            <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-md mb-6">
               Established in 1920, the University of Lucknow stands as a beacon of academic excellence. 
               Our Training & Placement Cell bridges the gap between academia and industry.
             </p>
+            
+            {/* Social Media Links */}
+            <div className="flex items-center gap-4">
+              <a 
+                href="https://www.linkedin.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 group"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://www.instagram.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 group"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://twitter.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 group"
+                aria-label="Twitter"
+              >
+                <Twitter className="w-5 h-5" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -56,28 +87,27 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/80 text-sm">
-                  Training & Placement Cell,<br />
-                  University of Lucknow,<br />
-                  Lucknow, UP-226007
+                  Training & Placement Cell<br />
+                  University of Lucknow<br />
+                  Lucknow, UP 226007
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-accent flex-shrink-0" />
-                <a href="tel:+917905287870" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
-                  +91-7905287870
+                <a href="tel:+915222740086" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
+                  +91-522-274-0086
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-accent flex-shrink-0" />
-                <span className="text-primary-foreground/80 text-sm">
-                  <a href="mailto:placement_foet@lkouni.ac.in" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
-                    placement_foet@lkouni.ac.in
+              <li className="flex items-start gap-3">
+                <Mail className="w-4 h-4 text-accent flex-shrink-0 mt-1" />
+                <div className="flex flex-col gap-1">
+                  <a href="mailto:placement_foet@lkouniv.ac.in" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
+                    placement_foet@lkouniv.ac.in
                   </a>
-                  <br />
                   <a href="mailto:trainingfoet@gmail.com" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
                     trainingfoet@gmail.com
                   </a>
-                </span>
+                </div>
               </li>
             </ul>
           </div>
