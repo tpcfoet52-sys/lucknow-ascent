@@ -3,13 +3,14 @@ import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import uolLogo from "@/assets/uol-logo.png";
 
+// Updated navigation links as requested
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Events", href: "#events" },
-  { name: "Recruiters", href: "#recruiters" },
+  { name: "Placement Records", href: "#recruiters" }, // Changed from "Recruiters"
   { name: "Students", href: "#students" },
-  { name: "Gallery", href: "#gallery" },
+  { name: "Media", href: "#gallery" }, // Changed from "Gallery"
   { name: "Contact", href: "#contact" },
 ];
 
@@ -108,7 +109,7 @@ const Header = () => {
               variant={!isScrolled ? "gold" : "default"} 
               size="default"
             >
-              Admin Portal
+              Admin Login
             </Button>
           </div>
 
@@ -148,7 +149,7 @@ const Header = () => {
                 Team Login
               </Button>
               <Button variant="default" className="w-full">
-                Admin Portal
+                Admin Login
               </Button>
             </div>
           </div>
