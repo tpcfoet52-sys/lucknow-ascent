@@ -101,7 +101,6 @@ const Footer = () => {
                   <a href="mailto:trainingfoet@gmail.com" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
                     trainingfoet@gmail.com
                   </a>
-                  <br />
                   <a href="mailto:placement_foet@lkouniv.ac.in" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
                     placement_foet@lkouniv.ac.in
                   </a>
