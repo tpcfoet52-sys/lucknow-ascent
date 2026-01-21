@@ -42,16 +42,18 @@ const Footer = () => {
 
             {/* Social Media Links */}
             <div className="flex items-center gap-4">
-              <a href="#" className="bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground p-2 rounded-full transition-all duration-300" aria-label="Facebook">
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a href="#" className="bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground p-2 rounded-full transition-all duration-300" aria-label="X (formerly Twitter)">
+              
+             // <a href="#" className="bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground p-2 rounded-full transition-all duration-300" aria-label="Facebook">
+              //  <Facebook className="w-4 h-4" />
+             // </a>
+              
+              <a href="https://x.com/PlacementEnggLU" className="bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground p-2 rounded-full transition-all duration-300" aria-label="X (formerly Twitter)">
                 <XLogo className="w-4 h-4" />
               </a>
-              <a href="#" className="bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground p-2 rounded-full transition-all duration-300" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/training-and-placement-cell-foet-university-of-lucknow/posts/?feedView=all" className="bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground p-2 rounded-full transition-all duration-300" aria-label="LinkedIn">
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="#" className="bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground p-2 rounded-full transition-all duration-300" aria-label="Instagram">
+              <a href="https://www.instagram.com/tpcfoet/?hl=en" className="bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground p-2 rounded-full transition-all duration-300" aria-label="Instagram">
                 <Instagram className="w-4 h-4" />
               </a>
             </div>
