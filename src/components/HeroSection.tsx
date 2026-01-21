@@ -1,143 +1,111 @@
-import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
-import { Button } from "./ui/button";
-import heroImage from "@/assets/university-hero.jpg";
+import { MapPin, Phone, Mail, ExternalLink } from "lucide-react";
+import uolLogo from "@/assets/uol-logo.png";
 
-const scrollToSection = (id: string) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-  }
-};
-
-const HeroSection = () => {
+const Footer = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="University of Lucknow Campus"
-          className="w-full h-full object-cover"
-        />
-        {/* Strong dark overlay for maximum text visibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-primary/80" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center px-4 py-32 md:py-40">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-10"
-        >
-          {/* Subtitle */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-          >
-            <span className="inline-block text-white/80 text-sm tracking-[0.3em] uppercase font-light border-b border-white/30 pb-2">
-              Est. 1920
-            </span>
-          </motion.div>
-
-          {/* Main Heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="space-y-4"
-          >
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold leading-tight tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
-              Training & Placement Cell
-            </h1>
-            <p className="font-serif text-xl sm:text-2xl md:text-3xl text-accent font-medium tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] whitespace-nowrap">
-              University of Lucknow
-            </p>
-          </motion.div>
-
-          {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="max-w-2xl mx-auto text-lg md:text-xl text-white/90 font-light leading-relaxed"
-          >
-            Bridging academic excellence with industry opportunities
-          </motion.p>
-
-          {/* Stats Row */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-wrap justify-center gap-10 md:gap-16 pt-8 pb-4"
-          >
-            {[
-              { value: "NAAC A++", label: "Accreditation" },
-              { value: "Category 1", label: "University" },
-              { value: "500+", label: "Companies" },
-              { value: "3400+", label: "Placed 2023-24" },
-            ].map((stat, index) => (
-              <div key={index} className="text-center min-w-[100px]">
-                <p className="text-2xl md:text-3xl font-serif font-bold text-accent drop-shadow-md">{stat.value}</p>
-                <p className="text-xs text-white/70 mt-2 tracking-widest uppercase font-medium">{stat.label}</p>
+    <footer id="contact" className="bg-primary text-primary-foreground">
+      {/* Main Footer */}
+      <div className="container-narrow py-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* About */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src={uolLogo} 
+                alt="University of Lucknow" 
+                className="w-12 h-12 object-contain"
+              />
+              <div>
+                <p className="font-serif font-semibold text-lg">University of Lucknow</p>
+                <p className="text-sm text-primary-foreground/70">Training & Placement Cell</p>
               </div>
-            ))}
-          </motion.div>
+            </div>
+            <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-md">
+              Established in 1920, the University of Lucknow stands as a beacon of academic excellence. 
+              Our Training & Placement Cell bridges the gap between academia and industry.
+            </p>
+          </div>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-6"
-          >
-            <Button 
-              variant="gold" 
-              size="lg" 
-              className="group min-w-[200px] text-base font-medium"
-              onClick={() => scrollToSection("statistics")}
-            >
-              Placement 2026
-              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button 
-              variant="heroDark" 
-              size="lg" 
-              className="min-w-[200px] text-base font-medium"
-              onClick={() => scrollToSection("recruiters")}
-            >
-              For Coordinator
-            </Button>
-          </motion.div>
-        </motion.div>
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-serif font-semibold text-base mb-4">Quick Links</h4>
+            <ul className="space-y-2.5">
+              {[
+                { name: "About TPC", href: "#about" },
+                { name: "Placement Statistics", href: "#recruiters" },
+                { name: "Student Resources", href: "#students" },
+                { name: "Recruiter Portal", href: "#recruiters" },
+                { name: "FAQs", href: "#" },
+              ].map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.href}
+                    className="text-primary-foreground/70 hover:text-accent transition-colors text-sm"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <button 
-            onClick={() => scrollToSection("about")} 
-            className="flex flex-col items-center gap-2 text-white/60 hover:text-accent transition-colors cursor-pointer"
-          >
-            <span className="text-xs uppercase tracking-widest font-medium">Explore</span>
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <ChevronDown className="w-6 h-6" />
-            </motion.div>
-          </button>
-        </motion.div>
+          {/* Contact */}
+          <div>
+            <h4 className="font-serif font-semibold text-base mb-4">Contact Us</h4>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                <span className="text-primary-foreground/80 text-sm">
+                  Training & Placement Cell<br />
+                  University of Lucknow<br />
+                  Lucknow, UP 226007
+                </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-accent flex-shrink-0" />
+                <a href="tel:+915222740086" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
+                  +91-522-274-0086
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-accent flex-shrink-0" />
+                <a href="mailto:tpc@lkouniv.ac.in" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
+                  tpc@lkouniv.ac.in
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </section>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-primary-foreground/10">
+        <div className="container-narrow py-5">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-primary-foreground/60 text-sm">
+              © {new Date().getFullYear()} University of Lucknow. All rights reserved.
+            </p>
+            <div className="flex items-center gap-6">
+              <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors text-sm">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors text-sm">
+                Terms of Use
+              </a>
+              <a 
+                href="https://www.lkouniv.ac.in" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-primary-foreground/60 hover:text-accent transition-colors text-sm flex items-center gap-1"
+              >
+                Main Website <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 
-export default HeroSection;
+export default Footer;
