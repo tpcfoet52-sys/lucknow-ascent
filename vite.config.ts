@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  // Removed componentTagger() from the plugins list
+  // FIXED: Removed 'componentTagger()' from plugins
   plugins: [react()],
   resolve: {
     alias: {
