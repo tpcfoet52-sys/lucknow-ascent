@@ -38,7 +38,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.6 }}
           >
-            <span className="inline-block text-white/80 text-sm tracking-[0.3em] uppercase font-light border-b border-white/30 pb-2">
+            <span className="inline-block text-white/50 text-sm tracking-[0.3em] uppercase font-light border-b border-white/30 pb-2">
               Est. 1920
             </span>
           </motion.div>
@@ -63,7 +63,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="max-w-2xl mx-auto text-lg md:text-xl text-white/90 font-light leading-relaxed"
+            className="max-w-2xl mx-auto text-lg md:text-xl text-white/50 font-light leading-relaxed"
           >
             Bridging academic excellence with industry opportunities
           </motion.p>
