@@ -45,14 +45,24 @@ const Footer = () => {
               >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a 
-                href="https://x.com/PlacementEnggLU" 
+              
+              // 1. Remove the old Twitter icon import
+              // import { Twitter } from "lucide-react"; 
+              
+              // 2. Create a custom X (Twitter) component or use an SVG
+              const XLogo = () => (
+                <svg role="img" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                  <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                </svg>
+              );
+              
+              // 3. Update the JSX
+              <a href="https://x.com/PlacementEnggLU" 
+                aria-label="X (formerly Twitter)
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 group"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5" />
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 group">
+                <XLogo />
               </a>
             </div>
           </div>
