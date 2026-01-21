@@ -42,11 +42,6 @@ const Footer = () => {
 
             {/* Social Media Links */}
             <div className="flex items-center gap-4">
-              
-             // <a href="#" className="bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground p-2 rounded-full transition-all duration-300" aria-label="Facebook">
-              //  <Facebook className="w-4 h-4" />
-             // </a>
-              
               <a href="https://x.com/PlacementEnggLU" className="bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground p-2 rounded-full transition-all duration-300" aria-label="X (formerly Twitter)">
                 <XLogo className="w-4 h-4" />
               </a>
