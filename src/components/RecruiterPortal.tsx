@@ -26,9 +26,9 @@ const stats = [
 ];
 
 const topRecruiters = [
-  "TCS", "Wipro", "Infosys", "HCL", "IBM", "Deloitte",
-  "Amazon", "Flipkart", "Jio", "HDFC Bank", "ICICI Bank", 
-  "Axis Bank", "MRF", "Godrej", "ONGC"
+  "MICROSOFT", "ADOBE", "DELLOIT", "WIPRO", "NPCL", "HCL TECH", 
+  "GENPACT", "ADANI CEMENTS", "MOTHERSON INTERNATIONAL", "ALLEN", "PW",
+  "BYJU’S", "SOTI", "JARO EDUCATION", "RELIANCE INDUSTRIES LTD."
 ];
 
 const whyRecruitPoints = [
