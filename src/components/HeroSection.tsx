@@ -20,8 +20,8 @@ const HeroSection = () => {
           alt="University of Lucknow Campus"
           className="w-full h-full object-cover"
         />
-        {/* FIXED: Opacity reduced from 80% to ~40% so the image is visible */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-primary/60" />
+        {/* Strong dark overlay for maximum text visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-primary/80" />
       </div>
 
       {/* Content */}
