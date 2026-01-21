@@ -99,12 +99,14 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-3">
-            <Button 
-              variant={!isScrolled ? "goldOutline" : "outline"} 
-              size="sm"
-            >
-              Team Login
-            </Button>
+            <a href="/team-structure">
+              <Button 
+                variant={!isScrolled ? "goldOutline" : "outline"} 
+                size="sm"
+              >
+                Team Login
+              </Button>
+            </a>
             <Button 
               variant={!isScrolled ? "gold" : "default"} 
               size="default"
@@ -145,9 +147,11 @@ const Header = () => {
               </a>
             ))}
             <div className="pt-4 space-y-2">
-              <Button variant="outline" className="w-full">
-                Team Login
-              </Button>
+              <a href="/team-structure">
+                <Button variant="outline" className="w-full">
+                  Team Login
+                </Button>
+              </a>
               <Button variant="default" className="w-full">
                 Admin Login
               </Button>
