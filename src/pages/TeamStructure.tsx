@@ -11,7 +11,6 @@ import {
   Calendar,
   ChevronRight,
   Mail,
-  Phone,
   Linkedin
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -179,13 +178,17 @@ const TeamStructure = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
         <div className="container-narrow">
           <div className="flex items-center justify-between h-16 md:h-20">
+            {/* Left Side: Back Button */}
+            <Link to="/">
+              <Button variant="outline" size="sm" className="gap-2">
+                <ArrowLeft className="h-4 w-4" />
+                Back to Home
+              </Button>
+            </Link>
+
+            {/* Right Side: Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <img 
-                src={uolLogo} 
-                alt="University of Lucknow" 
-                className="w-10 h-10 md:w-12 md:h-12 object-contain"
-              />
-              <div className="hidden sm:block">
+              <div className="hidden sm:block text-right">
                 <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground">
                   University of Lucknow
                 </p>
@@ -193,12 +196,11 @@ const TeamStructure = () => {
                   Training & Placement Cell
                 </p>
               </div>
-            </Link>
-            <Link to="/">
-              <Button variant="outline" size="sm" className="gap-2">
-                <ArrowLeft className="h-4 w-4" />
-                Back to Home
-              </Button>
+              <img 
+                src={uolLogo} 
+                alt="University of Lucknow" 
+                className="w-10 h-10 md:w-12 md:h-12 object-contain"
+              />
             </Link>
           </div>
         </div>

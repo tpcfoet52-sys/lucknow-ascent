@@ -147,12 +147,16 @@ const Header = () => {
                 Team Login
               </Button>
             </Link>
-            <Button 
-              variant={!isScrolled ? "gold" : "default"} 
-              size="default"
-            >
-              Admin Login
-            </Button>
+            
+            {/* UPDATED: Wrapped in Link */}
+            <Link to="/admin">
+              <Button 
+                variant={!isScrolled ? "gold" : "default"} 
+                size="default"
+              >
+                Admin Login
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -210,9 +214,13 @@ const Header = () => {
                   Team Login
                 </Button>
               </Link>
-              <Button variant="default" className="w-full">
-                Admin Login
-              </Button>
+              
+              {/* UPDATED: Wrapped in Link with onClick to close menu */}
+              <Link to="/admin" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button variant="default" className="w-full">
+                  Admin Login
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
