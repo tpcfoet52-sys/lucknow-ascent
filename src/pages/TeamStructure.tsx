@@ -17,7 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import uolLogo from "@/assets/uol-logo.png";
-import tpcBadge from "@/assets/tpc-badge.png";
+import tpcBadge from "@/assets/naac-badge.png";
 import heroImage from "@/assets/university-hero.jpg";
 
 interface TeamMember {
