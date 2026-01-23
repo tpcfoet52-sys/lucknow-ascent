@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, Calendar } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/university-hero.jpg";
 
 const scrollToSection = (id: string) => {
@@ -95,15 +96,20 @@ const HeroSection = () => {
             transition={{ delay: 0.7, duration: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-6"
           >
-            <Button 
-              variant="gold" 
-              size="lg" 
-              className="group min-w-[200px] text-base font-medium"
-              onClick={() => scrollToSection("statistics")}
-            >
+            <div className="min-w-[200px] px-6 py-3 bg-accent text-accent-foreground rounded-md text-base font-medium text-center select-none">
               Placement 2026
-              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
+            </div>
+            <Link to="/events">
+              <Button 
+                variant="gold" 
+                size="lg" 
+                className="group min-w-[200px] text-base font-medium"
+              >
+                <Calendar className="w-4 h-4 mr-2" />
+                Events
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
             <Button 
               variant="heroDark" 
               size="lg" 
