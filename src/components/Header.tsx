@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
-import uolLogo from "@/assets/uol-logo.png";
+
 import tpcLogo from "@/assets/logo foet.jpeg";
 
 interface NavLink {
@@ -92,7 +92,7 @@ const Header = () => {
             />
             <div className="hidden sm:block">
               <p className={`font-serif font-semibold text-sm md:text-base leading-tight transition-colors ${textColor}`}>
-                University of Lucknow
+                Training & Placement Cell
               </p>
               <p className={`text-xs tracking-wide transition-colors ${mutedColor}`}>
                 FoET, University of Lucknow
