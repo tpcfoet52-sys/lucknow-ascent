@@ -4,8 +4,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { 
-  Plus, Calendar, MapPin, Clock, Trash2, Users, 
-  Loader2, AlertCircle, ArrowLeft 
+  Plus, Calendar, MapPin, Trash2, Users, 
+  Loader2, ArrowLeft, Download, Phone 
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
@@ -51,7 +51,7 @@ interface Registration {
   student_email: string;
   student_roll: string;
   branch: string;
-  created_at: string;
+  mobile_number: string; // UPDATED to match renamed database column
 }
 
 const EventHospitalityDashboard = () => {
@@ -126,6 +126,42 @@ const EventHospitalityDashboard = () => {
     
     if (!error && data) setRegistrations(data);
     setLoadingRegs(false);
+  };
+
+  // --- Download CSV Handler ---
+  const downloadCSV = () => {
+    if (!registrations.length) {
+      toast.error("No registrations to download");
+      return;
+    }
+
+    // Define CSV Headers
+    const headers = ["Student Name", "Email", "Mobile Number", "Roll Number", "Branch"];
+    
+    // Convert data to CSV format
+    const csvContent = [
+      headers.join(","),
+      ...registrations.map(reg => [
+        `"${reg.student_name}"`,
+        `"${reg.student_email}"`,
+        `"${reg.mobile_number || 'N/A'}"`, // UPDATED: Reading from mobile_number
+        `"${reg.student_roll}"`,
+        `"${reg.branch}"`
+      ].join(","))
+    ].join("\n");
+
+    // Create a Blob and trigger download
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    link.setAttribute("href", url);
+    link.setAttribute("download", `registrations_event_${selectedEventId}.csv`);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    toast.success("Download started");
   };
 
   return (
@@ -225,14 +261,21 @@ const EventHospitalityDashboard = () => {
 
         {/* Right Column: Registrations View */}
         <div className="lg:col-span-1">
-          <Card className="h-full sticky top-8">
-            <CardHeader className="bg-muted/30">
-              <CardTitle className="text-lg">Student Registrations</CardTitle>
+          <Card className="h-full sticky top-8 flex flex-col">
+            <CardHeader className="bg-muted/30 pb-4">
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-lg">Student Registrations</CardTitle>
+                {selectedEventId && registrations.length > 0 && (
+                  <Button variant="outline" size="icon" onClick={downloadCSV} title="Download CSV">
+                    <Download className="h-4 w-4" />
+                  </Button>
+                )}
+              </div>
               <CardDescription>
                 {selectedEventId ? "Showing registered students" : "Select an approved event to view details"}
               </CardDescription>
             </CardHeader>
-            <CardContent className="p-0">
+            <CardContent className="p-0 flex-grow">
               {!selectedEventId ? (
                 <div className="flex flex-col items-center justify-center h-64 text-muted-foreground p-6 text-center">
                   <Users className="h-10 w-10 mb-2 opacity-20" />
@@ -259,8 +302,12 @@ const EventHospitalityDashboard = () => {
                             <div className="text-xs text-muted-foreground">{reg.student_roll}</div>
                           </TableCell>
                           <TableCell>
-                            <div className="text-xs">{reg.branch}</div>
+                            <div className="text-xs font-medium">{reg.branch}</div>
                             <div className="text-xs text-muted-foreground">{reg.student_email}</div>
+                            {/* UPDATED: Reading from mobile_number */}
+                            <div className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
+                              <Phone className="h-3 w-3" /> {reg.mobile_number || 'N/A'}
+                            </div>
                           </TableCell>
                         </TableRow>
                       ))}
