@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FileText, BookOpen, UserCheck, Calendar, ExternalLink, LogIn } from "lucide-react";
+import { FileText, BookOpen, UserCheck, Calendar, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
 
 const resources = [
@@ -87,26 +87,6 @@ const StudentCorner = () => {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Login Card */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-primary rounded-sm p-6"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <LogIn className="w-6 h-6 text-accent" />
-                <h3 className="font-serif font-semibold text-lg text-primary-foreground">Placement Portal</h3>
-              </div>
-              <p className="text-primary-foreground/80 text-sm mb-4">
-                Access your dashboard, track applications, and update your profile.
-              </p>
-              <Button variant="gold" className="w-full">
-                Student Login
-              </Button>
-            </motion.div>
-
             {/* Upcoming Events */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
