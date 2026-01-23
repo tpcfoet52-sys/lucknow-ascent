@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  ArrowLeft, 
-  Building2, 
-  Users, 
-  Briefcase, 
-  Code, 
-  Camera, 
+import {
+  ArrowLeft,
+  Building2,
+  Users,
+  Briefcase,
+  Code,
+  Camera,
   Calendar,
   ChevronRight,
   Mail,
@@ -41,6 +41,23 @@ interface Team {
 
 const teams: Team[] = [
   {
+    id: 2,
+    name: "Networking & Outreach Team",
+    description: "Alumni relations & external partnerships",
+    icon: Users,
+    keyPoints: ["Alumni engagement", "Finding leads for internship and placement opportunities", "Helping establishing networks with HRs and Companies"],
+    members: [
+      { id: 1, name: "Vikram Patel", role: "Team Lead" },
+      { id: 2, name: "Ananya Mishra", role: "Alumni Coordinator" },
+      { id: 3, name: "Rohit Verma", role: "Partnership Manager" },
+    ],
+    stats: [
+      { label: "Alumni Connected", value: "500+" },
+      { label: "New Leads", value: "80+" },
+      { label: "Partnerships", value: "25" },
+    ],
+  },
+  {
     id: 1,
     name: "Team Corporate Connect",
     description: "Company relations & recruitment coordination",
@@ -56,23 +73,6 @@ const teams: Team[] = [
       { label: "Companies Reached", value: "150+" },
       { label: "MoUs Signed", value: "45" },
       { label: "JAFs Processed", value: "200+" },
-    ],
-  },
-  {
-    id: 2,
-    name: "Networking & Outreach Team",
-    description: "Alumni relations & external partnerships",
-    icon: Users,
-    keyPoints: ["Alumni engagement", "Finding leads for internship and placement opportunities", "Helping establishing networks with HRs and Companies"],
-    members: [
-      { id: 1, name: "Vikram Patel", role: "Team Lead" },
-      { id: 2, name: "Ananya Mishra", role: "Alumni Coordinator" },
-      { id: 3, name: "Rohit Verma", role: "Partnership Manager" },
-    ],
-    stats: [
-      { label: "Alumni Connected", value: "500+" },
-      { label: "New Leads", value: "80+" },
-      { label: "Partnerships", value: "25" },
     ],
   },
   {
@@ -194,7 +194,7 @@ const TeamStructure = () => {
                   Login as Coordinator
                 </Button>
               </Link>
-              
+
               <Link to="/" className="flex items-center gap-3 group">
                 <div className="hidden md:block text-right">
                   <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground">
@@ -204,9 +204,9 @@ const TeamStructure = () => {
                     Training & Placement Cell
                   </p>
                 </div>
-                <img 
-                  src={uolLogo} 
-                  alt="University of Lucknow" 
+                <img
+                  src={uolLogo}
+                  alt="University of Lucknow"
                   className="w-10 h-10 md:w-12 md:h-12 object-contain"
                 />
               </Link>
@@ -226,27 +226,27 @@ const TeamStructure = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background" />
         </div>
-        
+
         <div className="relative z-10 container-narrow pt-8 md:pt-12">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center text-center"
           >
             <div className="flex items-center gap-4 mb-8">
-              <motion.img 
-                src={uolLogo} 
-                alt="University of Lucknow" 
+              <motion.img
+                src={uolLogo}
+                alt="University of Lucknow"
                 className="w-16 h-16 md:w-20 md:h-20 object-contain"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
               />
               <div className="w-px h-12 bg-border" />
-              <motion.img 
-                src={tpcBadge} 
-                alt="TPC Badge" 
+              <motion.img
+                src={tpcBadge}
+                alt="TPC Badge"
                 className="w-16 h-16 md:w-20 md:h-20 object-contain"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -270,7 +270,7 @@ const TeamStructure = () => {
             {teams.map((team, index) => {
               const IconComponent = team.icon;
               return (
-                <motion.article 
+                <motion.article
                   key={team.id}
                   custom={index}
                   initial="hidden"
@@ -282,7 +282,7 @@ const TeamStructure = () => {
                   className="group bg-background border border-border rounded-lg p-6 md:p-8 hover:border-accent/50 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
                 >
                   <div className="flex items-start gap-4 mb-5">
-                    <motion.div 
+                    <motion.div
                       className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors duration-300"
                       whileHover={{ rotate: 5, scale: 1.05 }}
                     >
@@ -297,7 +297,7 @@ const TeamStructure = () => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="border-t border-border pt-5">
                     <p className="text-xs font-medium text-accent uppercase tracking-wider mb-3">
                       Key Responsibilities
@@ -310,7 +310,7 @@ const TeamStructure = () => {
                         </li>
                       ))}
                     </ul>
-                    
+
                     {/* Team Members Preview */}
                     <div className="flex items-center justify-between pt-4 border-t border-border">
                       <div className="flex -space-x-2">
@@ -462,7 +462,7 @@ const TeamStructure = () => {
       {/* CTA Section */}
       <section className="py-16 md:py-20 bg-primary/5 border-t border-border">
         <div className="container-narrow">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -489,9 +489,9 @@ const TeamStructure = () => {
         <div className="container-narrow">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-3">
-              <img 
-                src={uolLogo} 
-                alt="University of Lucknow" 
+              <img
+                src={uolLogo}
+                alt="University of Lucknow"
                 className="w-8 h-8 object-contain opacity-70"
               />
               <span>Training & Placement Cell, University of Lucknow</span>
