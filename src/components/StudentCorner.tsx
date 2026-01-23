@@ -25,7 +25,7 @@ const resources = [
     icon: Calendar,
     title: "Placement Calendar",
     description: "Stay updated with upcoming drives, deadlines, and events.",
-    link: "#",
+    link: "src/components/PlacementCalender.tsx",
   },
 ];
 
