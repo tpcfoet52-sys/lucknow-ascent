@@ -8,10 +8,13 @@ import TeamStructure from "./pages/TeamStructure";
 import AboutUniversity from "./pages/AboutUniversity";
 import AboutTPC from "./pages/AboutTPC";
 import AdminLogin from "./pages/AdminLogin";
-
+import CoordinatorLogin from "./pages/CoordinatorLogin";
+import UserManagement from "./pages/admin/UserManagement";
 // Import Admin components
 import AdminLayout from "./components/admin/AdminLayout";
 import DashboardOverview from "./pages/admin/DashboardOverview";
+import EventHospitalityDashboard from "./pages/coordinator/EventHospitalityDashboard";
+import EventsManagement from "./pages/admin/EventsManagement";
 
 const queryClient = new QueryClient();
 
@@ -58,7 +61,9 @@ const App = () => (
           <Route path="/team-structure" element={<TeamStructure />} />
           <Route path="/about-university" element={<AboutUniversity />} />
           <Route path="/about-tpc" element={<AboutTPC />} />
-          
+          <Route path="/coordinator-login" element={<CoordinatorLogin />} />
+          <Route path="/coordinator/events" element={<EventHospitalityDashboard />} />
+
           {/* Admin Login - Standalone Page */}
           <Route path="/admin-login" element={<AdminLogin />} />
 
@@ -66,6 +71,8 @@ const App = () => (
           <Route path="/admin" element={<AdminLayout />}>
             {/* Redirect /admin to /admin/dashboard */}
             <Route index element={<Navigate to="/admin/dashboard" replace />} />
+            <Route path="dashboard" element={<DashboardOverview />} />
+            <Route path="events" element={<EventsManagement />} />
             
             {/* Dashboard Overview */}
             <Route path="dashboard" element={<DashboardOverview />} />
@@ -73,7 +80,7 @@ const App = () => (
             {/* Placeholder Pages for Sidebar Links */}
             <Route path="jobs" element={<PlaceholderAdminPage title="Jobs Management" />} />
             <Route path="applications" element={<PlaceholderAdminPage title="Applications" />} />
-            <Route path="users" element={<PlaceholderAdminPage title="User Management" />} />
+            <Route path="users" element={<UserManagement />} />
             <Route path="events" element={<PlaceholderAdminPage title="Events & Calendar" />} />
             <Route path="cms" element={<PlaceholderAdminPage title="Content Management" />} />
           </Route>

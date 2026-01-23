@@ -186,22 +186,31 @@ const TeamStructure = () => {
               </Button>
             </Link>
 
-            {/* Right Side: Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="hidden sm:block text-right">
-                <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground">
-                  University of Lucknow
-                </p>
-                <p className="text-xs tracking-wide text-muted-foreground">
-                  Training & Placement Cell
-                </p>
-              </div>
-              <img 
-                src={uolLogo} 
-                alt="University of Lucknow" 
-                className="w-10 h-10 md:w-12 md:h-12 object-contain"
-              />
-            </Link>
+            {/* Right Side: Actions & Logo */}
+            <div className="flex items-center gap-4">
+              {/* NEW BUTTON ADDED HERE */}
+              <Link to="/coordinator-login">
+                <Button variant="gold" size="sm" className="hidden sm:flex">
+                  Login as Coordinator
+                </Button>
+              </Link>
+              
+              <Link to="/" className="flex items-center gap-3 group">
+                <div className="hidden md:block text-right">
+                  <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground">
+                    University of Lucknow
+                  </p>
+                  <p className="text-xs tracking-wide text-muted-foreground">
+                    Training & Placement Cell
+                  </p>
+                </div>
+                <img 
+                  src={uolLogo} 
+                  alt="University of Lucknow" 
+                  className="w-10 h-10 md:w-12 md:h-12 object-contain"
+                />
+              </Link>
+            </div>
           </div>
         </div>
       </header>
