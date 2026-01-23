@@ -1,11 +1,17 @@
 // src/lib/supabase.ts
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables');
-}
+// Create a placeholder client if environment variables are not set
+// This allows the app to run without Supabase for frontend-only features
+export const supabase: SupabaseClient | null = 
+  supabaseUrl && supabaseAnonKey 
+    ? createClient(supabaseUrl, supabaseAnonKey)
+    : null;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Helper to check if Supabase is configured
+export const isSupabaseConfigured = (): boolean => {
+  return supabase !== null;
+};
