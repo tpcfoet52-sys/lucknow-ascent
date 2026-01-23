@@ -156,54 +156,99 @@ const Events = () => {
             {upcomingEvents.map((event, index) => (
               <motion.div
                 key={event.id}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="bg-card rounded-md p-6 shadow-elevated-sm border border-border/50"
+                whileHover={{ 
+                  y: -8, 
+                  transition: { duration: 0.3, ease: "easeOut" } 
+                }}
+                className="group bg-card rounded-lg p-6 shadow-elevated-sm border border-border/50 hover:shadow-elevated hover:border-accent/30 transition-all duration-300 relative overflow-hidden"
               >
-                <div className="flex justify-between items-start mb-3">
-                  <h4 className="font-serif font-semibold text-lg text-foreground">{event.title}</h4>
-                  {event.registrationOpen && (
-                    <span className="bg-accent/10 text-accent text-xs font-medium px-2 py-1 rounded-full">
-                      Open
-                    </span>
-                  )}
-                </div>
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 
-                <p className="text-muted-foreground text-sm mb-4">{event.description}</p>
+                {/* Animated accent line */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 
-                <div className="space-y-2 text-sm mb-4">
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Calendar className="w-4 h-4" />
-                    <span>{event.date}</span>
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start mb-3">
+                    <h4 className="font-serif font-semibold text-lg text-foreground group-hover:text-primary transition-colors duration-300">{event.title}</h4>
+                    {event.registrationOpen && (
+                      <motion.span 
+                        className="bg-accent/10 text-accent text-xs font-medium px-2 py-1 rounded-full"
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        Open
+                      </motion.span>
+                    )}
                   </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Clock className="w-4 h-4" />
-                    <span>{event.time}</span>
+                  
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{event.description}</p>
+                  
+                  <div className="space-y-2 text-sm mb-4">
+                    <motion.div 
+                      className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300"
+                      whileHover={{ x: 4 }}
+                    >
+                      <Calendar className="w-4 h-4 text-accent" />
+                      <span>{event.date}</span>
+                    </motion.div>
+                    <motion.div 
+                      className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300"
+                      whileHover={{ x: 4 }}
+                    >
+                      <Clock className="w-4 h-4 text-accent" />
+                      <span>{event.time}</span>
+                    </motion.div>
+                    <motion.div 
+                      className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300"
+                      whileHover={{ x: 4 }}
+                    >
+                      <MapPin className="w-4 h-4 text-accent" />
+                      <span>{event.venue}</span>
+                    </motion.div>
+                    {event.capacity && (
+                      <motion.div 
+                        className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300"
+                        whileHover={{ x: 4 }}
+                      >
+                        <Users className="w-4 h-4 text-accent" />
+                        <div className="flex-1">
+                          <span>{event.registered}/{event.capacity} registered</span>
+                          {/* Progress bar */}
+                          <div className="mt-1 h-1.5 bg-muted rounded-full overflow-hidden">
+                            <motion.div 
+                              className="h-full bg-gradient-to-r from-accent to-primary rounded-full"
+                              initial={{ width: 0 }}
+                              whileInView={{ width: `${(event.registered! / event.capacity) * 100}%` }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 1, delay: 0.3 + index * 0.1, ease: "easeOut" }}
+                            />
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
                   </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <MapPin className="w-4 h-4" />
-                    <span>{event.venue}</span>
-                  </div>
-                  {event.capacity && (
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Users className="w-4 h-4" />
-                      <span>{event.registered}/{event.capacity} registered</span>
-                    </div>
-                  )}
-                </div>
 
-                {event.registrationOpen && (
-                  <Button 
-                    variant="default" 
-                    size="sm" 
-                    className="w-full"
-                    onClick={() => handleRegister(event)}
-                  >
-                    Register Now
-                  </Button>
-                )}
+                  {event.registrationOpen && (
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Button 
+                        variant="default" 
+                        size="sm" 
+                        className="w-full group-hover:bg-primary group-hover:shadow-md transition-all duration-300"
+                        onClick={() => handleRegister(event)}
+                      >
+                        Register Now
+                      </Button>
+                    </motion.div>
+                  )}
+                </div>
               </motion.div>
             ))}
           </div>
