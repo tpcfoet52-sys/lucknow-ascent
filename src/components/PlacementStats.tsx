@@ -11,7 +11,6 @@ const stats = [
 
 // FoET / Engineering (UG 4-Year) Students Placed Data
 const foetPlacementData = [
-  { year: "2020", students: 120 },
   { year: "2021", students: 301 },
   { year: "2022", students: 465 },
   { year: "2023", students: 581 },
