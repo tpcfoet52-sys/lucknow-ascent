@@ -9,6 +9,7 @@ import AboutUniversity from "./pages/AboutUniversity";
 import AboutTPC from "./pages/AboutTPC";
 import AdminLogin from "./pages/AdminLogin";
 import EventsPage from "./pages/Events";
+import PlacementCalendar from "./pages/PlacementCalendar";
 
 // Import Admin components
 import AdminLayout from "./components/admin/AdminLayout";
@@ -63,7 +64,8 @@ const App = () => (
           <Route path="/about-university" element={<AboutUniversity />} />
           <Route path="/about-tpc" element={<AboutTPC />} />
           <Route path="/events" element={<EventsPage />} />
-          
+          <Route path="/placement-calendar" element={<PlacementCalendar />} />
+
           {/* Admin Login - Standalone Page */}
           <Route path="/admin-login" element={<AdminLogin />} />
 
@@ -73,10 +75,10 @@ const App = () => (
             <Route index element={<Navigate to="/admin/dashboard" replace />} />
             <Route path="dashboard" element={<DashboardOverview />} />
             <Route path="events" element={<EventsManagement />} />
-            
+
             {/* Dashboard Overview */}
             <Route path="dashboard" element={<DashboardOverview />} />
-            
+
             {/* Placeholder Pages for Sidebar Links */}
             <Route path="jobs" element={<PlaceholderAdminPage title="Jobs Management" />} />
             <Route path="applications" element={<PlaceholderAdminPage title="Applications" />} />

@@ -88,13 +88,19 @@ const Header = () => {
     }
   };
 
-  const headerBg = !isScrolled
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  // Header should be solid if scrolled OR if not on home page
+  const showSolidHeader = isScrolled || !isHomePage;
+
+  const headerBg = !showSolidHeader
     ? "bg-transparent"
     : "bg-background/95 backdrop-blur-md shadow-elevated-sm border-b border-border";
 
-  const textColor = !isScrolled ? "text-primary-foreground" : "text-foreground";
-  const mutedColor = !isScrolled ? "text-primary-foreground/70" : "text-muted-foreground";
-  const linkColor = !isScrolled ? "text-primary-foreground/80 hover:text-primary-foreground" : "text-muted-foreground hover:text-primary";
+  const textColor = !showSolidHeader ? "text-primary-foreground" : "text-foreground";
+  const mutedColor = !showSolidHeader ? "text-primary-foreground/70" : "text-muted-foreground";
+  const linkColor = !showSolidHeader ? "text-primary-foreground/80 hover:text-primary-foreground" : "text-muted-foreground hover:text-primary";
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}>

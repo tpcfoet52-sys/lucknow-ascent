@@ -112,7 +112,7 @@ const Events = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -170,9 +170,9 @@ const Events = () => {
                     </span>
                   )}
                 </div>
-                
+
                 <p className="text-muted-foreground text-sm mb-4">{event.description}</p>
-                
+
                 <div className="space-y-2 text-sm mb-4">
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Calendar className="w-4 h-4" />
@@ -195,9 +195,9 @@ const Events = () => {
                 </div>
 
                 {event.registrationOpen && (
-                  <Button 
-                    variant="default" 
-                    size="sm" 
+                  <Button
+                    variant="default"
+                    size="sm"
                     className="w-full"
                     onClick={() => handleRegister(event)}
                   >
@@ -249,7 +249,7 @@ const Events = () => {
                   Register for Event
                 </h3>
                 <p className="text-muted-foreground text-sm mb-6">{selectedEvent.title}</p>
-                
+
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <Label htmlFor="name">Full Name *</Label>
@@ -261,7 +261,7 @@ const Events = () => {
                       placeholder="Enter your full name"
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="email">Email Address *</Label>
                     <Input
@@ -273,7 +273,7 @@ const Events = () => {
                       placeholder="your.email@lkouniv.ac.in"
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="phone">Phone Number *</Label>
                     <Input
@@ -285,7 +285,7 @@ const Events = () => {
                       placeholder="10-digit mobile number"
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="rollNumber">Roll Number *</Label>
                     <Input
@@ -296,7 +296,7 @@ const Events = () => {
                       placeholder="Your university roll number"
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="department">Department *</Label>
                     <Input
@@ -307,7 +307,7 @@ const Events = () => {
                       placeholder="e.g., Computer Science"
                     />
                   </div>
-                  
+
                   <div className="flex gap-3 pt-4">
                     <Button type="button" variant="outline" onClick={closeModal} className="flex-1">
                       Cancel
