@@ -8,8 +8,8 @@ import TeamStructure from "./pages/TeamStructure";
 import AboutUniversity from "./pages/AboutUniversity";
 import AboutTPC from "./pages/AboutTPC";
 import AdminLogin from "./pages/AdminLogin";
-import CoordinatorLogin from "./pages/CoordinatorLogin";
-import UserManagement from "./pages/admin/UserManagement";
+import EventsPage from "./pages/Events";
+
 // Import Admin components
 import AdminLayout from "./components/admin/AdminLayout";
 import DashboardOverview from "./pages/admin/DashboardOverview";
@@ -61,9 +61,8 @@ const App = () => (
           <Route path="/team-structure" element={<TeamStructure />} />
           <Route path="/about-university" element={<AboutUniversity />} />
           <Route path="/about-tpc" element={<AboutTPC />} />
-          <Route path="/coordinator-login" element={<CoordinatorLogin />} />
-          <Route path="/coordinator/events" element={<EventHospitalityDashboard />} />
-
+          <Route path="/events" element={<EventsPage />} />
+          
           {/* Admin Login - Standalone Page */}
           <Route path="/admin-login" element={<AdminLogin />} />
 

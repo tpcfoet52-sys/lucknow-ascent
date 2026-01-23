@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
 import profSpSingh from "@/assets/prof-sp-singh.jpg";
-
+import profJaiPrakashSaini from "@/assets/prof-jai-prakash-saini.png";
 const DirectorMessage = () => {
   return (
     <section className="section-padding bg-background">
@@ -19,6 +19,65 @@ const DirectorMessage = () => {
           <h2 className="heading-display text-2xl md:text-3xl lg:text-4xl text-foreground mt-2">
             Messages from Our Leaders
           </h2>
+        </motion.div>
+
+        {/* Vice Chancellor's Message - Full Width */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-card rounded-md p-6 md:p-8 shadow-elevated-sm border border-border/50 mb-10"
+        >
+          <div className="flex flex-col md:flex-row items-start gap-6">
+            <div className="flex-shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-primary/50">
+              <img 
+                src={profJaiPrakashSaini} 
+                alt="Prof. Jai Prakash Saini" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="flex-1">
+              <div className="mb-4">
+                <h3 className="font-serif font-semibold text-xl text-foreground">Prof. Jai Prakash Saini</h3>
+                <p className="text-primary font-medium text-sm">Vice Chancellor</p>
+                <p className="text-accent text-xs mt-1">University of Lucknow</p>
+              </div>
+              
+              <div className="relative mb-5">
+                <Quote className="absolute -top-1 -left-1 w-5 h-5 text-accent/30" />
+                <blockquote className="text-muted-foreground text-sm leading-relaxed italic pl-6 border-l-2 border-primary/50">
+                  "Prof. Jai Prakash Saini assumed charge as Vice Chancellor of the University of Lucknow 
+                  on 14 January 2026, bringing 38+ years of experience in academics, research, and 
+                  university administration."
+                </blockquote>
+              </div>
+
+              <p className="text-foreground leading-relaxed text-sm mb-4">
+                A senior Professor of Electronics & Communication Engineering, he has served as Vice Chancellor 
+                of MMMUT Gorakhpur and NSUT New Delhi, with additional charge of DTU New Delhi, and has held 
+                key roles including Chairman Training and Placement, Dean (R&D), and Coordinator of major 
+                national programs.
+              </p>
+
+              <p className="text-foreground leading-relaxed text-sm">
+                His strong focus on industry–academia collaboration, MoUs, incubation, innovation, and student 
+                training aligns closely with the objectives of the Training and Placement Cell, Faculty of 
+                Engineering and Technology, in strengthening student employability and placement outcomes.
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {["Vice Chancellor", "Industry-Academia", "Innovation", "Incubation"].map((tag, index) => (
+                  <span 
+                    key={index}
+                    className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Messages Grid */}

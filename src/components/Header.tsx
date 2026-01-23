@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 import uolLogo from "@/assets/uol-logo.png";
+import tpcLogo from "@/assets/logo foet.jpeg";
 
 interface NavLink {
   name: string;
@@ -85,8 +86,8 @@ const Header = () => {
             className="flex items-center gap-3 group cursor-pointer"
           >
             <img 
-              src={uolLogo} 
-              alt="University of Lucknow" 
+              src={tpcLogo} 
+              alt="Training and Placement Cell" 
               className="w-10 h-10 md:w-12 md:h-12 object-contain"
             />
             <div className="hidden sm:block">
@@ -94,7 +95,7 @@ const Header = () => {
                 University of Lucknow
               </p>
               <p className={`text-xs tracking-wide transition-colors ${mutedColor}`}>
-                Training & Placement Cell
+                FoET, University of Lucknow
               </p>
             </div>
           </a>
