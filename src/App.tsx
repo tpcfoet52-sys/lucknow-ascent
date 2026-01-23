@@ -15,6 +15,7 @@ import AdminLayout from "./components/admin/AdminLayout";
 import DashboardOverview from "./pages/admin/DashboardOverview";
 import EventHospitalityDashboard from "./pages/coordinator/EventHospitalityDashboard";
 import EventsManagement from "./pages/admin/EventsManagement";
+import UserManagement from "./pages/admin/UserManagement";
 
 const queryClient = new QueryClient();
 
