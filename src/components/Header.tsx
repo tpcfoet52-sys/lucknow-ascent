@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -20,7 +20,7 @@ const navLinks: NavLink[] = [
       { name: "Our Team", href: "/team-structure" },
     ]
   },
-  { name: "Events", href: "#events" },
+  { name: "Events", href: "/events" },
   { name: "Students", href: "#students" },
   { name: "Media", href: "#gallery" },
   { name: "Placement Records", href: "#recruiters" },
@@ -32,6 +32,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,6 +67,11 @@ const Header = () => {
     } else if (link.href.startsWith("#")) {
       e.preventDefault();
       scrollToSection(link.href);
+    } else {
+      e.preventDefault();
+      navigate(link.href);
+      setIsMobileMenuOpen(false);
+      setOpenDropdown(null);
     }
   };
 
@@ -164,8 +170,8 @@ const Header = () => {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`lg:hidden p-2 rounded-md transition-colors ${!isScrolled
-                ? "text-primary-foreground hover:bg-primary-foreground/10"
-                : "text-foreground hover:bg-secondary"
+              ? "text-primary-foreground hover:bg-primary-foreground/10"
+              : "text-foreground hover:bg-secondary"
               }`}
             aria-label="Toggle menu"
           >
