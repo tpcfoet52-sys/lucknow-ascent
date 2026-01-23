@@ -10,6 +10,7 @@ import AboutTPC from "./pages/AboutTPC";
 import AdminLogin from "./pages/AdminLogin";
 import EventsPage from "./pages/Events";
 import CoordinatorLogin from "./pages/CoordinatorLogin"; // Add this import
+import PlacementCalendar from "./pages/PlacementCalendar";
 
 // Import Admin components
 import AdminLayout from "./components/admin/AdminLayout";
