@@ -7,7 +7,7 @@ const resources = [
     icon: FileText,
     title: "Resume Building",
     description: "Professional templates and expert tips to craft an impactful resume.",
-    link: "#",
+    link: "/resume-guide",
   },
   {
     icon: BookOpen,
