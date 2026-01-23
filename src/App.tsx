@@ -9,6 +9,7 @@ import AboutUniversity from "./pages/AboutUniversity";
 import AboutTPC from "./pages/AboutTPC";
 import AdminLogin from "./pages/AdminLogin";
 import EventsPage from "./pages/Events";
+import CoordinatorLogin from "./pages/CoordinatorLogin";
 import PlacementCalendar from "./pages/PlacementCalendar";
 
 // Import Admin components
@@ -65,6 +66,10 @@ const App = () => (
           <Route path="/about-tpc" element={<AboutTPC />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/placement-calendar" element={<PlacementCalendar />} />
+
+          {/* Coordinator Routes */}
+          <Route path="/coordinator-login" element={<CoordinatorLogin />} />
+          <Route path="/coordinator/events" element={<EventHospitalityDashboard />} />
 
           {/* Admin Login - Standalone Page */}
           <Route path="/admin-login" element={<AdminLogin />} />
