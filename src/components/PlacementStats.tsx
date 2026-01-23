@@ -12,11 +12,11 @@ const stats = [
 // FoET / Engineering (UG 4-Year) Students Placed Data
 const foetPlacementData = [
   { year: "2020", students: 120 },
-  { year: "2021", students: 148 },
-  { year: "2022", students: 165 },
-  { year: "2023", students: 197 },
-  { year: "2024", students: 372 },
-  { year: "2025", students: 410, estimated: true },
+  { year: "2021", students: 301 },
+  { year: "2022", students: 465 },
+  { year: "2023", students: 581 },
+  { year: "2024", students: 473 },
+  { year: "2025", students: 548, estimated: true },
 ];
 
 const yearlyData = [
