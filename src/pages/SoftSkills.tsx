@@ -193,54 +193,50 @@ const SoftSkills = () => {
                         </h2>
 
                         <div className="grid lg:grid-cols-2 gap-12">
-                            <div className="space-y-8">
-                                <div className="flex gap-4">
-                                    <div className="flex-shrink-0">
-                                        <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
-                                            <Zap className="w-5 h-5 text-orange-600" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-semibold text-foreground mb-2">Traits of a Modern Leader</h3>
-                                        <p className="text-muted-foreground mb-4">
-                                            Leadership isn't about titles. It's about influence, empathy, and driving change.
-                                        </p>
-                                        <ul className="space-y-2">
-                                            {["Emotional Intelligence (EQ)", "Strategic Thinking", "Adaptability", "Decisiveness"].map((trait, i) => (
-                                                <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                    <UserCheck className="w-4 h-4 text-green-500" /> {trait}
-                                                </li>
-                                            ))}
-                                        </ul>
+                            <div className="flex gap-4">
+                                <div className="flex-shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
+                                        <Zap className="w-5 h-5 text-orange-600" />
                                     </div>
                                 </div>
+                                <div>
+                                    <h3 className="text-xl font-semibold text-foreground mb-2">Traits of a Modern Leader</h3>
+                                    <p className="text-muted-foreground mb-4">
+                                        Leadership isn't about titles. It's about influence, empathy, and driving change.
+                                    </p>
+                                    <ul className="space-y-2">
+                                        {["Emotional Intelligence (EQ)", "Strategic Thinking", "Adaptability", "Decisiveness"].map((trait, i) => (
+                                            <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                <UserCheck className="w-4 h-4 text-green-500" /> {trait}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
 
-                                <div className="flex gap-4">
-                                    <div className="flex-shrink-0">
-                                        <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                                            <TrendingUp className="w-5 h-5 text-blue-600" />
-                                        </div>
+                            <div className="flex gap-4">
+                                <div className="flex-shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                        <TrendingUp className="w-5 h-5 text-blue-600" />
                                     </div>
-                                    <div>
-                                        <h3 className="text-xl font-semibold text-foreground mb-2">Growth Programs</h3>
-                                        <p className="text-muted-foreground mb-4">
-                                            Join our campus initiatives to build your leadership muscle.
-                                        </p>
-                                        <div className="space-y-3">
-                                            <div className="p-3 border rounded-lg bg-card">
-                                                <p className="font-medium text-sm">Student Coordinator Program</p>
-                                                <p className="text-xs text-muted-foreground mt-0.5">Manage placement drives and lead teams.</p>
-                                            </div>
-                                            <div className="p-3 border rounded-lg bg-card">
-                                                <p className="font-medium text-sm">Project Lead Experience</p>
-                                                <p className="text-xs text-muted-foreground mt-0.5">Lead technical projects during hackathons.</p>
-                                            </div>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-semibold text-foreground mb-2">Growth Programs</h3>
+                                    <p className="text-muted-foreground mb-4">
+                                        Join our campus initiatives to build your leadership muscle.
+                                    </p>
+                                    <div className="space-y-3">
+                                        <div className="p-3 border rounded-lg bg-card">
+                                            <p className="font-medium text-sm">Student Coordinator Program</p>
+                                            <p className="text-xs text-muted-foreground mt-0.5">Manage placement drives and lead teams.</p>
+                                        </div>
+                                        <div className="p-3 border rounded-lg bg-card">
+                                            <p className="font-medium text-sm">Project Lead Experience</p>
+                                            <p className="text-xs text-muted-foreground mt-0.5">Lead technical projects during hackathons.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </section>
                 </div>
