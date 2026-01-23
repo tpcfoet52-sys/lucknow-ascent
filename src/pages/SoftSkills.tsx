@@ -248,9 +248,7 @@ const SoftSkills = () => {
                                         "Leadership is not about being in charge. It is about taking care of those in your charge."
                                         <br /><span className="text-sm text-gray-500 mt-2 block">- Simon Sinek</span>
                                     </p>
-                                    <Button size="lg" className="mx-auto w-fit">
-                                        Apply for Leadership Core
-                                    </Button>
+
                                 </div>
                             </Card>
                         </div>
