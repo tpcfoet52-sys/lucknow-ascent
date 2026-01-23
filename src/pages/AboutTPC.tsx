@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { 
-  ArrowLeft, 
-  Target, 
-  Users, 
-  Briefcase, 
+import {
+  ArrowLeft,
+  Target,
+  Users,
+  Briefcase,
   GraduationCap,
   TrendingUp,
   Building2,
@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import uolLogo from "@/assets/uol-logo.png";
-import tpcBadge from "@/assets/tpc-badge.png";
+import naacBadge from "@/assets/naac-badge.png";
 import heroImage from "@/assets/university-hero.jpg";
 import profSpSingh from "@/assets/prof-sp-singh.jpg";
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
@@ -38,35 +38,35 @@ const visionPoints = [
 ];
 
 const services = [
-  { 
-    title: "Placement Assistance", 
+  {
+    title: "Placement Assistance",
     desc: "End-to-end support for campus recruitment drives and job placement",
-    icon: Briefcase 
+    icon: Briefcase
   },
-  { 
-    title: "Career Counseling", 
+  {
+    title: "Career Counseling",
     desc: "Personalized guidance for career planning and professional development",
-    icon: Target 
+    icon: Target
   },
-  { 
-    title: "Skill Development", 
+  {
+    title: "Skill Development",
     desc: "Workshops on aptitude, communication, and technical skills",
-    icon: GraduationCap 
+    icon: GraduationCap
   },
-  { 
-    title: "Industry Connect", 
+  {
+    title: "Industry Connect",
     desc: "Guest lectures, seminars, and industry interaction sessions",
-    icon: Building2 
+    icon: Building2
   },
-  { 
-    title: "Internship Coordination", 
+  {
+    title: "Internship Coordination",
     desc: "Facilitating internship opportunities with leading companies",
-    icon: Users 
+    icon: Users
   },
-  { 
-    title: "Alumni Network", 
+  {
+    title: "Alumni Network",
     desc: "Connecting students with successful alumni for mentorship",
-    icon: Award 
+    icon: Award
   },
 ];
 
@@ -111,9 +111,9 @@ const AboutTPC = () => {
         <div className="container-narrow">
           <div className="flex items-center justify-between h-16 md:h-20">
             <Link to="/" className="flex items-center gap-3 group">
-              <img 
-                src={uolLogo} 
-                alt="University of Lucknow" 
+              <img
+                src={uolLogo}
+                alt="University of Lucknow"
                 className="w-10 h-10 md:w-12 md:h-12 object-contain"
               />
               <div className="hidden sm:block">
@@ -145,27 +145,27 @@ const AboutTPC = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background" />
         </div>
-        
+
         <div className="relative z-10 container-narrow pt-8 md:pt-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
             <div className="flex items-center justify-center gap-6 mb-8">
-              <motion.img 
-                src={uolLogo} 
-                alt="University of Lucknow" 
+              <motion.img
+                src={uolLogo}
+                alt="University of Lucknow"
                 className="w-20 h-20 md:w-24 md:h-24 object-contain"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
               />
               <div className="w-px h-16 bg-border" />
-              <motion.img 
-                src={tpcBadge} 
-                alt="TPC Badge" 
+              <motion.img
+                src={naacBadge}
+                alt="NAAC Badge"
                 className="w-20 h-20 md:w-24 md:h-24 object-contain"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -197,8 +197,8 @@ const AboutTPC = () => {
                 Vision & Mission
               </h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                The Training & Placement Cell (TPC) at University of Lucknow serves as the vital link 
-                between students and the corporate world, dedicated to ensuring every student 
+                The Training & Placement Cell (TPC) at University of Lucknow serves as the vital link
+                between students and the corporate world, dedicated to ensuring every student
                 achieves their career aspirations.
               </p>
               <ul className="space-y-3">
@@ -262,14 +262,14 @@ const AboutTPC = () => {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
-              { 
-                name: "Prof. S.P. Singh", 
+              {
+                name: "Prof. S.P. Singh",
                 role: "Dean, Faculty of Engineering & Technology",
                 image: profSpSingh,
                 quote: "Our mission is to nurture industry-ready professionals who contribute to nation-building."
               },
-              { 
-                name: "Dr. Himanshu Pandey", 
+              {
+                name: "Dr. Himanshu Pandey",
                 role: "Associate Professor & Program Coordinator, Additional Director CPC",
                 image: drHimanshuPandey,
                 quote: "We bridge academia and industry through strategic partnerships and comprehensive training."
@@ -284,8 +284,8 @@ const AboutTPC = () => {
                 variants={fadeInUp}
                 className="bg-background border border-border rounded-lg p-6 text-center"
               >
-                <img 
-                  src={leader.image} 
+                <img
+                  src={leader.image}
                   alt={leader.name}
                   className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-accent/20"
                 />

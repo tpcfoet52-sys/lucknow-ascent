@@ -13,13 +13,13 @@ const resources = [
     icon: BookOpen,
     title: "Interview Preparation",
     description: "Curated guides, mock interviews, and aptitude test resources.",
-    link: "#",
+    link: "/interview-prep",
   },
   {
     icon: UserCheck,
     title: "Soft Skills Training",
     description: "Communication, presentation, and leadership development programs.",
-    link: "#",
+    link: "/soft-skills",
   },
   {
     icon: Calendar,

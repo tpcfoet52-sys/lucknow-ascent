@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, XCircle, FileText, Briefcase, Award, PenTool, Download, ChevronRight, User, Settings, Sparkles, AlertTriangle } from "lucide-react";
+import { ArrowLeft, CheckCircle2, XCircle, FileText, Briefcase, Award, PenTool, Download, ChevronRight, User, Settings, Sparkles, AlertTriangle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,18 @@ const ResumeGuide = () => {
             <Header />
 
             <main className="flex-1 pt-24 pb-12">
+                <div className="container-narrow mb-8">
+                    <Link to="/">
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            className="gap-2 bg-card hover:bg-accent hover:text-accent-foreground border border-border/50 shadow-elevated-sm transition-all duration-300 h-9 px-4 rounded-md"
+                        >
+                            <ArrowLeft className="w-4 h-4" /> Back to Home
+                        </Button>
+                    </Link>
+                </div>
+
                 {/* Hero Section */}
                 <section className="bg-secondary/30 py-16 md:py-24 border-b border-border/50">
                     <div className="container-narrow text-center">
