@@ -240,17 +240,7 @@ const SoftSkills = () => {
                                 </div>
                             </div>
 
-                            <Card className="h-full bg-navy-900 border-navy-800 text-white p-6 relative overflow-hidden">
-                                <div className="absolute top-0 right-0 p-40 bg-accent/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-                                <div className="relative z-10 flex flex-col h-full justify-center text-center">
-                                    <h3 className="text-2xl font-serif font-bold text-white mb-6">Start Your Journey</h3>
-                                    <p className="text-gray-300 mb-8 max-w-sm mx-auto">
-                                        "Leadership is not about being in charge. It is about taking care of those in your charge."
-                                        <br /><span className="text-sm text-gray-500 mt-2 block">- Simon Sinek</span>
-                                    </p>
 
-                                </div>
-                            </Card>
                         </div>
                     </section>
                 </div>
