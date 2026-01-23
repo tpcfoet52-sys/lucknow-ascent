@@ -22,7 +22,7 @@ const navLinks: NavLink[] = [
   },
   { name: "Events", href: "/events" },
   { name: "Students", href: "#students" },
-  { name: "Media", href: "#gallery" },
+  { name: "Media", href: "/media" },
   { name: "Placement Records", href: "#recruiters" },
   { name: "Contact", href: "#contact" },
 ];
