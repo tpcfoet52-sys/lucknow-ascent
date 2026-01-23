@@ -149,7 +149,7 @@ const Header = () => {
             </Link>
             
             {/* UPDATED: Wrapped in Link */}
-            <Link to="/admin">
+            <Link to="/admin-login">
               <Button 
                 variant={!isScrolled ? "gold" : "default"} 
                 size="default"
