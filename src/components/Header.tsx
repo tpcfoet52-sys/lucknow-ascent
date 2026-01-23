@@ -55,6 +55,19 @@ const Header = () => {
     const element = document.getElementById(href.substring(1));
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // If element not found (e.g. we are on another page), navigate to home
+      // For #home specifically or any hash link that's not on current page
+      navigate("/");
+      // Optional: if you want to scroll to specific section after nav, you'd need more complex logic
+      // but for "Back to Home", just navigating to / is usually sufficient.
+      // If we want to support #about from Events page:
+      if (href !== "#home") {
+        setTimeout(() => {
+          const el = document.getElementById(href.substring(1));
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
     }
     setIsMobileMenuOpen(false);
     setOpenDropdown(null);
