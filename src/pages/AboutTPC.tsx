@@ -91,9 +91,8 @@ const trainingPrograms = [
 ];
 
 const successStories = [
-  { name: "Priya Sharma", company: "Google", package: "₹45 LPA", year: "2023" },
-  { name: "Rahul Verma", company: "Microsoft", package: "₹38 LPA", year: "2023" },
-  { name: "Ananya Singh", company: "Amazon", package: "₹32 LPA", year: "2024" },
+  { name: "Karthik Gupta", company: "Qdrant", package: "₹26 LPA", year: "2023" },
+  { name: "Maria Khan", company: "Branch International", package: "₹22 LPA", year: "2024" },
 ];
 
 const downloads = [
