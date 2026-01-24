@@ -142,6 +142,37 @@ const AboutUniversity = () => {
               />
             </div>
 
+            {/* Recent Rankings */}
+            <div className="flex flex-wrap justify-center gap-4 mb-8 max-w-2xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="flex-1 min-w-[140px] text-center bg-background/50 backdrop-blur border border-border rounded-lg p-3"
+              >
+                <p className="text-lg md:text-xl font-bold text-accent">#98</p>
+                <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wide">NIRF Pharmacy</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="flex-1 min-w-[140px] text-center bg-background/50 backdrop-blur border border-border rounded-lg p-3"
+              >
+                <p className="text-lg md:text-xl font-bold text-accent">#101-150</p>
+                <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wide">NIRF Univ.</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="flex-1 min-w-[140px] text-center bg-background/50 backdrop-blur border border-border rounded-lg p-3"
+              >
+                <p className="text-lg md:text-xl font-bold text-accent">#11</p>
+                <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wide">India Today</p>
+              </motion.div>
+            </div>
+
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 tracking-tight">
               About University of Lucknow
             </h1>
