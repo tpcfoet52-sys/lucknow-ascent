@@ -71,6 +71,7 @@ const AboutUniversity = () => {
         <div className="container-narrow">
           <div className="flex items-center justify-between h-16 md:h-20">
             <Link to="/" className="flex items-center gap-3 group">
+              {/* Logo */}
               <img
                 src={tpcLogo}
                 alt="Training & Placement Cell"
