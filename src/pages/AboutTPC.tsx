@@ -119,10 +119,10 @@ const AboutTPC = () => {
                 className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
               />
               <div className="hidden sm:block">
-                <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground">
+                <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground transition-colors group-hover:text-gold-600">
                   Training & Placement Cell
                 </p>
-                <p className="text-xs tracking-wide text-muted-foreground">
+                <p className="text-xs tracking-wide text-muted-foreground transition-colors group-hover:text-gold-600/80">
                   FoET, University of Lucknow
                 </p>
               </div>
