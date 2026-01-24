@@ -147,10 +147,10 @@ const PlacementCalendar = () => {
             <main className="flex-1 container-narrow py-8 md:py-12 pt-24 md:pt-32">
                 <div className="mb-6">
                     <Link to="/">
-                        <div className="bg-white hover:bg-yellow-400 text-black px-4 py-2 rounded shadow-md transition-colors flex items-center gap-2 font-medium text-sm w-fit">
+                        <Button variant="gold" size="default" className="gap-2 shadow-md">
                             <ArrowLeft className="h-4 w-4" />
                             Back to Home
-                        </div>
+                        </Button>
                     </Link>
                 </div>
 

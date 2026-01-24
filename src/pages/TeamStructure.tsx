@@ -224,10 +224,10 @@ const TeamStructure = () => {
           {/* Back to Home Button */}
           <div className="absolute top-4 left-0 z-20">
             <Link to="/">
-              <div className="bg-white hover:bg-yellow-400 text-black px-4 py-2 rounded shadow-md transition-colors flex items-center gap-2 font-medium">
+              <Button variant="gold" size="default" className="gap-2 shadow-md">
                 <ArrowLeft className="h-4 w-4" />
                 Back to Home
-              </div>
+              </Button>
             </Link>
           </div>
 

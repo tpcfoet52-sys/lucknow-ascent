@@ -20,18 +20,18 @@ const InterviewPrep = () => {
                         {/* Back to Home Button */}
                         <div className="absolute top-0 left-0 z-20 hidden md:block">
                             <Link to="/">
-                                <div className="bg-white hover:bg-yellow-400 text-black px-4 py-2 rounded shadow-md transition-colors flex items-center gap-2 font-medium text-sm">
+                                <Button variant="gold" size="default" className="gap-2 shadow-md">
                                     <ArrowLeft className="h-4 w-4" />
                                     Back to Home
-                                </div>
+                                </Button>
                             </Link>
                         </div>
                         <div className="md:hidden mb-6 flex justify-start">
                             <Link to="/">
-                                <div className="bg-white hover:bg-yellow-400 text-black px-4 py-2 rounded shadow-md transition-colors flex items-center gap-2 font-medium text-sm">
+                                <Button variant="gold" size="default" className="gap-2 shadow-md">
                                     <ArrowLeft className="h-4 w-4" />
                                     Back to Home
-                                </div>
+                                </Button>
                             </Link>
                         </div>
                         <motion.div
