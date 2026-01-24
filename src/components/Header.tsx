@@ -107,25 +107,34 @@ const Header = () => {
       <div className="container-narrow">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a
-            href="#home"
-            onClick={(e) => { e.preventDefault(); scrollToSection("#home"); }}
-            className="flex items-center gap-3 group cursor-pointer"
-          >
-            <img
-              src={tpcLogo}
-              alt="Training and Placement Cell"
-              className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
-            />
-            <div className="hidden sm:block">
-              <p className={`font-serif font-semibold text-sm md:text-base leading-tight transition-colors ${textColor}`}>
-                Training & Placement Cell
-              </p>
-              <p className={`text-xs tracking-wide transition-colors ${mutedColor}`}>
-                FoET, University of Lucknow
-              </p>
-            </div>
-          </a>
+          <div className="flex items-center gap-4">
+            {!isHomePage && (
+              <Link to="/">
+                <Button variant="ghost" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
+                  <ArrowLeft className="h-5 w-5" />
+                </Button>
+              </Link>
+            )}
+            <a
+              href="#home"
+              onClick={(e) => { e.preventDefault(); scrollToSection("#home"); }}
+              className="flex items-center gap-3 group cursor-pointer"
+            >
+              <img
+                src={tpcLogo}
+                alt="Training and Placement Cell"
+                className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
+              />
+              <div className="hidden sm:block">
+                <p className={`font-serif font-semibold text-sm md:text-base leading-tight transition-colors ${textColor}`}>
+                  Training & Placement Cell
+                </p>
+                <p className={`text-xs tracking-wide transition-colors ${mutedColor}`}>
+                  FoET, University of Lucknow
+                </p>
+              </div>
+            </a>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
@@ -165,14 +174,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-3">
-            {!isHomePage && (
-              <Link to="/">
-                <div className="bg-white hover:bg-yellow-400 text-black px-4 py-2 rounded shadow-md transition-colors flex items-center gap-2 font-medium text-sm">
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Home
-                </div>
-              </Link>
-            )}
+
             {isHomePage && (
               <>
                 <Link to="/team-structure">
@@ -245,14 +247,7 @@ const Header = () => {
               </div>
             ))}
             <div className="pt-4 space-y-2">
-              {!isHomePage && (
-                <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
-                  <div className="w-full bg-white hover:bg-yellow-400 text-black px-4 py-2 rounded shadow-md transition-colors flex items-center justify-center gap-2 font-medium text-sm">
-                    <ArrowLeft className="h-4 w-4" />
-                    Back to Home
-                  </div>
-                </Link>
-              )}
+
               {isHomePage && (
                 <>
                   <Link to="/team-structure" onClick={() => setIsMobileMenuOpen(false)}>

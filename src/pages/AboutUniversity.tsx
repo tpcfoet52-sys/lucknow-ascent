@@ -70,30 +70,29 @@ const AboutUniversity = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
         <div className="container-narrow">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <Link to="/" className="flex items-center gap-3 group">
-              {/* Logo */}
-              <img
-                src={tpcLogo}
-                alt="Training & Placement Cell"
-                className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
-              />
-              <div className="hidden sm:block">
-                <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground transition-colors group-hover:text-gold-600">
-                  Training & Placement Cell
-                </p>
-                <p className="text-xs tracking-wide text-muted-foreground transition-colors group-hover:text-gold-600/80">
-                  FoET, University of Lucknow
-                </p>
-              </div>
-            </Link>
-
-            {/* Right Side: Back to Home */}
-            <Link to="/">
-              <div className="bg-white hover:bg-yellow-400 text-black px-4 py-2 rounded shadow-md transition-colors flex items-center gap-2 font-medium">
-                <ArrowLeft className="h-4 w-4" />
-                Back to Home
-              </div>
-            </Link>
+            <div className="flex items-center gap-4">
+              <Link to="/">
+                <Button variant="ghost" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
+                  <ArrowLeft className="h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/" className="flex items-center gap-3 group">
+                {/* Logo */}
+                <img
+                  src={tpcLogo}
+                  alt="Training & Placement Cell"
+                  className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
+                />
+                <div className="hidden sm:block">
+                  <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground transition-colors group-hover:text-gold-600">
+                    Training & Placement Cell
+                  </p>
+                  <p className="text-xs tracking-wide text-muted-foreground transition-colors group-hover:text-gold-600/80">
+                    FoET, University of Lucknow
+                  </p>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </header>

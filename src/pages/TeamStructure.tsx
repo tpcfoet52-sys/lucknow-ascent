@@ -180,21 +180,29 @@ const TeamStructure = () => {
         <div className="container-narrow">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Left Side: Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <img
-                src={tpcLogo}
-                alt="Training & Placement Cell"
-                className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
-              />
-              <div className="hidden sm:block">
-                <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground transition-colors group-hover:text-gold-600">
-                  Training & Placement Cell
-                </p>
-                <p className="text-xs tracking-wide text-muted-foreground transition-colors group-hover:text-gold-600/80">
-                  FoET, University of Lucknow
-                </p>
-              </div>
-            </Link>
+            <div className="flex items-center gap-4">
+              <Link to="/">
+                <Button variant="ghost" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
+                  <ArrowLeft className="h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/" className="flex items-center gap-3 group">
+                {/* Logo */}
+                <img
+                  src={tpcLogo}
+                  alt="Training & Placement Cell"
+                  className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
+                />
+                <div className="hidden sm:block">
+                  <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground transition-colors group-hover:text-gold-600">
+                    Training & Placement Cell
+                  </p>
+                  <p className="text-xs tracking-wide text-muted-foreground transition-colors group-hover:text-gold-600/80">
+                    FoET, University of Lucknow
+                  </p>
+                </div>
+              </Link>
+            </div>
 
             {/* Right Side: Actions */}
             <div className="flex items-center gap-4">
@@ -203,29 +211,23 @@ const TeamStructure = () => {
                   Login as Coordinator
                 </Button>
               </Link>
-
-              <Link to="/">
-                <div className="bg-white hover:bg-yellow-400 text-black px-4 py-2 rounded shadow-md transition-colors flex items-center gap-2 font-medium">
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Home
-                </div>
-              </Link>
             </div>
           </div>
         </div>
-      </header>
+
+      </header >
 
       {/* Hero Section with Background Image */}
-      <section className="relative pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden">
+      < section className="relative pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden" >
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        < div className="absolute inset-0 z-0" >
           <img
             src={heroImage}
             alt="University of Lucknow Campus"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background" />
-        </div>
+        </div >
 
         <div className="relative z-10 container-narrow pt-8 md:pt-12">
 
@@ -263,10 +265,10 @@ const TeamStructure = () => {
             </p>
           </motion.div>
         </div>
-      </section>
+      </section >
 
       {/* Teams Grid */}
-      <section className="py-16 md:py-24">
+      < section className="py-16 md:py-24" >
         <div className="container-narrow">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teams.map((team, index) => {
@@ -336,133 +338,135 @@ const TeamStructure = () => {
             })}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Team Dashboard Modal */}
       <AnimatePresence>
-        {selectedTeam && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setSelectedTeam(null)}
-          >
+        {
+          selectedTeam && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.3 }}
-              className="bg-background border border-border rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm flex items-center justify-center p-4"
+              onClick={() => setSelectedTeam(null)}
             >
-              {/* Dashboard Header */}
-              <div className="relative p-6 md:p-8 border-b border-border">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5" />
-                <div className="relative flex items-start justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <selectedTeam.icon className="h-7 w-7 text-primary" />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                transition={{ duration: 0.3 }}
+                className="bg-background border border-border rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Dashboard Header */}
+                <div className="relative p-6 md:p-8 border-b border-border">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5" />
+                  <div className="relative flex items-start justify-between">
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <selectedTeam.icon className="h-7 w-7 text-primary" />
+                      </div>
+                      <div>
+                        <h2 className="font-serif text-2xl font-semibold text-foreground">
+                          {selectedTeam.name}
+                        </h2>
+                        <p className="text-muted-foreground">{selectedTeam.description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h2 className="font-serif text-2xl font-semibold text-foreground">
-                        {selectedTeam.name}
-                      </h2>
-                      <p className="text-muted-foreground">{selectedTeam.description}</p>
-                    </div>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setSelectedTeam(null)}
+                      className="text-muted-foreground hover:text-foreground"
+                    >
+                      ✕
+                    </Button>
                   </div>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setSelectedTeam(null)}
-                    className="text-muted-foreground hover:text-foreground"
-                  >
-                    ✕
-                  </Button>
                 </div>
-              </div>
 
-              {/* Dashboard Stats */}
-              <div className="p-6 md:p-8 border-b border-border">
-                <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-4">
-                  Team Statistics
-                </h3>
-                <div className="grid grid-cols-3 gap-4">
-                  {selectedTeam.stats.map((stat, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: idx * 0.1 }}
-                      className="bg-muted/30 rounded-lg p-4 text-center"
-                    >
-                      <p className="text-2xl md:text-3xl font-serif font-bold text-accent">
-                        {stat.value}
-                      </p>
-                      <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
-                    </motion.div>
-                  ))}
+                {/* Dashboard Stats */}
+                <div className="p-6 md:p-8 border-b border-border">
+                  <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-4">
+                    Team Statistics
+                  </h3>
+                  <div className="grid grid-cols-3 gap-4">
+                    {selectedTeam.stats.map((stat, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: idx * 0.1 }}
+                        className="bg-muted/30 rounded-lg p-4 text-center"
+                      >
+                        <p className="text-2xl md:text-3xl font-serif font-bold text-accent">
+                          {stat.value}
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              {/* Team Members */}
-              <div className="p-6 md:p-8">
-                <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-6">
-                  Team Members
-                </h3>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {selectedTeam.members.map((member, idx) => (
-                    <motion.div
-                      key={member.id}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.1 }}
-                      className="flex items-center gap-4 p-4 bg-muted/20 rounded-lg hover:bg-muted/40 transition-colors"
-                    >
-                      <Avatar className="w-12 h-12 border-2 border-accent/20">
-                        <AvatarImage src={member.image} />
-                        <AvatarFallback className="bg-primary text-primary-foreground font-medium">
-                          {member.name.split(' ').map(n => n[0]).join('')}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className="flex-1 min-w-0">
-                        <p className="font-medium text-foreground truncate">{member.name}</p>
-                        <p className="text-sm text-muted-foreground truncate">{member.role}</p>
+                {/* Team Members */}
+                <div className="p-6 md:p-8">
+                  <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-6">
+                    Team Members
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {selectedTeam.members.map((member, idx) => (
+                      <motion.div
+                        key={member.id}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.1 }}
+                        className="flex items-center gap-4 p-4 bg-muted/20 rounded-lg hover:bg-muted/40 transition-colors"
+                      >
+                        <Avatar className="w-12 h-12 border-2 border-accent/20">
+                          <AvatarImage src={member.image} />
+                          <AvatarFallback className="bg-primary text-primary-foreground font-medium">
+                            {member.name.split(' ').map(n => n[0]).join('')}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="flex-1 min-w-0">
+                          <p className="font-medium text-foreground truncate">{member.name}</p>
+                          <p className="text-sm text-muted-foreground truncate">{member.role}</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <button className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors">
+                            <Mail className="w-4 h-4" />
+                          </button>
+                          <button className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors">
+                            <Linkedin className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Key Responsibilities */}
+                <div className="p-6 md:p-8 border-t border-border bg-muted/10">
+                  <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-4">
+                    Key Responsibilities
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {selectedTeam.keyPoints.map((point, idx) => (
+                      <div key={idx} className="flex items-center gap-3 text-sm text-muted-foreground">
+                        <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
+                        <span>{point}</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <button className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors">
-                          <Mail className="w-4 h-4" />
-                        </button>
-                        <button className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors">
-                          <Linkedin className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </motion.div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-
-              {/* Key Responsibilities */}
-              <div className="p-6 md:p-8 border-t border-border bg-muted/10">
-                <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-4">
-                  Key Responsibilities
-                </h3>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {selectedTeam.keyPoints.map((point, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-sm text-muted-foreground">
-                      <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
-                      <span>{point}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )
+        }
+      </AnimatePresence >
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-primary/5 border-t border-border">
+      < section className="py-16 md:py-20 bg-primary/5 border-t border-border" >
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -484,10 +488,10 @@ const TeamStructure = () => {
             </Link>
           </motion.div>
         </div>
-      </section>
+      </section >
 
       {/* Minimal Footer */}
-      <footer className="py-8 border-t border-border">
+      < footer className="py-8 border-t border-border" >
         <div className="container-narrow">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-3">
@@ -501,8 +505,8 @@ const TeamStructure = () => {
             <p>© {new Date().getFullYear()} All rights reserved.</p>
           </div>
         </div>
-      </footer>
-    </div>
+      </footer >
+    </div >
   );
 };
 
