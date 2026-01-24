@@ -116,7 +116,7 @@ const DirectorMessage = () => {
             </div>
 
             <p className="text-foreground mt-5 leading-relaxed text-sm">
-              With over 100 years of academic heritage, the Faculty of Engineering & Technology 
+              With over 105 years of academic heritage, the Faculty of Engineering & Technology 
               has consistently produced leaders who have made significant contributions across 
               diverse industries. Our placement cell works tirelessly to connect our talented 
               students with top recruiters, achieving record-breaking placements year after year.
@@ -142,7 +142,7 @@ const DirectorMessage = () => {
               <div>
                 <h3 className="font-serif font-semibold text-lg text-foreground">Dr. Himanshu Pandey</h3>
                 <p className="text-muted-foreground text-sm leading-snug">
-                  Associate Professor & Program Coordinator – M.Tech (CSE)
+                  Training & placement In charge 
                 </p>
                 <p className="text-accent text-xs mt-1">
                   Additional Director – Central Placement Cell
@@ -161,7 +161,7 @@ const DirectorMessage = () => {
             </div>
 
             <p className="text-foreground mt-5 leading-relaxed text-sm">
-              As the Incharge of T&P Cell, FoET and Member of the Incubation Cell, Dr. Pandey 
+              As the Incharge of T&P Cell, FoET and Member of the Incubation Cell, Dr. Himanshu Pandey 
               is dedicated to mentoring innovation and enhancing employability. His vision focuses 
               on building strong industry-academia partnerships and providing students with 
               hands-on exposure to emerging technologies and career opportunities.
