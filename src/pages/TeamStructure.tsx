@@ -179,37 +179,36 @@ const TeamStructure = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
         <div className="container-narrow">
           <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Left Side: Back Button */}
-            <Link to="/">
-              <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-foreground">
-                <ArrowLeft className="h-4 w-4" />
-                Back to Home
-              </Button>
+            {/* Left Side: Logo */}
+            <Link to="/" className="flex items-center gap-3 group">
+              <img
+                src={tpcLogo}
+                alt="Training & Placement Cell"
+                className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
+              />
+              <div className="hidden sm:block">
+                <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground transition-colors group-hover:text-gold-600">
+                  Training & Placement Cell
+                </p>
+                <p className="text-xs tracking-wide text-muted-foreground transition-colors group-hover:text-gold-600/80">
+                  FoET, University of Lucknow
+                </p>
+              </div>
             </Link>
 
-            {/* Right Side: Actions & Logo */}
+            {/* Right Side: Actions */}
             <div className="flex items-center gap-4">
-              {/* NEW BUTTON ADDED HERE */}
               <Link to="/coordinator-login">
                 <Button variant="gold" size="sm" className="hidden sm:flex">
                   Login as Coordinator
                 </Button>
               </Link>
 
-              <Link to="/" className="flex items-center gap-3 group">
-                <div className="hidden md:block text-right">
-                  <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground">
-                    Training & Placement Cell
-                  </p>
-                  <p className="text-xs tracking-wide text-muted-foreground">
-                    FoET, University of Lucknow
-                  </p>
-                </div>
-                <img
-                  src={tpcLogo}
-                  alt="Training & Placement Cell"
-                  className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
-                />
+              <Link to="/">
+                <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-foreground">
+                  <ArrowLeft className="h-4 w-4" />
+                  Back to Home
+                </Button>
               </Link>
             </div>
           </div>
