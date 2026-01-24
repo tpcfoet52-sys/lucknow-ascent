@@ -182,37 +182,6 @@ const AboutTPC = () => {
                 </motion.div>
               </div>
 
-              <div className="hidden md:block w-px h-16 bg-border" />
-
-              <div className="flex gap-4">
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="text-center bg-background/50 backdrop-blur border border-border rounded-lg p-2"
-                >
-                  <p className="text-sm font-bold text-accent">#98</p>
-                  <p className="text-[10px] text-muted-foreground uppercase">NIRF Pharmacy</p>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="text-center bg-background/50 backdrop-blur border border-border rounded-lg p-2"
-                >
-                  <p className="text-sm font-bold text-accent">#101-150</p>
-                  <p className="text-[10px] text-muted-foreground uppercase">NIRF Univ.</p>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="text-center bg-background/50 backdrop-blur border border-border rounded-lg p-2"
-                >
-                  <p className="text-sm font-bold text-accent">#11</p>
-                  <p className="text-[10px] text-muted-foreground uppercase">India Today</p>
-                </motion.div>
-              </div>
             </div>
 
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 tracking-tight">
