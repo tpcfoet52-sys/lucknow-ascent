@@ -197,11 +197,7 @@ const Header = () => {
               </div>
             ))}
             <div className="pt-4 space-y-2">
-              <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button variant="default" className="w-full">
-                  Login
-                </Button>
-              </Link>
+
             </div>
           </div>
         </div>
