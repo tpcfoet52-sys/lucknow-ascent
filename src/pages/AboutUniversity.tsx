@@ -86,6 +86,14 @@ const AboutUniversity = () => {
                 </p>
               </div>
             </Link>
+
+            {/* Right Side: Back to Home */}
+            <Link to="/">
+              <div className="bg-white hover:bg-yellow-400 text-black px-4 py-2 rounded shadow-md transition-colors flex items-center gap-2 font-medium">
+                <ArrowLeft className="h-4 w-4" />
+                Back to Home
+              </div>
+            </Link>
           </div>
         </div>
       </header>
@@ -102,15 +110,7 @@ const AboutUniversity = () => {
         </div>
 
         <div className="relative z-10 container-narrow pt-8 md:pt-16">
-          {/* Back to Home Button */}
-          <div className="absolute top-4 left-0 z-20">
-            <Link to="/">
-              <Button variant="gold" size="default" className="gap-2 shadow-md">
-                <ArrowLeft className="h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
+
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

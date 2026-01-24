@@ -18,23 +18,8 @@ const ResumeGuide = () => {
                 {/* Hero Section */}
                 <section className="relative py-12 md:py-20 mb-12">
                     <div className="container-narrow text-center relative">
-                        {/* Back to Home Button */}
-                        <div className="absolute top-0 left-0 z-20 hidden md:block">
-                            <Link to="/">
-                                <Button variant="gold" size="default" className="gap-2 shadow-md">
-                                    <ArrowLeft className="h-4 w-4" />
-                                    Back to Home
-                                </Button>
-                            </Link>
-                        </div>
-                        <div className="md:hidden mb-6 flex justify-start">
-                            <Link to="/">
-                                <Button variant="gold" size="default" className="gap-2 shadow-md">
-                                    <ArrowLeft className="h-4 w-4" />
-                                    Back to Home
-                                </Button>
-                            </Link>
-                        </div>
+
+
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}

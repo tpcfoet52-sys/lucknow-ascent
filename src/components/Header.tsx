@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowLeft } from "lucide-react";
 import { Button } from "./ui/button";
 
 import tpcLogo from "@/assets/tpc-logo.jpeg";
@@ -165,6 +165,14 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-3">
+            {!isHomePage && (
+              <Link to="/">
+                <div className="bg-white hover:bg-yellow-400 text-black px-4 py-2 rounded shadow-md transition-colors flex items-center gap-2 font-medium text-sm">
+                  <ArrowLeft className="h-4 w-4" />
+                  Back to Home
+                </div>
+              </Link>
+            )}
             <Link to="/team-structure">
               <Button
                 variant={!isScrolled ? "goldOutline" : "outline"}
@@ -233,6 +241,14 @@ const Header = () => {
               </div>
             ))}
             <div className="pt-4 space-y-2">
+              {!isHomePage && (
+                <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+                  <div className="w-full bg-white hover:bg-yellow-400 text-black px-4 py-2 rounded shadow-md transition-colors flex items-center justify-center gap-2 font-medium text-sm">
+                    <ArrowLeft className="h-4 w-4" />
+                    Back to Home
+                  </div>
+                </Link>
+              )}
               <Link to="/team-structure" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button variant="outline" className="w-full">
                   Team Login
