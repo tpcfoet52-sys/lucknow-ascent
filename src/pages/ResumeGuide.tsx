@@ -20,7 +20,7 @@ const ResumeGuide = () => {
                         <Button
                             variant="ghost"
                             size="sm"
-                            className="gap-2 bg-card hover:bg-accent hover:text-accent-foreground border border-border/50 shadow-elevated-sm transition-all duration-300 h-9 px-4 rounded-md"
+                            className="gap-2 text-muted-foreground hover:text-foreground"
                         >
                             <ArrowLeft className="w-4 h-4" /> Back to Home
                         </Button>
@@ -28,14 +28,14 @@ const ResumeGuide = () => {
                 </div>
 
                 {/* Hero Section */}
-                <section className="bg-secondary/30 py-16 md:py-24 border-b border-border/50">
+                <section className="relative py-12 md:py-20 mb-12">
                     <div className="container-narrow text-center">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <span className="text-accent font-semibold text-sm uppercase tracking-wider">Career Coaching</span>
+                            <span className="text-accent font-medium text-sm uppercase tracking-wider">Career Coaching</span>
                             <h1 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mt-4 mb-6">
                                 Build an <span className="text-gold-gradient">Impressive Resume</span>
                             </h1>
@@ -43,10 +43,10 @@ const ResumeGuide = () => {
                                 Your resume is your first impression. Learn how to craft a professional, ATS-friendly resume that gets you shortlisted by top recruiters.
                             </p>
                             <div className="mt-8 flex justify-center gap-4">
-                                <Button size="lg" className="rounded-full shadow-elevated" onClick={() => document.getElementById('step-by-step')?.scrollIntoView({ behavior: 'smooth' })}>
+                                <Button variant="gold" size="lg" className="rounded-md" onClick={() => document.getElementById('step-by-step')?.scrollIntoView({ behavior: 'smooth' })}>
                                     Start Building <ChevronRight className="w-4 h-4 ml-2" />
                                 </Button>
-                                <Button size="lg" variant="outline" className="rounded-full bg-background/50 backdrop-blur-sm" onClick={() => document.getElementById('download-template')?.scrollIntoView({ behavior: 'smooth' })}>
+                                <Button size="lg" variant="outline" className="rounded-md" onClick={() => document.getElementById('download-template')?.scrollIntoView({ behavior: 'smooth' })}>
                                     <Download className="w-4 h-4 ml-2" /> Templates
                                 </Button>
                             </div>

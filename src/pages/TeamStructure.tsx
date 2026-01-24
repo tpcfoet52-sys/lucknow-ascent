@@ -180,7 +180,7 @@ const TeamStructure = () => {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Left Side: Back Button */}
             <Link to="/">
-              <Button variant="outline" size="sm" className="gap-2">
+              <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-foreground">
                 <ArrowLeft className="h-4 w-4" />
                 Back to Home
               </Button>

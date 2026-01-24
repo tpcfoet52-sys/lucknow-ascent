@@ -20,7 +20,7 @@ const SoftSkills = () => {
                         <Button
                             variant="ghost"
                             size="sm"
-                            className="gap-2 bg-card hover:bg-accent hover:text-accent-foreground border border-border/50 shadow-elevated-sm transition-all duration-300 h-9 px-4 rounded-md"
+                            className="gap-2 text-muted-foreground hover:text-foreground"
                         >
                             <ArrowLeft className="w-4 h-4" /> Back to Home
                         </Button>
@@ -28,19 +28,19 @@ const SoftSkills = () => {
                 </div>
 
                 {/* Hero Section */}
-                <section className="bg-secondary/30 py-12 md:py-20 border-b border-border/50 mb-12">
+                <section className="relative py-12 md:py-20 mb-12">
                     <div className="container-narrow text-center">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <span className="text-accent font-semibold text-sm uppercase tracking-wider">Professional Growth</span>
+                            <span className="text-accent font-medium text-sm uppercase tracking-wider">Professional Growth</span>
                             <h1 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mt-4 mb-6">
                                 Elevate Your <span className="text-gold-gradient">Professional Persona</span>
                             </h1>
                             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                                Technical skills get you the interview, but soft skills get you the job. Master communication, leadership, and stay ahead with the latest tech trends.
+                                Master communication, leadership, and stay ahead with the latest tech trends.
                             </p>
                         </motion.div>
                     </div>
@@ -60,7 +60,7 @@ const SoftSkills = () => {
                         <div className="grid md:grid-cols-2 gap-8">
                             <div className="space-y-6">
                                 <h3 className="text-xl font-semibold flex items-center gap-2">
-                                    <Presentation className="w-5 h-5 text-blue-500" /> The Art of Presentation
+                                    <Presentation className="w-5 h-5 text-accent" /> The Art of Presentation
                                 </h3>
                                 <Accordion type="single" collapsible className="w-full">
                                     <AccordionItem value="item-1">
@@ -108,7 +108,7 @@ const SoftSkills = () => {
 
                             <div className="space-y-6">
                                 <h3 className="text-xl font-semibold flex items-center gap-2">
-                                    <Users className="w-5 h-5 text-green-500" /> Effective Communication
+                                    <Users className="w-5 h-5 text-accent" /> Effective Communication
                                 </h3>
                                 <div className="grid gap-4">
                                     {[
@@ -142,21 +142,21 @@ const SoftSkills = () => {
                             {[
                                 {
                                     icon: BrainCircuit,
-                                    color: "text-purple-500",
+                                    color: "text-accent",
                                     title: "Artificial Intelligence",
                                     desc: "Generative AI, LLMs, and Machine Learning are automating workflows. Learn prompt engineering and AI ethics.",
                                     tags: ["GenAI", "Python", "TensorFlow"]
                                 },
                                 {
                                     icon: Cpu,
-                                    color: "text-blue-500",
+                                    color: "text-primary",
                                     title: "Internet of Things (IoT)",
                                     desc: "Smart devices connecting the physical and digital worlds. Impacting manufacturing, healthcare, and smart cities.",
                                     tags: ["Sensors", "Arduino", "Cloud"]
                                 },
                                 {
                                     icon: Globe,
-                                    color: "text-green-500",
+                                    color: "text-accent",
                                     title: "Blockchain & Web3",
                                     desc: "Decentralized finance and secure digital identities. Moving beyond crypto to supply chain and smart contracts.",
                                     tags: ["Solidity", "Smart Contracts", "DeFi"]
@@ -197,8 +197,8 @@ const SoftSkills = () => {
                                 <CardContent className="p-6 md:p-8">
                                     <div className="flex gap-4">
                                         <div className="flex-shrink-0">
-                                            <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
-                                                <Zap className="w-5 h-5 text-orange-600" />
+                                            <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                                                <Zap className="w-5 h-5 text-accent" />
                                             </div>
                                         </div>
                                         <div>
@@ -209,7 +209,7 @@ const SoftSkills = () => {
                                             <ul className="space-y-2">
                                                 {["Emotional Intelligence (EQ)", "Strategic Thinking", "Adaptability", "Decisiveness"].map((trait, i) => (
                                                     <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                        <UserCheck className="w-4 h-4 text-green-500" /> {trait}
+                                                        <UserCheck className="w-4 h-4 text-primary" /> {trait}
                                                     </li>
                                                 ))}
                                             </ul>
@@ -222,8 +222,8 @@ const SoftSkills = () => {
                                 <CardContent className="p-6 md:p-8">
                                     <div className="flex gap-4">
                                         <div className="flex-shrink-0">
-                                            <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                                                <TrendingUp className="w-5 h-5 text-blue-600" />
+                                            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                                <TrendingUp className="w-5 h-5 text-primary" />
                                             </div>
                                         </div>
                                         <div>

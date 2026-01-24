@@ -19,7 +19,7 @@ const InterviewPrep = () => {
                         <Button
                             variant="ghost"
                             size="sm"
-                            className="gap-2 bg-card hover:bg-accent hover:text-accent-foreground border border-border/50 shadow-elevated-sm transition-all duration-300 h-9 px-4 rounded-md"
+                            className="gap-2 text-muted-foreground hover:text-foreground"
                         >
                             <ArrowLeft className="w-4 h-4" /> Back to Home
                         </Button>
@@ -27,14 +27,14 @@ const InterviewPrep = () => {
                 </div>
 
                 {/* Hero Section */}
-                <section className="bg-secondary/30 py-12 md:py-20 border-b border-border/50 mb-12">
+                <section className="relative py-12 md:py-20 mb-12">
                     <div className="container-narrow text-center">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <span className="text-accent font-semibold text-sm uppercase tracking-wider">Skill Development</span>
+                            <span className="text-accent font-medium text-sm uppercase tracking-wider">Skill Development</span>
                             <h1 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mt-4 mb-6">
                                 Master Your <span className="text-gold-gradient">Interview Skills</span>
                             </h1>
@@ -151,7 +151,7 @@ const InterviewPrep = () => {
                                 <div className="space-y-4">
                                     <div className="flex items-start gap-4">
                                         <div className="p-2 bg-background rounded-lg shadow-sm">
-                                            <Users className="w-6 h-6 text-blue-600" />
+                                            <Users className="w-6 h-6 text-primary" />
                                         </div>
                                         <div>
                                             <h4 className="font-semibold text-foreground">Alumni Mentorship</h4>
@@ -160,7 +160,7 @@ const InterviewPrep = () => {
                                     </div>
                                     <div className="flex items-start gap-4">
                                         <div className="p-2 bg-background rounded-lg shadow-sm">
-                                            <BrainCircuit className="w-6 h-6 text-purple-600" />
+                                            <BrainCircuit className="w-6 h-6 text-accent" />
                                         </div>
                                         <div>
                                             <h4 className="font-semibold text-foreground">AI Interview Bot</h4>

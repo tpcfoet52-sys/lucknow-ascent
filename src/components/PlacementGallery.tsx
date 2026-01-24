@@ -55,7 +55,6 @@ const PlacementGallery = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-accent font-semibold text-sm uppercase tracking-wider">Gallery</span>
           <h2 className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mt-3">
             Recent <span className="text-gold-gradient">Placement Drives</span>
           </h2>
@@ -71,7 +70,7 @@ const PlacementGallery = () => {
           >
             <ChevronLeft className="w-6 h-6 text-foreground" />
           </button>
-          
+
           <button
             onClick={nextSlide}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-12 h-12 rounded-full bg-card shadow-elevated-md border border-border flex items-center justify-center hover:bg-secondary transition-colors"
@@ -96,7 +95,7 @@ const PlacementGallery = () => {
                   <div className="flex-shrink-0 w-32 h-32 rounded-full bg-accent/20 border-4 border-accent flex items-center justify-center">
                     <Building2 className="w-16 h-16 text-accent" />
                   </div>
-                  
+
                   {/* Content */}
                   <div className="text-center md:text-left flex-1">
                     <span className="inline-block bg-accent/20 text-accent text-sm font-medium px-3 py-1 rounded-full mb-3">
@@ -124,9 +123,8 @@ const PlacementGallery = () => {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentIndex ? "bg-accent w-8" : "bg-border hover:bg-muted-foreground"
-                }`}
+                className={`w-2 h-2 rounded-full transition-all ${index === currentIndex ? "bg-accent w-8" : "bg-border hover:bg-muted-foreground"
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}

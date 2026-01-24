@@ -50,7 +50,7 @@ const Media = () => {
                         <Button
                             variant="ghost"
                             size="sm"
-                            className="gap-2 bg-card hover:bg-accent hover:text-accent-foreground border border-border/50 shadow-elevated-sm transition-all duration-300 h-9 px-4 rounded-md"
+                            className="gap-2 text-muted-foreground hover:text-foreground"
                         >
                             <ArrowLeft className="w-4 h-4" /> Back to Home
                         </Button>
@@ -58,14 +58,14 @@ const Media = () => {
                 </div>
 
                 {/* Hero Section */}
-                <section className="bg-secondary/30 py-12 md:py-20 border-b border-border/50 mb-12">
+                <section className="relative py-12 md:py-20 mb-12">
                     <div className="container-narrow text-center">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <span className="text-accent font-semibold text-sm uppercase tracking-wider">Media & Content</span>
+                            <span className="text-accent font-medium text-sm uppercase tracking-wider">Media & Content</span>
                             <h1 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mt-4 mb-6">
                                 Campus <span className="text-gold-gradient">Chronicles</span>
                             </h1>
@@ -136,7 +136,7 @@ const Media = () => {
                     {/* Video Gallery */}
                     <section>
                         <h2 className="font-serif text-3xl font-semibold mb-8 flex items-center gap-2">
-                            <Video className="w-6 h-6 text-red-500" /> Featured Videos
+                            <Video className="w-6 h-6 text-accent" /> Featured Videos
                         </h2>
 
                         <div className="grid md:grid-cols-2 gap-8">
