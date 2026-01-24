@@ -20,6 +20,7 @@ import heroImage from "@/assets/university-hero.jpg";
 import nirfBadge from "@/assets/nirf-ranking-badge.png";
 import centenaryLogo from "@/assets/centenary-logo.png";
 import naacBadge from "@/assets/naac-badge.png";
+import tpcLogo from "@/assets/tpc-logo.jpeg";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -70,26 +71,19 @@ const AboutUniversity = () => {
         <div className="container-narrow">
           <div className="flex items-center justify-between h-16 md:h-20">
             <Link to="/" className="flex items-center gap-3 group">
-              {/* Logo */}
-              <a
-                href="#home"
-                onClick={(e) => { e.preventDefault(); scrollToSection("#home"); }}
-                className="flex items-center gap-3 group cursor-pointer"
-              >
-                <img
-                  src={tpcLogo}
-                  alt="Training and Placement Cell"
-                  className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
-                />
-                <div className="hidden sm:block">
-                  <p className={`font-serif font-semibold text-sm md:text-base leading-tight transition-colors ${textColor}`}>
-                    Training & Placement Cell
-                  </p>
-                  <p className={`text-xs tracking-wide transition-colors ${mutedColor}`}>
-                    FoET, University of Lucknow
-                  </p>
-                </div>
-              </a>
+              <img
+                src={tpcLogo}
+                alt="Training & Placement Cell"
+                className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
+              />
+              <div className="hidden sm:block">
+                <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground transition-colors group-hover:text-gold-600">
+                  Training & Placement Cell
+                </p>
+                <p className="text-xs tracking-wide text-muted-foreground transition-colors group-hover:text-gold-600/80">
+                  FoET, University of Lucknow
+                </p>
+              </div>
             </Link>
             <Link to="/">
               <Button variant="outline" size="sm" className="gap-2">
