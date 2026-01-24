@@ -26,9 +26,9 @@ const stats = [
 ];
 
 const topRecruiters = [
-  "MICROSOFT", "ADOBE", "DELLOIT", "WIPRO", "NPCL", "HCL TECH", 
+  "SOTI", "ADOBE", "DELLOIT", "WIPRO", "NPCL", "HCL TECH", 
   "GENPACT", "ADANI CEMENTS", "MOTHERSON INTERNATIONAL", "ALLEN", "PW",
-  "BYJU’S", "SOTI", "JARO EDUCATION", "RELIANCE INDUSTRIES LTD."
+  "BYJU’S", "Tech Mahindra", "JARO EDUCATION", "RELIANCE INDUSTRIES LTD."
 ];
 
 const whyRecruitPoints = [
