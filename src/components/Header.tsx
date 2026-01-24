@@ -173,24 +173,28 @@ const Header = () => {
                 </div>
               </Link>
             )}
-            <Link to="/team-structure">
-              <Button
-                variant={!isScrolled ? "goldOutline" : "outline"}
-                size="sm"
-              >
-                Team Login
-              </Button>
-            </Link>
+            {isHomePage && (
+              <>
+                <Link to="/team-structure">
+                  <Button
+                    variant={!isScrolled ? "goldOutline" : "outline"}
+                    size="sm"
+                  >
+                    Team Login
+                  </Button>
+                </Link>
 
-            {/* UPDATED: Wrapped in Link */}
-            <Link to="/admin-login">
-              <Button
-                variant={!isScrolled ? "gold" : "default"}
-                size="default"
-              >
-                Admin Login
-              </Button>
-            </Link>
+                {/* UPDATED: Wrapped in Link */}
+                <Link to="/admin-login">
+                  <Button
+                    variant={!isScrolled ? "gold" : "default"}
+                    size="default"
+                  >
+                    Admin Login
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -249,18 +253,22 @@ const Header = () => {
                   </div>
                 </Link>
               )}
-              <Link to="/team-structure" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button variant="outline" className="w-full">
-                  Team Login
-                </Button>
-              </Link>
+              {isHomePage && (
+                <>
+                  <Link to="/team-structure" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button variant="outline" className="w-full">
+                      Team Login
+                    </Button>
+                  </Link>
 
-              {/* UPDATED: Wrapped in Link with onClick to close menu */}
-              <Link to="/admin" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button variant="default" className="w-full">
-                  Admin Login
-                </Button>
-              </Link>
+                  {/* UPDATED: Wrapped in Link with onClick to close menu */}
+                  <Link to="/admin" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button variant="default" className="w-full">
+                      Admin Login
+                    </Button>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>
