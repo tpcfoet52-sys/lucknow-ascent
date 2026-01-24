@@ -108,7 +108,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center gap-4">
-            {!isHomePage && (
+            {!isHomePage && location.pathname !== "/events" && location.pathname !== "/media" && (
               <Link to="/">
                 <Button variant="ghost" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
                   <ArrowLeft className="h-5 w-5" />

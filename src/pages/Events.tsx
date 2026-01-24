@@ -12,12 +12,7 @@ const EventsPage = () => {
       <Header />
       <main className="pt-20">
         <div className="container-narrow py-6">
-          <Link to="/">
-            <Button variant="outline" size="sm" className="gap-2">
-              <ArrowLeft className="h-4 w-4" />
-              Back to Home
-            </Button>
-          </Link>
+
         </div>
         <Events />
       </main>

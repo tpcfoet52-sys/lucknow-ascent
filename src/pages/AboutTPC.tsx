@@ -114,8 +114,9 @@ const AboutTPC = () => {
           <div className="flex items-center justify-between h-16 md:h-20">
             <div className="flex items-center gap-4">
               <Link to="/">
-                <Button variant="ghost" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
-                  <ArrowLeft className="h-5 w-5" />
+                <Button variant="outline" size="sm" className="gap-2">
+                  <ArrowLeft className="h-4 w-4" />
+                  Back to Home
                 </Button>
               </Link>
               <Link to="/" className="flex items-center gap-3 group">
