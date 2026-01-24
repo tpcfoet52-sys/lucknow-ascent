@@ -20,6 +20,7 @@ import naacBadge from "@/assets/naac-badge.png";
 import heroImage from "@/assets/university-hero.jpg";
 import profSpSingh from "@/assets/prof-sp-singh.jpg";
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
+import tpcLogo from "@/assets/tpc-logo.jpeg";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -85,11 +86,11 @@ const topRecruiters = [
 ];
 
 const trainingPrograms = [
-  { title: "Session on Scope in Civil Engineering", by: "Miss Surabhi Aggarwal"},
-  { title: "Geotechnical Enginee", by: "Samsung C&T"},
-  { title: "Workshop Session on Reaching Out to Industries", by: "Mr. Shubham Sing"},
-  { title: " PhonePe Session on Opportunities for Engineers in DRDO", by: "Miss Surabhi Aggarwal"},
-  { title: "Session on Scope in Civil Engineering", by: "Miss Surabhi Aggarwal"},
+  { title: "Session on Scope in Civil Engineering", by: "Miss Surabhi Aggarwal" },
+  { title: "Geotechnical Enginee", by: "Samsung C&T" },
+  { title: "Workshop Session on Reaching Out to Industries", by: "Mr. Shubham Sing" },
+  { title: " PhonePe Session on Opportunities for Engineers in DRDO", by: "Miss Surabhi Aggarwal" },
+  { title: "Session on Scope in Civil Engineering", by: "Miss Surabhi Aggarwal" },
 ];
 
 const successStories = [
@@ -113,16 +114,16 @@ const AboutTPC = () => {
           <div className="flex items-center justify-between h-16 md:h-20">
             <Link to="/" className="flex items-center gap-3 group">
               <img
-                src={uolLogo}
-                alt="University of Lucknow"
-                className="w-10 h-10 md:w-12 md:h-12 object-contain"
+                src={tpcLogo}
+                alt="Training & Placement Cell"
+                className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
               />
               <div className="hidden sm:block">
                 <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground">
-                  University of Lucknow
+                  Training & Placement Cell
                 </p>
                 <p className="text-xs tracking-wide text-muted-foreground">
-                  Training & Placement Cell
+                  FoET, University of Lucknow
                 </p>
               </div>
             </Link>

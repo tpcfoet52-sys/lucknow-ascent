@@ -18,6 +18,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import uolLogo from "@/assets/uol-logo.png";
 import tpcBadge from "@/assets/naac-badge.png";
 import heroImage from "@/assets/university-hero.jpg";
+import tpcLogo from "@/assets/tpc-logo.jpeg";
 
 interface TeamMember {
   id: number;
@@ -198,16 +199,16 @@ const TeamStructure = () => {
               <Link to="/" className="flex items-center gap-3 group">
                 <div className="hidden md:block text-right">
                   <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground">
-                    University of Lucknow
+                    Training & Placement Cell
                   </p>
                   <p className="text-xs tracking-wide text-muted-foreground">
-                    Training & Placement Cell
+                    FoET, University of Lucknow
                   </p>
                 </div>
                 <img
-                  src={uolLogo}
-                  alt="University of Lucknow"
-                  className="w-10 h-10 md:w-12 md:h-12 object-contain"
+                  src={tpcLogo}
+                  alt="Training & Placement Cell"
+                  className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
                 />
               </Link>
             </div>
