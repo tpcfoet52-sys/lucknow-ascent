@@ -84,10 +84,11 @@ const topRecruiters = [
 ];
 
 const trainingPrograms = [
-  { title: "Aptitude Training", duration: "3 Months", participants: "2000+" },
-  { title: "Technical Bootcamps", duration: "2 Months", participants: "1500+" },
-  { title: "Soft Skills Workshop", duration: "1 Month", participants: "2500+" },
-  { title: "Mock Interviews", duration: "Ongoing", participants: "3000+" },
+  { title: "Session on Scope in Civil Engineering", by: "Miss Surabhi Aggarwal"},
+  { title: "Geotechnical Enginee", by: "Samsung C&T"},
+  { title: "Workshop Session on Reaching Out to Industries", by: "Mr. Shubham Sing"},
+  { title: " PhonePe Session on Opportunities for Engineers in DRDO", by: "Miss Surabhi Aggarwal"},
+  { title: "Session on Scope in Civil Engineering", by: "Miss Surabhi Aggarwal"},
 ];
 
 const successStories = [
