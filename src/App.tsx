@@ -7,7 +7,8 @@ import Index from "./pages/Index";
 import TeamStructure from "./pages/TeamStructure";
 import AboutUniversity from "./pages/AboutUniversity";
 import AboutTPC from "./pages/AboutTPC";
-import AdminLogin from "./pages/AdminLogin"; // Import the AdminLogin component
+import AdminLogin from "./pages/AdminLogin";
+import LoginPortal from "./pages/LoginPortal";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/about-tpc" element={<AboutTPC />} />
           {/* Add the admin route */}
           <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/login" element={<LoginPortal />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
