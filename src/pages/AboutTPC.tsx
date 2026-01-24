@@ -124,10 +124,10 @@ const AboutTPC = () => {
               />
               <div className="hidden sm:block">
                 <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground">
-                  University of Lucknow
+                  Training & Placement Cell
                 </p>
                 <p className="text-xs tracking-wide text-muted-foreground">
-                  Training & Placement Cell
+                  University of Lucknow
                 </p>
               </div>
             </Link>

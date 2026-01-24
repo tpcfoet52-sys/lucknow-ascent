@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { 
-  ArrowLeft, 
-  GraduationCap, 
-  Building, 
-  Users, 
-  Globe, 
+import {
+  ArrowLeft,
+  GraduationCap,
+  Building,
+  Users,
+  Globe,
   BookOpen,
   Award,
   MapPin,
@@ -76,17 +76,17 @@ const AboutUniversity = () => {
               </Button>
             </Link>
             <Link to="/" className="flex items-center gap-3 group">
-              <img 
-                src={uolLogo} 
-                alt="University of Lucknow" 
+              <img
+                src={uolLogo}
+                alt="University of Lucknow"
                 className="w-10 h-10 md:w-12 md:h-12 object-contain"
               />
               <div className="hidden sm:block">
                 <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground">
-                  University of Lucknow
+                  Training & Placement Cell
                 </p>
                 <p className="text-xs tracking-wide text-muted-foreground">
-                  Training & Placement Cell
+                  University of Lucknow
                 </p>
               </div>
             </Link>
@@ -104,9 +104,9 @@ const AboutUniversity = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background" />
         </div>
-        
+
         <div className="relative z-10 container-narrow pt-8 md:pt-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -114,25 +114,25 @@ const AboutUniversity = () => {
           >
             {/* Badges Row */}
             <div className="flex items-center justify-center gap-6 md:gap-10 mb-8">
-              <motion.img 
-                src={naacBadge} 
-                alt="NAAC A++ Accreditation" 
+              <motion.img
+                src={naacBadge}
+                alt="NAAC A++ Accreditation"
                 className="w-20 h-20 md:w-28 md:h-28 object-contain"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
               />
-              <motion.img 
-                src={uolLogo} 
-                alt="University of Lucknow" 
+              <motion.img
+                src={uolLogo}
+                alt="University of Lucknow"
                 className="w-24 h-24 md:w-32 md:h-32 object-contain"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
               />
-              <motion.img 
-                src={nirfBadge} 
-                alt="NIRF Ranking" 
+              <motion.img
+                src={nirfBadge}
+                alt="NIRF Ranking"
                 className="w-20 h-20 md:w-28 md:h-28 object-contain"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -144,14 +144,14 @@ const AboutUniversity = () => {
               About University of Lucknow
             </h1>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
-              Established in 1921, the University of Lucknow stands as one of India's premier institutions 
+              Established in 1921, the University of Lucknow stands as one of India's premier institutions
               of higher learning, with a legacy spanning over a century of academic excellence.
             </p>
-            
+
             {/* Centenary Logo */}
-            <motion.img 
-              src={centenaryLogo} 
-              alt="Centenary Celebrations 1920-2020" 
+            <motion.img
+              src={centenaryLogo}
+              alt="Centenary Celebrations 1920-2020"
               className="mx-auto w-64 md:w-80 object-contain mt-4"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -179,7 +179,7 @@ const AboutUniversity = () => {
           <div className="relative">
             {/* Timeline line */}
             <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-px" />
-            
+
             <div className="space-y-8">
               {milestones.map((milestone, index) => (
                 <motion.div
@@ -189,9 +189,8 @@ const AboutUniversity = () => {
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeInUp}
-                  className={`relative flex items-center gap-6 ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
+                  className={`relative flex items-center gap-6 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                    }`}
                 >
                   <div className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"} hidden md:block`}>
                     <div className="bg-background border border-border rounded-lg p-5 inline-block">
@@ -199,9 +198,9 @@ const AboutUniversity = () => {
                       <p className="text-muted-foreground text-sm mt-1">{milestone.event}</p>
                     </div>
                   </div>
-                  
+
                   <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-accent rounded-full -translate-x-1/2 ring-4 ring-background" />
-                  
+
                   <div className="flex-1 ml-10 md:ml-0">
                     <div className="bg-background border border-border rounded-lg p-5 md:hidden">
                       <p className="font-serif text-xl font-bold text-accent">{milestone.year}</p>

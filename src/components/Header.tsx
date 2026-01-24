@@ -91,10 +91,10 @@ const Header = () => {
             />
             <div className="hidden sm:block">
               <p className={`font-serif font-semibold text-sm md:text-base leading-tight transition-colors ${textColor}`}>
-                University of Lucknow
+                Training & Placement Cell
               </p>
               <p className={`text-xs tracking-wide transition-colors ${mutedColor}`}>
-                Training & Placement Cell
+                University of Lucknow
               </p>
             </div>
           </a>
