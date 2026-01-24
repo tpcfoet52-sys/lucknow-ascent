@@ -108,7 +108,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center gap-4">
-            {!isHomePage && location.pathname !== "/events" && location.pathname !== "/media" && (
+            {!isHomePage && (
               <Link to="/">
                 <Button variant="ghost" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
                   <ArrowLeft className="h-5 w-5" />
@@ -214,61 +214,63 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden bg-background border-t border-border animate-fade-in">
-          <div className="container-narrow py-4 space-y-1">
-            {navLinks.map((link) => (
-              <div key={link.name}>
-                <button
-                  onClick={(e) => handleNavClick(link, e as any)}
-                  className={`w-full flex items-center justify-between hover:text-primary hover:bg-secondary transition-colors py-3 px-4 rounded-md cursor-pointer ${activeSection === link.href.substring(1) ? "text-primary font-semibold bg-secondary" : "text-foreground"
-                    }`}
-                >
-                  {link.name}
-                  {link.submenu && (
-                    <ChevronDown className={`h-4 w-4 transition-transform ${openDropdown === link.name ? "rotate-180" : ""}`} />
-                  )}
-                </button>
+      {
+        isMobileMenuOpen && (
+          <div className="lg:hidden bg-background border-t border-border animate-fade-in">
+            <div className="container-narrow py-4 space-y-1">
+              {navLinks.map((link) => (
+                <div key={link.name}>
+                  <button
+                    onClick={(e) => handleNavClick(link, e as any)}
+                    className={`w-full flex items-center justify-between hover:text-primary hover:bg-secondary transition-colors py-3 px-4 rounded-md cursor-pointer ${activeSection === link.href.substring(1) ? "text-primary font-semibold bg-secondary" : "text-foreground"
+                      }`}
+                  >
+                    {link.name}
+                    {link.submenu && (
+                      <ChevronDown className={`h-4 w-4 transition-transform ${openDropdown === link.name ? "rotate-180" : ""}`} />
+                    )}
+                  </button>
 
-                {link.submenu && openDropdown === link.name && (
-                  <div className="pl-4 mt-1 space-y-1">
-                    {link.submenu.map((sublink) => (
-                      <Link
-                        key={sublink.name}
-                        to={sublink.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-2 px-4 text-sm text-muted-foreground hover:text-primary hover:bg-muted rounded-md transition-colors"
-                      >
-                        {sublink.name}
-                      </Link>
-                    ))}
-                  </div>
+                  {link.submenu && openDropdown === link.name && (
+                    <div className="pl-4 mt-1 space-y-1">
+                      {link.submenu.map((sublink) => (
+                        <Link
+                          key={sublink.name}
+                          to={sublink.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-2 px-4 text-sm text-muted-foreground hover:text-primary hover:bg-muted rounded-md transition-colors"
+                        >
+                          {sublink.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+              <div className="pt-4 space-y-2">
+
+                {isHomePage && (
+                  <>
+                    <Link to="/team-structure" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Button variant="outline" className="w-full">
+                        Team Login
+                      </Button>
+                    </Link>
+
+                    {/* UPDATED: Wrapped in Link with onClick to close menu */}
+                    <Link to="/admin" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Button variant="default" className="w-full">
+                        Admin Login
+                      </Button>
+                    </Link>
+                  </>
                 )}
               </div>
-            ))}
-            <div className="pt-4 space-y-2">
-
-              {isHomePage && (
-                <>
-                  <Link to="/team-structure" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button variant="outline" className="w-full">
-                      Team Login
-                    </Button>
-                  </Link>
-
-                  {/* UPDATED: Wrapped in Link with onClick to close menu */}
-                  <Link to="/admin" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button variant="default" className="w-full">
-                      Admin Login
-                    </Button>
-                  </Link>
-                </>
-              )}
             </div>
           </div>
-        </div>
-      )}
-    </header>
+        )
+      }
+    </header >
   );
 };
 
