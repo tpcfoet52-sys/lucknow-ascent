@@ -15,21 +15,26 @@ const SoftSkills = () => {
             <Header />
 
             <main className="flex-1 pt-24 pb-12">
-                <div className="container-narrow mb-8">
-                    <Link to="/">
-                        <Button
-                            variant="ghost"
-                            size="sm"
-                            className="gap-2 text-muted-foreground hover:text-foreground"
-                        >
-                            <ArrowLeft className="w-4 h-4" /> Back to Home
-                        </Button>
-                    </Link>
-                </div>
-
                 {/* Hero Section */}
                 <section className="relative py-12 md:py-20 mb-12">
-                    <div className="container-narrow text-center">
+                    <div className="container-narrow text-center relative">
+                        {/* Back to Home Button */}
+                        <div className="absolute top-0 left-0 z-20 hidden md:block">
+                            <Link to="/">
+                                <div className="bg-white hover:bg-yellow-400 text-black px-4 py-2 rounded shadow-md transition-colors flex items-center gap-2 font-medium text-sm">
+                                    <ArrowLeft className="h-4 w-4" />
+                                    Back to Home
+                                </div>
+                            </Link>
+                        </div>
+                        <div className="md:hidden mb-6 flex justify-start">
+                            <Link to="/">
+                                <div className="bg-white hover:bg-yellow-400 text-black px-4 py-2 rounded shadow-md transition-colors flex items-center gap-2 font-medium text-sm">
+                                    <ArrowLeft className="h-4 w-4" />
+                                    Back to Home
+                                </div>
+                            </Link>
+                        </div>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}

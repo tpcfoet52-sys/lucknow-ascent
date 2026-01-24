@@ -128,12 +128,6 @@ const AboutTPC = () => {
                 </p>
               </div>
             </Link>
-            <Link to="/">
-              <Button variant="outline" size="sm" className="gap-2">
-                <ArrowLeft className="h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
           </div>
         </div>
       </header>
@@ -150,6 +144,16 @@ const AboutTPC = () => {
         </div>
 
         <div className="relative z-10 container-narrow pt-8 md:pt-16">
+          {/* Back to Home Button */}
+          <div className="absolute top-4 left-0 z-20">
+            <Link to="/">
+              <div className="bg-white hover:bg-yellow-400 text-black px-4 py-2 rounded shadow-md transition-colors flex items-center gap-2 font-medium">
+                <ArrowLeft className="h-4 w-4" />
+                Back to Home
+              </div>
+            </Link>
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
