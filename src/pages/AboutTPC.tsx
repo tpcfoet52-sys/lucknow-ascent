@@ -399,9 +399,11 @@ const AboutTPC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUp}
-                className="bg-background border border-border rounded-lg p-6 text-center hover:shadow-lg transition-shadow"
+                className="group bg-background border border-border/50 rounded-lg p-6 text-center shadow-sm hover:shadow-xl hover:border-accent/50 transition-all duration-300"
               >
-                <GraduationCap className="h-10 w-10 text-accent mx-auto mb-4" />
+                <div className="mb-4 inline-block group-hover:scale-110 transition-transform duration-300">
+                  <GraduationCap className="h-10 w-10 text-accent mx-auto" />
+                </div>
                 <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
                   {program.title}
                 </h3>
@@ -439,9 +441,9 @@ const AboutTPC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUp}
-                className="bg-background border border-border rounded-lg p-6 text-center"
+                className="group bg-background border border-border/50 rounded-lg p-6 text-center shadow-sm hover:shadow-xl hover:border-accent/50 transition-all duration-300"
               >
-                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <TrendingUp className="h-8 w-8 text-accent" />
                 </div>
                 <h3 className="font-serif text-lg font-semibold text-foreground">{story.name}</h3>
