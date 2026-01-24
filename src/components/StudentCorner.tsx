@@ -30,9 +30,11 @@ const resources = [
 ];
 
 const upcomingEvents = [
-  { date: "Jan 20", company: "Microsoft", type: "Campus Drive" },
-  { date: "Jan 25", company: "Deloitte", type: "Pre-Placement Talk" },
-  { date: "Feb 01", company: "Amazon", type: "Online Assessment" },
+  { date: "Jan 20", company: "Genpact Campus Recruitment Drive", type: "Campus Drive" },
+  { date: "Jan 25", company: "MEIL Campus Recruitment Drive", type: "Campus Drive" },
+  { date: "Feb 01", company: "Hike Education Campus Recruitment Drive", type: "Campus Drive" },
+  { date: "Feb 05", company: "Wipro HR Services Campus Placement Drive", type: "Campus Drive" },
+  { date: "Feb 15", company: "Outlook Group Internship Programme Recruitment Drive", type: "Internship" }
 ];
 
 const StudentCorner = () => {
