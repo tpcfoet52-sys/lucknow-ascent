@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FileText, BookOpen, UserCheck, Calendar, ExternalLink, LogIn } from "lucide-react";
+import { FileText, BookOpen, UserCheck, Calendar, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
 
 const resources = [
@@ -7,32 +7,34 @@ const resources = [
     icon: FileText,
     title: "Resume Building",
     description: "Professional templates and expert tips to craft an impactful resume.",
-    link: "#",
+    link: "/resume-guide",
   },
   {
     icon: BookOpen,
     title: "Interview Preparation",
     description: "Curated guides, mock interviews, and aptitude test resources.",
-    link: "#",
+    link: "/interview-prep",
   },
   {
     icon: UserCheck,
     title: "Soft Skills Training",
     description: "Communication, presentation, and leadership development programs.",
-    link: "#",
+    link: "/soft-skills",
   },
   {
     icon: Calendar,
     title: "Placement Calendar",
     description: "Stay updated with upcoming drives, deadlines, and events.",
-    link: "#",
+    link: "/placement-calendar",
   },
 ];
 
 const upcomingEvents = [
-  { date: "Jan 20", company: "Microsoft", type: "Campus Drive" },
-  { date: "Jan 25", company: "Deloitte", type: "Pre-Placement Talk" },
-  { date: "Feb 01", company: "Amazon", type: "Online Assessment" },
+  { date: "Jan 20", company: "Genpact Campus Recruitment Drive", type: "Campus Drive" },
+  { date: "Jan 25", company: "MEIL Campus Recruitment Drive", type: "Campus Drive" },
+  { date: "Feb 01", company: "Hike Education Campus Recruitment Drive", type: "Campus Drive" },
+  { date: "Feb 05", company: "Wipro HR Services Campus Placement Drive", type: "Campus Drive" },
+  { date: "Feb 15", company: "Outlook Group Internship Programme Recruitment Drive", type: "Internship" }
 ];
 
 const StudentCorner = () => {
@@ -87,26 +89,6 @@ const StudentCorner = () => {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Login Card */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-primary rounded-sm p-6"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <LogIn className="w-6 h-6 text-accent" />
-                <h3 className="font-serif font-semibold text-lg text-primary-foreground">Placement Portal</h3>
-              </div>
-              <p className="text-primary-foreground/80 text-sm mb-4">
-                Access your dashboard, track applications, and update your profile.
-              </p>
-              <Button variant="gold" className="w-full">
-                Student Login
-              </Button>
-            </motion.div>
-
             {/* Upcoming Events */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}

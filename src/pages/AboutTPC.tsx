@@ -16,10 +16,11 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import uolLogo from "@/assets/uol-logo.png";
-import tpcBadge from "@/assets/tpc-badge.png";
+import naacBadge from "@/assets/naac-badge.png";
 import heroImage from "@/assets/university-hero.jpg";
 import profSpSingh from "@/assets/prof-sp-singh.jpg";
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
+import tpcLogo from "@/assets/tpc-logo.jpeg";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -71,29 +72,30 @@ const services = [
 ];
 
 const stats = [
-  { value: "3451+", label: "Students Placed", sublabel: "2023-24" },
-  { value: "500+", label: "Recruiting Partners", sublabel: "Active Companies" },
-  { value: "₹8.5 LPA", label: "Average Package", sublabel: "Overall" },
-  { value: "₹23.6 LPA", label: "Highest Package", sublabel: "2023-24" },
+  { value: "543", label: "Jobs Offered", sublabel: "2024-25" },
+  { value: "₹3.0 LPA", label: "Minimum Package", sublabel: "2024-25" },
+  { value: "₹9.0 LPA", label: "Average Package", sublabel: "Overall" },
+  { value: "₹26.0 LPA", label: "Highest Package", sublabel: "2024-25" },
 ];
 
 const topRecruiters = [
-  "TCS", "Infosys", "Wipro", "HCL", "Cognizant", "Accenture",
-  "Capgemini", "IBM", "Deloitte", "Amazon", "Microsoft", "Google",
-  "Flipkart", "Reliance", "HDFC Bank", "ICICI Bank"
+  "Samsung", "HCL", "Wipro", "Infosys", "Jio", "Deloitte",
+  "Accenture", "Paytm", "Capgemini", "Cognizant", "Tech Mahindra",
+  "Amazon", "Flipkart", "Cedcoss", "Hexaware", "Sopra Steria",
+  "Ericsson", "TCS"
 ];
 
 const trainingPrograms = [
-  { title: "Aptitude Training", duration: "3 Months", participants: "2000+" },
-  { title: "Technical Bootcamps", duration: "2 Months", participants: "1500+" },
-  { title: "Soft Skills Workshop", duration: "1 Month", participants: "2500+" },
-  { title: "Mock Interviews", duration: "Ongoing", participants: "3000+" },
+  { title: "Session on Scope in Civil Engineering", by: "Miss Surabhi Aggarwal" },
+  { title: "Geotechnical Enginee", by: "Samsung C&T" },
+  { title: "Workshop Session on Reaching Out to Industries", by: "Mr. Shubham Sing" },
+  { title: " PhonePe Session on Opportunities for Engineers in DRDO", by: "Miss Surabhi Aggarwal" },
+  { title: "Session on Scope in Civil Engineering", by: "Miss Surabhi Aggarwal" },
 ];
 
 const successStories = [
-  { name: "Priya Sharma", company: "Google", package: "₹45 LPA", year: "2023" },
-  { name: "Rahul Verma", company: "Microsoft", package: "₹38 LPA", year: "2023" },
-  { name: "Ananya Singh", company: "Amazon", package: "₹32 LPA", year: "2024" },
+  { name: "Karthik Gupta", company: "Qdrant", package: "₹26 LPA", year: "2023" },
+  { name: "Maria Khan", company: "Branch International", package: "₹22 LPA", year: "2024" },
 ];
 
 const downloads = [
@@ -110,26 +112,27 @@ const AboutTPC = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
         <div className="container-narrow">
           <div className="flex items-center justify-between h-16 md:h-20">
+            <Link to="/" className="flex items-center gap-3 group">
+              {/* Logo */}
+              <img
+                src={tpcLogo}
+                alt="Training & Placement Cell"
+                className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
+              />
+              <div className="hidden sm:block">
+                <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground transition-colors group-hover:text-gold-600">
+                  Training & Placement Cell
+                </p>
+                <p className="text-xs tracking-wide text-muted-foreground transition-colors group-hover:text-gold-600/80">
+                  FoET, University of Lucknow
+                </p>
+              </div>
+            </Link>
             <Link to="/">
               <Button variant="outline" size="sm" className="gap-2">
                 <ArrowLeft className="h-4 w-4" />
                 Back to Home
               </Button>
-            </Link>
-            <Link to="/" className="flex items-center gap-3 group">
-              <img
-                src={uolLogo}
-                alt="University of Lucknow"
-                className="w-10 h-10 md:w-12 md:h-12 object-contain"
-              />
-              <div className="hidden sm:block">
-                <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground">
-                  Training & Placement Cell
-                </p>
-                <p className="text-xs tracking-wide text-muted-foreground">
-                  University of Lucknow
-                </p>
-              </div>
             </Link>
           </div>
         </div>
@@ -153,24 +156,63 @@ const AboutTPC = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="flex items-center justify-center gap-6 mb-8">
-              <motion.img
-                src={uolLogo}
-                alt="University of Lucknow"
-                className="w-20 h-20 md:w-24 md:h-24 object-contain"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-              />
-              <div className="w-px h-16 bg-border" />
-              <motion.img
-                src={tpcBadge}
-                alt="TPC Badge"
-                className="w-20 h-20 md:w-24 md:h-24 object-contain"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-              />
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
+              <div className="flex items-center gap-6">
+                <motion.img
+                  src={uolLogo}
+                  alt="University of Lucknow"
+                  className="w-20 h-20 md:w-24 md:h-24 object-contain"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                />
+                <div className="w-px h-16 bg-border" />
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                  className="flex flex-col items-center"
+                >
+                  <img
+                    src={naacBadge}
+                    alt="NAAC A++ Badge"
+                    className="w-16 h-16 md:w-20 md:h-20 object-contain mb-1"
+                  />
+                  <span className="text-xs font-bold text-foreground">CGPA 3.55</span>
+                </motion.div>
+              </div>
+
+              <div className="hidden md:block w-px h-16 bg-border" />
+
+              <div className="flex gap-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="text-center bg-background/50 backdrop-blur border border-border rounded-lg p-2"
+                >
+                  <p className="text-sm font-bold text-accent">#98</p>
+                  <p className="text-[10px] text-muted-foreground uppercase">NIRF Pharmacy</p>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="text-center bg-background/50 backdrop-blur border border-border rounded-lg p-2"
+                >
+                  <p className="text-sm font-bold text-accent">#101-150</p>
+                  <p className="text-[10px] text-muted-foreground uppercase">NIRF Univ.</p>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="text-center bg-background/50 backdrop-blur border border-border rounded-lg p-2"
+                >
+                  <p className="text-sm font-bold text-accent">#11</p>
+                  <p className="text-[10px] text-muted-foreground uppercase">India Today</p>
+                </motion.div>
+              </div>
             </div>
 
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 tracking-tight">
@@ -400,9 +442,11 @@ const AboutTPC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUp}
-                className="bg-background border border-border rounded-lg p-6 text-center hover:shadow-lg transition-shadow"
+                className="group bg-background border border-border/50 rounded-lg p-6 text-center shadow-sm hover:shadow-xl hover:border-accent/50 transition-all duration-300"
               >
-                <GraduationCap className="h-10 w-10 text-accent mx-auto mb-4" />
+                <div className="mb-4 inline-block group-hover:scale-110 transition-transform duration-300">
+                  <GraduationCap className="h-10 w-10 text-accent mx-auto" />
+                </div>
                 <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
                   {program.title}
                 </h3>
@@ -431,7 +475,7 @@ const AboutTPC = () => {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {successStories.map((story, index) => (
               <motion.div
                 key={story.name}
@@ -440,15 +484,84 @@ const AboutTPC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUp}
-                className="bg-background border border-border rounded-lg p-6 text-center"
+                className="group bg-background border border-border/50 rounded-lg p-6 text-center shadow-sm hover:shadow-xl hover:border-accent/50 transition-all duration-300"
               >
-                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <TrendingUp className="h-8 w-8 text-accent" />
                 </div>
                 <h3 className="font-serif text-lg font-semibold text-foreground">{story.name}</h3>
                 <p className="text-accent font-medium mt-1">{story.company}</p>
                 <p className="text-2xl font-bold text-foreground mt-2">{story.package}</p>
                 <p className="text-xs text-muted-foreground mt-1">Batch of {story.year}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Notable Alumni */}
+      <section className="py-16 md:py-24">
+        <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="text-xs font-medium text-accent uppercase tracking-wider">Our Pride</span>
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
+              Notable Alumni
+            </h2>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                name: "Ritu Karidhal",
+                role: "Senior Scientist, ISRO",
+                desc: "Mission Director of Chandrayaan-2",
+                icon: Target
+              },
+              {
+                name: "Suresh Raina",
+                role: "International Cricketer",
+                desc: "Former Member of Indian National Team",
+                icon: Award
+              },
+              {
+                name: "Rajiv Kumar",
+                role: "Former Vice Chairman",
+                desc: "NITI Aayog, Govt. of India",
+                icon: Building2
+              },
+              {
+                name: "Amitabh Bhattacharya",
+                role: "Lyricist & Playback Singer",
+                desc: "National Award Winner",
+                icon: FileText
+              },
+              {
+                name: "Vartika Singh",
+                role: "Miss Universe India 2019",
+                desc: "Model and Beauty Pageant Titleholder",
+                icon: Award
+              }
+            ].map((alumni, index) => (
+              <motion.div
+                key={alumni.name}
+                custom={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                className="bg-background border border-border rounded-lg p-6 hover:border-accent/50 hover:shadow-lg transition-all text-center group"
+              >
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
+                  <alumni.icon className="h-6 w-6 text-accent" />
+                </div>
+                <h3 className="font-serif text-lg font-semibold text-foreground">{alumni.name}</h3>
+                <p className="text-sm font-medium text-accent mt-1">{alumni.role}</p>
+                <p className="text-xs text-muted-foreground mt-2">{alumni.desc}</p>
               </motion.div>
             ))}
           </div>

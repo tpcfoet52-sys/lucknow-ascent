@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 
 const companies = [
-  "MICROSOFT", "ADOBE", "DELLOIT", "WIPRO", "NPCL", "HCL TECH", 
+  "MICROSOFT", "ADOBE", "DELOITTE", "WIPRO", "NPCL", "HCL TECH", 
   "GENPACT", "ADANI CEMENTS", "MOTHERSON INTERNATIONAL", "ALLEN", "PW",
-  "BYJU’S", "SOTI", "JARO EDUCATION", "RELIANCE INDUSTRIES LTD."
+  "BYJU’S", "SOTI", "JARO EDUCATION", "RELIANCE INDUSTRIES LTD.", "ACCENTURE"
 ];
 
 const CompanyLogoStrip = () => {

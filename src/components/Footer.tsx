@@ -3,10 +3,10 @@ import uolLogo from "@/assets/uol-logo.png";
 
 // Custom X (formerly Twitter) Logo
 const XLogo = ({ className }: { className?: string }) => (
-  <svg 
-    role="img" 
-    viewBox="0 0 24 24" 
-    fill="currentColor" 
+  <svg
+    role="img"
+    viewBox="0 0 24 24"
+    fill="currentColor"
     className={className}
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -24,9 +24,9 @@ const Footer = () => {
           <div className="lg:col-span-2 space-y-6">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <img 
-                  src={uolLogo} 
-                  alt="University of Lucknow" 
+                <img
+                  src={uolLogo}
+                  alt="University of Lucknow"
                   className="w-12 h-12 object-contain"
                 />
                 <div>
@@ -35,7 +35,7 @@ const Footer = () => {
                 </div>
               </div>
               <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-md">
-                Established in 1920, the University of Lucknow stands as a beacon of academic excellence. 
+                Established in 1920, the University of Lucknow stands as a beacon of academic excellence.
                 Our Training & Placement Cell bridges the gap between academia and industry.
               </p>
             </div>
@@ -62,7 +62,6 @@ const Footer = () => {
                 { name: "About TPC", href: "#about" },
                 { name: "Placement Statistics", href: "#recruiters" },
                 { name: "Student Resources", href: "#students" },
-                { name: "Recruiter Portal", href: "#recruiters" },
                 { name: "FAQs", href: "#" },
               ].map((link, index) => (
                 <li key={index}>
@@ -97,14 +96,14 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-accent flex-shrink-0" />
-                 <span className="flex flex-col">
+                <span className="flex flex-col">
                   <a href="mailto:trainingfoet@gmail.com" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
                     trainingfoet@gmail.com
                   </a>
                   <a href="mailto:placement_foet@lkouniv.ac.in" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
                     placement_foet@lkouniv.ac.in
                   </a>
-                 </span>
+                </span>
               </li>
             </ul>
           </div>
@@ -126,10 +125,10 @@ const Footer = () => {
               <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors text-sm">
                 Terms of Use
               </a>
-              <a 
-                href="https://www.lkouniv.ac.in" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://www.lkouniv.ac.in"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-primary-foreground/60 hover:text-accent transition-colors text-sm flex items-center gap-1"
               >
                 Main Website <ExternalLink className="w-3 h-3" />

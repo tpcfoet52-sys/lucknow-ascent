@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
-import uolLogo from "@/assets/uol-logo.png";
+
+import tpcLogo from "@/assets/tpc-logo.jpeg";
 
 interface NavLink {
   name: string;
@@ -19,9 +20,9 @@ const navLinks: NavLink[] = [
       { name: "Our Team", href: "/team-structure" },
     ]
   },
-  { name: "Events", href: "#events" },
+  { name: "Events", href: "/events" },
   { name: "Students", href: "#students" },
-  { name: "Media", href: "#gallery" },
+  { name: "Media", href: "/media" },
   { name: "Placement Records", href: "#recruiters" },
   { name: "Contact", href: "#contact" },
 ];
@@ -31,6 +32,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,6 +55,19 @@ const Header = () => {
     const element = document.getElementById(href.substring(1));
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // If element not found (e.g. we are on another page), navigate to home
+      // For #home specifically or any hash link that's not on current page
+      navigate("/");
+      // Optional: if you want to scroll to specific section after nav, you'd need more complex logic
+      // but for "Back to Home", just navigating to / is usually sufficient.
+      // If we want to support #about from Events page:
+      if (href !== "#home") {
+        setTimeout(() => {
+          const el = document.getElementById(href.substring(1));
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
     }
     setIsMobileMenuOpen(false);
     setOpenDropdown(null);
@@ -65,16 +80,27 @@ const Header = () => {
     } else if (link.href.startsWith("#")) {
       e.preventDefault();
       scrollToSection(link.href);
+    } else {
+      e.preventDefault();
+      navigate(link.href);
+      setIsMobileMenuOpen(false);
+      setOpenDropdown(null);
     }
   };
 
-  const headerBg = !isScrolled
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  // Header should be solid if scrolled OR if not on home page
+  const showSolidHeader = isScrolled || !isHomePage;
+
+  const headerBg = !showSolidHeader
     ? "bg-transparent"
     : "bg-background/95 backdrop-blur-md shadow-elevated-sm border-b border-border";
 
-  const textColor = !isScrolled ? "text-primary-foreground" : "text-foreground";
-  const mutedColor = !isScrolled ? "text-primary-foreground/70" : "text-muted-foreground";
-  const linkColor = !isScrolled ? "text-primary-foreground/80 hover:text-primary-foreground" : "text-muted-foreground hover:text-primary";
+  const textColor = !showSolidHeader ? "text-primary-foreground" : "text-foreground";
+  const mutedColor = !showSolidHeader ? "text-primary-foreground/70" : "text-muted-foreground";
+  const linkColor = !showSolidHeader ? "text-primary-foreground/80 hover:text-primary-foreground" : "text-muted-foreground hover:text-primary";
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}>
@@ -87,16 +113,16 @@ const Header = () => {
             className="flex items-center gap-3 group cursor-pointer"
           >
             <img
-              src={uolLogo}
-              alt="University of Lucknow"
-              className="w-10 h-10 md:w-12 md:h-12 object-contain"
+              src={tpcLogo}
+              alt="Training and Placement Cell"
+              className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
             />
             <div className="hidden sm:block">
               <p className={`font-serif font-semibold text-sm md:text-base leading-tight transition-colors ${textColor}`}>
                 Training & Placement Cell
               </p>
               <p className={`text-xs tracking-wide transition-colors ${mutedColor}`}>
-                University of Lucknow
+                FoET, University of Lucknow
               </p>
             </div>
           </a>
@@ -139,12 +165,22 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-3">
-            <Link to="/login">
+            <Link to="/team-structure">
+              <Button
+                variant={!isScrolled ? "goldOutline" : "outline"}
+                size="sm"
+              >
+                Team Login
+              </Button>
+            </Link>
+
+            {/* UPDATED: Wrapped in Link */}
+            <Link to="/admin-login">
               <Button
                 variant={!isScrolled ? "gold" : "default"}
                 size="default"
               >
-                Login
+                Admin Login
               </Button>
             </Link>
           </div>
@@ -197,7 +233,18 @@ const Header = () => {
               </div>
             ))}
             <div className="pt-4 space-y-2">
+              <Link to="/team-structure" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button variant="outline" className="w-full">
+                  Team Login
+                </Button>
+              </Link>
 
+              {/* UPDATED: Wrapped in Link with onClick to close menu */}
+              <Link to="/admin" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button variant="default" className="w-full">
+                  Admin Login
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

@@ -18,6 +18,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import uolLogo from "@/assets/uol-logo.png";
 import tpcBadge from "@/assets/naac-badge.png";
 import heroImage from "@/assets/university-hero.jpg";
+import tpcLogo from "@/assets/tpc-logo.jpeg";
 
 interface TeamMember {
   id: number;
@@ -41,6 +42,23 @@ interface Team {
 
 const teams: Team[] = [
   {
+    id: 2,
+    name: "Networking & Outreach Team",
+    description: "Alumni relations & external partnerships",
+    icon: Users,
+    keyPoints: ["Alumni engagement", "Finding leads for internship and placement opportunities", "Helping establishing networks with HRs and Companies"],
+    members: [
+      { id: 1, name: "Vikram Patel", role: "Team Lead" },
+      { id: 2, name: "Ananya Mishra", role: "Alumni Coordinator" },
+      { id: 3, name: "Rohit Verma", role: "Partnership Manager" },
+    ],
+    stats: [
+      { label: "Alumni Connected", value: "500+" },
+      { label: "New Leads", value: "80+" },
+      { label: "Partnerships", value: "25" },
+    ],
+  },
+  {
     id: 1,
     name: "Team Corporate Connect",
     description: "Company relations & recruitment coordination",
@@ -56,23 +74,6 @@ const teams: Team[] = [
       { label: "Companies Reached", value: "150+" },
       { label: "MoUs Signed", value: "45" },
       { label: "JAFs Processed", value: "200+" },
-    ],
-  },
-  {
-    id: 2,
-    name: "Networking & Outreach Team",
-    description: "Alumni relations & external partnerships",
-    icon: Users,
-    keyPoints: ["Alumni engagement", "Finding leads for internship and placement opportunities", "Helping establishing networks with HRs and Companies"],
-    members: [
-      { id: 1, name: "Vikram Patel", role: "Team Lead" },
-      { id: 2, name: "Ananya Mishra", role: "Alumni Coordinator" },
-      { id: 3, name: "Rohit Verma", role: "Partnership Manager" },
-    ],
-    stats: [
-      { label: "Alumni Connected", value: "500+" },
-      { label: "New Leads", value: "80+" },
-      { label: "Partnerships", value: "25" },
     ],
   },
   {
@@ -180,28 +181,37 @@ const TeamStructure = () => {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Left Side: Back Button */}
             <Link to="/">
-              <Button variant="outline" size="sm" className="gap-2">
+              <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-foreground">
                 <ArrowLeft className="h-4 w-4" />
                 Back to Home
               </Button>
             </Link>
 
-            {/* Right Side: Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="hidden sm:block text-right">
-                <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground">
-                  Training & Placement Cell
-                </p>
-                <p className="text-xs tracking-wide text-muted-foreground">
-                  University of Lucknow
-                </p>
-              </div>
-              <img
-                src={uolLogo}
-                alt="University of Lucknow"
-                className="w-10 h-10 md:w-12 md:h-12 object-contain"
-              />
-            </Link>
+            {/* Right Side: Actions & Logo */}
+            <div className="flex items-center gap-4">
+              {/* NEW BUTTON ADDED HERE */}
+              <Link to="/coordinator-login">
+                <Button variant="gold" size="sm" className="hidden sm:flex">
+                  Login as Coordinator
+                </Button>
+              </Link>
+
+              <Link to="/" className="flex items-center gap-3 group">
+                <div className="hidden md:block text-right">
+                  <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground">
+                    Training & Placement Cell
+                  </p>
+                  <p className="text-xs tracking-wide text-muted-foreground">
+                    FoET, University of Lucknow
+                  </p>
+                </div>
+                <img
+                  src={tpcLogo}
+                  alt="Training & Placement Cell"
+                  className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
+                />
+              </Link>
+            </div>
           </div>
         </div>
       </header>

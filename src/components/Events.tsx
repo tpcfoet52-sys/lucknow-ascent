@@ -1,96 +1,31 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin, Users, ExternalLink } from "lucide-react";
+import { Calendar, Clock, MapPin, Users, ExternalLink, Loader2 } from "lucide-react";
 import { Button } from "./ui/button";
-import { useState } from "react";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
+import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
 
 interface Event {
-  id: string;
+  id: number;
   title: string;
-  date: string;
-  time: string;
-  venue: string;
+  event_date: string;
+  location: string;
   description: string;
-  type: "upcoming" | "past";
-  registrationOpen: boolean;
-  capacity?: number;
-  registered?: number;
+  status: string;
+  formattedDate?: string;
+  formattedTime?: string;
+  type?: "upcoming" | "past";
+  registrationOpen?: boolean;
 }
 
-const events: Event[] = [
-  {
-    id: "1",
-    title: "Campus Recruitment Drive 2026",
-    date: "February 15-20, 2026",
-    time: "9:00 AM - 5:00 PM",
-    venue: "University Auditorium",
-    description: "Annual mega recruitment drive featuring top companies including TCS, Wipro, Infosys, and more. Pre-placement talks, interviews, and on-spot offers.",
-    type: "upcoming",
-    registrationOpen: true,
-    capacity: 500,
-    registered: 342,
-  },
-  {
-    id: "2",
-    title: "Resume Building Workshop",
-    date: "January 25, 2026",
-    time: "2:00 PM - 5:00 PM",
-    venue: "Seminar Hall, FoET",
-    description: "Learn how to craft an impressive resume that catches recruiters' attention. Industry experts will share tips and provide personalized feedback.",
-    type: "upcoming",
-    registrationOpen: true,
-    capacity: 200,
-    registered: 156,
-  },
-  {
-    id: "3",
-    title: "Mock Interview Sessions",
-    date: "February 1-5, 2026",
-    time: "10:00 AM - 4:00 PM",
-    venue: "Placement Cell Office",
-    description: "Prepare for the placement season with mock interviews conducted by HR professionals from leading companies.",
-    type: "upcoming",
-    registrationOpen: true,
-    capacity: 300,
-    registered: 278,
-  },
-  {
-    id: "4",
-    title: "Industry Interaction Session - Banking Sector",
-    date: "January 30, 2026",
-    time: "11:00 AM - 1:00 PM",
-    venue: "Conference Room, Admin Block",
-    description: "Exclusive session with senior executives from HDFC Bank, ICICI Bank, and Axis Bank. Learn about career opportunities in the banking sector.",
-    type: "upcoming",
-    registrationOpen: true,
-    capacity: 150,
-    registered: 98,
-  },
-  {
-    id: "5",
-    title: "Pre-Placement Talk - Deloitte",
-    date: "December 15, 2025",
-    time: "3:00 PM - 5:00 PM",
-    venue: "Auditorium",
-    description: "Deloitte conducted a pre-placement talk covering company culture, roles, and career growth opportunities.",
-    type: "past",
-    registrationOpen: false,
-  },
-  {
-    id: "6",
-    title: "Technical Aptitude Workshop",
-    date: "November 20, 2025",
-    time: "10:00 AM - 4:00 PM",
-    venue: "Computer Lab, FoET",
-    description: "Comprehensive workshop on aptitude tests, coding challenges, and technical interview preparation.",
-    type: "past",
-    registrationOpen: false,
-  },
-];
-
 const Events = () => {
+  const [eventsList, setEventsList] = useState<Event[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+
+  // Form State
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -101,24 +36,87 @@ const Events = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const upcomingEvents = events.filter((e) => e.type === "upcoming");
-  const pastEvents = events.filter((e) => e.type === "past");
+  // Fetch Events from Supabase
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('events')
+          .select('*')
+          .eq('status', 'approved')
+          .order('event_date', { ascending: true });
+
+        if (error) throw error;
+
+        if (data) {
+          const processedEvents: Event[] = data.map((event) => {
+            const eventDate = new Date(event.event_date);
+            const now = new Date();
+            const isUpcoming = eventDate > now;
+
+            return {
+              ...event,
+              formattedDate: eventDate.toLocaleDateString("en-US", {
+                month: "long", day: "numeric", year: "numeric"
+              }),
+              formattedTime: eventDate.toLocaleTimeString("en-US", {
+                hour: "2-digit", minute: "2-digit"
+              }),
+              type: isUpcoming ? "upcoming" : "past",
+              registrationOpen: isUpcoming,
+            };
+          });
+          setEventsList(processedEvents);
+        }
+      } catch (error) {
+        console.error("Error fetching events:", error);
+        toast.error("Failed to load events.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
+  const upcomingEvents = eventsList.filter((e) => e.type === "upcoming");
+  const pastEvents = eventsList.filter((e) => e.type === "past");
 
   const handleRegister = (event: Event) => {
     setSelectedEvent(event);
     setSubmitSuccess(false);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!selectedEvent) return;
+
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      // UPDATED: Inserting into 'mobile_number' column
+      const { error } = await supabase.from('registrations').insert([
+        {
+          event_id: selectedEvent.id,
+          student_name: formData.name,
+          student_email: formData.email,
+          student_roll: formData.rollNumber,
+          branch: formData.department,
+          mobile_number: formData.phone // Matching the renamed column
+        }
+      ]);
+
+      if (error) throw error;
       setSubmitSuccess(true);
       setFormData({ name: "", email: "", phone: "", rollNumber: "", department: "" });
-    }, 1500);
+      toast.success("Registration successful!");
+
+    } catch (error) {
+      console.error("Registration error:", error);
+      toast.error("Registration failed. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const closeModal = () => {
@@ -126,10 +124,17 @@ const Events = () => {
     setSubmitSuccess(false);
   };
 
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center py-20 bg-secondary min-h-[50vh]">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
   return (
     <section id="events" className="section-padding bg-secondary">
       <div className="container-narrow">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -146,95 +151,112 @@ const Events = () => {
           </p>
         </motion.div>
 
-        {/* Upcoming Events */}
         <div className="mb-12">
           <h3 className="font-serif text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
             <Calendar className="w-5 h-5 text-accent" />
             Upcoming Events
           </h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            {upcomingEvents.map((event, index) => (
-              <motion.div
-                key={event.id}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="bg-card rounded-md p-6 shadow-elevated-sm border border-border/50"
-              >
-                <div className="flex justify-between items-start mb-3">
-                  <h4 className="font-serif font-semibold text-lg text-foreground">{event.title}</h4>
-                  {event.registrationOpen && (
-                    <span className="bg-accent/10 text-accent text-xs font-medium px-2 py-1 rounded-full">
-                      Open
-                    </span>
-                  )}
-                </div>
-                
-                <p className="text-muted-foreground text-sm mb-4">{event.description}</p>
-                
-                <div className="space-y-2 text-sm mb-4">
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Calendar className="w-4 h-4" />
-                    <span>{event.date}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Clock className="w-4 h-4" />
-                    <span>{event.time}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <MapPin className="w-4 h-4" />
-                    <span>{event.venue}</span>
-                  </div>
-                  {event.capacity && (
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Users className="w-4 h-4" />
-                      <span>{event.registered}/{event.capacity} registered</span>
+
+          {upcomingEvents.length === 0 ? (
+            <div className="text-center p-8 bg-card rounded-lg border border-dashed border-border text-muted-foreground">
+              No upcoming events scheduled at the moment.
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 gap-6">
+              {upcomingEvents.map((event, index) => (
+                <motion.div
+                  key={event.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  whileHover={{
+                    y: -8,
+                    transition: { duration: 0.3, ease: "easeOut" }
+                  }}
+                  className="group bg-card rounded-lg p-6 shadow-elevated-sm border border-border/50 hover:shadow-elevated hover:border-accent/30 transition-all duration-300 relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+
+                  <div className="relative z-10">
+                    <div className="flex justify-between items-start mb-3">
+                      <h4 className="font-serif font-semibold text-lg text-foreground group-hover:text-primary transition-colors duration-300">{event.title}</h4>
+                      {event.registrationOpen && (
+                        <motion.span
+                          className="bg-accent/10 text-accent text-xs font-medium px-2 py-1 rounded-full"
+                          animate={{ scale: [1, 1.05, 1] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          Open
+                        </motion.span>
+                      )}
                     </div>
-                  )}
-                </div>
 
-                {event.registrationOpen && (
-                  <Button 
-                    variant="default" 
-                    size="sm" 
-                    className="w-full"
-                    onClick={() => handleRegister(event)}
+                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{event.description}</p>
+
+                    <div className="space-y-2 text-sm mb-4">
+                      <motion.div className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                        <Calendar className="w-4 h-4 text-accent" />
+                        <span>{event.formattedDate}</span>
+                      </motion.div>
+                      <motion.div className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                        <Clock className="w-4 h-4 text-accent" />
+                        <span>{event.formattedTime}</span>
+                      </motion.div>
+                      <motion.div className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                        <MapPin className="w-4 h-4 text-accent" />
+                        <span>{event.location}</span>
+                      </motion.div>
+                    </div>
+
+                    {event.registrationOpen && (
+                      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                        <Button
+                          variant="default"
+                          size="sm"
+                          className="w-full group-hover:bg-primary group-hover:shadow-md transition-all duration-300"
+                          onClick={() => handleRegister(event)}
+                        >
+                          Register Now
+                        </Button>
+                      </motion.div>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </div >
+
+        {
+          pastEvents.length > 0 && (
+            <div>
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
+                <Clock className="w-5 h-5 text-muted-foreground" />
+                Past Events
+              </h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {pastEvents.map((event, index) => (
+                  <motion.div
+                    key={event.id}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 * index }}
+                    className="bg-card/50 rounded-md p-5 border border-border/30"
                   >
-                    Register Now
-                  </Button>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                    <h4 className="font-serif font-medium text-foreground">{event.title}</h4>
+                    <p className="text-muted-foreground text-sm mt-1">{event.formattedDate}</p>
+                    <p className="text-muted-foreground/70 text-xs mt-2">{event.location}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )
+        }
+      </div >
 
-        {/* Past Events */}
-        <div>
-          <h3 className="font-serif text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
-            <Clock className="w-5 h-5 text-muted-foreground" />
-            Past Events
-          </h3>
-          <div className="grid md:grid-cols-2 gap-4">
-            {pastEvents.map((event, index) => (
-              <motion.div
-                key={event.id}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="bg-card/50 rounded-md p-5 border border-border/30"
-              >
-                <h4 className="font-serif font-medium text-foreground">{event.title}</h4>
-                <p className="text-muted-foreground text-sm mt-1">{event.date}</p>
-                <p className="text-muted-foreground/70 text-xs mt-2">{event.venue}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Registration Modal */}
       {selectedEvent && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={closeModal}>
           <motion.div
@@ -249,7 +271,7 @@ const Events = () => {
                   Register for Event
                 </h3>
                 <p className="text-muted-foreground text-sm mb-6">{selectedEvent.title}</p>
-                
+
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <Label htmlFor="name">Full Name *</Label>
@@ -261,7 +283,7 @@ const Events = () => {
                       placeholder="Enter your full name"
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="email">Email Address *</Label>
                     <Input
@@ -273,7 +295,7 @@ const Events = () => {
                       placeholder="your.email@lkouniv.ac.in"
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="phone">Phone Number *</Label>
                     <Input
@@ -285,7 +307,7 @@ const Events = () => {
                       placeholder="10-digit mobile number"
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="rollNumber">Roll Number *</Label>
                     <Input
@@ -296,7 +318,7 @@ const Events = () => {
                       placeholder="Your university roll number"
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="department">Department *</Label>
                     <Input
@@ -307,7 +329,7 @@ const Events = () => {
                       placeholder="e.g., Computer Science"
                     />
                   </div>
-                  
+
                   <div className="flex gap-3 pt-4">
                     <Button type="button" variant="outline" onClick={closeModal} className="flex-1">
                       Cancel
@@ -335,7 +357,7 @@ const Events = () => {
           </motion.div>
         </div>
       )}
-    </section>
+    </section >
   );
 };
 
