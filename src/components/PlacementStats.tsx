@@ -3,9 +3,9 @@ import { TrendingUp, Users, Building2, Award } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
 const stats = [
-  { label: "Highest Package (23-24)", value: "₹23.6", unit: "LPA", icon: Award },
-  { label: "Average Package (23-24)", value: "₹8.5", unit: "LPA", icon: TrendingUp },
-  { label: "Students Placed (23-24)", value: "3451", unit: "+", icon: Users },
+  { label: "Highest Package (24-25)", value: "₹26.0", unit: "LPA", icon: Award },
+  { label: "Average Package (Overall)", value: "₹9.0", unit: "LPA", icon: TrendingUp },
+  { label: "Jobs Offered (2025)", value: "543", unit: "+", icon: Users },
   { label: "Partner Companies", value: "500", unit: "+", icon: Building2 },
 ];
 
@@ -15,38 +15,38 @@ const foetPlacementData = [
   { year: "2022", students: 465 },
   { year: "2023", students: 581 },
   { year: "2024", students: 473 },
-  { year: "2025", students: 548, estimated: true },
+  { year: "2025", students: 543, estimated: true },
 ];
 
 const yearlyData = [
-  { 
-    year: "2020-21", 
-    ugPlaced: 888, 
-    pgPlaced: 325, 
+  {
+    year: "2020-21",
+    ugPlaced: 888,
+    pgPlaced: 325,
     avgPackage: 5.5,
     highestPackage: 10,
     total: 1213
   },
-  { 
-    year: "2021-22", 
-    ugPlaced: 935, 
-    pgPlaced: 1218, 
+  {
+    year: "2021-22",
+    ugPlaced: 935,
+    pgPlaced: 1218,
     avgPackage: 7.0,
     highestPackage: 15,
     total: 2153
   },
-  { 
-    year: "2022-23", 
-    ugPlaced: 1011, 
-    pgPlaced: 1249, 
+  {
+    year: "2022-23",
+    ugPlaced: 1011,
+    pgPlaced: 1249,
     avgPackage: 8.25,
     highestPackage: 23.6,
     total: 2260
   },
-  { 
-    year: "2023-24", 
-    ugPlaced: 1507, 
-    pgPlaced: 1944, 
+  {
+    year: "2023-24",
+    ugPlaced: 1507,
+    pgPlaced: 1944,
     avgPackage: 8.5,
     highestPackage: 23.6,
     total: 3451
@@ -128,28 +128,28 @@ const PlacementStats = () => {
               📊 FoET / Engineering (UG 4-Year) Students Placed
             </h3>
             <p className="text-sm text-muted-foreground mt-1">
-              University of Lucknow (2020–2025) • Best available official estimates
+              University of Lucknow (2020–2025)
             </p>
           </div>
           <div className="h-64 md:h-80">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={foetPlacementData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
-                <XAxis 
-                  dataKey="year" 
+                <XAxis
+                  dataKey="year"
                   tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }}
                   axisLine={{ stroke: 'hsl(var(--border))' }}
                 />
-                <YAxis 
+                <YAxis
                   tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }}
                   axisLine={{ stroke: 'hsl(var(--border))' }}
                   domain={[0, 450]}
                 />
                 <Tooltip content={<CustomTooltip />} />
-                <Line 
-                  type="monotone" 
-                  dataKey="students" 
-                  stroke="hsl(var(--accent))" 
+                <Line
+                  type="monotone"
+                  dataKey="students"
+                  stroke="hsl(var(--accent))"
                   strokeWidth={3}
                   dot={{ fill: 'hsl(var(--accent))', strokeWidth: 2, r: 5 }}
                   activeDot={{ r: 8, fill: 'hsl(var(--primary))' }}
@@ -211,7 +211,7 @@ const PlacementStats = () => {
             <h3 className="font-serif text-lg font-semibold text-foreground mb-5">Year-wise Breakdown</h3>
             <div className="space-y-4">
               {yearlyData.map((data, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, x: 10 }}
                   whileInView={{ opacity: 1, x: 0 }}
