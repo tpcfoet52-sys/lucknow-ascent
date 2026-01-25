@@ -172,37 +172,35 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
+          {/* Right Section: Login + Mobile Menu (Grouped) */}
           <div className="flex items-center gap-3">
 
-            {isHomePage && (
-              <Link to="/login">
-                <Button
-                  variant={!isScrolled ? "ghost" : "ghost"}
-                  size="icon"
-                  className={`rounded-full h-10 min-w-[2.5rem] px-0 hover:px-4 hover:bg-accent hover:text-accent-foreground transition-all duration-300 group flex items-center justify-center gap-0 hover:gap-2 ${!isScrolled ? "text-primary-foreground" : "text-foreground"}`}
-                  title="Login"
-                >
-                  <LogIn className="h-5 w-5 shrink-0" />
-                  <span className="max-w-0 overflow-hidden group-hover:max-w-[60px] opacity-0 group-hover:opacity-100 transition-all duration-300 text-sm font-medium whitespace-nowrap">
-                    Login
-                  </span>
-                </Button>
-              </Link>
-            )}
-          </div>
+            <Link to="/login">
+              <Button
+                variant={!isScrolled ? "ghost" : "ghost"}
+                size="icon"
+                className={`rounded-full h-10 min-w-[2.5rem] px-0 hover:px-4 hover:bg-accent hover:text-accent-foreground transition-all duration-300 group flex items-center justify-center gap-0 hover:gap-2 ${!isScrolled ? "text-primary-foreground" : "text-foreground"}`}
+                title="Login"
+              >
+                <LogIn className="h-5 w-5 shrink-0" />
+                <span className="max-w-0 overflow-hidden group-hover:max-w-[60px] opacity-0 group-hover:opacity-100 transition-all duration-300 text-sm font-medium whitespace-nowrap">
+                  Login
+                </span>
+              </Button>
+            </Link>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-2 rounded-md transition-colors ${!isScrolled
-              ? "text-primary-foreground hover:bg-primary-foreground/10"
-              : "text-foreground hover:bg-secondary"
-              }`}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`lg:hidden p-2 rounded-md transition-colors ${!isScrolled
+                ? "text-primary-foreground hover:bg-primary-foreground/10"
+                : "text-foreground hover:bg-secondary"
+                }`}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
