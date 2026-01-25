@@ -16,14 +16,14 @@ import tpcMeeting from "@/assets/tpc-meeting.jpg";
 
 // Placeholder data for Gallery
 const galleryItems = [
-    { id: 1, type: "Workshops", src: heroImage, title: "AI & ML Workshop", date: "Jan 15, 2024" },
+    { id: 1, type: "Events", src: heroImage, title: "AI & ML Workshop", date: "Jan 15, 2024" },
     { id: 2, type: "Drives", src: heroImage, title: "TCS Recruitment Drive", date: "Dec 10, 2023" },
     { id: 3, type: "Seminars", src: heroImage, title: "Industry Connect: Tech Mahindra", date: "Nov 22, 2023" },
-    { id: 4, type: "Workshops", src: heroImage, title: "Soft Skills Training Session", date: "Oct 05, 2023" },
+    { id: 4, type: "Events", src: heroImage, title: "Soft Skills Training Session", date: "Oct 05, 2023" },
     { id: 5, type: "Drives", src: heroImage, title: "Infosys Campus Visit", date: "Sep 18, 2023" },
     { id: 6, type: "Achievements", src: heroImage, title: "Top Coders Award Ceremony", date: "Aug 30, 2023" },
     { id: 7, type: "Achievements", src: luInNews, title: "LU in News", date: "Jan 26, 2024" },
-    { id: 8, type: "Workshops", src: tpcMeeting, title: "TPC Student Coordinator Meeting", date: "Jan 26, 2024" },
+    { id: 8, type: "Events", src: tpcMeeting, title: "TPC Student Coordinator Meeting", date: "Jan 26, 2024" },
 ];
 
 const newsItems = [
@@ -84,7 +84,7 @@ const Media = () => {
                             </div>
 
                             <div className="flex flex-wrap gap-2">
-                                {["All", "Drives", "Workshops", "Seminars", "Achievements"].map((cat) => (
+                                {["All", "Drives", "Events", "Seminars", "Achievements"].map((cat) => (
                                     <Button
                                         key={cat}
                                         variant={filter === cat ? "default" : "outline"}
