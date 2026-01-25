@@ -149,106 +149,105 @@ const Media = () => {
                         </div>
                     </section>
 
-                </div>
-            </section>
 
-            {/* Press Release Section */}
-            <section>
-                <h2 className="font-serif text-3xl font-semibold mb-8 flex items-center gap-2">
-                    <Newspaper className="w-6 h-6 text-accent" /> Press Releases
-                </h2>
-                <div className="grid md:grid-cols-3 gap-6">
-                    {pressItems.map((item) => (
-                        <div key={item.id} className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card">
-                            <div className="aspect-video overflow-hidden">
-                                <img src={item.src} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                            </div>
-                            <div className="p-4">
-                                <div className="flex justify-between items-start mb-2">
-                                    <span className="text-xs text-muted-foreground flex items-center gap-1">
-                                        <Calendar className="w-3 h-3" /> {item.date}
-                                    </span>
-                                </div>
-                                <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">{item.title}</h3>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
 
-            {/* News & Connect Grid */}
-            <div className="space-y-12">
-                {/* News */}
-                <div>
-                    <h2 className="font-serif text-3xl font-semibold mb-6 flex items-center gap-2">
-                        <Newspaper className="w-6 h-6 text-accent" /> In the News
-                    </h2>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {newsItems.map((news) => (
-                            <Card key={news.id} className="hover:border-accent/50 transition-colors">
-                                <CardContent className="p-4">
-                                    <Badge variant="outline" className="mb-2 text-xs">{news.source}</Badge>
-                                    <h3 className="font-semibold text-lg hover:underline decoration-accent/50 underline-offset-4 cursor-pointer mb-2">{news.title}</h3>
-                                    <div className="flex justify-between items-center text-sm text-muted-foreground">
-                                        <span>{news.date}</span>
-                                        <Button variant="ghost" size="sm" className="h-auto p-0 text-accent hover:text-accent/80">
-                                            Read More <ExternalLink className="w-3 h-3 ml-1" />
-                                        </Button>
+                    {/* Press Release Section */}
+                    <section>
+                        <h2 className="font-serif text-3xl font-semibold mb-8 flex items-center gap-2">
+                            <Newspaper className="w-6 h-6 text-accent" /> Press Releases
+                        </h2>
+                        <div className="grid md:grid-cols-3 gap-6">
+                            {pressItems.map((item) => (
+                                <div key={item.id} className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card">
+                                    <div className="aspect-video overflow-hidden">
+                                        <img src={item.src} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                                     </div>
-                                </CardContent>
-                            </Card>
-                        ))}
-                    </div>
-                </div>
+                                    <div className="p-4">
+                                        <div className="flex justify-between items-start mb-2">
+                                            <span className="text-xs text-muted-foreground flex items-center gap-1">
+                                                <Calendar className="w-3 h-3" /> {item.date}
+                                            </span>
+                                        </div>
+                                        <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">{item.title}</h3>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
 
-                {/* Connect with Us (Horizontal) */}
-                <div className="bg-secondary/30 rounded-2xl p-8 border border-border/50">
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                    {/* News & Connect Grid */}
+                    <div className="space-y-12">
+                        {/* News */}
                         <div>
-                            <h3 className="font-serif text-2xl font-semibold mb-2 flex items-center gap-2 justify-center md:justify-start">
-                                <Share2 className="w-5 h-5 text-accent" /> Connect with Us
-                            </h3>
-                            <p className="text-muted-foreground text-center md:text-left">
-                                Stay updated with the latest from the Training & Placement Cell.
+                            <h2 className="font-serif text-3xl font-semibold mb-6 flex items-center gap-2">
+                                <Newspaper className="w-6 h-6 text-accent" /> In the News
+                            </h2>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {newsItems.map((news) => (
+                                    <Card key={news.id} className="hover:border-accent/50 transition-colors">
+                                        <CardContent className="p-4">
+                                            <Badge variant="outline" className="mb-2 text-xs">{news.source}</Badge>
+                                            <h3 className="font-semibold text-lg hover:underline decoration-accent/50 underline-offset-4 cursor-pointer mb-2">{news.title}</h3>
+                                            <div className="flex justify-between items-center text-sm text-muted-foreground">
+                                                <span>{news.date}</span>
+                                                <Button variant="ghost" size="sm" className="h-auto p-0 text-accent hover:text-accent/80">
+                                                    Read More <ExternalLink className="w-3 h-3 ml-1" />
+                                                </Button>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Connect with Us (Horizontal) */}
+                        <div className="bg-secondary/30 rounded-2xl p-8 border border-border/50">
+                            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                                <div>
+                                    <h3 className="font-serif text-2xl font-semibold mb-2 flex items-center gap-2 justify-center md:justify-start">
+                                        <Share2 className="w-5 h-5 text-accent" /> Connect with Us
+                                    </h3>
+                                    <p className="text-muted-foreground text-center md:text-left">
+                                        Stay updated with the latest from the Training & Placement Cell.
+                                    </p>
+                                </div>
+                                <div className="flex gap-4">
+                                    <a href="https://www.linkedin.com/in/tpcfoet?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                        <Linkedin className="w-5 h-5" />
+                                    </a>
+                                    <a href="https://x.com/PlacementEnggLU" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                        <Twitter className="w-5 h-5" />
+                                    </a>
+                                    <a href="https://www.instagram.com/tpcfoet?igsh=cm05d2NpbnRoNGNp" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                        <Instagram className="w-5 h-5" />
+                                    </a>
+                                    <a href="mailto:placement_foet@lkouniv.ac.in" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                        <Mail className="w-5 h-5" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* CTA Section */}
+                    <section className="bg-primary text-primary-foreground rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+                        <div className="absolute inset-0 bg-accent/20 pattern-dots opacity-10"></div>
+                        <div className="relative z-10 max-w-2xl mx-auto">
+                            <h2 className="font-serif text-3xl font-semibold mb-4">Have moments to share?</h2>
+                            <p className="text-primary-foreground/80 mb-8">
+                                We love showcasing student achievements and campus life. If you have photos or videos from recent events, share them with our media team.
                             </p>
+                            <div className="flex justify-center gap-4">
+                                <Button variant="gold" size="lg">Submit Content</Button>
+                                <Button variant="goldOutline" size="lg">Contact Media Team</Button>
+                            </div>
                         </div>
-                        <div className="flex gap-4">
-                            <a href="https://www.linkedin.com/in/tpcfoet?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
-                                <Linkedin className="w-5 h-5" />
-                            </a>
-                            <a href="https://x.com/PlacementEnggLU" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
-                                <Twitter className="w-5 h-5" />
-                            </a>
-                            <a href="https://www.instagram.com/tpcfoet?igsh=cm05d2NpbnRoNGNp" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
-                                <Instagram className="w-5 h-5" />
-                            </a>
-                            <a href="mailto:placement_foet@lkouniv.ac.in" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
-                                <Mail className="w-5 h-5" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    </section>
 
-            {/* CTA Section */}
-            <section className="bg-primary text-primary-foreground rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-accent/20 pattern-dots opacity-10"></div>
-                <div className="relative z-10 max-w-2xl mx-auto">
-                    <h2 className="font-serif text-3xl font-semibold mb-4">Have moments to share?</h2>
-                    <p className="text-primary-foreground/80 mb-8">
-                        We love showcasing student achievements and campus life. If you have photos or videos from recent events, share them with our media team.
-                    </p>
-                    <div className="flex justify-center gap-4">
-                        <Button variant="gold" size="lg">Submit Content</Button>
-                        <Button variant="goldOutline" size="lg">Contact Media Team</Button>
-                    </div>
                 </div>
-            </section>
-
-        </div>
             </main >
 
-    <Footer />
+            <Footer />
         </div >
     );
 };
