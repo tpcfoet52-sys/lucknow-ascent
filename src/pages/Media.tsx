@@ -14,7 +14,7 @@ import uolLogo from "@/assets/uol-logo.png";
 import luInNews from "@/assets/lu-in-news.jpg";
 import tpcMeeting from "@/assets/tpc-meeting.jpg";
 import learningRoutesDrive from "@/assets/learning-routes-drive.jpg";
-import jaroEducationDrive from "@/assets/jaro-education-drive.jpg";
+import jaroEducationDrive from "@/assets/jaro-education-drive-v2.jpg";
 import higherEducationSeminar from "@/assets/higher-education-seminar.jpg";
 import sotiAchievement from "@/assets/soti-achievement.jpg";
 import samsungInnovation from "@/assets/samsung-innovation-campus.jpg";
@@ -29,7 +29,7 @@ const galleryItems = [
     { id: 101, type: "Events", src: smartIndiaHackathon, title: "Smart India Hackathon 2025", date: "Jan 26, 2025" },
     { id: 102, type: "Events", src: samsungInnovation, title: "Samsung Innovation Campus Program", date: "Jan 26, 2025" },
 
-    { id: 7, type: "Achievements", src: luInNews, title: "LU in News", date: "Jan 26, 2024" },
+
     { id: 8, type: "Events", src: tpcMeeting, title: "TPC Student Coordinator Meeting", date: "Jan 26, 2024" },
     { id: 9, type: "Drives", src: learningRoutesDrive, title: "Learning Routes Placement Drive", date: "Jan 26, 2025" },
     { id: 10, type: "Drives", src: jaroEducationDrive, title: "Jaro Education Placement Drive", date: "Jan 26, 2025" },
