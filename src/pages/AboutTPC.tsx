@@ -486,7 +486,108 @@ const AboutTPC = () => {
         </div>
       </section>
 
+      {/* Recruitment Process */}
+      <section className="py-16 md:py-24">
+        <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="text-xs font-medium text-accent uppercase tracking-wider">Join Our Team</span>
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
+              Recruitment Process
+            </h2>
+            <p className="text-muted-foreground mt-2">
+              Training and Placement Cell, Faculty of Engineering and Technology
+            </p>
+          </motion.div>
 
+          <div className="max-w-4xl mx-auto space-y-8">
+            {/* Eligibility */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-accent/5 border border-accent/20 rounded-lg p-6 md:p-8"
+            >
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-4 flex items-center gap-3">
+                <Users className="h-6 w-6 text-accent" />
+                Eligibility
+              </h3>
+              <p className="text-foreground/80 leading-relaxed">
+                Open to <span className="font-semibold text-foreground">1st and 2nd year Engineering and BCA students only</span>.
+                We are looking for dedicated individuals ready to contribute to the university's placement ecosystem.
+              </p>
+            </motion.div>
+
+            {/* Selection Process */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="bg-background border border-border rounded-lg p-6 relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 p-12 bg-primary/5 rounded-full -mr-6 -mt-6" />
+                <div className="relative z-10">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <span className="font-serif font-bold text-primary">01</span>
+                  </div>
+                  <h4 className="font-serif text-lg font-semibold text-foreground mb-2">Round 1: Application Screening</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Submission of resume and basic details. We look for academic consistency and extracurricular involvement.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="bg-background border border-border rounded-lg p-6 relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 p-12 bg-accent/5 rounded-full -mr-6 -mt-6" />
+                <div className="relative z-10">
+                  <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                    <span className="font-serif font-bold text-accent">02</span>
+                  </div>
+                  <h4 className="font-serif text-lg font-semibold text-foreground mb-2">Round 2: Personal Interview</h4>
+                  <p className="text-sm text-muted-foreground">
+                    One-on-one interaction to assess communication skills, teamwork spirit, and genuine interest in TPC activities.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Requirements */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-background border border-border rounded-lg p-6 md:p-8"
+            >
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-6 flex items-center gap-3">
+                <CheckCircle2 className="h-6 w-6 text-primary" />
+                Requirements
+              </h3>
+              <div className="grid sm:grid-cols-3 gap-6">
+                {[
+                  { text: "Updated Resume", icon: FileText },
+                  { text: "Valid College ID", icon: Award },
+                  { text: "Active Participation", icon: TrendingUp },
+                ].map((req, idx) => (
+                  <div key={idx} className="flex flex-col items-center text-center gap-3 p-4 bg-muted/30 rounded-lg">
+                    <req.icon className="h-8 w-8 text-muted-foreground" />
+                    <span className="font-medium text-foreground">{req.text}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* Download Center */}
       <section className="py-16 md:py-24">
