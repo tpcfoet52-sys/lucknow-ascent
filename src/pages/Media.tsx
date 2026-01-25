@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Play, Calendar, ExternalLink, Camera, Video, Newspaper, Share2, Instagram, Linkedin, Twitter, Facebook } from "lucide-react";
+import { ArrowLeft, Play, Calendar, ExternalLink, Camera, Video, Newspaper, Share2, Instagram, Linkedin, Twitter, Mail } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -28,12 +28,7 @@ import planetsparkVirtualDrive from "@/assets/planetspark-virtual-drive.jpg";
 const galleryItems = [
     { id: 101, type: "Events", src: smartIndiaHackathon, title: "Smart India Hackathon 2025", date: "Jan 26, 2025" },
     { id: 102, type: "Events", src: samsungInnovation, title: "Samsung Innovation Campus Program", date: "Jan 26, 2025" },
-    { id: 1, type: "Events", src: heroImage, title: "AI & ML Workshop", date: "Jan 15, 2024" },
-    { id: 2, type: "Drives", src: heroImage, title: "TCS Recruitment Drive", date: "Dec 10, 2023" },
-    { id: 3, type: "Seminars", src: heroImage, title: "Industry Connect: Tech Mahindra", date: "Nov 22, 2023" },
-    { id: 4, type: "Events", src: heroImage, title: "Soft Skills Training Session", date: "Oct 05, 2023" },
-    { id: 5, type: "Drives", src: heroImage, title: "Infosys Campus Visit", date: "Sep 18, 2023" },
-    { id: 6, type: "Achievements", src: heroImage, title: "Top Coders Award Ceremony", date: "Aug 30, 2023" },
+
     { id: 7, type: "Achievements", src: luInNews, title: "LU in News", date: "Jan 26, 2024" },
     { id: 8, type: "Events", src: tpcMeeting, title: "TPC Student Coordinator Meeting", date: "Jan 26, 2024" },
     { id: 9, type: "Drives", src: learningRoutesDrive, title: "Learning Routes Placement Drive", date: "Jan 26, 2025" },
@@ -59,6 +54,12 @@ const eventHighlights = [
 
 const Media = () => {
     const [filter, setFilter] = useState("All");
+
+    const pressItems = [
+        { id: 1, src: luInNews, title: "University of Lucknow sets new placement record", date: "Jan 20, 2024" },
+        { id: 2, src: luInNews, title: "FoET students shine in National Hackathon", date: "Dec 15, 2023" },
+        { id: 3, src: luInNews, title: "New partnership announced with Microsoft", date: "Nov 10, 2023" },
+    ];
 
     const filteredGallery = filter === "All"
         ? galleryItems
@@ -148,141 +149,107 @@ const Media = () => {
                         </div>
                     </section>
 
-                    {/* Video Gallery */}
-                    <section>
-                        <h2 className="font-serif text-3xl font-semibold mb-8 flex items-center gap-2">
-                            <Video className="w-6 h-6 text-accent" /> Featured Videos
-                        </h2>
+                </div>
+            </section>
 
-                        <div className="grid md:grid-cols-2 gap-8">
-                            <Card className="overflow-hidden border-border/50 shadow-md">
-                                <div className="aspect-video bg-black relative flex items-center justify-center group cursor-pointer">
-                                    <img src={heroImage} alt="Video Thumbnail" className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity" />
-                                    <div className="absolute w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                                        <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
-                                            <Play className="w-5 h-5 text-white ml-1" fill="currentColor" />
-                                        </div>
-                                    </div>
+            {/* Press Release Section */}
+            <section>
+                <h2 className="font-serif text-3xl font-semibold mb-8 flex items-center gap-2">
+                    <Newspaper className="w-6 h-6 text-accent" /> Press Releases
+                </h2>
+                <div className="grid md:grid-cols-3 gap-6">
+                    {pressItems.map((item) => (
+                        <div key={item.id} className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card">
+                            <div className="aspect-video overflow-hidden">
+                                <img src={item.src} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            </div>
+                            <div className="p-4">
+                                <div className="flex justify-between items-start mb-2">
+                                    <span className="text-xs text-muted-foreground flex items-center gap-1">
+                                        <Calendar className="w-3 h-3" /> {item.date}
+                                    </span>
                                 </div>
+                                <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">{item.title}</h3>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* News & Connect Grid */}
+            <div className="space-y-12">
+                {/* News */}
+                <div>
+                    <h2 className="font-serif text-3xl font-semibold mb-6 flex items-center gap-2">
+                        <Newspaper className="w-6 h-6 text-accent" /> In the News
+                    </h2>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {newsItems.map((news) => (
+                            <Card key={news.id} className="hover:border-accent/50 transition-colors">
                                 <CardContent className="p-4">
-                                    <h3 className="text-lg font-semibold mb-1">Recruiter Talk: Why We Hire from FoET</h3>
-                                    <p className="text-sm text-muted-foreground">Hear from HR leaders about the quality of talent at University of Lucknow.</p>
+                                    <Badge variant="outline" className="mb-2 text-xs">{news.source}</Badge>
+                                    <h3 className="font-semibold text-lg hover:underline decoration-accent/50 underline-offset-4 cursor-pointer mb-2">{news.title}</h3>
+                                    <div className="flex justify-between items-center text-sm text-muted-foreground">
+                                        <span>{news.date}</span>
+                                        <Button variant="ghost" size="sm" className="h-auto p-0 text-accent hover:text-accent/80">
+                                            Read More <ExternalLink className="w-3 h-3 ml-1" />
+                                        </Button>
+                                    </div>
                                 </CardContent>
                             </Card>
+                        ))}
+                    </div>
+                </div>
 
-                            <div className="space-y-4">
-                                {[1, 2, 3].map((v) => (
-                                    <div key={v} className="flex gap-4 items-center p-2 rounded-lg hover:bg-secondary/50 transition-colors cursor-pointer group">
-                                        <div className="w-32 h-20 bg-muted rounded-md flex-shrink-0 relative overflow-hidden">
-                                            <img src={heroImage} className="w-full h-full object-cover" />
-                                            <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
-                                                <Play className="w-6 h-6 text-white" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <h4 className="font-medium text-sm text-foreground line-clamp-2">Student Testimonial: Transforming Careers {v}</h4>
-                                            <p className="text-xs text-muted-foreground mt-1">2 weeks ago</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* News & Events Grid */}
-                    <div className="grid lg:grid-cols-3 gap-12">
-                        {/* News */}
-                        <div className="lg:col-span-2">
-                            <h2 className="font-serif text-3xl font-semibold mb-6 flex items-center gap-2">
-                                <Newspaper className="w-6 h-6 text-accent" /> In the News
-                            </h2>
-                            <div className="space-y-4">
-                                {newsItems.map((news) => (
-                                    <Card key={news.id} className="hover:border-accent/50 transition-colors">
-                                        <CardContent className="p-4 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
-                                            <div>
-                                                <Badge variant="outline" className="mb-2 text-xs">{news.source}</Badge>
-                                                <h3 className="font-semibold text-lg hover:underline decoration-accent/50 underline-offset-4 cursor-pointer">{news.title}</h3>
-                                                <p className="text-sm text-muted-foreground mt-1">{news.date}</p>
-                                            </div>
-                                            <Button variant="ghost" size="sm" className="shrink-0 gap-1 text-accent">
-                                                Read More <ExternalLink className="w-3 h-3" />
-                                            </Button>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Event Highlights (Sidebar style) */}
+                {/* Connect with Us (Horizontal) */}
+                <div className="bg-secondary/30 rounded-2xl p-8 border border-border/50">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                         <div>
-                            <h2 className="font-serif text-2xl font-semibold mb-6 flex items-center gap-2">
-                                <Calendar className="w-5 h-5 text-accent" /> Upcoming Events
-                            </h2>
-                            <div className="bg-secondary/30 rounded-xl p-6 border border-border/50">
-                                <div className="space-y-6">
-                                    {eventHighlights.map((event) => (
-                                        <div key={event.id} className="border-b border-border/50 last:border-0 pb-6 last:pb-0">
-                                            <div className="flex items-center gap-3 mb-2">
-                                                <div className="bg-background border border-border rounded px-2 py-1 text-center min-w-[3rem]">
-                                                    <span className="block text-xs font-bold text-accent uppercase">{event.date.split(" ")[0]}</span>
-                                                    <span className="block text-lg font-bold leading-none">{event.date.split(" ")[1].replace(",", "")}</span>
-                                                </div>
-                                                <div>
-                                                    <h4 className="font-semibold text-sm">{event.title}</h4>
-                                                    <p className="text-xs text-muted-foreground">{event.location}</p>
-                                                </div>
-                                            </div>
-                                            <p className="text-xs text-muted-foreground leading-relaxed">{event.desc}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                                <Button variant="outline" className="w-full mt-6 text-xs">View All Events</Button>
-                            </div>
-
-                            {/* Social Media Embed Placeholder */}
-                            <div className="mt-8">
-                                <h3 className="font-semibold mb-4 flex items-center gap-2">
-                                    <Share2 className="w-4 h-4" /> Connect with Us
-                                </h3>
-                                <div className="flex gap-4">
-                                    <a href="#" className="p-3 bg-secondary rounded-full hover:bg-accent/10 hover:text-accent transition-colors">
-                                        <Linkedin className="w-5 h-5" />
-                                    </a>
-                                    <a href="#" className="p-3 bg-secondary rounded-full hover:bg-accent/10 hover:text-accent transition-colors">
-                                        <Twitter className="w-5 h-5" />
-                                    </a>
-                                    <a href="#" className="p-3 bg-secondary rounded-full hover:bg-accent/10 hover:text-accent transition-colors">
-                                        <Instagram className="w-5 h-5" />
-                                    </a>
-                                    <a href="#" className="p-3 bg-secondary rounded-full hover:bg-accent/10 hover:text-accent transition-colors">
-                                        <Facebook className="w-5 h-5" />
-                                    </a>
-                                </div>
-                            </div>
+                            <h3 className="font-serif text-2xl font-semibold mb-2 flex items-center gap-2 justify-center md:justify-start">
+                                <Share2 className="w-5 h-5 text-accent" /> Connect with Us
+                            </h3>
+                            <p className="text-muted-foreground text-center md:text-left">
+                                Stay updated with the latest from the Training & Placement Cell.
+                            </p>
+                        </div>
+                        <div className="flex gap-4">
+                            <a href="https://www.linkedin.com/in/tpcfoet?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                <Linkedin className="w-5 h-5" />
+                            </a>
+                            <a href="https://x.com/PlacementEnggLU" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                <Twitter className="w-5 h-5" />
+                            </a>
+                            <a href="https://www.instagram.com/tpcfoet?igsh=cm05d2NpbnRoNGNp" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                <Instagram className="w-5 h-5" />
+                            </a>
+                            <a href="mailto:placement_foet@lkouniv.ac.in" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                <Mail className="w-5 h-5" />
+                            </a>
                         </div>
                     </div>
-
-                    {/* CTA Section */}
-                    <section className="bg-primary text-primary-foreground rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
-                        <div className="absolute inset-0 bg-accent/20 pattern-dots opacity-10"></div>
-                        <div className="relative z-10 max-w-2xl mx-auto">
-                            <h2 className="font-serif text-3xl font-semibold mb-4">Have moments to share?</h2>
-                            <p className="text-primary-foreground/80 mb-8">
-                                We love showcasing student achievements and campus life. If you have photos or videos from recent events, share them with our media team.
-                            </p>
-                            <div className="flex justify-center gap-4">
-                                <Button variant="gold" size="lg">Submit Content</Button>
-                                <Button variant="goldOutline" size="lg">Contact Media Team</Button>
-                            </div>
-                        </div>
-                    </section>
-
                 </div>
-            </main>
+            </div>
 
-            <Footer />
+            {/* CTA Section */}
+            <section className="bg-primary text-primary-foreground rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-accent/20 pattern-dots opacity-10"></div>
+                <div className="relative z-10 max-w-2xl mx-auto">
+                    <h2 className="font-serif text-3xl font-semibold mb-4">Have moments to share?</h2>
+                    <p className="text-primary-foreground/80 mb-8">
+                        We love showcasing student achievements and campus life. If you have photos or videos from recent events, share them with our media team.
+                    </p>
+                    <div className="flex justify-center gap-4">
+                        <Button variant="gold" size="lg">Submit Content</Button>
+                        <Button variant="goldOutline" size="lg">Contact Media Team</Button>
+                    </div>
+                </div>
+            </section>
+
         </div>
+            </main >
+
+    <Footer />
+        </div >
     );
 };
 
