@@ -225,46 +225,6 @@ const ResumeGuide = () => {
 
                     </section>
 
-                    {/* Bullet Point Makeover (Restored & Redesigned) */}
-                    <section className="bg-navy-900 border border-navy-800 rounded-xl overflow-hidden relative text-white">
-                        <div className="absolute top-0 right-0 p-32 bg-accent/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
-                        <div className="p-8 md:p-10 relative z-10">
-                            <div className="text-center mb-10">
-                                <h2 className="font-serif text-2xl md:text-3xl font-semibold text-white">Bullet Point Makeover</h2>
-                                <p className="text-gray-400 mt-2">See the difference specificity makes.</p>
-                            </div>
-
-                            <div className="grid md:grid-cols-11 gap-6 items-center">
-                                {/* Weak */}
-                                <div className="md:col-span-5 bg-white/5 border border-white/10 rounded-lg p-6">
-                                    <div className="flex items-center gap-2 text-red-400 font-semibold mb-3">
-                                        <XCircle className="w-5 h-5" /> Weak
-                                    </div>
-                                    <p className="text-gray-300 italic">
-                                        "Worked on a project using React."
-                                    </p>
-                                </div>
-
-                                {/* Arrow */}
-                                <div className="md:col-span-1 flex justify-center">
-                                    <ChevronRight className="w-8 h-8 text-accent/50 hidden md:block" />
-                                    <ChevronRight className="w-8 h-8 text-accent/50 block md:hidden transform rotate-90" />
-                                </div>
-
-                                {/* Strong */}
-                                <div className="md:col-span-5 bg-green-500/10 border border-green-500/20 rounded-lg p-6 relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-20 h-20 bg-green-500/20 blur-xl rounded-full pointer-events-none -mr-10 -mt-10"></div>
-                                    <div className="flex items-center gap-2 text-green-400 font-semibold mb-3">
-                                        <CheckCircle2 className="w-5 h-5" /> Strong
-                                    </div>
-                                    <p className="text-gray-100">
-                                        "<strong>Developed</strong> a responsive e-commerce web app using <strong>React.js</strong> and Redux, improving page load time by <strong>40%</strong>."
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
                     {/* Common Mistakes */}
                     <section>
                         <h2 className="font-serif text-3xl font-semibold mb-8">Common Student Mistakes</h2>
