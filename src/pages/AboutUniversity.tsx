@@ -55,7 +55,7 @@ const demographics = [
 ];
 
 const milestones = [
-  { year: "1921", event: "University established by the United Provinces government" },
+  { year: "1920", event: "University established by the United Provinces government" },
   { year: "1947", event: "Post-independence expansion of faculties" },
   { year: "1975", event: "Institute of Engineering & Technology founded" },
   { year: "2000", event: "Modern campus development begins" },
@@ -149,7 +149,7 @@ const AboutUniversity = () => {
               About University of Lucknow
             </h1>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
-              Established in 1921, the University of Lucknow stands as one of India's premier institutions
+              Established in 1920, the University of Lucknow stands as one of India's premier institutions
               of higher learning, with a legacy spanning over a century of academic excellence.
             </p>
 
