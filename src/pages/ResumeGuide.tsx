@@ -177,7 +177,7 @@ const ResumeGuide = () => {
 
                     {/* ATS Tips & Power Verbs */}
                     <section className="grid lg:grid-cols-12 gap-8">
-                        <div className="lg:col-span-12">
+                        <div className="lg:col-span-7">
                             <h2 className="font-serif text-3xl font-semibold mb-6">Master the ATS</h2>
                             <p className="text-muted-foreground mb-6">
                                 Most companies use Applicant Tracking Systems (ATS) to filter resumes before a human sees them. Here is how to beat the bot:
