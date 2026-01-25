@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, XCircle, FileText, Briefcase, Award, PenTool, Download, ChevronRight, User, Settings, Sparkles, AlertTriangle } from "lucide-react";
+import ATSScanner from "@/components/ATSScanner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -253,6 +254,42 @@ const ResumeGuide = () => {
                                     </div>
                                 </CardContent>
                             </Card>
+                        </div>
+                    </section>
+
+                    {/* Bullet Point Makeover - Vertical Layout */}
+                    <section className="bg-navy-900 rounded-xl p-8 md:p-12 relative overflow-hidden text-white my-12">
+                        {/* Background accent */}
+                        <div className="absolute top-0 right-0 p-32 bg-accent/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+
+                        <div className="text-center mb-10 relative z-10">
+                            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white">Bullet Point Makeover</h2>
+                            <p className="text-gray-400 mt-2">See the difference specificity makes.</p>
+                        </div>
+
+                        <div className="space-y-6 relative z-10 max-w-3xl mx-auto">
+                            {/* Weak Example */}
+                            <div className="bg-white/5 border-l-4 border-red-500 rounded-r-lg p-6">
+                                <div className="flex items-center gap-2 text-red-400 font-semibold mb-2">
+                                    <XCircle className="w-5 h-5" /> Weak
+                                </div>
+                                <p className="text-gray-300 italic">"Worked on a project using React."</p>
+                            </div>
+
+                            {/* Transformation Icon */}
+                            <div className="flex justify-center">
+                                <ArrowDown className="w-6 h-6 text-gray-500" />
+                            </div>
+
+                            {/* Strong Example */}
+                            <div className="bg-green-500/10 border-l-4 border-green-500 rounded-r-lg p-6">
+                                <div className="flex items-center gap-2 text-green-400 font-semibold mb-2">
+                                    <CheckCircle2 className="w-5 h-5" /> Strong
+                                </div>
+                                <p className="text-gray-100">
+                                    "<strong>Developed</strong> a responsive e-commerce web app using <strong>React.js</strong> and Redux, improving page load time by <strong>40%</strong>."
+                                </p>
+                            </div>
                         </div>
                     </section>
 
