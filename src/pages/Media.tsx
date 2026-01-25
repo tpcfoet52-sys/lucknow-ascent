@@ -11,6 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import heroImage from "@/assets/university-hero.jpg";
 import uolLogo from "@/assets/uol-logo.png";
+import luInNews from "@/assets/lu-in-news.jpg";
 
 // Placeholder data for Gallery
 const galleryItems = [
@@ -20,6 +21,7 @@ const galleryItems = [
     { id: 4, type: "Workshops", src: heroImage, title: "Soft Skills Training Session", date: "Oct 05, 2023" },
     { id: 5, type: "Drives", src: heroImage, title: "Infosys Campus Visit", date: "Sep 18, 2023" },
     { id: 6, type: "Achievements", src: heroImage, title: "Top Coders Award Ceremony", date: "Aug 30, 2023" },
+    { id: 7, type: "Achievements", src: luInNews, title: "LU in News", date: "Jan 26, 2024" },
 ];
 
 const newsItems = [
