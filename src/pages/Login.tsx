@@ -30,7 +30,7 @@ const Login = () => {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.2, duration: 0.6 }}
                         >
-                            <Card className="h-full hover:border-accent/50 transition-colors cursor-pointer group relative overflow-hidden">
+                            <Card className="h-full flex flex-col hover:border-accent/50 transition-colors cursor-pointer group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-16 bg-accent/5 rounded-full -mr-8 -mt-8 transition-transform group-hover:scale-150 duration-500"></div>
                                 <CardHeader className="text-center relative z-10">
                                     <div className="w-16 h-16 mx-auto bg-secondary rounded-full flex items-center justify-center mb-4 group-hover:bg-accent/10 transition-colors">
@@ -41,7 +41,7 @@ const Login = () => {
                                         For placement coordinators and team members
                                     </CardDescription>
                                 </CardHeader>
-                                <CardContent className="text-center relative z-10">
+                                <CardContent className="text-center relative z-10 mt-auto w-full">
                                     <Link to="/team-structure">
                                         <Button className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                                             Access Dashboard <ArrowRight className="w-4 h-4 ml-2" />
@@ -57,7 +57,7 @@ const Login = () => {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.3, duration: 0.6 }}
                         >
-                            <Card className="h-full hover:border-primary/50 transition-colors cursor-pointer group relative overflow-hidden">
+                            <Card className="h-full flex flex-col hover:border-primary/50 transition-colors cursor-pointer group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-16 bg-primary/5 rounded-full -mr-8 -mt-8 transition-transform group-hover:scale-150 duration-500"></div>
                                 <CardHeader className="text-center relative z-10">
                                     <div className="w-16 h-16 mx-auto bg-secondary rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
@@ -68,7 +68,7 @@ const Login = () => {
                                         For administrators and management
                                     </CardDescription>
                                 </CardHeader>
-                                <CardContent className="text-center relative z-10">
+                                <CardContent className="text-center relative z-10 mt-auto w-full">
                                     <Link to="/admin-login">
                                         <Button variant="default" className="w-full">
                                             Admin Login <ArrowRight className="w-4 h-4 ml-2" />
