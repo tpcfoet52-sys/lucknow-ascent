@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Play, Calendar, ExternalLink, Camera, Video, Newspaper, Share2, Instagram, Linkedin, Twitter, Mail } from "lucide-react";
+import { ArrowLeft, Play, Calendar, ExternalLink, Camera, Video, Newspaper, Share2, Instagram, Linkedin, Twitter, Mail, X } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -54,6 +54,7 @@ const eventHighlights = [
 
 const Media = () => {
     const [filter, setFilter] = useState("All");
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     const pressItems = [
         { id: 1, src: luInNews, title: "University of Lucknow sets new placement record", date: "Jan 20, 2024" },
@@ -129,7 +130,8 @@ const Media = () => {
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.9 }}
                                         transition={{ duration: 0.3 }}
-                                        className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card"
+                                        className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer"
+                                        onClick={() => setSelectedImage(item.src)}
                                     >
                                         <div className="aspect-video overflow-hidden">
                                             <img src={item.src} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -158,7 +160,7 @@ const Media = () => {
                         </h2>
                         <div className="grid md:grid-cols-3 gap-6">
                             {pressItems.map((item) => (
-                                <div key={item.id} className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card">
+                                <div key={item.id} className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer" onClick={() => setSelectedImage(item.src)}>
                                     <div className="aspect-video overflow-hidden">
                                         <img src={item.src} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                                     </div>
