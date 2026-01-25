@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Play, Calendar, ExternalLink, Camera, Video, Newspaper, Share2, Instagram, Linkedin, Twitter, Mail, X } from "lucide-react";
+import { ArrowLeft, Play, Calendar, ExternalLink, Camera, Video, Newspaper, Share2, Instagram, Linkedin, Mail, X } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -218,7 +218,7 @@ const Media = () => {
                                         <Linkedin className="w-5 h-5" />
                                     </a>
                                     <a href="https://x.com/PlacementEnggLU" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
-                                        <Twitter className="w-5 h-5" />
+                                        <X className="w-5 h-5" />
                                     </a>
                                     <a href="https://www.instagram.com/tpcfoet?igsh=cm05d2NpbnRoNGNp" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
                                         <Instagram className="w-5 h-5" />
