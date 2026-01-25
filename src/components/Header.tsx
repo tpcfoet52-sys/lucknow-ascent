@@ -122,7 +122,7 @@ const Header = () => {
             >
               <img
                 src={tpcLogo}
-                alt="Training and Placement Cell"
+                alt="Training & Placement Cell"
                 className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
               />
               <div className="hidden sm:block">
