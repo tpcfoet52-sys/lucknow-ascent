@@ -13,9 +13,21 @@ import heroImage from "@/assets/university-hero.jpg";
 import uolLogo from "@/assets/uol-logo.png";
 import luInNews from "@/assets/lu-in-news.jpg";
 import tpcMeeting from "@/assets/tpc-meeting.jpg";
+import learningRoutesDrive from "@/assets/learning-routes-drive.jpg";
+import jaroEducationDrive from "@/assets/jaro-education-drive.jpg";
+import higherEducationSeminar from "@/assets/higher-education-seminar.jpg";
+import sotiAchievement from "@/assets/soti-achievement.jpg";
+import samsungInnovation from "@/assets/samsung-innovation-campus.jpg";
+import smartIndiaHackathon from "@/assets/smart-india-hackathon.jpg";
+import starPerformerNovember from "@/assets/star-performer-november.jpg";
+import planetsparkAchievement from "@/assets/planetspark-achievement.jpg";
+import rupeekVirtualDrive from "@/assets/rupeek-virtual-drive.jpg";
+import planetsparkVirtualDrive from "@/assets/planetspark-virtual-drive.jpg";
 
 // Placeholder data for Gallery
 const galleryItems = [
+    { id: 101, type: "Events", src: smartIndiaHackathon, title: "Smart India Hackathon 2025", date: "Jan 26, 2025" },
+    { id: 102, type: "Events", src: samsungInnovation, title: "Samsung Innovation Campus Program", date: "Jan 26, 2025" },
     { id: 1, type: "Events", src: heroImage, title: "AI & ML Workshop", date: "Jan 15, 2024" },
     { id: 2, type: "Drives", src: heroImage, title: "TCS Recruitment Drive", date: "Dec 10, 2023" },
     { id: 3, type: "Seminars", src: heroImage, title: "Industry Connect: Tech Mahindra", date: "Nov 22, 2023" },
@@ -24,6 +36,14 @@ const galleryItems = [
     { id: 6, type: "Achievements", src: heroImage, title: "Top Coders Award Ceremony", date: "Aug 30, 2023" },
     { id: 7, type: "Achievements", src: luInNews, title: "LU in News", date: "Jan 26, 2024" },
     { id: 8, type: "Events", src: tpcMeeting, title: "TPC Student Coordinator Meeting", date: "Jan 26, 2024" },
+    { id: 9, type: "Drives", src: learningRoutesDrive, title: "Learning Routes Placement Drive", date: "Jan 26, 2025" },
+    { id: 10, type: "Drives", src: jaroEducationDrive, title: "Jaro Education Placement Drive", date: "Jan 26, 2025" },
+    { id: 11, type: "Drives", src: rupeekVirtualDrive, title: "Rupeek Virtual Drive", date: "Jan 26, 2025" },
+    { id: 12, type: "Drives", src: planetsparkVirtualDrive, title: "Planetspark Virtual Placement Drive", date: "Jan 26, 2025" },
+    { id: 13, type: "Seminars", src: higherEducationSeminar, title: "Higher Education Opportunities", date: "Jan 26, 2025" },
+    { id: 14, type: "Achievements", src: sotiAchievement, title: "SOTI Selects Students (7.5 LPA)", date: "Jan 26, 2025" },
+    { id: 15, type: "Achievements", src: starPerformerNovember, title: "Star Performer - November 2025", date: "Nov 2025" },
+    { id: 16, type: "Achievements", src: planetsparkAchievement, title: "PlanetSpark Selects Students (6.50 LPA)", date: "Jan 26, 2025" },
 ];
 
 const newsItems = [
