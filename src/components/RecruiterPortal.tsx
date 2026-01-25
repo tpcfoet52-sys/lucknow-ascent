@@ -134,7 +134,11 @@ const RecruiterPortal = () => {
             ))}
           </div>
           <div className="text-center">
-            <Button variant="gold" size="default">
+            <Button
+              variant="gold"
+              size="default"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Partner With Us
             </Button>
           </div>
