@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, ArrowLeft } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowLeft, LogIn } from "lucide-react";
 import { Button } from "./ui/button";
 
 import tpcLogo from "@/assets/tpc-logo.jpeg";
@@ -176,26 +176,16 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-3">
 
             {isHomePage && (
-              <>
-                <Link to="/team-structure">
-                  <Button
-                    variant={!isScrolled ? "goldOutline" : "outline"}
-                    size="sm"
-                  >
-                    Team Login
-                  </Button>
-                </Link>
-
-                {/* UPDATED: Wrapped in Link */}
-                <Link to="/admin-login">
-                  <Button
-                    variant={!isScrolled ? "gold" : "default"}
-                    size="default"
-                  >
-                    Admin Login
-                  </Button>
-                </Link>
-              </>
+              <Link to="/login">
+                <Button
+                  variant={!isScrolled ? "ghost" : "ghost"}
+                  size="icon"
+                  className={!isScrolled ? "text-primary-foreground hover:bg-primary-foreground/20" : "text-foreground hover:bg-muted"}
+                  title="Login"
+                >
+                  <LogIn className="h-5 w-5" />
+                </Button>
+              </Link>
             )}
           </div>
 
@@ -250,20 +240,11 @@ const Header = () => {
               <div className="pt-4 space-y-2">
 
                 {isHomePage && (
-                  <>
-                    <Link to="/team-structure" onClick={() => setIsMobileMenuOpen(false)}>
-                      <Button variant="outline" className="w-full">
-                        Team Login
-                      </Button>
-                    </Link>
-
-                    {/* UPDATED: Wrapped in Link with onClick to close menu */}
-                    <Link to="/admin" onClick={() => setIsMobileMenuOpen(false)}>
-                      <Button variant="default" className="w-full">
-                        Admin Login
-                      </Button>
-                    </Link>
-                  </>
+                  <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button variant="default" className="w-full flex items-center justify-center gap-2">
+                      <LogIn className="w-4 h-4" /> Login
+                    </Button>
+                  </Link>
                 )}
               </div>
             </div>

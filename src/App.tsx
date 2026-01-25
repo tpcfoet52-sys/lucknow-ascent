@@ -15,6 +15,7 @@ import ResumeGuide from "./pages/ResumeGuide";
 import InterviewPrep from "./pages/InterviewPrep";
 import SoftSkills from "./pages/SoftSkills";
 import Media from "./pages/Media";
+import Login from "./pages/Login";
 
 // Import Admin components
 import AdminLayout from "./components/admin/AdminLayout";
@@ -74,6 +75,7 @@ const App = () => (
           <Route path="/interview-prep" element={<InterviewPrep />} />
           <Route path="/soft-skills" element={<SoftSkills />} />
           <Route path="/media" element={<Media />} />
+          <Route path="/login" element={<Login />} />
 
           {/* Coordinator Routes */}
           <Route path="/coordinator-login" element={<CoordinatorLogin />} />
