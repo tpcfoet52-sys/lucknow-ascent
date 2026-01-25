@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, XCircle, FileText, Briefcase, Award, PenTool, Download, ChevronRight, User, Settings, Sparkles, AlertTriangle } from "lucide-react";
+import ATSScanner from "@/components/ATSScanner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -33,8 +34,8 @@ const ResumeGuide = () => {
                                 Your resume is your first impression. Learn how to craft a professional, ATS-friendly resume that gets you shortlisted by top recruiters.
                             </p>
                             <div className="mt-8 flex justify-center gap-4">
-                                <Button variant="gold" size="lg" className="rounded-md" onClick={() => document.getElementById('step-by-step')?.scrollIntoView({ behavior: 'smooth' })}>
-                                    Start Building <ChevronRight className="w-4 h-4 ml-2" />
+                                <Button variant="gold" size="lg" className="rounded-md" onClick={() => document.getElementById('ats-scanner')?.scrollIntoView({ behavior: 'smooth' })}>
+                                    Check ATS Score <ChevronRight className="w-4 h-4 ml-2" />
                                 </Button>
                                 <Button size="lg" variant="outline" className="rounded-md" onClick={() => document.getElementById('download-template')?.scrollIntoView({ behavior: 'smooth' })}>
                                     <Download className="w-4 h-4 ml-2" /> Templates
@@ -297,6 +298,9 @@ const ResumeGuide = () => {
                             ))}
                         </div>
                     </section>
+
+                    {/* ATS Scanner Portal */}
+                    <ATSScanner />
 
                     {/* CTA / Download */}
 
