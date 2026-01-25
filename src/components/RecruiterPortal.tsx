@@ -5,13 +5,13 @@ import { Button } from "./ui/button";
 const stats = [
   {
     icon: TrendingUp,
-    value: "₹8.5 LPA",
+    value: "₹9.0 LPA",
     label: "Average Package (23-24)",
   },
   {
     icon: Trophy,
-    value: "₹23.6 LPA",
-    label: "Highest Package (23-24)",
+    value: "₹26.0 LPA",
+    label: "Highest Package (2023 Batch)",
   },
   {
     icon: Building2,
@@ -26,9 +26,9 @@ const stats = [
 ];
 
 const topRecruiters = [
-  "SOTI", "ADOBE", "DELLOIT", "WIPRO", "NPCL", "HCL TECH", 
+  "SOTI", "ADOBE", "DELLOIT", "WIPRO", "NPCL", "HCL TECH",
   "GENPACT", "ADANI CEMENTS", "MOTHERSON INTERNATIONAL", "ALLEN", "PW",
-  "BYJU’S", "Tech Mahindra", "JARO EDUCATION", "RELIANCE INDUSTRIES LTD."
+  "BYJU’S", "Tech Mahindra", "JARO EDUCATION", "RELIANCE INDUSTRIES LTD.", "ACCENTURE",
 ];
 
 const whyRecruitPoints = [

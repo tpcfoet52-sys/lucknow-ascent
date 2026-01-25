@@ -75,7 +75,7 @@ const stats = [
   { value: "543", label: "Jobs Offered", sublabel: "2024-25" },
   { value: "₹3.0 LPA", label: "Minimum Package", sublabel: "2024-25" },
   { value: "₹9.0 LPA", label: "Average Package", sublabel: "Overall" },
-  { value: "₹26.0 LPA", label: "Highest Package", sublabel: "2024-25" },
+  { value: "₹26.0 LPA", label: "Highest Package", sublabel: "2023 Batch" },
 ];
 
 const topRecruiters = [

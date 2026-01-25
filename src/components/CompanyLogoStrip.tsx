@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const companies = [
-  "MICROSOFT", "ADOBE", "DELOITTE", "WIPRO", "NPCL", "HCL TECH", 
+  "MICROSOFT", "ADOBE", "DELOITTE", "WIPRO", "NPCL", "HCL TECH",
   "GENPACT", "ADANI CEMENTS", "MOTHERSON INTERNATIONAL", "ALLEN", "PW",
   "BYJU’S", "SOTI", "JARO EDUCATION", "RELIANCE INDUSTRIES LTD.", "ACCENTURE"
 ];
@@ -14,7 +14,7 @@ const CompanyLogoStrip = () => {
           Trusted by Industry Leaders
         </p>
       </div>
-      
+
       {/* Infinite Scroll Animation */}
       <div className="relative">
         <div className="flex overflow-hidden">
@@ -43,7 +43,7 @@ const CompanyLogoStrip = () => {
             ))}
           </motion.div>
         </div>
-        
+
         {/* Gradient Overlays */}
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-secondary to-transparent pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-secondary to-transparent pointer-events-none" />
