@@ -86,11 +86,27 @@ const topRecruiters = [
 ];
 
 const trainingPrograms = [
-  { title: "Session on Scope in Civil Engineering", by: "Miss Surabhi Aggarwal" },
-  { title: "Geotechnical Enginee", by: "Samsung C&T" },
-  { title: "Workshop Session on Reaching Out to Industries", by: "Mr. Shubham Sing" },
-  { title: " PhonePe Session on Opportunities for Engineers in DRDO", by: "Miss Surabhi Aggarwal" },
-  { title: "Session on Scope in Civil Engineering", by: "Miss Surabhi Aggarwal" },
+  {
+    title: "Session on Scope in Civil Engineering",
+    speaker: "Miss Surabhi Aggarwal",
+    role: "Geotechnical Engineer, Samsung C&T"
+  },
+  {
+    title: "Workshop: Reaching Out to Industries",
+    desc: "Resume Building & Interview Prep",
+    speaker: "Mr. Shubham Sing",
+    role: "SDE, PhonePe"
+  },
+  {
+    title: "Opportunities for Engineers in DRDO",
+    speaker: "Dr. Ashish Dubey",
+    role: "Scientist 'G' & Project Director, DTTC Lucknow"
+  },
+  {
+    title: "Naval Aviation & Operations",
+    speaker: "Lt. Cdr. Rohit Dhama (Retd.)",
+    role: "Ex-Indian Navy (10+ Years Exp.)"
+  }
 ];
 
 const successStories = [
@@ -403,7 +419,7 @@ const AboutTPC = () => {
             </h2>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {trainingPrograms.map((program, index) => (
               <motion.div
                 key={program.title}
@@ -417,12 +433,14 @@ const AboutTPC = () => {
                 <div className="mb-4 inline-block group-hover:scale-110 transition-transform duration-300">
                   <GraduationCap className="h-10 w-10 text-accent mx-auto" />
                 </div>
-                <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
+                <h3 className="font-serif text-lg font-semibold text-foreground mb-1">
                   {program.title}
                 </h3>
-                <div className="space-y-1 text-sm">
-                  <p className="text-muted-foreground">Duration: {program.duration}</p>
-                  <p className="text-accent font-medium">{program.participants} Participants</p>
+                {program.desc && <p className="text-xs text-muted-foreground mb-2">{program.desc}</p>}
+
+                <div className="mt-4 pt-4 border-t border-border/40">
+                  <p className="text-accent font-medium text-sm">{program.speaker}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{program.role}</p>
                 </div>
               </motion.div>
             ))}
