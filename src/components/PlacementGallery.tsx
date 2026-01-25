@@ -107,10 +107,7 @@ const PlacementGallery = () => {
                     <p className="text-primary-foreground/80 mb-4">
                       {galleryItems[currentIndex].description}
                     </p>
-                    <div className="inline-flex items-center gap-2 text-accent">
-                      <span className="text-3xl font-serif font-bold">{galleryItems[currentIndex].students}</span>
-                      <span className="text-sm">Students Placed</span>
-                    </div>
+
                   </div>
                 </div>
               </motion.div>
