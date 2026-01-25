@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, CheckCircle2, XCircle, FileText, Briefcase, Award, PenTool, Download, ChevronRight, User, Settings, Sparkles, AlertTriangle } from "lucide-react";
+import { ArrowLeft, CheckCircle2, XCircle, FileText, Briefcase, Award, PenTool, Download, ChevronRight, User, Settings, Sparkles, AlertTriangle, Search, LayoutTemplate, FileType } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -179,84 +179,65 @@ const ResumeGuide = () => {
                     </section>
 
                     {/* ATS Tips & Power Verbs */}
-                    <section className="grid lg:grid-cols-12 gap-8">
-                        <div className="lg:col-span-7">
-                            <h2 className="font-serif text-3xl font-semibold mb-6">Master the ATS</h2>
-                            <p className="text-muted-foreground mb-6">
-                                Most companies use Applicant Tracking Systems (ATS) to filter resumes before a human sees them. Here is how to beat the bot:
+                    {/* ATS Strategies */}
+                    <section className="space-y-12">
+                        <div className="text-center max-w-2xl mx-auto">
+                            <h2 className="font-serif text-3xl font-semibold mb-4">Master the ATS</h2>
+                            <p className="text-muted-foreground">
+                                Applicant Tracking Systems (ATS) filter 75% of resumes. Here is how to ensure yours beats the bot and reaches a human.
                             </p>
-                            <div className="space-y-4">
-                                <Accordion type="single" collapsible className="w-full">
-                                    <AccordionItem value="item-1">
-                                        <AccordionTrigger>Keywords are Key</AccordionTrigger>
-                                        <AccordionContent>
-                                            Scan the Job Description. If they ask for "Python" and "Machine Learning", ensure those exact words appear in your skills or projects section.
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                    <AccordionItem value="item-2">
-                                        <AccordionTrigger>Simple Formatting</AccordionTrigger>
-                                        <AccordionContent>
-                                            Avoid columns, tables, headers/footers, and graphics. Use standard section headings like "Experience" rather than "Professional Journey".
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                    <AccordionItem value="item-3">
-                                        <AccordionTrigger>File Type</AccordionTrigger>
-                                        <AccordionContent>
-                                            A text-based PDF is best. Sometimes a Word doc (.docx) is safer for older ATS systems. Never use an image-based PDF.
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                </Accordion>
-                            </div>
-
-                            <div className="mt-8 p-6 bg-accent/5 rounded-lg border border-accent/20">
-                                <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
-                                    <Sparkles className="w-5 h-5 text-accent" /> Pro-Tip: Action Verbs
-                                </h3>
-                                <p className="text-sm text-muted-foreground mb-4">
-                                    Start every bullet point with a power verb. Avoid passive voice.
-                                </p>
-                                <div className="flex flex-wrap gap-2">
-                                    {["Developed", "Designed", "Implemented", "Led", "Optimized", "Achieved", "Spearheaded", "Collaborated", "Engineered", "Solved"].map((word) => (
-                                        <span key={word} className="bg-background px-3 py-1 rounded-full text-xs font-medium border border-border shadow-sm">
-                                            {word}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
                         </div>
 
-                        {/* Before vs After */}
-                        <div className="lg:col-span-5">
-                            <Card className="bg-navy-900 border-navy-800 text-white h-full relative overflow-hidden">
-                                <div className="absolute top-0 right-0 p-32 bg-accent/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
-                                <CardHeader>
-                                    <CardTitle className="text-white">Bullet Point Makeover</CardTitle>
-                                    <CardDescription className="text-gray-400">See the difference specificity makes.</CardDescription>
-                                </CardHeader>
-                                <CardContent className="space-y-6 relative z-10">
-                                    <div className="space-y-2">
-                                        <div className="flex items-center gap-2 text-red-300 text-sm font-medium">
-                                            <XCircle className="w-4 h-4" /> Weak
+                        <div className="grid md:grid-cols-3 gap-6">
+                            {[
+                                {
+                                    title: "Keywords are Key",
+                                    icon: Search,
+                                    desc: "Scan the JD. If they ask for 'Python' and 'Machine Learning', ensure those exact words appear in your skills."
+                                },
+                                {
+                                    title: "Clean Formatting",
+                                    icon: LayoutTemplate,
+                                    desc: "Avoid columns, tables, and graphics. Use standard headings like 'Experience' so the bot can parse your history."
+                                },
+                                {
+                                    title: "Right File Type",
+                                    icon: FileType,
+                                    desc: "A text-based PDF is standard. Use .docx if specifically requested. Never use image-based PDFs."
+                                }
+                            ].map((tip, i) => (
+                                <Card key={i} className="border-border/50 hover:border-accent/50 transition-colors">
+                                    <CardHeader>
+                                        <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-2">
+                                            <tip.icon className="w-5 h-5 text-accent" />
                                         </div>
-                                        <div className="p-3 bg-white/5 rounded text-sm text-gray-300">
-                                            "Worked on a project using React."
-                                        </div>
-                                    </div>
+                                        <CardTitle className="text-lg">{tip.title}</CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <p className="text-muted-foreground text-sm leading-relaxed">
+                                            {tip.desc}
+                                        </p>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </div>
 
-                                    <div className="flex justify-center -my-2">
-                                        <ChevronRight className="w-6 h-6 text-accent transform rotate-90" />
-                                    </div>
-
-                                    <div className="space-y-2">
-                                        <div className="flex items-center gap-2 text-green-300 text-sm font-medium">
-                                            <CheckCircle2 className="w-4 h-4" /> Strong
-                                        </div>
-                                        <div className="p-3 bg-white/10 rounded text-sm text-white border-l-2 border-accent">
-                                            "<strong>Developed</strong> a responsive e-commerce web app using <strong>React.js</strong> and Redux, improving page load time by <strong>40%</strong>."
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
+                        {/* Action Verbs Banner */}
+                        <div className="rounded-2xl bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 p-8 text-center border border-accent/20 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 p-32 bg-accent/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+                            <h3 className="font-serif text-xl font-semibold mb-4 flex items-center justify-center gap-2 relative z-10">
+                                <Sparkles className="w-5 h-5 text-accent" /> Power Up with Action Verbs
+                            </h3>
+                            <p className="text-muted-foreground max-w-2xl mx-auto mb-6 relative z-10">
+                                Start every bullet point with a strong verb. Avoid passive voice to make your contributions sound impactful.
+                            </p>
+                            <div className="flex flex-wrap justify-center gap-2 relative z-10">
+                                {["Developed", "Designed", "Implemented", "Led", "Optimized", "Achieved", "Spearheaded", "Collaborated", "Engineered", "Solved"].map((word) => (
+                                    <span key={word} className="bg-background/80 backdrop-blur px-4 py-1.5 rounded-full text-sm font-medium border border-border/50 text-foreground shadow-sm">
+                                        {word}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </section>
 
