@@ -177,7 +177,7 @@ const ResumeGuide = () => {
 
                     {/* ATS Tips & Power Verbs */}
                     <section className="grid lg:grid-cols-12 gap-8">
-                        <div className="lg:col-span-7">
+                        <div className="lg:col-span-12">
                             <h2 className="font-serif text-3xl font-semibold mb-6">Master the ATS</h2>
                             <p className="text-muted-foreground mb-6">
                                 Most companies use Applicant Tracking Systems (ATS) to filter resumes before a human sees them. Here is how to beat the bot:
@@ -222,44 +222,6 @@ const ResumeGuide = () => {
                             </div>
                         </div>
 
-                        {/* Before vs After */}
-
-                    </section>
-
-                    {/* Bullet Point Makeover - Vertical Layout */}
-                    <section className="bg-navy-900 rounded-xl p-8 md:p-12 relative overflow-hidden text-white my-12">
-                        {/* Background accent */}
-                        <div className="absolute top-0 right-0 p-32 bg-accent/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
-
-                        <div className="text-center mb-10 relative z-10">
-                            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white">Bullet Point Makeover</h2>
-                            <p className="text-gray-400 mt-2">See the difference specificity makes.</p>
-                        </div>
-
-                        <div className="space-y-6 relative z-10 max-w-3xl mx-auto">
-                            {/* Weak Example */}
-                            <div className="bg-white/5 border-l-4 border-red-500 rounded-r-lg p-6">
-                                <div className="flex items-center gap-2 text-red-400 font-semibold mb-2">
-                                    <XCircle className="w-5 h-5" /> Weak
-                                </div>
-                                <p className="text-gray-300 italic">"Worked on a project using React."</p>
-                            </div>
-
-                            {/* Transformation Icon */}
-                            <div className="flex justify-center">
-                                <ArrowDown className="w-6 h-6 text-gray-500" />
-                            </div>
-
-                            {/* Strong Example */}
-                            <div className="bg-green-500/10 border-l-4 border-green-500 rounded-r-lg p-6">
-                                <div className="flex items-center gap-2 text-green-400 font-semibold mb-2">
-                                    <CheckCircle2 className="w-5 h-5" /> Strong
-                                </div>
-                                <p className="text-gray-100">
-                                    "<strong>Developed</strong> a responsive e-commerce web app using <strong>React.js</strong> and Redux, improving page load time by <strong>40%</strong>."
-                                </p>
-                            </div>
-                        </div>
                     </section>
 
                     {/* Common Mistakes */}
