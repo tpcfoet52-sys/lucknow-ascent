@@ -357,9 +357,16 @@ const AboutUniversity = () => {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: "Dr. A.P.J. Abdul Kalam", role: "Former President of India", field: "Science & Technology" },
-              { name: "Amitabh Bachchan", role: "Legendary Actor", field: "Arts & Entertainment" },
-              { name: "Rajnath Singh", role: "Defense Minister of India", field: "Politics & Governance" },
+              { name: "Govind Ballabh Pant", role: "Freedom Fighter & 1st CM of UP", field: "Politics & Governance" },
+              { name: "Justice A. S. Anand", role: "Former Chief Justice of India", field: "Law & Judiciary" },
+              { name: "Ritu Karidhal", role: "Senior Scientist, ISRO (Rocket Woman)", field: "Science & Technology" },
+              { name: "Naresh Trehan", role: "Founder, Medanta Hospital (Padma Shri)", field: "Medicine & Healthcare" },
+              { name: "Qurratulain Hyder", role: "Jnanpith Awardee Novelist", field: "Literature" },
+              { name: "Vinod Mehta", role: "Eminent Journalist (Editor, Outlook)", field: "Journalism & Media" },
+              { name: "Jaya Prada", role: "Actress & Former MP", field: "Arts & Politics" },
+              { name: "Vinay Pathak", role: "Acclaimed Film & Theatre Actor", field: "Arts & Entertainment" },
+              { name: "Jagdish Gandhi", role: "Founder, City Montessori School", field: "Education" },
+              { name: "S. P. Chakravarti", role: "Pioneer of Electronics Education", field: "Education & Technology" },
             ].map((alumni, index) => (
               <motion.div
                 key={alumni.name}
