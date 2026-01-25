@@ -12,7 +12,11 @@ import {
   Calendar,
   Library,
   Microscope,
-  Landmark
+  Landmark,
+  Gavel,
+  Briefcase,
+  Pill,
+  Sun
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import uolLogo from "@/assets/uol-logo.png";
@@ -32,12 +36,11 @@ const fadeInUp = {
 };
 
 const programs = [
-  { name: "Engineering & Technology", icon: Building, students: "2500+" },
-  { name: "Arts & Humanities", icon: BookOpen, students: "3000+" },
-  { name: "Science", icon: Microscope, students: "2000+" },
-  { name: "Commerce & Management", icon: Landmark, students: "1800+" },
-  { name: "Law", icon: Library, students: "1200+" },
-  { name: "Education", icon: GraduationCap, students: "800+" },
+  { name: "Engineering", icon: Building, students: "2500+" },
+  { name: "Law", icon: Gavel, students: "1200+" },
+  { name: "Management", icon: Briefcase, students: "1800+" },
+  { name: "Pharmacy", icon: Pill, students: "800+" },
+  { name: "Yoga", icon: Sun, students: "500+" },
 ];
 
 const infrastructure = [
@@ -230,7 +233,7 @@ const AboutUniversity = () => {
           >
             <span className="text-xs font-medium text-accent uppercase tracking-wider">Academic Excellence</span>
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
-              Faculties & Programs
+              University of Lucknow New Campus (2nd), Courses Offered
             </h2>
             <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
               Offering 150+ undergraduate, postgraduate, and doctoral programs across diverse disciplines
