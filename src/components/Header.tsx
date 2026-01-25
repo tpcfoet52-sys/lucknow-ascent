@@ -173,7 +173,7 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="flex items-center gap-3">
 
             {isHomePage && (
               <Link to="/login">
@@ -242,13 +242,7 @@ const Header = () => {
               ))}
               <div className="pt-4 space-y-2">
 
-                {isHomePage && (
-                  <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button variant="default" className="w-full flex items-center justify-center gap-2">
-                      <LogIn className="w-4 h-4" /> Login
-                    </Button>
-                  </Link>
-                )}
+
               </div>
             </div>
           </div>
