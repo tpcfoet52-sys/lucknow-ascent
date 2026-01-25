@@ -469,74 +469,7 @@ const AboutTPC = () => {
         </div>
       </section>
 
-      {/* Notable Alumni */}
-      <section className="py-16 md:py-24">
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <span className="text-xs font-medium text-accent uppercase tracking-wider">Our Pride</span>
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
-              Notable Alumni
-            </h2>
-          </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {[
-              {
-                name: "Ritu Karidhal",
-                role: "Senior Scientist, ISRO",
-                desc: "Mission Director of Chandrayaan-2",
-                icon: Target
-              },
-              {
-                name: "Suresh Raina",
-                role: "International Cricketer",
-                desc: "Former Member of Indian National Team",
-                icon: Award
-              },
-              {
-                name: "Rajiv Kumar",
-                role: "Former Vice Chairman",
-                desc: "NITI Aayog, Govt. of India",
-                icon: Building2
-              },
-              {
-                name: "Amitabh Bhattacharya",
-                role: "Lyricist & Playback Singer",
-                desc: "National Award Winner",
-                icon: FileText
-              },
-              {
-                name: "Vartika Singh",
-                role: "Miss Universe India 2019",
-                desc: "Model and Beauty Pageant Titleholder",
-                icon: Award
-              }
-            ].map((alumni, index) => (
-              <motion.div
-                key={alumni.name}
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInUp}
-                className="bg-background border border-border rounded-lg p-6 hover:border-accent/50 hover:shadow-lg transition-all text-center group"
-              >
-                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
-                  <alumni.icon className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="font-serif text-lg font-semibold text-foreground">{alumni.name}</h3>
-                <p className="text-sm font-medium text-accent mt-1">{alumni.role}</p>
-                <p className="text-xs text-muted-foreground mt-2">{alumni.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Download Center */}
       <section className="py-16 md:py-24">

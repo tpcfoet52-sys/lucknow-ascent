@@ -129,67 +129,7 @@ const InterviewPrep = () => {
                         </Tabs>
                     </section>
 
-                    {/* Mock Interviews */}
-                    <section className="bg-secondary/20 -mx-4 md:-mx-8 p-8 md:p-16 rounded-3xl">
-                        <div className="grid md:grid-cols-2 gap-12 items-center">
-                            <div>
-                                <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold mb-4">Practice Makes Perfect</span>
-                                <h2 className="font-serif text-3xl font-semibold mb-4">Mock Interviews</h2>
-                                <p className="text-muted-foreground mb-6">
-                                    Simulate the real interview experience. Schedule a 1:1 session with alumni or use our AI-powered mock interview tool.
-                                </p>
-                                <div className="space-y-4">
-                                    <div className="flex items-start gap-4">
-                                        <div className="p-2 bg-background rounded-lg shadow-sm">
-                                            <Users className="w-6 h-6 text-primary" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-semibold text-foreground">Alumni Mentorship</h4>
-                                            <p className="text-sm text-muted-foreground">Connect with seniors working in top product companies.</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-4">
-                                        <div className="p-2 bg-background rounded-lg shadow-sm">
-                                            <BrainCircuit className="w-6 h-6 text-accent" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-semibold text-foreground">AI Interview Bot</h4>
-                                            <p className="text-sm text-muted-foreground">Instant feedback on your tone, pace, and answer structure.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <Button className="mt-8 gap-2">
-                                    <Video className="w-4 h-4" /> Schedule Mock Interview
-                                </Button>
-                            </div>
-                            <div className="relative">
-                                {/* Abstract visual representation */}
-                                <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-purple-500/20 rounded-2xl blur-2xl transform rotate-6"></div>
-                                <Card className="relative z-10 border-border/50 shadow-lg">
-                                    <CardHeader>
-                                        <CardTitle>Upcoming Mock Sessions</CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="space-y-4">
-                                        {[
-                                            { type: "Technical Round", mentor: "Ex-Google Engineer", time: "Tomorrow, 4 PM" },
-                                            { type: "HR Discussion", mentor: "Senior HR Manager", time: "Sat, 11 AM" },
-                                            { type: "System Design", mentor: "Tech Lead, Amazon", time: "Sun, 2 PM" }
-                                        ].map((session, i) => (
-                                            <div key={i} className="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
-                                                <div>
-                                                    <p className="font-medium text-foreground">{session.type}</p>
-                                                    <p className="text-xs text-muted-foreground">{session.mentor}</p>
-                                                </div>
-                                                <span className="text-xs font-semibold bg-background px-2 py-1 rounded border shadow-sm">
-                                                    {session.time}
-                                                </span>
-                                            </div>
-                                        ))}
-                                    </CardContent>
-                                </Card>
-                            </div>
-                        </div>
-                    </section>
+
 
                     {/* Aptitude Resources */}
                     <section>
@@ -215,9 +155,7 @@ const InterviewPrep = () => {
                                                 </li>
                                             ))}
                                         </ul>
-                                        <Button variant="link" className="px-0 mt-4 text-accent">
-                                            Practice Sets <ChevronRight className="w-4 h-4 ml-1" />
-                                        </Button>
+
                                     </CardContent>
                                 </Card>
                             ))}

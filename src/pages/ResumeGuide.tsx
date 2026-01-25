@@ -299,22 +299,7 @@ const ResumeGuide = () => {
                     </section>
 
                     {/* CTA / Download */}
-                    <section id="download-template" className="text-center py-12">
-                        <h2 className="text-3xl font-serif font-semibold mb-4">Ready to Build?</h2>
-                        <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-                            Download our recommended resume template to get started. It's clean, ATS-friendly, and perfect for freshers.
-                        </p>
-                        <div className="flex flex-col sm:flex-row justify-center gap-4">
-                            <Button size="lg" className="gap-2">
-                                <FileText className="w-4 h-4" /> Download Word Template
-                            </Button>
-                            <Link to="/placement-calendar">
-                                <Button size="lg" variant="outline" className="gap-2">
-                                    <Briefcase className="w-4 h-4" /> Check Upcoming Drives
-                                </Button>
-                            </Link>
-                        </div>
-                    </section>
+
 
                 </div>
             </main>
