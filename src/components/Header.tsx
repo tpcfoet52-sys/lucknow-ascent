@@ -180,10 +180,13 @@ const Header = () => {
                 <Button
                   variant={!isScrolled ? "ghost" : "ghost"}
                   size="icon"
-                  className={`rounded-full hover:bg-accent hover:text-accent-foreground transition-colors ${!isScrolled ? "text-primary-foreground" : "text-foreground"}`}
+                  className={`rounded-full h-10 min-w-[2.5rem] px-0 hover:px-4 hover:bg-accent hover:text-accent-foreground transition-all duration-300 group flex items-center justify-center gap-0 hover:gap-2 ${!isScrolled ? "text-primary-foreground" : "text-foreground"}`}
                   title="Login"
                 >
-                  <LogIn className="h-5 w-5" />
+                  <LogIn className="h-5 w-5 shrink-0" />
+                  <span className="max-w-0 overflow-hidden group-hover:max-w-[60px] opacity-0 group-hover:opacity-100 transition-all duration-300 text-sm font-medium whitespace-nowrap">
+                    Login
+                  </span>
                 </Button>
               </Link>
             )}
