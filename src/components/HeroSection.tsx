@@ -96,9 +96,7 @@ const HeroSection = () => {
             transition={{ delay: 0.7, duration: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-6"
           >
-            <div className="min-w-[200px] px-6 py-3 bg-accent text-accent-foreground rounded-md text-base font-medium text-center select-none">
-              Placement 2026
-            </div>
+
             <Link to="/events">
               <Button
                 variant="gold"
