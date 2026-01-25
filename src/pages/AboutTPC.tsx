@@ -195,7 +195,6 @@ const AboutTPC = () => {
                     alt="NAAC A++ Badge"
                     className="w-16 h-16 md:w-20 md:h-20 object-contain mb-1"
                   />
-                  <span className="text-xs font-bold text-foreground">CGPA 3.55</span>
                 </motion.div>
               </div>
 
