@@ -21,6 +21,7 @@ import nirfBadge from "@/assets/nirf-ranking-badge.png";
 import centenaryLogo from "@/assets/centenary-logo.png";
 import naacBadge from "@/assets/naac-badge.png";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
+import ourAlumniImage from "@/assets/our-alumni.jpg";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -355,36 +356,18 @@ const AboutUniversity = () => {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { name: "Ritu Karidhal", role: "Senior Scientist, ISRO (Rocket Woman)", field: "Science & Technology" },
-              { name: "Govind Ballabh Pant", role: "Freedom Fighter & 1st CM of UP", field: "Politics & Governance" },
-              { name: "Justice A. S. Anand", role: "Former Chief Justice of India", field: "Law & Judiciary" },
-              { name: "Naresh Trehan", role: "Founder, Medanta Hospital (Padma Shri)", field: "Medicine & Healthcare" },
-              { name: "Qurratulain Hyder", role: "Jnanpith Awardee Novelist", field: "Literature" },
-              { name: "Vinod Mehta", role: "Eminent Journalist (Editor, Outlook)", field: "Journalism & Media" },
-              { name: "Jaya Prada", role: "Actress & Former MP", field: "Arts & Politics" },
-              { name: "Jagdish Gandhi", role: "Founder, City Montessori School", field: "Education" },
-              { name: "S. P. Chakravarti", role: "Pioneer of Electronics Education", field: "Education & Technology" },
-            ].map((alumni, index) => (
-              <motion.div
-                key={alumni.name}
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInUp}
-                className="bg-background border border-border rounded-lg p-6 text-center"
-              >
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Award className="h-10 w-10 text-primary" />
-                </div>
-                <h3 className="font-serif text-lg font-semibold text-foreground">{alumni.name}</h3>
-                <p className="text-sm text-accent mt-1">{alumni.role}</p>
-                <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="w-full max-w-5xl mx-auto"
+          >
+            <img
+              src={ourAlumniImage}
+              alt="Distinguished Alumni of University of Lucknow"
+              className="w-full h-auto rounded-xl shadow-lg border border-border"
+            />
+          </motion.div>
         </div>
       </section>
 
