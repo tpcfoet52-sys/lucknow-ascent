@@ -177,7 +177,7 @@ const ResumeGuide = () => {
 
                     {/* ATS Tips & Power Verbs */}
                     <section className="grid lg:grid-cols-12 gap-8">
-                        <div className="lg:col-span-7">
+                        <div className="lg:col-span-12">
                             <h2 className="font-serif text-3xl font-semibold mb-6">Master the ATS</h2>
                             <p className="text-muted-foreground mb-6">
                                 Most companies use Applicant Tracking Systems (ATS) to filter resumes before a human sees them. Here is how to beat the bot:
@@ -222,39 +222,7 @@ const ResumeGuide = () => {
                             </div>
                         </div>
 
-                        {/* Before vs After */}
-                        <div className="lg:col-span-5">
-                            <Card className="bg-navy-900 border-navy-800 text-white h-full relative overflow-hidden">
-                                <div className="absolute top-0 right-0 p-32 bg-accent/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
-                                <CardHeader>
-                                    <CardTitle className="text-white">Bullet Point Makeover</CardTitle>
-                                    <CardDescription className="text-gray-400">See the difference specificity makes.</CardDescription>
-                                </CardHeader>
-                                <CardContent className="space-y-6 relative z-10">
-                                    <div className="space-y-2">
-                                        <div className="flex items-center gap-2 text-red-300 text-sm font-medium">
-                                            <XCircle className="w-4 h-4" /> Weak
-                                        </div>
-                                        <div className="p-3 bg-white/5 rounded text-sm text-gray-300">
-                                            "Worked on a project using React."
-                                        </div>
-                                    </div>
 
-                                    <div className="flex justify-center -my-2">
-                                        <ChevronRight className="w-6 h-6 text-accent transform rotate-90" />
-                                    </div>
-
-                                    <div className="space-y-2">
-                                        <div className="flex items-center gap-2 text-green-300 text-sm font-medium">
-                                            <CheckCircle2 className="w-4 h-4" /> Strong
-                                        </div>
-                                        <div className="p-3 bg-white/10 rounded text-sm text-white border-l-2 border-accent">
-                                            "<strong>Developed</strong> a responsive e-commerce web app using <strong>React.js</strong> and Redux, improving page load time by <strong>40%</strong>."
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </div>
                     </section>
 
                     {/* Common Mistakes */}
