@@ -180,7 +180,7 @@ const Header = () => {
                 <Button
                   variant={!isScrolled ? "ghost" : "ghost"}
                   size="icon"
-                  className={!isScrolled ? "text-primary-foreground hover:bg-primary-foreground/20" : "text-foreground hover:bg-muted"}
+                  className={`rounded-full hover:bg-accent hover:text-accent-foreground transition-colors ${!isScrolled ? "text-primary-foreground" : "text-foreground"}`}
                   title="Login"
                 >
                   <LogIn className="h-5 w-5" />
