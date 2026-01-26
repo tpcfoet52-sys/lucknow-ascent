@@ -1,5 +1,5 @@
 import { MapPin, Phone, Mail, ExternalLink, Facebook, Linkedin, Instagram } from "lucide-react";
-import uolLogo from "@/assets/uol-logo.png";
+import uolLogo from "@/assets/tpc-logo.jpeg";
 
 // Custom X (formerly Twitter) Logo
 const XLogo = ({ className }: { className?: string }) => (
@@ -30,8 +30,8 @@ const Footer = () => {
                   className="w-12 h-12 object-contain"
                 />
                 <div>
-                  <p className="font-serif font-semibold text-lg">University of Lucknow</p>
-                  <p className="text-sm text-primary-foreground/70">Training & Placement Cell</p>
+                  <p className="font-serif font-semibold text-lg">Training & Placement Cell</p>
+                  <p className="text-sm text-primary-foreground/70">FoET,University of Lucknow</p>
                 </div>
               </div>
               <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-md">
