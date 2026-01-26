@@ -66,16 +66,7 @@ const DirectorMessage = () => {
                 Engineering and Technology, in strengthening student employability and placement outcomes.
               </p>
 
-              <div className="mt-4 flex flex-wrap gap-2">
-                {["Vice Chancellor", "Industry-Academia", "Innovation", "Incubation"].map((tag, index) => (
-                  <span
-                    key={index}
-                    className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+
             </div>
           </div>
         </motion.div>
@@ -167,16 +158,7 @@ const DirectorMessage = () => {
               hands-on exposure to emerging technologies and career opportunities.
             </p>
 
-            <div className="mt-4 flex flex-wrap gap-2">
-              {["T&P In-charge, FoET", "M.Tech CSE Faculty Coordinator"].map((tag, index) => (
-                <span
-                  key={index}
-                  className="text-xs bg-secondary text-muted-foreground px-2 py-1 rounded"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+
           </motion.div>
         </div>
       </div>
