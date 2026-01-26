@@ -133,7 +133,7 @@ const DirectorMessage = () => {
               <div>
                 <h3 className="font-serif font-semibold text-lg text-foreground">Dr. Himanshu Pandey</h3>
                 <p className="text-muted-foreground text-sm leading-snug">
-                  Associate Professor & Program Coordinator – M.Tech (CSE)
+                  Associate Professor & Program Coordinator M.Tech
                 </p>
                 <p className="text-accent text-xs mt-1">
                   Training & Placement In charge

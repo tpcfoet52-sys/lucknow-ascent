@@ -1,6 +1,20 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Building2 } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import jaroLogo from "@/assets/jaro-logo-new.png";
+import learningRoutesLogo from "@/assets/learning-routes-logo.jpg";
+import wiproLogo from "@/assets/wipro-logo.png";
+import npclLogo from "@/assets/npcl-logo-new.png";
+import sotiLogo from "@/assets/soti-logo.png";
+
+// Using local logos for all companies
+const companyLogos: Record<string, string> = {
+  "NPCL": npclLogo,
+  "SOTI": sotiLogo,
+  "Wipro": wiproLogo,
+  "Learning Routes": learningRoutesLogo,
+  "Jaro Education": jaroLogo,
+};
 
 const galleryItems = [
   {
@@ -9,6 +23,13 @@ const galleryItems = [
     description: "Core engineering roles for Electrical and Power sector",
     company: "NPCL",
     students: 12,
+  },
+  {
+    id: 5,
+    title: "SOTI Recruitment Drive",
+    description: "Position: Software Development Intern",
+    company: "SOTI",
+    students: 0,
   },
   {
     id: 2,
@@ -35,6 +56,7 @@ const galleryItems = [
 
 const PlacementGallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageError, setImageError] = useState<Record<number, boolean>>({});
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % galleryItems.length);
@@ -43,6 +65,10 @@ const PlacementGallery = () => {
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + galleryItems.length) % galleryItems.length);
   };
+
+  const currentItem = galleryItems[currentIndex];
+  const logoUrl = companyLogos[currentItem.company];
+  const hasError = imageError[currentIndex];
 
   return (
     <section id="gallery" className="section-padding bg-cream">
@@ -91,23 +117,33 @@ const PlacementGallery = () => {
                 className="bg-primary p-8 md:p-12"
               >
                 <div className="flex flex-col md:flex-row items-center gap-8">
-                  {/* Icon/Visual */}
-                  <div className="flex-shrink-0 w-32 h-32 rounded-full bg-accent/20 border-4 border-accent flex items-center justify-center">
-                    <Building2 className="w-16 h-16 text-accent" />
+                  {/* Company Logo */}
+                  <div className="flex-shrink-0 w-60 h-32 rounded-xl bg-white shadow-lg flex items-center justify-center p-1 border border-border/20 overflow-hidden">
+                    {hasError ? (
+                      <span className="text-4xl font-bold text-primary">
+                        {currentItem.company.charAt(0)}
+                      </span>
+                    ) : (
+                      <img
+                        src={logoUrl}
+                        alt={`${currentItem.company} logo`}
+                        className="max-w-full max-h-full object-contain"
+                        onError={() => setImageError(prev => ({ ...prev, [currentIndex]: true }))}
+                      />
+                    )}
                   </div>
 
                   {/* Content */}
                   <div className="text-center md:text-left flex-1">
                     <span className="inline-block bg-accent/20 text-accent text-sm font-medium px-3 py-1 rounded-full mb-3">
-                      {galleryItems[currentIndex].company}
+                      {currentItem.company}
                     </span>
                     <h3 className="font-serif text-2xl md:text-3xl text-primary-foreground mb-3">
-                      {galleryItems[currentIndex].title}
+                      {currentItem.title}
                     </h3>
                     <p className="text-primary-foreground/80 mb-4">
-                      {galleryItems[currentIndex].description}
+                      {currentItem.description}
                     </p>
-
                   </div>
                 </div>
               </motion.div>

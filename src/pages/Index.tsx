@@ -6,6 +6,7 @@ import PlacementStats from "@/components/PlacementStats";
 import RecruiterPortal from "@/components/RecruiterPortal";
 import StudentCorner from "@/components/StudentCorner";
 import PlacementGallery from "@/components/PlacementGallery";
+import MediaPreview from "@/components/MediaPreview";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -29,6 +30,9 @@ const Index = () => {
         </section>
         <section id="gallery">
           <PlacementGallery />
+        </section>
+        <section id="media">
+          <MediaPreview />
         </section>
         <section id="contact">
           <Footer />

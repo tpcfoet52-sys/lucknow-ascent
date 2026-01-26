@@ -17,7 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import uolLogo from "@/assets/uol-logo.png";
 import naacBadge from "@/assets/naac-badge.png";
-import heroImage from "@/assets/university-hero.jpg";
+import heroImage from "@/assets/university-hero-v3.jpg";
 import profSpSingh from "@/assets/prof-sp-singh.jpg";
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
 import tpcLogo from "@/assets/tpc-logo.jpeg";

@@ -17,8 +17,9 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import uolLogo from "@/assets/uol-logo.png";
 import tpcBadge from "@/assets/naac-badge.png";
-import heroImage from "@/assets/university-hero.jpg";
+import heroImage from "@/assets/university-hero-v3.jpg";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
+import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
 
 interface TeamMember {
   id: number;
@@ -267,9 +268,101 @@ const TeamStructure = () => {
         </div>
       </section >
 
-      {/* Teams Grid */}
-      < section className="py-16 md:py-24" >
+      {/* Faculty Coordinator Section */}
+      <section className="py-12 bg-secondary/20">
         <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12 text-center"
+          >
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-8">
+              Faculty Coordinator
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Dr. Himanshu Pandey */}
+              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
+                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
+                  <img
+                    src={drHimanshuPandey}
+                    alt="Dr. Himanshu Pandey"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+                    Dr. Himanshu Pandey
+                  </h3>
+                  <p className="text-primary font-medium text-sm uppercase tracking-wide">T&P Cell In charge</p>
+                </div>
+              </div>
+
+              {/* Er. Pavan Kumar Singh */}
+              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
+                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20 bg-muted/30 flex items-center justify-center">
+                  <img
+                    src={uolLogo}
+                    alt="Er. Pavan Kumar Singh"
+                    className="w-16 h-16 object-contain opacity-50"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+                    Er. Pavan Kumar Singh
+                  </h3>
+                  <p className="text-primary font-medium text-sm uppercase tracking-wide">Faculty Coordinator</p>
+                </div>
+              </div>
+
+              {/* Er. Gaurav Srivastava */}
+              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
+                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20 bg-muted/30 flex items-center justify-center">
+                  <img
+                    src={uolLogo}
+                    alt="Er. Gaurav Srivastava"
+                    className="w-16 h-16 object-contain opacity-50"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+                    Er. Gaurav Srivastava
+                  </h3>
+                  <p className="text-primary font-medium text-sm uppercase tracking-wide">Faculty Coordinator</p>
+                </div>
+              </div>
+
+              {/* Er. Prashant Kumar Singh */}
+              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
+                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20 bg-muted/30 flex items-center justify-center">
+                  <img
+                    src={uolLogo}
+                    alt="Er. Prashant Kumar Singh"
+                    className="w-16 h-16 object-contain opacity-50"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+                    Er. Prashant Kumar Singh
+                  </h3>
+                  <p className="text-primary font-medium text-sm uppercase tracking-wide">Faculty Coordinator</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Teams Grid - Student Coordinators */}
+      <section className="py-16 md:py-24">
+        <div className="container-narrow">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
+              Student Coordinator <span className="text-gold-gradient">2025-2026</span>
+            </h2>
+            <p className="text-muted-foreground mt-2">The dedicated student team driving TPC initiatives</p>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teams.map((team, index) => {
               const IconComponent = team.icon;
@@ -465,30 +558,7 @@ const TeamStructure = () => {
         }
       </AnimatePresence >
 
-      {/* CTA Section */}
-      < section className="py-16 md:py-20 bg-primary/5 border-t border-border" >
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-lg mx-auto text-center"
-          >
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-4">
-              Want to be part of our team?
-            </h2>
-            <p className="text-muted-foreground mb-8 leading-relaxed">
-              Join the TPC family and contribute to shaping the careers of fellow students at the University of Lucknow.
-            </p>
-            <Link to="/#contact">
-              <Button variant="default" size="lg" className="px-8">
-                Contact Us
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </section >
+
 
       {/* Minimal Footer */}
       < footer className="py-8 border-t border-border" >
