@@ -27,7 +27,7 @@ const Footer = () => {
                 <img
                   src={uolLogo}
                   alt="University of Lucknow"
-                  className="w-12 h-12 object-contain"
+                  className="w-12 h-12 object-contain rounded-full"
                 />
                 <div>
                   <p className="font-serif font-semibold text-lg">Training & Placement Cell</p>
@@ -35,8 +35,8 @@ const Footer = () => {
                 </div>
               </div>
               <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-md">
-                Established in 1920, the University of Lucknow stands as a beacon of academic excellence.
-                Our Training & Placement Cell bridges the gap between academia and industry.
+                Connecting Engineering Education with Industry
+                Training and Placement Cell, Faculty of Engineering and Technology (Est. 2017)  University of Lucknow
               </p>
             </div>
 
@@ -62,7 +62,7 @@ const Footer = () => {
                 { name: "About TPC", href: "#about" },
                 { name: "Placement Statistics", href: "#recruiters" },
                 { name: "Student Resources", href: "#students" },
-                { name: "FAQs", href: "#" },
+                { name: "Team Structure", href: "/team" },
               ].map((link, index) => (
                 <li key={index}>
                   <a
