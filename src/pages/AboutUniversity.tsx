@@ -19,12 +19,22 @@ import {
   Sun
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SubpageHeader from "@/components/SubpageHeader";
 import uolLogo from "@/assets/uol-logo.png";
 import heroImage from "@/assets/university-hero-v3.jpg";
 import nirfBadge from "@/assets/nirf-ranking-badge.png";
 import centenaryLogo from "@/assets/centenary-logo.png";
 import naacBadge from "@/assets/naac-badge.png";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
+
+const aboutUniversityLinks = [
+  { name: "Our Legacy", href: "#legacy" },
+  { name: "Courses Offered", href: "#programs" },
+  { name: "Infrastructure", href: "#infrastructure" },
+  { name: "Demographics", href: "#demographics" },
+  { name: "Distinguished Alumni", href: "#alumni" },
+  { name: "Campus Life", href: "#campus-life" },
+];
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -70,35 +80,7 @@ const AboutUniversity = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-        <div className="container-narrow">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            <div className="flex items-center gap-4">
-              <Link to="/">
-                <Button variant="ghost" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
-                  <ArrowLeft className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link to="/" className="flex items-center gap-3 group">
-                {/* Logo */}
-                <img
-                  src={tpcLogo}
-                  alt="Training & Placement Cell"
-                  className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
-                />
-                <div className="hidden sm:block">
-                  <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground transition-colors group-hover:text-gold-600">
-                    Training & Placement Cell
-                  </p>
-                  <p className="text-xs tracking-wide text-muted-foreground transition-colors group-hover:text-gold-600/80">
-                    FoET, University of Lucknow
-                  </p>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
+      <SubpageHeader pageTitle="About University" subpageLinks={aboutUniversityLinks} />
 
       {/* Hero Section */}
       <section className="relative pt-20 md:pt-24 pb-16 md:pb-24 overflow-hidden">

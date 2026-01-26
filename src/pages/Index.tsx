@@ -7,6 +7,7 @@ import RecruiterPortal from "@/components/RecruiterPortal";
 import StudentCorner from "@/components/StudentCorner";
 import PlacementGallery from "@/components/PlacementGallery";
 import MediaPreview from "@/components/MediaPreview";
+import ConnectWithUs from "@/components/ConnectWithUs";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -33,6 +34,9 @@ const Index = () => {
         </section>
         <section id="media">
           <MediaPreview />
+        </section>
+        <section id="connect">
+          <ConnectWithUs />
         </section>
         <section id="contact">
           <Footer />

@@ -14,12 +14,18 @@ import {
   Linkedin
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SubpageHeader from "@/components/SubpageHeader";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import uolLogo from "@/assets/uol-logo.png";
 import tpcBadge from "@/assets/naac-badge.png";
 import heroImage from "@/assets/university-hero-v3.jpg";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
+
+const teamStructureLinks = [
+  { name: "Faculty Coordinators", href: "#faculty-coordinators" },
+  { name: "Student Teams", href: "#student-teams" },
+];
 
 interface TeamMember {
   id: number;
@@ -176,47 +182,8 @@ const TeamStructure = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Minimal Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-        <div className="container-narrow">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Left Side: Logo */}
-            <div className="flex items-center gap-4">
-              <Link to="/">
-                <Button variant="ghost" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
-                  <ArrowLeft className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link to="/" className="flex items-center gap-3 group">
-                {/* Logo */}
-                <img
-                  src={tpcLogo}
-                  alt="Training & Placement Cell"
-                  className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
-                />
-                <div className="hidden sm:block">
-                  <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground transition-colors group-hover:text-gold-600">
-                    Training & Placement Cell
-                  </p>
-                  <p className="text-xs tracking-wide text-muted-foreground transition-colors group-hover:text-gold-600/80">
-                    FoET, University of Lucknow
-                  </p>
-                </div>
-              </Link>
-            </div>
-
-            {/* Right Side: Actions */}
-            <div className="flex items-center gap-4">
-              <Link to="/coordinator-login">
-                <Button variant="gold" size="sm" className="hidden sm:flex">
-                  Login as Coordinator
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-      </header >
+      {/* Header */}
+      <SubpageHeader pageTitle="Team Structure" subpageLinks={teamStructureLinks} />
 
       {/* Hero Section with Background Image */}
       < section className="relative pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden" >
