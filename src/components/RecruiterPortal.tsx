@@ -8,7 +8,11 @@ const stats = [
     value: "₹9.0 LPA",
     label: "Average Package (23-24)",
   },
-
+  {
+    icon: Trophy,
+    value: "₹26.0 LPA",
+    label: "Highest Package (2023 Batch)",
+  },
   {
     icon: Building2,
     value: "500+",
