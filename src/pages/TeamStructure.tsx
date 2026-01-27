@@ -337,38 +337,31 @@ const TeamStructure = () => {
 
           {/* New TPC Lead Section */}
           <div className="flex justify-center mb-16">
-            <div className="bg-card rounded-xl p-8 shadow-2xl border border-gold/30 max-w-sm w-full flex flex-col items-center gap-6 text-center transform hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-primary/5" />
-
-              <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-gold to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
-                <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-background">
-                  <img
-                    src={riddhiSingh}
-                    alt="Riddhi Singh Rathore"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+            <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center max-w-sm w-full">
+              <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
+                <img
+                  src={riddhiSingh}
+                  alt="Riddhi Singh Rathore"
+                  className="w-full h-full object-cover"
+                />
               </div>
-
-              <div className="relative z-10">
-                <h3 className="font-serif text-2xl font-bold text-foreground mb-1">
+              <div>
+                <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
                   Riddhi Singh Rathore
                 </h3>
-                <div className="h-1 w-12 bg-gold mx-auto my-3 rounded-full"></div>
-                <p className="text-primary font-bold text-sm uppercase tracking-widest mb-4">
+                <p className="text-primary font-medium text-sm uppercase tracking-wide">
                   Student Coordinator Lead
-                  <span className="block text-xs font-medium text-muted-foreground mt-1">2025-26</span>
                 </p>
+                <p className="text-xs text-muted-foreground mt-1">2025-26</p>
 
                 <div className="flex items-center justify-center gap-3 mt-4">
-                  <a href="mailto:singhrathoreriddhi874@gmail.com" className="w-9 h-9 rounded-full bg-secondary text-foreground flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300">
+                  <a href="mailto:singhrathoreriddhi874@gmail.com" className="w-8 h-8 rounded-full bg-secondary text-foreground flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300">
                     <Mail className="w-4 h-4" />
                   </a>
-                  <a href="https://linkedin.com/in/riddhi-singh-rathore-997b962aa" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-secondary text-foreground flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-all duration-300">
+                  <a href="https://linkedin.com/in/riddhi-singh-rathore-997b962aa" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-secondary text-foreground flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-all duration-300">
                     <Linkedin className="w-4 h-4" />
                   </a>
-                  <a href="https://x.com/riddhi_sin22754" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-secondary text-foreground flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300">
+                  <a href="https://x.com/riddhi_sin22754" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-secondary text-foreground flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300">
                     <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
                     </svg>
