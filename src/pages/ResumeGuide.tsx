@@ -226,7 +226,7 @@ const ResumeGuide = () => {
                         <div className="rounded-2xl bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 p-8 text-center border border-accent/20 relative overflow-hidden">
                             <div className="absolute top-0 right-0 p-32 bg-accent/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
                             <h3 className="font-serif text-xl font-semibold mb-4 flex items-center justify-center gap-2 relative z-10">
-                                <Sparkles className="w-5 h-5 text-accent" /> Power Up with Action Verbs
+                                Power Up with Action Verbs
                             </h3>
                             <p className="text-muted-foreground max-w-2xl mx-auto mb-6 relative z-10">
                                 Start every bullet point with a strong verb. Avoid passive voice to make your contributions sound impactful.
