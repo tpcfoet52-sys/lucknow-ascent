@@ -374,34 +374,6 @@ const AboutUniversity = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
-        <div className="container-narrow text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-4">
-              Explore Our Campus
-            </h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">
-              Schedule a virtual tour or visit us in person to experience the legacy of excellence
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="gold" size="lg">
-                Virtual Tour
-              </Button>
-              <Link to="/about-tpc">
-                <Button variant="goldOutline" size="lg">
-                  Learn About TPC
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="py-8 border-t border-border bg-background">
         <div className="container-narrow text-center">
