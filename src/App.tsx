@@ -93,8 +93,7 @@ const App = () => (
             <Route path="dashboard" element={<DashboardOverview />} />
             <Route path="events" element={<EventsManagement />} />
 
-            {/* Dashboard Overview */}
-            <Route path="dashboard" element={<DashboardOverview />} />
+
 
             {/* Placeholder Pages for Sidebar Links */}
             <Route path="jobs" element={<PlaceholderAdminPage title="Jobs Management" />} />
