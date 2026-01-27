@@ -106,7 +106,7 @@ const trainingPrograms = [
   {
     title: "Workshop: Reaching Out to Industries",
     desc: "Resume Building & Interview Prep",
-    speaker: "Mr. Shubham Sing",
+    speaker: "Mr. Shubham Singh",
     role: "SDE, PhonePe"
   },
   {
@@ -501,7 +501,7 @@ const AboutTPC = () => {
                 Eligibility
               </h3>
               <p className="text-foreground/80 leading-relaxed">
-                Open to <span className="font-semibold text-foreground">1st and 2nd year Engineering and  BCA students only</span>.
+                Open to <span className="font-semibold text-foreground">1st & 2nd Year Engineering and 1st Year BCA Students Only</span>.<br />
                 We are looking for dedicated individuals ready to contribute to the university's placement ecosystem.
               </p>
             </motion.div>
