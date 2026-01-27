@@ -227,10 +227,7 @@ const PlacementStats = () => {
                       <span className="block">UG: {data.ugPlaced} | PG: {data.pgPlaced}</span>
                       <span className="text-accent font-medium">Avg: ₹{data.avgPackage} LPA</span>
                     </div>
-                    <div>
-                      <span className="block text-muted-foreground/70">Highest Package</span>
-                      <span className="text-accent font-semibold">₹{data.highestPackage} LPA</span>
-                    </div>
+
                   </div>
                 </motion.div>
               ))}
