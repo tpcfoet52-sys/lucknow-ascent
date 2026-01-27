@@ -254,70 +254,90 @@ const TeamStructure = () => {
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Dr. Himanshu Pandey */}
-              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
-                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
-                  <img
-                    src={drHimanshuPandey}
-                    alt="Dr. Himanshu Pandey"
-                    className="w-full h-full object-cover"
-                  />
+              <div className="bg-card rounded-xl p-6 shadow-2xl border border-gold/30 w-full flex flex-col items-center gap-6 text-center transform hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-primary/5" />
+                <div className="relative">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-gold to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                  <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-background">
+                    <img
+                      src={drHimanshuPandey}
+                      alt="Dr. Himanshu Pandey"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+                <div className="relative z-10">
+                  <h3 className="font-serif text-xl font-bold text-foreground mb-1">
                     Dr. Himanshu Pandey
                   </h3>
-                  <p className="text-primary font-medium text-sm uppercase tracking-wide">T&P Cell In charge</p>
+                  <div className="h-1 w-12 bg-gold mx-auto my-3 rounded-full"></div>
+                  <p className="text-primary font-bold text-sm uppercase tracking-widest">T&P Cell In charge</p>
                 </div>
               </div>
 
               {/* Er. Pavan Kumar Singh */}
-              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
-                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
-                  <img
-                    src={erPavanKumarSingh}
-                    alt="Er. Pavan Kumar Singh"
-                    className="w-full h-full object-cover"
-                  />
+              <div className="bg-card rounded-xl p-6 shadow-2xl border border-gold/30 w-full flex flex-col items-center gap-6 text-center transform hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-primary/5" />
+                <div className="relative">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-gold to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                  <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-background">
+                    <img
+                      src={erPavanKumarSingh}
+                      alt="Er. Pavan Kumar Singh"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+                <div className="relative z-10">
+                  <h3 className="font-serif text-xl font-bold text-foreground mb-1">
                     Er. Pavan Kumar Singh
                   </h3>
-                  <p className="text-primary font-medium text-sm uppercase tracking-wide">Faculty Coordinator</p>
+                  <div className="h-1 w-12 bg-gold mx-auto my-3 rounded-full"></div>
+                  <p className="text-primary font-bold text-sm uppercase tracking-widest">Faculty Coordinator</p>
                 </div>
               </div>
 
               {/* Er. Gaurav Srivastava */}
-              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
-                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
-                  <img
-                    src={erGauravSrivastava}
-                    alt="Er. Gaurav Srivastava"
-                    className="w-full h-full object-cover"
-                  />
+              <div className="bg-card rounded-xl p-6 shadow-2xl border border-gold/30 w-full flex flex-col items-center gap-6 text-center transform hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-primary/5" />
+                <div className="relative">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-gold to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                  <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-background">
+                    <img
+                      src={erGauravSrivastava}
+                      alt="Er. Gaurav Srivastava"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+                <div className="relative z-10">
+                  <h3 className="font-serif text-xl font-bold text-foreground mb-1">
                     Er. Gaurav Srivastava
                   </h3>
-                  <p className="text-primary font-medium text-sm uppercase tracking-wide">Faculty Coordinator</p>
+                  <div className="h-1 w-12 bg-gold mx-auto my-3 rounded-full"></div>
+                  <p className="text-primary font-bold text-sm uppercase tracking-widest">Faculty Coordinator</p>
                 </div>
               </div>
 
               {/* Er. Prashant Kumar Singh */}
-              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
-                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
-                  <img
-                    src={erPrashantKumarSingh}
-                    alt="Er. Prashant Kumar Singh"
-                    className="w-full h-full object-cover"
-                  />
+              <div className="bg-card rounded-xl p-6 shadow-2xl border border-gold/30 w-full flex flex-col items-center gap-6 text-center transform hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-primary/5" />
+                <div className="relative">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-gold to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                  <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-background">
+                    <img
+                      src={erPrashantKumarSingh}
+                      alt="Er. Prashant Kumar Singh"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+                <div className="relative z-10">
+                  <h3 className="font-serif text-xl font-bold text-foreground mb-1">
                     Er. Prashant Kumar Singh
                   </h3>
-                  <p className="text-primary font-medium text-sm uppercase tracking-wide">Faculty Coordinator</p>
+                  <div className="h-1 w-12 bg-gold mx-auto my-3 rounded-full"></div>
+                  <p className="text-primary font-bold text-sm uppercase tracking-widest">Faculty Coordinator</p>
                 </div>
               </div>
             </div>
