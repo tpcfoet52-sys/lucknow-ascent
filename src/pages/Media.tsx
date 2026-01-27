@@ -216,9 +216,9 @@ const Media = () => {
                             />
                             <button
                                 onClick={() => setSelectedImage(null)}
-                                className="absolute -top-12 right-0 p-2 text-white/70 hover:text-white transition-colors"
+                                className="absolute top-4 right-4 p-2 bg-black/50 text-white/90 hover:bg-black/80 hover:text-white rounded-full transition-colors"
                             >
-                                <X className="w-8 h-8" />
+                                <X className="w-6 h-6" />
                             </button>
                         </motion.div>
                     </motion.div>
