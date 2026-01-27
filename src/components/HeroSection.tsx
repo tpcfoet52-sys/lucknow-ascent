@@ -78,7 +78,7 @@ const HeroSection = () => {
           >
             {[
               { value: "NAAC A++", label: "Accreditation" },
-              { value: "NIRF Ranked", label: "University" },
+              { value: "AICTE Approved", label: "University" },
               { value: "500+", label: "Companies" },
             ].map((stat, index) => (
               <div key={index} className="text-center min-w-[100px]">
