@@ -21,6 +21,9 @@ import tpcBadge from "@/assets/naac-badge.png";
 import heroImage from "@/assets/university-hero-new.jpg";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
+import erPavanKumarSingh from "@/assets/er-pavan-kumar-singh.jpg";
+import erGauravSrivastava from "@/assets/er-gaurav-srivastava.jpg";
+import erPrashantKumarSingh from "@/assets/er-prashant-kumar-singh.png";
 
 const teamStructureLinks = [
   { name: "Faculty Coordinators", href: "#faculty-coordinators" },
@@ -268,11 +271,11 @@ const TeamStructure = () => {
 
               {/* Er. Pavan Kumar Singh */}
               <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
-                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20 bg-muted/30 flex items-center justify-center">
+                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
                   <img
-                    src={uolLogo}
+                    src={erPavanKumarSingh}
                     alt="Er. Pavan Kumar Singh"
-                    className="w-16 h-16 object-contain opacity-50"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
@@ -285,11 +288,11 @@ const TeamStructure = () => {
 
               {/* Er. Gaurav Srivastava */}
               <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
-                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20 bg-muted/30 flex items-center justify-center">
+                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
                   <img
-                    src={uolLogo}
+                    src={erGauravSrivastava}
                     alt="Er. Gaurav Srivastava"
-                    className="w-16 h-16 object-contain opacity-50"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
@@ -302,11 +305,11 @@ const TeamStructure = () => {
 
               {/* Er. Prashant Kumar Singh */}
               <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
-                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20 bg-muted/30 flex items-center justify-center">
+                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
                   <img
-                    src={uolLogo}
+                    src={erPrashantKumarSingh}
                     alt="Er. Prashant Kumar Singh"
-                    className="w-16 h-16 object-contain opacity-50"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
@@ -326,7 +329,7 @@ const TeamStructure = () => {
         <div className="container-narrow">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
-              Student Coordinator <span className="text-gold-gradient">2025-2026</span>
+              Student Coordinator <span className="text-gold-gradient">2025-26</span>
             </h2>
             <p className="text-muted-foreground mt-2">The dedicated student team driving TPC initiatives</p>
           </div>
