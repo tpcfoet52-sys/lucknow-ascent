@@ -327,53 +327,7 @@ const AboutUniversity = () => {
         </div>
       </section>
 
-      {/* Alumni Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <span className="text-xs font-medium text-accent uppercase tracking-wider">Distinguished Alumni</span>
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
-              Leaders Who Walked Our Halls
-            </h2>
-          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { name: "Ritu Karidhal", role: "Senior Scientist, ISRO (Rocket Woman)", field: "Science & Technology" },
-              { name: "Naresh Trehan", role: "Founder, Medanta Hospital (Padma Shri)", field: "Medicine & Healthcare" },
-              { name: "S. P. Chakravarti", role: "Pioneer of Electronics Education", field: "Education & Technology" },
-              { name: "Govind Ballabh Pant", role: "Freedom Fighter & 1st CM of UP", field: "Politics & Governance" },
-              { name: "Justice A. S. Anand", role: "Former Chief Justice of India", field: "Law & Judiciary" },
-              { name: "Qurratulain Hyder", role: "Jnanpith Awardee Novelist", field: "Literature" },
-              { name: "Vinod Mehta", role: "Eminent Journalist (Editor, Outlook)", field: "Journalism & Media" },
-              { name: "Jaya Prada", role: "Actress & Former MP", field: "Arts & Politics" },
-              { name: "Jagdish Gandhi", role: "Founder, City Montessori School", field: "Education" },
-            ].map((alumni, index) => (
-              <motion.div
-                key={alumni.name}
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInUp}
-                className="bg-background border border-border rounded-lg p-6 text-center"
-              >
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Award className="h-10 w-10 text-primary" />
-                </div>
-                <h3 className="font-serif text-lg font-semibold text-foreground">{alumni.name}</h3>
-                <p className="text-sm text-accent mt-1">{alumni.role}</p>
-                <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Campus Life */}
       <section className="py-16 md:py-24">
