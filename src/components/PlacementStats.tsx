@@ -3,6 +3,7 @@ import { TrendingUp, Users, Building2, Award } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
 const stats = [
+  { label: "Highest Package (2023 Batch)", value: "₹26.0", unit: "LPA", icon: Award },
   { label: "Average Package (Overall)", value: "₹9.0", unit: "LPA", icon: TrendingUp },
   { label: "Jobs Offered (2025)", value: "543", unit: "+", icon: Users },
   { label: "Partner Companies", value: "500", unit: "+", icon: Building2 },
@@ -227,7 +228,10 @@ const PlacementStats = () => {
                       <span className="block">UG: {data.ugPlaced} | PG: {data.pgPlaced}</span>
                       <span className="text-accent font-medium">Avg: ₹{data.avgPackage} LPA</span>
                     </div>
-
+                    <div>
+                      <span className="block text-muted-foreground/70">Highest Package</span>
+                      <span className="text-accent font-semibold">₹{data.highestPackage} LPA</span>
+                    </div>
                   </div>
                 </motion.div>
               ))}
