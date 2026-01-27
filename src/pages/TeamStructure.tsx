@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,7 +12,8 @@ import {
   Calendar,
   ChevronRight,
   Mail,
-  Linkedin
+  Linkedin,
+  Phone
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SubpageHeader from "@/components/SubpageHeader";
@@ -190,16 +192,16 @@ const TeamStructure = () => {
       <SubpageHeader pageTitle="Team Structure" subpageLinks={teamStructureLinks} />
 
       {/* Hero Section with Background Image */}
-      < section className="relative pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden" >
+      <section className="relative pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden">
         {/* Background Image */}
-        < div className="absolute inset-0 z-0" >
+        <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
             alt="University of Lucknow Campus"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background" />
-        </div >
+        </div>
 
         <div className="relative z-10 container-narrow pt-8 md:pt-12">
 
@@ -237,111 +239,165 @@ const TeamStructure = () => {
             </p>
           </motion.div>
         </div>
-      </section >
+      </section>
 
       {/* Faculty Coordinator Section */}
-      <section className="py-12 bg-secondary/20">
-        <div className="container-narrow">
+      <section className="py-20 bg-background relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 -left-24 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
+
+        <div className="container-narrow relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-12 text-center"
+            className="mb-16 text-center"
           >
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-8">
-              Faculty Coordinator
+            <span className="inline-block py-1 px-3 rounded-full bg-accent/10 text-accent font-medium text-xs tracking-wider uppercase mb-4">
+              Our Mentors
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              Faculty Coordinators
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Dr. Himanshu Pandey */}
-              <div className="bg-card rounded-xl p-6 shadow-2xl border border-gold/30 w-full flex flex-col items-center gap-6 text-center transform hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-primary/5" />
-                <div className="relative">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-gold to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
-                  <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-background">
-                    <img
-                      src={drHimanshuPandey}
-                      alt="Dr. Himanshu Pandey"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="relative z-10">
-                  <h3 className="font-serif text-xl font-bold text-foreground mb-1">
-                    Dr. Himanshu Pandey
-                  </h3>
-                  <div className="h-1 w-12 bg-gold mx-auto my-3 rounded-full"></div>
-                  <p className="text-primary font-bold text-sm uppercase tracking-widest">T&P Cell In charge</p>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Guiding our students towards excellence with their experience and vision.
+            </p>
+          </motion.div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Dr. Himanshu Pandey */}
+            <div className="bg-card rounded-xl p-6 shadow-2xl border border-gold/30 w-full flex flex-col items-center gap-6 text-center transform hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-primary/5" />
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-gold to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-background">
+                  <img
+                    src={drHimanshuPandey}
+                    alt="Dr. Himanshu Pandey"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
+              <div className="relative z-10 w-full">
+                <h3 className="font-serif text-xl font-bold text-foreground mb-1">
+                  Dr. Himanshu Pandey
+                </h3>
+                <div className="h-1 w-12 bg-gold mx-auto my-3 rounded-full"></div>
+                <p className="text-primary font-bold text-sm uppercase tracking-widest mb-4">Associate Professor</p>
 
-              {/* Er. Pavan Kumar Singh */}
-              <div className="bg-card rounded-xl p-6 shadow-2xl border border-gold/30 w-full flex flex-col items-center gap-6 text-center transform hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-primary/5" />
-                <div className="relative">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-gold to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
-                  <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-background">
-                    <img
-                      src={erPavanKumarSingh}
-                      alt="Er. Pavan Kumar Singh"
-                      className="w-full h-full object-cover"
-                    />
+                <div className="flex flex-col gap-2 mt-4 text-sm text-muted-foreground w-full">
+                  <div className="flex items-center justify-center gap-2 hover:text-accent transition-colors">
+                    <Phone className="w-3.5 h-3.5 text-accent" />
+                    <span>7905287870</span>
                   </div>
-                </div>
-                <div className="relative z-10">
-                  <h3 className="font-serif text-xl font-bold text-foreground mb-1">
-                    Er. Pavan Kumar Singh
-                  </h3>
-                  <div className="h-1 w-12 bg-gold mx-auto my-3 rounded-full"></div>
-                  <p className="text-primary font-bold text-sm uppercase tracking-widest">Faculty Coordinator</p>
-                </div>
-              </div>
-
-              {/* Er. Gaurav Srivastava */}
-              <div className="bg-card rounded-xl p-6 shadow-2xl border border-gold/30 w-full flex flex-col items-center gap-6 text-center transform hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-primary/5" />
-                <div className="relative">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-gold to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
-                  <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-background">
-                    <img
-                      src={erGauravSrivastava}
-                      alt="Er. Gaurav Srivastava"
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="flex items-center justify-center gap-2 hover:text-accent transition-colors">
+                    <Mail className="w-3.5 h-3.5 text-accent" />
+                    <a href="mailto:pandey_himanshu@lkouniv.ac.in" className="hover:underline">pandey_himanshu@lkouniv.ac.in</a>
                   </div>
-                </div>
-                <div className="relative z-10">
-                  <h3 className="font-serif text-xl font-bold text-foreground mb-1">
-                    Er. Gaurav Srivastava
-                  </h3>
-                  <div className="h-1 w-12 bg-gold mx-auto my-3 rounded-full"></div>
-                  <p className="text-primary font-bold text-sm uppercase tracking-widest">Faculty Coordinator</p>
-                </div>
-              </div>
-
-              {/* Er. Prashant Kumar Singh */}
-              <div className="bg-card rounded-xl p-6 shadow-2xl border border-gold/30 w-full flex flex-col items-center gap-6 text-center transform hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-primary/5" />
-                <div className="relative">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-gold to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
-                  <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-background">
-                    <img
-                      src={erPrashantKumarSingh}
-                      alt="Er. Prashant Kumar Singh"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="relative z-10">
-                  <h3 className="font-serif text-xl font-bold text-foreground mb-1">
-                    Er. Prashant Kumar Singh
-                  </h3>
-                  <div className="h-1 w-12 bg-gold mx-auto my-3 rounded-full"></div>
-                  <p className="text-primary font-bold text-sm uppercase tracking-widest">Faculty Coordinator</p>
                 </div>
               </div>
             </div>
-          </motion.div>
+
+            {/* Er. Pavan Kumar Singh */}
+            <div className="bg-card rounded-xl p-6 shadow-2xl border border-gold/30 w-full flex flex-col items-center gap-6 text-center transform hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-primary/5" />
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-gold to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-background">
+                  <img
+                    src={erPavanKumarSingh}
+                    alt="Er. Pavan Kumar Singh"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="relative z-10 w-full">
+                <h3 className="font-serif text-xl font-bold text-foreground mb-1">
+                  Er. Pavan Kumar Singh
+                </h3>
+                <div className="h-1 w-12 bg-gold mx-auto my-3 rounded-full"></div>
+                <p className="text-primary font-bold text-sm uppercase tracking-widest mb-4">Assistant Professor</p>
+
+                <div className="flex flex-col gap-2 mt-4 text-sm text-muted-foreground w-full">
+                  <div className="flex items-center justify-center gap-2 hover:text-accent transition-colors">
+                    <Phone className="w-3.5 h-3.5 text-accent" />
+                    <span>9406987292</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2 hover:text-accent transition-colors">
+                    <Mail className="w-3.5 h-3.5 text-accent" />
+                    <a href="mailto:pavanrajawat038@gmail.com" className="hover:underline">pavanrajawat038@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Er. Gaurav Srivastava */}
+            <div className="bg-card rounded-xl p-6 shadow-2xl border border-gold/30 w-full flex flex-col items-center gap-6 text-center transform hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-primary/5" />
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-gold to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-background">
+                  <img
+                    src={erGauravSrivastava}
+                    alt="Er. Gaurav Srivastava"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="relative z-10 w-full">
+                <h3 className="font-serif text-xl font-bold text-foreground mb-1">
+                  Er. Gaurav Srivastava
+                </h3>
+                <div className="h-1 w-12 bg-gold mx-auto my-3 rounded-full"></div>
+                <p className="text-primary font-bold text-sm uppercase tracking-widest mb-4">Assistant Professor</p>
+                <div className="flex flex-col gap-2 mt-4 text-sm text-muted-foreground w-full">
+                  <div className="flex items-center justify-center gap-2 hover:text-accent transition-colors">
+                    <Phone className="w-3.5 h-3.5 text-accent" />
+                    <span>9717681158</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2 hover:text-accent transition-colors">
+                    <Mail className="w-3.5 h-3.5 text-accent" />
+                    <a href="mailto:gaurav.ap1793@gmail.com" className="hover:underline">gaurav.ap1793@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Dr. Prashant Kumar Singh */}
+            <div className="bg-card rounded-xl p-6 shadow-2xl border border-gold/30 w-full flex flex-col items-center gap-6 text-center transform hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-primary/5" />
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-gold to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-background">
+                  <img
+                    src={erPrashantKumarSingh}
+                    alt="Dr. Prashant Kumar Singh"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="relative z-10 w-full">
+                <h3 className="font-serif text-xl font-bold text-foreground mb-1">
+                  Dr. Prashant Kumar Singh
+                </h3>
+                <div className="h-1 w-12 bg-gold mx-auto my-3 rounded-full"></div>
+                <p className="text-primary font-bold text-sm uppercase tracking-widest mb-4">Associate Professor</p>
+
+                <div className="flex flex-col gap-2 mt-4 text-sm text-muted-foreground w-full">
+                  <div className="flex items-center justify-center gap-2 hover:text-accent transition-colors">
+                    <Phone className="w-3.5 h-3.5 text-accent" />
+                    <span>9179122557</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2 hover:text-accent transition-colors">
+                    <Mail className="w-3.5 h-3.5 text-accent" />
+                    <a href="mailto:singh_pk@lkouniv.ac.in" className="hover:underline">singh_pk@lkouniv.ac.in</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -591,10 +647,10 @@ const TeamStructure = () => {
             </motion.div>
           )
         }
-      </AnimatePresence >
+      </AnimatePresence>
 
       {/* Minimal Footer */}
-      < footer className="py-8 border-t border-border" >
+      <footer className="py-8 border-t border-border">
         <div className="container-narrow">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-3">
@@ -608,8 +664,8 @@ const TeamStructure = () => {
             <p>© {new Date().getFullYear()} All rights reserved.</p>
           </div>
         </div>
-      </footer >
-    </div >
+      </footer>
+    </div>
   );
 };
 
