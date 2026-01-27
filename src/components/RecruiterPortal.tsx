@@ -4,24 +4,24 @@ import { Button } from "./ui/button";
 
 const stats = [
   {
-    icon: TrendingUp,
-    value: "₹9.0 LPA",
-    label: "Average Package (23-24)",
-  },
-  {
     icon: Trophy,
     value: "₹26.0 LPA",
     label: "Highest Package (2023 Batch)",
   },
   {
-    icon: Building2,
-    value: "500+",
-    label: "Recruiting Partners",
+    icon: TrendingUp,
+    value: "₹9.0 LPA",
+    label: "Average Package (23-24)",
   },
   {
     icon: Users,
     value: "3451+",
     label: "Students Placed (23-24)",
+  },
+  {
+    icon: Building2,
+    value: "500+",
+    label: "Recruiting Partners",
   },
 ];
 
