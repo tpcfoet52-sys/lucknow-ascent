@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Calendar } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/university-hero-v3.jpg";
+import heroImage from "@/assets/university-hero-new.jpg";
 
 const scrollToSection = (id: string) => {
   const element = document.getElementById(id);
