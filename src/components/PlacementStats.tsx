@@ -3,7 +3,6 @@ import { TrendingUp, Users, Building2, Award } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
 const stats = [
-  { label: "Highest Package (2023 Batch)", value: "₹26.0", unit: "LPA", icon: Award },
   { label: "Average Package (Overall)", value: "₹9.0", unit: "LPA", icon: TrendingUp },
   { label: "Jobs Offered (2025)", value: "543", unit: "+", icon: Users },
   { label: "Partner Companies", value: "500", unit: "+", icon: Building2 },

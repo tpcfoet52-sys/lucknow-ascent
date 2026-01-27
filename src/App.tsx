@@ -16,6 +16,7 @@ import InterviewPrep from "./pages/InterviewPrep";
 import SoftSkills from "./pages/SoftSkills";
 import Media from "./pages/Media";
 import Login from "./pages/Login";
+import OurAlumni from "./pages/OurAlumni";
 
 // Import Admin components
 import AdminLayout from "./components/admin/AdminLayout";
@@ -68,6 +69,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/team-structure" element={<TeamStructure />} />
           <Route path="/about-university" element={<AboutUniversity />} />
+          <Route path="/our-alumni" element={<OurAlumni />} />
           <Route path="/about-tpc" element={<AboutTPC />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/placement-calendar" element={<PlacementCalendar />} />

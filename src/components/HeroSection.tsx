@@ -55,7 +55,7 @@ const HeroSection = () => {
               Training & Placement Cell
             </h1>
             <p className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl text-accent font-medium tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] whitespace-nowrap">
-              University of Lucknow
+              FoET, University of Lucknow
             </p>
           </motion.div>
 

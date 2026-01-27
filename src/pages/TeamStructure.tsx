@@ -88,7 +88,7 @@ const teams: Team[] = [
     name: "Team Industry Interface",
     description: "Training, skill development & internships",
     icon: Briefcase,
-    keyPoints: ["Training programs", "Skill assessments", "Internship coordination", "Industry collaboration"],
+    keyPoints: ["Soft skill training", "Skill assessments", "Internship coordination", "Industry collaboration"],
     members: [
       { id: 1, name: "Kavita Joshi", role: "Team Lead" },
       { id: 2, name: "Arjun Reddy", role: "Training Coordinator" },

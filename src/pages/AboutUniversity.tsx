@@ -51,6 +51,8 @@ const programs = [
   { name: "Management", icon: Briefcase, students: "1800+" },
   { name: "Pharmacy", icon: Pill, students: "800+" },
   { name: "Yoga", icon: Sun, students: "500+" },
+  { name: "Tourism", icon: Globe, students: "400+" },
+  { name: "B.Voc", icon: BookOpen, students: "600+" },
 ];
 
 const infrastructure = [

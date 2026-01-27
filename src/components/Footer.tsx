@@ -84,8 +84,8 @@ const Footer = () => {
                 <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/80 text-sm">
                   Training & Placement Cell<br />
-                  University of Lucknow<br />
-                  Lucknow, UP 226007
+                  FoET, University of Lucknow<br />
+                  Jankipuram Extension, Lucknow, UP 226031 <a href="https://www.google.com/maps/search/?api=1&query=University+of+Lucknow+New+Campus" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline ml-1 text-xs">(Map View)</a>
                 </span>
               </li>
               <li className="flex items-center gap-3">
