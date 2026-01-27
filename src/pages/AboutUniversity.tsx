@@ -21,7 +21,7 @@ import {
 import { Button } from "@/components/ui/button";
 import SubpageHeader from "@/components/SubpageHeader";
 import uolLogo from "@/assets/uol-logo.png";
-import heroImage from "@/assets/university-hero-v3.jpg";
+import heroImage from "@/assets/university-hero-new.jpg";
 import nirfBadge from "@/assets/nirf-ranking-badge.png";
 import centenaryLogo from "@/assets/centenary-logo.png";
 import naacBadge from "@/assets/naac-badge.png";

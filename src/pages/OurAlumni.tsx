@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Award } from "lucide-react";
 import SubpageHeader from "@/components/SubpageHeader";
 import uolLogo from "@/assets/uol-logo.png";
-import heroImage from "@/assets/university-hero-v3.jpg";
+import heroImage from "@/assets/university-hero-new.jpg";
 import naacBadge from "@/assets/naac-badge.png";
 
 const alumniLinks = [

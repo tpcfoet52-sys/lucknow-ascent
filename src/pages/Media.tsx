@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/componen
 import { Link } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import heroImage from "@/assets/university-hero-v3.jpg";
+import heroImage from "@/assets/university-hero-new.jpg";
 import uolLogo from "@/assets/uol-logo.png";
 import luInNews from "@/assets/lu-in-news.jpg";
 import tpcMeeting from "@/assets/tpc-meeting.jpg";
