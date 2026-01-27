@@ -337,8 +337,8 @@ const TeamStructure = () => {
 
           {/* New TPC Lead Section */}
           <div className="flex justify-center mb-16">
-            <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center max-w-sm w-full">
-              <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
+            <div className="bg-card rounded-xl p-6 shadow-sm border border-border/40 flex flex-col items-center gap-4 text-center max-w-sm w-full hover:shadow-md transition-shadow duration-300">
+              <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border border-border">
                 <img
                   src={riddhiSingh}
                   alt="Riddhi Singh Rathore"
@@ -354,15 +354,15 @@ const TeamStructure = () => {
                 </p>
                 <p className="text-xs text-muted-foreground mt-1">2025-26</p>
 
-                <div className="flex items-center justify-center gap-3 mt-4">
-                  <a href="mailto:singhrathoreriddhi874@gmail.com" className="w-8 h-8 rounded-full bg-secondary text-foreground flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300">
-                    <Mail className="w-4 h-4" />
+                <div className="flex items-center justify-center gap-4 mt-4">
+                  <a href="mailto:singhrathoreriddhi874@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                    <Mail className="w-5 h-5" />
                   </a>
-                  <a href="https://linkedin.com/in/riddhi-singh-rathore-997b962aa" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-secondary text-foreground flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-all duration-300">
-                    <Linkedin className="w-4 h-4" />
+                  <a href="https://linkedin.com/in/riddhi-singh-rathore-997b962aa" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[#0077b5] transition-colors">
+                    <Linkedin className="w-5 h-5" />
                   </a>
-                  <a href="https://x.com/riddhi_sin22754" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-secondary text-foreground flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300">
-                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <a href="https://x.com/riddhi_sin22754" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
                     </svg>
                   </a>
