@@ -613,33 +613,7 @@ const AboutTPC = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
-        <div className="container-narrow text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-4">
-              Ready to Partner With Us?
-            </h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">
-              Join 500+ companies in hiring top talent from University of Lucknow
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="gold" size="lg" className="gap-2">
-                Recruit From Us <ArrowRight className="h-4 w-4" />
-              </Button>
-              <Link to="/team-structure">
-                <Button variant="goldOutline" size="lg">
-                  Meet Our Team
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+
 
       {/* Footer */}
       <footer className="py-8 border-t border-border bg-background">
