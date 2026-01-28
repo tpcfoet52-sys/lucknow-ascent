@@ -25,7 +25,7 @@ const navLinks: NavLink[] = [
   { name: "Students", href: "#students" },
   { name: "Media", href: "/media" },
   { name: "Placement Records", href: "#recruiters" },
-  { name: "Contact", href: "#contact" },
+  { name: "Contact", href: "#connect" },
 ];
 
 const Header = () => {

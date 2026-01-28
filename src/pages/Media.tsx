@@ -185,10 +185,7 @@ const Media = () => {
                         {/* Connect with Us (Horizontal) */}
                         <ConnectWithUs />
 
-                        <div className="bg-secondary/30 rounded-2xl p-8 border border-border/50">
-                            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                            </div>
-                        </div>
+
                     </div>
 
                 </div>
