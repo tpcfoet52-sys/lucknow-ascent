@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,8 +7,8 @@
 
 /* University of Lucknow TPC Design System
    Colors: Slate Blue, Gold, White
-   Typography: Playfair Display (headings), Inter (body)
-   Style: Minimal, Professional, Formal
+   Typography: Poppins (headings), DM Sans (body)
+   Style: Modern, Professional, Clean
 */
 
 @layer base {
@@ -109,13 +109,13 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-sans font-semibold;
   }
 }
 
 @layer components {
   .heading-display {
-    @apply font-serif font-semibold tracking-tight;
+    @apply font-sans font-bold tracking-tight;
   }
 
   .text-gold-gradient {

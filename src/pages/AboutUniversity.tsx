@@ -19,12 +19,22 @@ import {
   Sun
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SubpageHeader from "@/components/SubpageHeader";
 import uolLogo from "@/assets/uol-logo.png";
-import heroImage from "@/assets/university-hero.jpg";
+import heroImage from "@/assets/university-hero-new.jpg";
 import nirfBadge from "@/assets/nirf-ranking-badge.png";
 import centenaryLogo from "@/assets/centenary-logo.png";
 import naacBadge from "@/assets/naac-badge.png";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
+
+const aboutUniversityLinks = [
+  { name: "Our Legacy", href: "#legacy" },
+  { name: "Courses Offered", href: "#programs" },
+  { name: "Infrastructure", href: "#infrastructure" },
+  { name: "Demographics", href: "#demographics" },
+  { name: "Distinguished Alumni", href: "#alumni" },
+  { name: "Campus Life", href: "#campus-life" },
+];
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -41,6 +51,8 @@ const programs = [
   { name: "Management", icon: Briefcase, students: "1800+" },
   { name: "Pharmacy", icon: Pill, students: "800+" },
   { name: "Yoga", icon: Sun, students: "500+" },
+  { name: "Tourism", icon: Globe, students: "400+" },
+  { name: "B.Voc", icon: BookOpen, students: "600+" },
 ];
 
 const infrastructure = [
@@ -70,35 +82,7 @@ const AboutUniversity = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-        <div className="container-narrow">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            <div className="flex items-center gap-4">
-              <Link to="/">
-                <Button variant="ghost" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
-                  <ArrowLeft className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link to="/" className="flex items-center gap-3 group">
-                {/* Logo */}
-                <img
-                  src={tpcLogo}
-                  alt="Training & Placement Cell"
-                  className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
-                />
-                <div className="hidden sm:block">
-                  <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground transition-colors group-hover:text-gold-600">
-                    Training & Placement Cell
-                  </p>
-                  <p className="text-xs tracking-wide text-muted-foreground transition-colors group-hover:text-gold-600/80">
-                    FoET, University of Lucknow
-                  </p>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
+      <SubpageHeader pageTitle="About University" subpageLinks={aboutUniversityLinks} />
 
       {/* Hero Section */}
       <section className="relative pt-20 md:pt-24 pb-16 md:pb-24 overflow-hidden">
@@ -343,53 +327,7 @@ const AboutUniversity = () => {
         </div>
       </section>
 
-      {/* Alumni Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <span className="text-xs font-medium text-accent uppercase tracking-wider">Distinguished Alumni</span>
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
-              Leaders Who Walked Our Halls
-            </h2>
-          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { name: "Ritu Karidhal", role: "Senior Scientist, ISRO (Rocket Woman)", field: "Science & Technology" },
-              { name: "Naresh Trehan", role: "Founder, Medanta Hospital (Padma Shri)", field: "Medicine & Healthcare" },
-              { name: "S. P. Chakravarti", role: "Pioneer of Electronics Education", field: "Education & Technology" },
-              { name: "Govind Ballabh Pant", role: "Freedom Fighter & 1st CM of UP", field: "Politics & Governance" },
-              { name: "Justice A. S. Anand", role: "Former Chief Justice of India", field: "Law & Judiciary" },
-              { name: "Qurratulain Hyder", role: "Jnanpith Awardee Novelist", field: "Literature" },
-              { name: "Vinod Mehta", role: "Eminent Journalist (Editor, Outlook)", field: "Journalism & Media" },
-              { name: "Jaya Prada", role: "Actress & Former MP", field: "Arts & Politics" },
-              { name: "Jagdish Gandhi", role: "Founder, City Montessori School", field: "Education" },
-            ].map((alumni, index) => (
-              <motion.div
-                key={alumni.name}
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInUp}
-                className="bg-background border border-border rounded-lg p-6 text-center"
-              >
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Award className="h-10 w-10 text-primary" />
-                </div>
-                <h3 className="font-serif text-lg font-semibold text-foreground">{alumni.name}</h3>
-                <p className="text-sm text-accent mt-1">{alumni.role}</p>
-                <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Campus Life */}
       <section className="py-16 md:py-24">
@@ -433,34 +371,6 @@ const AboutUniversity = () => {
               );
             })}
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
-        <div className="container-narrow text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-4">
-              Explore Our Campus
-            </h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">
-              Schedule a virtual tour or visit us in person to experience the legacy of excellence
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="gold" size="lg">
-                Virtual Tour
-              </Button>
-              <Link to="/about-tpc">
-                <Button variant="goldOutline" size="lg">
-                  Learn About TPC
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
         </div>
       </section>
 

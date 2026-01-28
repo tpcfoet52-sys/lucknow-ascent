@@ -3,13 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Play, Calendar, ExternalLink, Camera, Video, Newspaper, Share2, Instagram, Linkedin, Mail, X } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ConnectWithUs from "@/components/ConnectWithUs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import heroImage from "@/assets/university-hero.jpg";
+import heroImage from "@/assets/university-hero-new.jpg";
 import uolLogo from "@/assets/uol-logo.png";
 import luInNews from "@/assets/lu-in-news.jpg";
 import tpcMeeting from "@/assets/tpc-meeting.jpg";
@@ -180,79 +181,18 @@ const Media = () => {
                     {/* News & Connect Grid */}
                     <div className="space-y-12">
                         {/* News */}
-                        <div>
-                            <h2 className="font-serif text-3xl font-semibold mb-6 flex items-center gap-2">
-                                <Newspaper className="w-6 h-6 text-accent" /> In the News
-                            </h2>
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {newsItems.map((news) => (
-                                    <Card key={news.id} className="hover:border-accent/50 transition-colors">
-                                        <CardContent className="p-4">
-                                            <Badge variant="outline" className="mb-2 text-xs">{news.source}</Badge>
-                                            <h3 className="font-semibold text-lg hover:underline decoration-accent/50 underline-offset-4 cursor-pointer mb-2">{news.title}</h3>
-                                            <div className="flex justify-between items-center text-sm text-muted-foreground">
-                                                <span>{news.date}</span>
-                                                <Button variant="ghost" size="sm" className="h-auto p-0 text-accent hover:text-accent/80">
-                                                    Read More <ExternalLink className="w-3 h-3 ml-1" />
-                                                </Button>
-                                            </div>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
-                        </div>
 
                         {/* Connect with Us (Horizontal) */}
+                        <ConnectWithUs />
+
                         <div className="bg-secondary/30 rounded-2xl p-8 border border-border/50">
                             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                                <div>
-                                    <h3 className="font-serif text-2xl font-semibold mb-2 flex items-center gap-2 justify-center md:justify-start">
-                                        <Share2 className="w-5 h-5 text-accent" /> Connect with Us
-                                    </h3>
-                                    <p className="text-muted-foreground text-center md:text-left">
-                                        Stay updated with the latest from the Training & Placement Cell.
-                                    </p>
-                                </div>
-                                <div className="flex gap-4">
-                                    <a href="https://www.linkedin.com/in/tpcfoet?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
-                                        <Linkedin className="w-5 h-5" />
-                                    </a>
-                                    <a href="https://x.com/PlacementEnggLU" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
-                                        <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-                                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zl-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                                        </svg>
-                                    </a>
-                                    <a href="https://www.instagram.com/tpcfoet?igsh=cm05d2NpbnRoNGNp" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
-                                        <Instagram className="w-5 h-5" />
-                                    </a>
-                                    <a href="mailto:placement_foet@lkouniv.ac.in" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
-                                        <Mail className="w-5 h-5" />
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* CTA Section */}
-                    <section className="bg-primary text-primary-foreground rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
-                        <div className="absolute inset-0 bg-accent/20 pattern-dots opacity-10"></div>
-                        <div className="relative z-10 max-w-2xl mx-auto">
-                            <h2 className="font-serif text-3xl font-semibold mb-4">Have moments to share?</h2>
-                            <p className="text-primary-foreground/80 mb-8">
-                                We love showcasing student achievements and campus life. If you have photos or videos from recent events, share them with our media team.
-                            </p>
-                            <div className="flex justify-center gap-4">
-                                <Button variant="gold" size="lg">Submit Content</Button>
-                                <Button variant="goldOutline" size="lg">Contact Media Team</Button>
-                            </div>
-                        </div>
-                    </section>
-
                 </div>
             </main >
-
-
-            {/* Lightbox Overlay */}
             <AnimatePresence>
                 {selectedImage && (
                     <motion.div
@@ -276,9 +216,9 @@ const Media = () => {
                             />
                             <button
                                 onClick={() => setSelectedImage(null)}
-                                className="absolute -top-12 right-0 p-2 text-white/70 hover:text-white transition-colors"
+                                className="absolute top-4 right-4 p-2 bg-black/50 text-white/90 hover:bg-black/80 hover:text-white rounded-full transition-colors"
                             >
-                                <X className="w-8 h-8" />
+                                <X className="w-6 h-6" />
                             </button>
                         </motion.div>
                     </motion.div>

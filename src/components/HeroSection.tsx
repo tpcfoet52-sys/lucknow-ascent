@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Calendar } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/university-hero.jpg";
+import heroImage from "@/assets/university-hero-new.jpg";
 
 const scrollToSection = (id: string) => {
   const element = document.getElementById(id);
@@ -54,8 +54,8 @@ const HeroSection = () => {
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold leading-tight tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
               Training & Placement Cell
             </h1>
-            <p className="font-serif text-xl sm:text-2xl md:text-3xl text-accent font-medium tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] whitespace-nowrap">
-              University of Lucknow
+            <p className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl text-accent font-medium tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] whitespace-nowrap">
+              FoET, University of Lucknow
             </p>
           </motion.div>
 
@@ -78,9 +78,8 @@ const HeroSection = () => {
           >
             {[
               { value: "NAAC A++", label: "Accreditation" },
-              { value: "NIRF Ranked", label: "University" },
+              { value: "AICTE Approved", label: "University" },
               { value: "500+", label: "Companies" },
-              { value: "₹26.0 LPA", label: "Highest Package (2023 Batch)" },
             ].map((stat, index) => (
               <div key={index} className="text-center min-w-[100px]">
                 <p className="text-2xl md:text-3xl font-serif font-bold text-accent drop-shadow-md">{stat.value}</p>

@@ -14,11 +14,22 @@ import {
   Linkedin
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SubpageHeader from "@/components/SubpageHeader";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import uolLogo from "@/assets/uol-logo.png";
 import tpcBadge from "@/assets/naac-badge.png";
-import heroImage from "@/assets/university-hero.jpg";
+import heroImage from "@/assets/university-hero-new.jpg";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
+import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
+import erPavanKumarSingh from "@/assets/er-pavan-kumar-singh.jpg";
+import erGauravSrivastava from "@/assets/er-gaurav-srivastava.jpg";
+import erPrashantKumarSingh from "@/assets/er-prashant-kumar-singh.png";
+import riddhiSingh from "@/assets/riddhi-singh-rathore.jpg";
+
+const teamStructureLinks = [
+  { name: "Faculty Coordinators", href: "#faculty-coordinators" },
+  { name: "Student Teams", href: "#student-teams" },
+];
 
 interface TeamMember {
   id: number;
@@ -81,7 +92,7 @@ const teams: Team[] = [
     name: "Team Industry Interface",
     description: "Training, skill development & internships",
     icon: Briefcase,
-    keyPoints: ["Training programs", "Skill assessments", "Internship coordination", "Industry collaboration"],
+    keyPoints: ["Soft skill training", "Skill assessments", "Internship coordination", "Industry collaboration"],
     members: [
       { id: 1, name: "Kavita Joshi", role: "Team Lead" },
       { id: 2, name: "Arjun Reddy", role: "Training Coordinator" },
@@ -175,47 +186,8 @@ const TeamStructure = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Minimal Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-        <div className="container-narrow">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Left Side: Logo */}
-            <div className="flex items-center gap-4">
-              <Link to="/">
-                <Button variant="ghost" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
-                  <ArrowLeft className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link to="/" className="flex items-center gap-3 group">
-                {/* Logo */}
-                <img
-                  src={tpcLogo}
-                  alt="Training & Placement Cell"
-                  className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
-                />
-                <div className="hidden sm:block">
-                  <p className="font-serif font-semibold text-sm md:text-base leading-tight text-foreground transition-colors group-hover:text-gold-600">
-                    Training & Placement Cell
-                  </p>
-                  <p className="text-xs tracking-wide text-muted-foreground transition-colors group-hover:text-gold-600/80">
-                    FoET, University of Lucknow
-                  </p>
-                </div>
-              </Link>
-            </div>
-
-            {/* Right Side: Actions */}
-            <div className="flex items-center gap-4">
-              <Link to="/coordinator-login">
-                <Button variant="gold" size="sm" className="hidden sm:flex">
-                  Login as Coordinator
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-      </header >
+      {/* Header */}
+      <SubpageHeader pageTitle="Team Structure" subpageLinks={teamStructureLinks} />
 
       {/* Hero Section with Background Image */}
       < section className="relative pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden" >
@@ -267,9 +239,137 @@ const TeamStructure = () => {
         </div>
       </section >
 
-      {/* Teams Grid */}
-      < section className="py-16 md:py-24" >
+      {/* Faculty Coordinator Section */}
+      <section className="py-12 bg-secondary/20">
         <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12 text-center"
+          >
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-8">
+              Faculty Coordinator
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Dr. Himanshu Pandey */}
+              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
+                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
+                  <img
+                    src={drHimanshuPandey}
+                    alt="Dr. Himanshu Pandey"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+                    Dr. Himanshu Pandey
+                  </h3>
+                  <p className="text-primary font-medium text-sm uppercase tracking-wide">T&P Cell In charge</p>
+                </div>
+              </div>
+
+              {/* Er. Pavan Kumar Singh */}
+              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
+                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
+                  <img
+                    src={erPavanKumarSingh}
+                    alt="Er. Pavan Kumar Singh"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+                    Er. Pavan Kumar Singh
+                  </h3>
+                  <p className="text-primary font-medium text-sm uppercase tracking-wide">Faculty Coordinator</p>
+                </div>
+              </div>
+
+              {/* Er. Gaurav Srivastava */}
+              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
+                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
+                  <img
+                    src={erGauravSrivastava}
+                    alt="Er. Gaurav Srivastava"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+                    Er. Gaurav Srivastava
+                  </h3>
+                  <p className="text-primary font-medium text-sm uppercase tracking-wide">Faculty Coordinator</p>
+                </div>
+              </div>
+
+              {/* Er. Prashant Kumar Singh */}
+              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
+                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
+                  <img
+                    src={erPrashantKumarSingh}
+                    alt="Er. Prashant Kumar Singh"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+                    Er. Prashant Kumar Singh
+                  </h3>
+                  <p className="text-primary font-medium text-sm uppercase tracking-wide">Faculty Coordinator</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Teams Grid - Student Coordinators */}
+      <section className="py-16 md:py-24">
+        <div className="container-narrow">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
+              Student Coordinator <span className="text-gold-gradient">2025-26</span>
+            </h2>
+            <p className="text-muted-foreground mt-2">The dedicated student team driving TPC initiatives</p>
+          </div>
+
+          {/* New TPC Lead Section */}
+          <div className="flex justify-center mb-16">
+            <div className="bg-card rounded-xl p-6 shadow-sm border border-border/40 flex flex-col items-center gap-4 text-center max-w-sm w-full hover:shadow-md transition-shadow duration-300">
+              <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border border-border">
+                <img
+                  src={riddhiSingh}
+                  alt="Riddhi Singh Rathore"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+                  Riddhi Singh Rathore
+                </h3>
+                <p className="text-primary font-medium text-sm uppercase tracking-wide">
+                  Student Coordinator Lead
+                </p>
+                <p className="text-xs text-muted-foreground mt-1">2025-26</p>
+
+                <div className="flex items-center justify-center gap-4 mt-4">
+                  <a href="mailto:singhrathoreriddhi874@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                    <Mail className="w-5 h-5" />
+                  </a>
+                  <a href="https://linkedin.com/in/riddhi-singh-rathore-997b962aa" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[#0077b5] transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="https://x.com/riddhi_sin22754" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teams.map((team, index) => {
               const IconComponent = team.icon;
@@ -465,30 +565,7 @@ const TeamStructure = () => {
         }
       </AnimatePresence >
 
-      {/* CTA Section */}
-      < section className="py-16 md:py-20 bg-primary/5 border-t border-border" >
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-lg mx-auto text-center"
-          >
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-4">
-              Want to be part of our team?
-            </h2>
-            <p className="text-muted-foreground mb-8 leading-relaxed">
-              Join the TPC family and contribute to shaping the careers of fellow students at the University of Lucknow.
-            </p>
-            <Link to="/#contact">
-              <Button variant="default" size="lg" className="px-8">
-                Contact Us
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </section >
+
 
       {/* Minimal Footer */}
       < footer className="py-8 border-t border-border" >

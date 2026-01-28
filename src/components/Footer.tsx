@@ -1,5 +1,5 @@
 import { MapPin, Phone, Mail, ExternalLink, Facebook, Linkedin, Instagram } from "lucide-react";
-import uolLogo from "@/assets/uol-logo.png";
+import uolLogo from "@/assets/tpc-logo.jpeg";
 
 // Custom X (formerly Twitter) Logo
 const XLogo = ({ className }: { className?: string }) => (
@@ -27,16 +27,16 @@ const Footer = () => {
                 <img
                   src={uolLogo}
                   alt="University of Lucknow"
-                  className="w-12 h-12 object-contain"
+                  className="w-12 h-12 object-contain rounded-full"
                 />
                 <div>
-                  <p className="font-serif font-semibold text-lg">University of Lucknow</p>
-                  <p className="text-sm text-primary-foreground/70">Training & Placement Cell</p>
+                  <p className="font-serif font-semibold text-lg">Training & Placement Cell</p>
+                  <p className="text-sm text-primary-foreground/70">FoET, University of Lucknow</p>
                 </div>
               </div>
               <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-md">
-                Established in 1920, the University of Lucknow stands as a beacon of academic excellence.
-                Our Training & Placement Cell bridges the gap between academia and industry.
+                Connecting Engineering Education with Industry
+                Training and Placement Cell, Faculty of Engineering and Technology (Est. 2017)  University of Lucknow
               </p>
             </div>
 
@@ -62,7 +62,7 @@ const Footer = () => {
                 { name: "About TPC", href: "#about" },
                 { name: "Placement Statistics", href: "#recruiters" },
                 { name: "Student Resources", href: "#students" },
-                { name: "FAQs", href: "#" },
+                { name: "Team Structure", href: "/team" },
               ].map((link, index) => (
                 <li key={index}>
                   <a
@@ -84,14 +84,14 @@ const Footer = () => {
                 <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/80 text-sm">
                   Training & Placement Cell<br />
-                  University of Lucknow<br />
-                  Lucknow, UP 226007
+                  FoET, University of Lucknow<br />
+                  Jankipuram Extension, Lucknow, UP 226031 <a href="https://www.google.com/maps/search/?api=1&query=University+of+Lucknow+New+Campus" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline ml-1 text-xs">(Map View)</a>
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-accent flex-shrink-0" />
                 <a href="tel:+917005287870" className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
-                  +91-70052-87870
+                  +91-79052 87870
                 </a>
               </li>
               <li className="flex items-center gap-3">
