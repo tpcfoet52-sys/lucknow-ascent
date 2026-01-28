@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { 
   Plus, Calendar, MapPin, Trash2, Users, 
-  Loader2, ArrowLeft, Download, Phone 
+  Loader2, ArrowLeft, Download, Phone, ImageIcon 
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
@@ -34,6 +34,7 @@ const eventSchema = z.object({
   description: z.string().optional(),
   event_date: z.string().min(1, "Date is required"),
   location: z.string().min(1, "Location is required"),
+  banner_url: z.string().optional(), // Added banner_url
 });
 
 interface Event {
@@ -42,6 +43,7 @@ interface Event {
   description: string;
   event_date: string;
   location: string;
+  banner_url?: string; // Added banner_url
   status: 'pending' | 'approved' | 'deletion_requested';
 }
 
@@ -51,7 +53,7 @@ interface Registration {
   student_email: string;
   student_roll: string;
   branch: string;
-  mobile_number: string; // UPDATED to match renamed database column
+  mobile_number: string;
 }
 
 const EventHospitalityDashboard = () => {
@@ -61,10 +63,11 @@ const EventHospitalityDashboard = () => {
   const [selectedEventId, setSelectedEventId] = useState<number | null>(null);
   const [registrations, setRegistrations] = useState<Registration[]>([]);
   const [loadingRegs, setLoadingRegs] = useState(false);
+  const [bannerFile, setBannerFile] = useState<File | null>(null); // State for file upload
 
   const form = useForm<z.infer<typeof eventSchema>>({
     resolver: zodResolver(eventSchema),
-    defaultValues: { title: "", description: "", event_date: "", location: "" },
+    defaultValues: { title: "", description: "", event_date: "", location: "", banner_url: "" },
   });
 
   // --- Fetch Events ---
@@ -84,17 +87,47 @@ const EventHospitalityDashboard = () => {
   // --- Create Event ---
   const onSubmit = async (values: z.infer<typeof eventSchema>) => {
     try {
+      let bannerUrl = "";
+
+      // 1. Upload Banner if exists
+      if (bannerFile) {
+        const fileExt = bannerFile.name.split('.').pop();
+        const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+        
+        const { error: uploadError } = await supabase.storage
+          .from('event-banners')
+          .upload(fileName, bannerFile);
+
+        if (uploadError) {
+          console.error("Upload error:", uploadError);
+          toast.error("Failed to upload banner image");
+          return;
+        }
+        
+        const { data: publicUrlData } = supabase.storage
+          .from('event-banners')
+          .getPublicUrl(fileName);
+        
+        bannerUrl = publicUrlData.publicUrl;
+      }
+
+      // 2. Insert Event into Database
       const { error } = await supabase.from('events').insert([{
         ...values,
+        banner_url: bannerUrl,
         status: 'pending' // Default status
       }]);
 
       if (error) throw error;
       toast.success("Event created! Waiting for Admin approval.");
+      
+      // Cleanup
       setIsCreateOpen(false);
+      setBannerFile(null);
       form.reset();
       fetchEvents();
     } catch (err) {
+      console.error(err);
       toast.error("Failed to create event");
     }
   };
@@ -135,22 +168,19 @@ const EventHospitalityDashboard = () => {
       return;
     }
 
-    // Define CSV Headers
     const headers = ["Student Name", "Email", "Mobile Number", "Roll Number", "Branch"];
     
-    // Convert data to CSV format
     const csvContent = [
       headers.join(","),
       ...registrations.map(reg => [
         `"${reg.student_name}"`,
         `"${reg.student_email}"`,
-        `"${reg.mobile_number || 'N/A'}"`, // UPDATED: Reading from mobile_number
+        `"${reg.mobile_number || 'N/A'}"`,
         `"${reg.student_roll}"`,
         `"${reg.branch}"`
       ].join(","))
     ].join("\n");
 
-    // Create a Blob and trigger download
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement("a");
     const url = URL.createObjectURL(blob);
@@ -182,13 +212,28 @@ const EventHospitalityDashboard = () => {
               <Plus className="h-4 w-4" /> Create Event
             </Button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>Create New Event</DialogTitle>
               <DialogDescription>Event will be visible after Admin approval.</DialogDescription>
             </DialogHeader>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 pt-2">
+                
+                {/* File Upload Input */}
+                <div className="space-y-2">
+                  <FormLabel>Event Banner (Optional)</FormLabel>
+                  <div className="flex items-center gap-2">
+                    <Input 
+                      type="file" 
+                      accept="image/*" 
+                      onChange={(e) => setBannerFile(e.target.files?.[0] || null)}
+                      className="cursor-pointer"
+                    />
+                  </div>
+                  <p className="text-xs text-muted-foreground">Recommended size: 1200x600px. Max 5MB.</p>
+                </div>
+
                 <FormField control={form.control} name="title" render={({ field }) => (
                   <FormItem><FormLabel>Event Title</FormLabel><FormControl><Input placeholder="e.g. Annual Tech Fest" {...field} /></FormControl><FormMessage /></FormItem>
                 )} />
@@ -218,41 +263,51 @@ const EventHospitalityDashboard = () => {
             <div className="grid gap-4">
               {events.map((event) => (
                 <Card key={event.id} className={`transition-all ${selectedEventId === event.id ? 'ring-2 ring-primary' : ''}`}>
-                  <CardHeader className="pb-3">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <CardTitle>{event.title}</CardTitle>
-                        <CardDescription className="flex items-center gap-2 mt-1">
-                          <Calendar className="h-3 w-3" /> {new Date(event.event_date).toLocaleString()}
-                          <MapPin className="h-3 w-3 ml-2" /> {event.location}
-                        </CardDescription>
+                  <div className="flex flex-col md:flex-row">
+                    {/* Small thumbnail in dashboard view */}
+                    {event.banner_url && (
+                      <div className="w-full md:w-32 h-32 md:h-auto bg-gray-100 flex-shrink-0">
+                        <img src={event.banner_url} alt="Banner" className="w-full h-full object-cover rounded-t-lg md:rounded-l-lg md:rounded-tr-none" />
                       </div>
-                      <Badge variant={
-                        event.status === 'approved' ? 'default' : 
-                        event.status === 'deletion_requested' ? 'destructive' : 'secondary'
-                      }>
-                        {event.status === 'deletion_requested' ? 'Delete Requested' : event.status}
-                      </Badge>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground line-clamp-2">{event.description}</p>
-                  </CardContent>
-                  <CardFooter className="flex justify-between border-t pt-4">
-                    <Button 
-                      variant="outline" size="sm" 
-                      onClick={() => viewRegistrations(event.id)}
-                      disabled={event.status !== 'approved'}
-                    >
-                      <Users className="h-4 w-4 mr-2" /> View Registrations
-                    </Button>
-                    
-                    {event.status !== 'deletion_requested' && (
-                      <Button variant="ghost" size="sm" className="text-red-500 hover:text-red-700 hover:bg-red-50" onClick={() => requestDeletion(event.id)}>
-                        <Trash2 className="h-4 w-4 mr-2" /> Request Delete
-                      </Button>
                     )}
-                  </CardFooter>
+                    <div className="flex-1">
+                      <CardHeader className="pb-3">
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <CardTitle>{event.title}</CardTitle>
+                            <CardDescription className="flex items-center gap-2 mt-1">
+                              <Calendar className="h-3 w-3" /> {new Date(event.event_date).toLocaleString()}
+                              <MapPin className="h-3 w-3 ml-2" /> {event.location}
+                            </CardDescription>
+                          </div>
+                          <Badge variant={
+                            event.status === 'approved' ? 'default' : 
+                            event.status === 'deletion_requested' ? 'destructive' : 'secondary'
+                          }>
+                            {event.status === 'deletion_requested' ? 'Delete Requested' : event.status}
+                          </Badge>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-muted-foreground line-clamp-2">{event.description}</p>
+                      </CardContent>
+                      <CardFooter className="flex justify-between border-t pt-4">
+                        <Button 
+                          variant="outline" size="sm" 
+                          onClick={() => viewRegistrations(event.id)}
+                          disabled={event.status !== 'approved'}
+                        >
+                          <Users className="h-4 w-4 mr-2" /> View Registrations
+                        </Button>
+                        
+                        {event.status !== 'deletion_requested' && (
+                          <Button variant="ghost" size="sm" className="text-red-500 hover:text-red-700 hover:bg-red-50" onClick={() => requestDeletion(event.id)}>
+                            <Trash2 className="h-4 w-4 mr-2" /> Request Delete
+                          </Button>
+                        )}
+                      </CardFooter>
+                    </div>
+                  </div>
                 </Card>
               ))}
             </div>
@@ -304,7 +359,6 @@ const EventHospitalityDashboard = () => {
                           <TableCell>
                             <div className="text-xs font-medium">{reg.branch}</div>
                             <div className="text-xs text-muted-foreground">{reg.student_email}</div>
-                            {/* UPDATED: Reading from mobile_number */}
                             <div className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
                               <Phone className="h-3 w-3" /> {reg.mobile_number || 'N/A'}
                             </div>
