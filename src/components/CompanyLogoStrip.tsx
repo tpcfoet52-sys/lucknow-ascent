@@ -39,8 +39,8 @@ const companies = [
 
 const CompanyLogoStrip = () => {
   return (
-    <section className="py-16 bg-secondary border-y border-border overflow-hidden">
-      <div className="container-narrow mb-10">
+    <section className="py-8 bg-secondary border-y border-border overflow-hidden">
+      <div className="container-narrow mb-6">
         <p className="text-center text-lg font-semibold text-muted-foreground uppercase tracking-wider">
           Trusted by Industry Leaders
         </p>

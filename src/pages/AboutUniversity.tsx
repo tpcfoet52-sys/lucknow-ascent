@@ -16,7 +16,11 @@ import {
   Gavel,
   Briefcase,
   Pill,
-  Sun
+  Sun,
+  Star,
+  Scroll,
+  CheckCircle2,
+  Building2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SubpageHeader from "@/components/SubpageHeader";
@@ -30,9 +34,10 @@ import tpcLogo from "@/assets/tpc-logo.jpeg";
 const aboutUniversityLinks = [
   { name: "Our Legacy", href: "#legacy" },
   { name: "Courses Offered", href: "#programs" },
-  { name: "Infrastructure", href: "#infrastructure" },
-  { name: "Demographics", href: "#demographics" },
-  { name: "Distinguished Alumni", href: "#alumni" },
+  { name: "Quick Facts", href: "#quick-facts" },
+  { name: "Accreditations", href: "#accreditations" },
+  { name: "Campuses", href: "#campuses" },
+  { name: "Faculties", href: "#all-faculties" },
   { name: "Campus Life", href: "#campus-life" },
 ];
 
@@ -70,12 +75,72 @@ const demographics = [
 ];
 
 const milestones = [
-  { year: "1920", event: "University established by the United Provinces government" },
-  { year: "1947", event: "Post-independence expansion of faculties" },
-  { year: "1975", event: "Institute of Engineering & Technology founded" },
-  { year: "2000", event: "Modern campus development begins" },
-  { year: "2020", event: "Centenary celebrations completed" },
-  { year: "2024", event: "NAAC A++ accreditation achieved" },
+  {
+    year: "1920",
+    event: "University of Lucknow established on November 25 under the Lucknow University Act. Founded with vision of Sir Harcourt Butler and Raja Mohammad Ali Mohammad Khan of Mahmudabad."
+  },
+  {
+    year: "1921",
+    event: "Formal teaching commenced on July 17. King George's Medical College transferred to university. Canning College (est. 1867) merged with university."
+  },
+  {
+    year: "1984",
+    event: "Institute of Engineering & Technology (IET) Lucknow established on November 19 as the Faculty of Engineering & Technology under the university."
+  },
+  {
+    year: "2017",
+    event: "Faculty of Engineering & Technology (FoET) re-established at New Campus with 5 engineering departments: CSE, ECE, EE, CE, and ME."
+  },
+  {
+    year: "2020",
+    event: "Grand Centenary Celebrations held Nov 19-25. PM Narendra Modi released commemorative ₹100 coin. Week-long cultural, literary & sports festivities."
+  },
+  {
+    year: "2022",
+    event: "Achieved NAAC A++ accreditation in July — first state university in Uttar Pradesh to receive the highest grade."
+  },
+  {
+    year: "2025",
+    event: "NIRF 2025 rankings released Sept 4: Ranked 98th in University category, 29th in Law, and 100th in MBA. Continues in Top 200 overall."
+  },
+];
+
+const quickFacts = [
+  { label: "Established", value: "1920", icon: Landmark },
+  { label: "Campus Area", value: "219 Acres", icon: MapPin },
+  { label: "Faculties", value: "13", icon: BookOpen },
+  { label: "Affiliated Colleges", value: "556+", icon: Building2 },
+  { label: "Students", value: "35,000+", icon: Users },
+  { label: "Faculty Members", value: "1,200+", icon: GraduationCap },
+];
+
+const accreditations = [
+  { title: "NAAC A++ Accreditation", description: "First state university in UP with highest NAAC grade (CGPA 3.55/7, July 2022)", icon: Award, highlight: true },
+  { title: "UGC Category-I Status", description: "Granted academic & administrative autonomy for curriculum and international collaborations", icon: Star },
+  { title: "NIRF Top 100 Universities", description: "Ranked 98th in University category, 29th in Law (NIRF 2025)", icon: CheckCircle2 },
+];
+
+const affiliations = ["UGC", "AIU", "BCI", "NCTE", "AICTE", "PCI"];
+
+const campusLocations = [
+  { name: "Main Campus", location: "Badshah Bagh, University Road", description: "Historic campus on eastern bank of Gomti river with traditional Avadh architecture." },
+  { name: "New Campus (2nd)", location: "Jankipuram, Sitapur Road", description: "Modern 75-acre campus housing Faculty of Engineering & Technology, Management, and Law." },
+];
+
+const allFaculties = [
+  "Faculty of Arts (27+ Depts)", "Faculty of Science", "Faculty of Commerce",
+  "Faculty of Engineering & Technology", "Faculty of Law", "Faculty of Management Studies",
+  "Faculty of Education", "Faculty of Fine Arts", "Faculty of Ayurveda",
+  "Faculty of Unani", "Faculty of Yoga & Alternative Medicine"
+];
+
+const notableAlumni = [
+  { name: "Dr. Shankar Dayal Sharma", role: "9th President of India" },
+  { name: "Justice A.S. Anand", role: "Chief Justice of India" },
+  { name: "Suresh Raina", role: "Indian Cricketer" },
+  { name: "Dr. Naresh Trehan", role: "Renowned Cardiologist" },
+  { name: "Qurratulain Hyder", role: "Novelist, Padma Bhushan" },
+  { name: "Kamala Nehru", role: "Freedom Fighter" },
 ];
 
 const AboutUniversity = () => {
@@ -85,7 +150,7 @@ const AboutUniversity = () => {
       <SubpageHeader pageTitle="About University" subpageLinks={aboutUniversityLinks} />
 
       {/* Hero Section */}
-      <section className="relative pt-20 md:pt-24 pb-16 md:pb-24 overflow-hidden">
+      <section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
@@ -153,26 +218,46 @@ const AboutUniversity = () => {
         </div>
       </section>
 
-      {/* History Timeline */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container-narrow">
+      {/* History Timeline - Our Legacy */}
+      <section id="legacy" className="section-padding bg-gradient-to-b from-muted/20 via-muted/40 to-muted/20 relative overflow-hidden">
+        {/* Subtle decorative pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
+
+        <div className="container-narrow relative z-10">
+          {/* Enhanced Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-10"
           >
-            <span className="text-xs font-medium text-accent uppercase tracking-wider">Our Legacy</span>
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
+            {/* Decorative Line */}
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-accent/60" />
+              <Landmark className="w-5 h-5 text-accent" />
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-accent/60" />
+            </div>
+
+            <span className="inline-block text-xs font-semibold text-accent uppercase tracking-[0.2em] mb-2">
+              Our Legacy
+            </span>
+            <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-foreground tracking-tight">
               A Century of Excellence
             </h2>
+            <p className="text-muted-foreground mt-3 max-w-xl mx-auto text-sm md:text-base">
+              From humble beginnings in 1920 to a premier institution of national importance —
+              our journey of academic distinction.
+            </p>
           </motion.div>
 
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-px" />
+          {/* Enhanced Timeline */}
+          <div className="relative max-w-4xl mx-auto">
+            {/* Timeline center line with gradient */}
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent/20 via-accent/50 to-accent/20 md:-translate-x-px" />
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {milestones.map((milestone, index) => (
                 <motion.div
                   key={milestone.year}
@@ -181,33 +266,77 @@ const AboutUniversity = () => {
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeInUp}
-                  className={`relative flex items-center gap-6 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                    }`}
+                  className={`relative flex items-start gap-6 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
                 >
-                  <div className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"} hidden md:block`}>
-                    <div className="bg-background border border-border rounded-lg p-5 inline-block">
-                      <p className="font-serif text-xl font-bold text-accent">{milestone.year}</p>
-                      <p className="text-muted-foreground text-sm mt-1">{milestone.event}</p>
+                  {/* Desktop Card - Left or Right */}
+                  <div className={`flex-1 ${index % 2 === 0 ? "md:pr-8 md:flex md:justify-end" : "md:pl-8 md:flex md:justify-start"} hidden md:block`}>
+                    <motion.div
+                      className="bg-background/80 backdrop-blur-sm border border-border/60 rounded-lg p-5 inline-block shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 text-left max-w-md"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <Calendar className="w-4 h-4 text-accent/70" />
+                        <p className="font-serif text-xl font-bold text-accent">{milestone.year}</p>
+                      </div>
+                      <p className="text-foreground text-sm leading-relaxed">{milestone.event}</p>
+                    </motion.div>
+                  </div>
+
+                  {/* Timeline Node */}
+                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 flex flex-col items-center">
+                    <div className="w-4 h-4 bg-accent rounded-full ring-4 ring-background shadow-md z-10" />
+                  </div>
+
+                  {/* Mobile Card */}
+                  <div className="flex-1 ml-12 md:hidden">
+                    <div className="bg-background/80 backdrop-blur-sm border border-border/60 rounded-lg p-4 shadow-sm">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Calendar className="w-4 h-4 text-accent/70" />
+                        <p className="font-serif text-lg font-bold text-accent">{milestone.year}</p>
+                      </div>
+                      <p className="text-foreground text-sm leading-relaxed">{milestone.event}</p>
                     </div>
                   </div>
 
-                  <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-accent rounded-full -translate-x-1/2 ring-4 ring-background" />
-
-                  <div className="flex-1 ml-10 md:ml-0">
-                    <div className="bg-background border border-border rounded-lg p-5 md:hidden">
-                      <p className="font-serif text-xl font-bold text-accent">{milestone.year}</p>
-                      <p className="text-muted-foreground text-sm mt-1">{milestone.event}</p>
-                    </div>
-                  </div>
+                  {/* Spacer for desktop layout */}
+                  <div className="flex-1 hidden md:block" />
                 </motion.div>
               ))}
             </div>
           </div>
+
+          {/* Summary Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="mt-10 max-w-2xl mx-auto"
+          >
+            <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 text-center">
+              <div className="flex items-center justify-center gap-6 flex-wrap">
+                <div className="text-center">
+                  <p className="font-serif text-3xl md:text-4xl font-bold text-primary">105+</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Years of Excellence</p>
+                </div>
+                <div className="hidden sm:block w-px h-12 bg-border" />
+                <div className="text-center">
+                  <p className="font-serif text-3xl md:text-4xl font-bold text-accent">1920</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Established</p>
+                </div>
+                <div className="hidden sm:block w-px h-12 bg-border" />
+                <div className="text-center">
+                  <p className="font-serif text-3xl md:text-4xl font-bold text-primary">A++</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider mt-1">NAAC Grade</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Programs Section */}
-      <section className="py-16 md:py-24">
+      <section className="section-padding">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -253,39 +382,33 @@ const AboutUniversity = () => {
         </div>
       </section>
 
-      {/* Infrastructure */}
-      <section className="py-16 md:py-24 bg-muted/30">
+
+
+
+
+      {/* Quick Facts Section */}
+      <section id="quick-facts" className="section-padding bg-muted/30">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-10"
           >
-            <span className="text-xs font-medium text-accent uppercase tracking-wider">World-Class Facilities</span>
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
-              Campus Infrastructure
-            </h2>
+            <span className="text-xs font-semibold text-accent uppercase tracking-wider">At a Glance</span>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mt-2">Quick Facts</h2>
           </motion.div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {infrastructure.map((item, index) => {
-              const IconComponent = item.icon;
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {quickFacts.map((fact, index) => {
+              const IconComponent = fact.icon;
               return (
-                <motion.div
-                  key={item.label}
-                  custom={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeInUp}
-                  className="bg-background border border-border rounded-lg p-6 text-center"
-                >
-                  <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="h-7 w-7 text-accent" />
+                <motion.div key={fact.label} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
+                  className="bg-card border border-border rounded-lg p-4 text-center hover:shadow-md transition-shadow">
+                  <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-3">
+                    <IconComponent className="h-5 w-5 text-accent" />
                   </div>
-                  <p className="font-serif text-2xl font-bold text-foreground">{item.value}</p>
-                  <p className="text-sm text-muted-foreground mt-1">{item.label}</p>
+                  <p className="font-serif text-xl font-bold text-foreground">{fact.value}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{fact.label}</p>
                 </motion.div>
               );
             })}
@@ -293,44 +416,84 @@ const AboutUniversity = () => {
         </div>
       </section>
 
-      {/* Demographics */}
-      <section className="py-16 md:py-24">
+      {/* Accreditations Section */}
+      <section id="accreditations" className="section-padding">
         <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <span className="text-xs font-medium text-accent uppercase tracking-wider">Our Community</span>
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
-              Campus Demographics
-            </h2>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
+            <span className="text-xs font-semibold text-accent uppercase tracking-wider">Recognition</span>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mt-2">Accreditations & Affiliations</h2>
           </motion.div>
+          <div className="grid md:grid-cols-3 gap-6 mb-6">
+            {accreditations.map((item, index) => {
+              const IconComponent = item.icon;
+              return (
+                <motion.div key={item.title} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
+                  className={`bg-card border rounded-lg p-5 ${item.highlight ? 'border-accent/50 ring-1 ring-accent/20' : 'border-border'}`}>
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-3 ${item.highlight ? 'bg-accent/20' : 'bg-primary/10'}`}>
+                    <IconComponent className={`h-5 w-5 ${item.highlight ? 'text-accent' : 'text-primary'}`} />
+                  </div>
+                  <h3 className="font-serif font-semibold text-foreground mb-1">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            {affiliations.map((aff, index) => (
+              <span key={index} className="bg-secondary text-foreground text-sm px-3 py-1.5 rounded-full border border-border">{aff}</span>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {demographics.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInUp}
-                className="bg-gradient-to-br from-primary/5 to-accent/5 border border-border rounded-lg p-6 text-center"
-              >
-                <p className="font-serif text-3xl md:text-4xl font-bold text-accent">{stat.value}</p>
-                <p className="text-sm text-muted-foreground mt-2">{stat.label}</p>
+      {/* Campus Locations Section */}
+      <section id="campuses" className="section-padding bg-muted/30">
+        <div className="container-narrow">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
+            <span className="text-xs font-semibold text-accent uppercase tracking-wider">Our Campuses</span>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mt-2">Campus Locations</h2>
+            <p className="text-muted-foreground mt-2 text-sm">219 acres across 5 districts: Lucknow, Raebareli, Hardoi, Sitapur & Lakhimpur Kheri</p>
+          </motion.div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {campusLocations.map((campus, index) => (
+              <motion.div key={campus.name} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
+                className="bg-card border border-border rounded-lg p-5">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif font-semibold text-foreground">{campus.name}</h3>
+                    <p className="text-accent text-sm font-medium">{campus.location}</p>
+                    <p className="text-muted-foreground text-sm mt-1">{campus.description}</p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-
+      {/* Faculties Section */}
+      <section id="all-faculties" className="section-padding">
+        <div className="container-narrow">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
+            <span className="text-xs font-semibold text-accent uppercase tracking-wider">Academic Structure</span>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mt-2">13 Faculties</h2>
+          </motion.div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {allFaculties.map((faculty, index) => (
+              <motion.span key={faculty} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
+                className="bg-card border border-border rounded-lg px-4 py-2 text-sm text-foreground hover:border-accent/30 transition-colors">
+                {faculty}
+              </motion.span>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Campus Life */}
-      <section className="py-16 md:py-24">
+      <section id="campus-life" className="section-padding">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

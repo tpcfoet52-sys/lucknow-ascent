@@ -108,7 +108,12 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-sans font-semibold;
   }
 }
@@ -134,7 +139,7 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-20 lg:py-24;
+    @apply py-8 md:py-10 lg:py-12;
   }
 
   .container-narrow {
