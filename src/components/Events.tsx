@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin, Users, ExternalLink, Loader2 } from "lucide-react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
+import { Calendar, Clock, MapPin, ExternalLink, Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
 
@@ -106,7 +107,7 @@ const Events = () => {
           student_email: formData.email,
           student_roll: formData.rollNumber,
           branch: formData.department,
-          mobile_number: formData.phone // Matching the renamed column
+          mobile_number: formData.phone 
         }
       ]);
 
@@ -149,8 +150,30 @@ const Events = () => {
   }
 
   return (
-    <section id="events" className="section-padding bg-secondary">
+    <section id="events" className="section-padding bg-muted/20">
       <div className="container-narrow">
+        <motion.div
+          className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"
+          animate={{
+            x: [0, 30, 0],
+            y: [0, -20, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl"
+          animate={{
+            x: [0, -30, 0],
+            y: [0, 20, 0],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
+
+      <div className="container-narrow relative z-10">
+        {/* Hero Section - Monochromatic */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -158,7 +181,7 @@ const Events = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="text-accent font-medium text-sm uppercase tracking-wider">Events</span>
+          <span className="text-primary font-medium text-sm uppercase tracking-wider">Events</span>
           <h2 className="heading-display text-2xl md:text-3xl lg:text-4xl text-foreground mt-2">
             Placement Events & Activities
           </h2>
@@ -169,12 +192,12 @@ const Events = () => {
 
         <div className="mb-12">
           <h3 className="font-serif text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
-            <Calendar className="w-5 h-5 text-accent" />
+            <Calendar className="w-5 h-5 text-primary" />
             Upcoming Events
           </h3>
 
           {upcomingEvents.length === 0 ? (
-            <div className="text-center p-8 bg-card rounded-lg border border-dashed border-border text-muted-foreground">
+            <div className="text-center p-12 bg-card rounded-lg border border-dashed border-border text-muted-foreground">
               No upcoming events scheduled at the moment.
             </div>
           ) : (
@@ -186,58 +209,73 @@ const Events = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 * index }}
-                  whileHover={{
-                    y: -8,
-                    transition: { duration: 0.3, ease: "easeOut" }
-                  }}
-                  className="group bg-card rounded-lg p-6 shadow-elevated-sm border border-border/50 hover:shadow-elevated hover:border-accent/30 transition-all duration-300 relative overflow-hidden"
+                  whileHover={{ y: -8 }}
+                  className="group flex flex-col bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-border"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-
-                  <div className="relative z-10">
-                    <div className="flex justify-between items-start mb-3">
-                      <h4 className="font-serif font-semibold text-lg text-foreground group-hover:text-primary transition-colors duration-300">{event.title}</h4>
+                  {/* Banner Image Area */}
+                  <div className="relative h-48 w-full overflow-hidden bg-muted">
+                    {event.banner_url ? (
+                      <img 
+                        src={event.banner_url} 
+                        alt={event.title} 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-muted">
+                        <Calendar className="w-12 h-12 text-muted-foreground/30" />
+                      </div>
+                    )}
+                    <div className="absolute top-3 right-3">
                       {event.registrationOpen && (
-                        <motion.span
-                          className="bg-accent/10 text-accent text-xs font-medium px-2 py-1 rounded-full"
-                          animate={{ scale: [1, 1.05, 1] }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                        >
-                          Open
-                        </motion.span>
+                        <Badge className="bg-background text-foreground hover:bg-background/90 backdrop-blur-sm shadow-sm font-semibold border-none">
+                          Open Now
+                        </Badge>
                       )}
                     </div>
+                  </div>
 
-                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{event.description}</p>
-
-                    <div className="space-y-2 text-sm mb-4">
-                      <motion.div className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                        <Calendar className="w-4 h-4 text-accent" />
-                        <span>{event.formattedDate}</span>
-                      </motion.div>
-                      <motion.div className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                        <Clock className="w-4 h-4 text-accent" />
-                        <span>{event.formattedTime}</span>
-                      </motion.div>
-                      <motion.div className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                        <MapPin className="w-4 h-4 text-accent" />
-                        <span>{event.location}</span>
-                      </motion.div>
+                  {/* Content Area */}
+                  <div className="flex flex-col flex-grow p-5">
+                    <div className="flex-grow">
+                      <h4 className="font-serif font-bold text-lg text-foreground mb-2 line-clamp-2" title={event.title}>
+                        {event.title}
+                      </h4>
+                      
+                      <div className="space-y-2 mb-4">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Calendar className="w-4 h-4 text-primary" />
+                          <span>{event.formattedDate}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Clock className="w-4 h-4 text-primary" />
+                          <span>{event.formattedTime}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <MapPin className="w-4 h-4 text-primary" />
+                          <span className="line-clamp-1">{event.location}</span>
+                        </div>
+                      </div>
+                      
+                      <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
+                        {event.description}
+                      </p>
                     </div>
 
-                    {event.registrationOpen && (
-                      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <div className="mt-auto pt-4 border-t border-dashed border-border">
+                      {event.registrationOpen ? (
                         <Button
-                          variant="default"
-                          size="sm"
-                          className="w-full group-hover:bg-primary group-hover:shadow-md transition-all duration-300"
+                          variant="default" // Uses standard primary color
+                          className="w-full shadow-sm hover:shadow-md transition-all font-semibold"
                           onClick={() => handleRegister(event)}
                         >
                           Register Now
                         </Button>
-                      </motion.div>
-                    )}
+                      ) : (
+                        <Button disabled variant="secondary" className="w-full opacity-70">
+                          Registration Closed
+                        </Button>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -245,48 +283,56 @@ const Events = () => {
           )}
         </div>
 
-        {
-          pastEvents.length > 0 && (
-            <div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
-                <Clock className="w-5 h-5 text-muted-foreground" />
-                Past Events
-              </h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                {pastEvents.map((event, index) => (
-                  <motion.div
-                    key={event.id}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 * index }}
-                    className="bg-card/50 rounded-md p-5 border border-border/30"
-                  >
-                    <h4 className="font-serif font-medium text-foreground">{event.title}</h4>
-                    <p className="text-muted-foreground text-sm mt-1">{event.formattedDate}</p>
-                    <p className="text-muted-foreground/70 text-xs mt-2">{event.location}</p>
-                  </motion.div>
-                ))}
-              </div>
+        {pastEvents.length > 0 && (
+          <div className="pt-8 border-t border-border">
+            <h3 className="font-serif text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
+              <Clock className="w-5 h-5 text-muted-foreground" />
+              Past Events
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {pastEvents.map((event, index) => (
+                <motion.div
+                  key={event.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  className="bg-card rounded-lg p-4 border border-border shadow-sm flex gap-4 items-center"
+                >
+                  <div className="h-12 w-12 rounded bg-muted flex items-center justify-center flex-shrink-0 overflow-hidden">
+                     {event.banner_url ? (
+                        <img src={event.banner_url} alt="" className="w-full h-full object-cover opacity-60 grayscale" />
+                     ) : (
+                        <Calendar className="h-5 w-5 text-muted-foreground/50" />
+                     )}
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-foreground text-sm line-clamp-1">{event.title}</h4>
+                    <p className="text-muted-foreground text-xs mt-0.5">{event.formattedDate}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          )
-        }
-      </div >
+          </div>
+        )}
+      </div>
 
       {selectedEvent && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={closeModal}>
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={closeModal}>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-card rounded-lg p-6 md:p-8 max-w-md w-full shadow-elevated max-h-[90vh] overflow-y-auto"
+            className="bg-card rounded-xl p-6 md:p-8 max-w-md w-full shadow-2xl max-h-[90vh] overflow-y-auto border border-border"
             onClick={(e) => e.stopPropagation()}
           >
             {!submitSuccess ? (
               <>
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
+                <h3 className="font-serif text-2xl font-bold text-foreground mb-1">
                   Register for Event
                 </h3>
-                <p className="text-muted-foreground text-sm mb-6">{selectedEvent.title}</p>
+                <p className="text-muted-foreground text-sm mb-6 pb-4 border-b">
+                  {selectedEvent.title} • {selectedEvent.formattedDate}
+                </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
@@ -297,6 +343,7 @@ const Events = () => {
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
                       placeholder="Enter your full name"
+                      className="bg-background"
                     />
                   </div>
 
@@ -309,6 +356,7 @@ const Events = () => {
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
                       placeholder="your.email@lkouniv.ac.in"
+                      className="bg-background"
                     />
                   </div>
 
@@ -321,59 +369,63 @@ const Events = () => {
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       required
                       placeholder="10-digit mobile number"
+                      className="bg-background"
                     />
                   </div>
 
-                  <div>
-                    <Label htmlFor="rollNumber">Roll Number *</Label>
-                    <Input
-                      id="rollNumber"
-                      value={formData.rollNumber}
-                      onChange={(e) => setFormData({ ...formData, rollNumber: e.target.value })}
-                      required
-                      placeholder="Your university roll number"
-                    />
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="rollNumber">Roll Number *</Label>
+                      <Input
+                        id="rollNumber"
+                        value={formData.rollNumber}
+                        onChange={(e) => setFormData({ ...formData, rollNumber: e.target.value })}
+                        required
+                        placeholder="Roll No."
+                        className="bg-background"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="department">Department *</Label>
+                      <Input
+                        id="department"
+                        value={formData.department}
+                        onChange={(e) => setFormData({ ...formData, department: e.target.value })}
+                        required
+                        placeholder="e.g. CSE"
+                        className="bg-background"
+                      />
+                    </div>
                   </div>
 
-                  <div>
-                    <Label htmlFor="department">Department *</Label>
-                    <Input
-                      id="department"
-                      value={formData.department}
-                      onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                      required
-                      placeholder="e.g., Computer Science"
-                    />
-                  </div>
-
-                  <div className="flex gap-3 pt-4">
+                  <div className="flex gap-3 pt-6">
                     <Button type="button" variant="outline" onClick={closeModal} className="flex-1">
                       Cancel
                     </Button>
                     <Button type="submit" disabled={isSubmitting} className="flex-1">
-                      {isSubmitting ? "Submitting..." : "Submit"}
+                      {isSubmitting ? "Submitting..." : "Confirm Registration"}
                     </Button>
                   </div>
                 </form>
               </>
             ) : (
               <div className="text-center py-6">
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <ExternalLink className="w-8 h-8 text-accent" />
+                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <ExternalLink className="w-10 h-10 text-green-600" />
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
+                <h3 className="font-serif text-2xl font-bold text-foreground mb-2">
                   Registration Successful!
                 </h3>
-                <p className="text-muted-foreground text-sm mb-6">
-                  You have been registered for {selectedEvent.title}. Check your email for confirmation details.
+                <p className="text-muted-foreground text-sm mb-8">
+                  You have been registered for <span className="font-semibold text-foreground">{selectedEvent.title}</span>.
                 </p>
-                <Button onClick={closeModal}>Close</Button>
+                <Button onClick={closeModal} className="w-full">Close</Button>
               </div>
             )}
           </motion.div>
         </div>
       )}
-    </section >
+    </section>
   );
 };
 
