@@ -131,7 +131,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-primary-foreground/60 hover:text-accent transition-colors text-sm flex items-center gap-1"
               >
-                Main Website <ExternalLink className="w-3 h-3" />
+                UOL Website <ExternalLink className="w-3 h-3" />
               </a>
             </div>
           </div>
