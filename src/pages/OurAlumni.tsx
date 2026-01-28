@@ -28,7 +28,7 @@ const alumniList = [
     { name: "Justice A. S. Anand", role: "Former Chief Justice of India", field: "Law & Judiciary" },
     { name: "Qurratulain Hyder", role: "Jnanpith Awardee Novelist", field: "Literature" },
     { name: "Vinod Mehta", role: "Eminent Journalist (Editor, Outlook)", field: "Journalism & Media" },
-    { name: "Jaya Prada", role: "Actress & Former MP", field: "Arts & Politics" },
+    { name: "Vartika Singh", role: "Indian model and beauty pageant titleholder", field: "Arts & Fashion" },
     { name: "Jagdish Gandhi", role: "Founder, City Montessori School", field: "Education" },
 ];
 
