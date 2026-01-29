@@ -3,7 +3,9 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Header from "@/components/Header"; // Added global import
+import Header from "@/components/Header"; 
+import ScrollToTop from "@/components/ScrollToTop"; // <--- 1. Import this
+
 import Index from "./pages/Index";
 import TeamStructure from "./pages/TeamStructure";
 import AboutUniversity from "./pages/AboutUniversity";
@@ -66,7 +68,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Header /> {/* Global Header placed here */}
+        <ScrollToTop /> {/* <--- 2. Add component here inside BrowserRouter */}
+        <Header /> 
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Index />} />
@@ -101,7 +104,6 @@ const App = () => (
             <Route path="jobs" element={<PlaceholderAdminPage title="Jobs Management" />} />
             <Route path="applications" element={<PlaceholderAdminPage title="Applications" />} />
             <Route path="users" element={<UserManagement />} />
-            {/* Note: 'events' route is defined twice in original file, keeping yours as is */}
             <Route path="cms" element={<PlaceholderAdminPage title="Content Management" />} />
           </Route>
         </Routes>
