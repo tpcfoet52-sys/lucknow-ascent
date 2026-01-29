@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Award } from "lucide-react";
-import SubpageHeader from "@/components/SubpageHeader";
+
 import uolLogo from "@/assets/uol-logo.png";
 import heroImage from "@/assets/university-hero-new.jpg";
 import naacBadge from "@/assets/naac-badge.png";
@@ -36,7 +36,7 @@ const OurAlumni = () => {
     return (
         <div className="min-h-screen bg-background">
             {/* Header */}
-            <SubpageHeader pageTitle="Our Alumni" subpageLinks={alumniLinks} />
+            
 
             {/* Hero Section */}
             <section className="relative pt-20 md:pt-24 pb-16 md:pb-24 overflow-hidden">

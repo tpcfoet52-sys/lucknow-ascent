@@ -14,7 +14,7 @@ import {
   Linkedin
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import SubpageHeader from "@/components/SubpageHeader";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import uolLogo from "@/assets/uol-logo.png";
 import tpcBadge from "@/assets/naac-badge.png";
@@ -187,7 +187,7 @@ const TeamStructure = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <SubpageHeader pageTitle="Team Structure" subpageLinks={teamStructureLinks} />
+     
 
       {/* Hero Section with Background Image */}
       < section className="relative pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden" >

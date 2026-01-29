@@ -137,7 +137,7 @@ const AboutTPC = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <SubpageHeader pageTitle="About TPC" subpageLinks={aboutTPCLinks} />
+      
 
       {/* Hero Section */}
       <section className="relative pt-20 md:pt-24 pb-16 md:pb-24 overflow-hidden">

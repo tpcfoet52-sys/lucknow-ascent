@@ -23,7 +23,7 @@ import {
   Building2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import SubpageHeader from "@/components/SubpageHeader";
+
 import uolLogo from "@/assets/uol-logo.png";
 import heroImage from "@/assets/university-hero-new.jpg";
 import nirfBadge from "@/assets/nirf-ranking-badge.png";
@@ -147,7 +147,7 @@ const AboutUniversity = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <SubpageHeader pageTitle="About University" subpageLinks={aboutUniversityLinks} />
+      
 
       {/* Hero Section */}
       <section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden">
