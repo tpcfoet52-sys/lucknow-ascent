@@ -97,7 +97,7 @@ const Header = () => {
 
   const headerBg = !showSolidHeader
     ? "bg-transparent"
-    : "bg-background/95 backdrop-blur-md shadow-elevated-sm border-b border-border";
+    : "bg-transparent lg:bg-background/95 lg:backdrop-blur-md lg:shadow-elevated-sm lg:border-b lg:border-border";
 
   const textColor = !showSolidHeader ? "text-primary-foreground" : "text-foreground";
   const mutedColor = !showSolidHeader ? "text-primary-foreground/70" : "text-muted-foreground";
@@ -107,7 +107,7 @@ const Header = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}>
       <div className="container-narrow">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+          {/* Logo - always visible */}
           <div className="flex items-center gap-4">
             {!isHomePage && (
               <Link to="/">
@@ -124,13 +124,13 @@ const Header = () => {
               <img
                 src={tpcLogo}
                 alt="Training & Placement Cell"
-                className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
+                className="w-10 h-10 md:w-16 md:h-16 object-contain rounded-full"
               />
               <div className="hidden sm:block">
-                <p className={`font-serif font-semibold text-sm md:text-base leading-tight transition-colors ${textColor}`}>
+                <p className={`font-serif font-semibold text-sm md:text-lg leading-tight transition-colors ${textColor}`}>
                   Training & Placement Cell
                 </p>
-                <p className={`text-xs tracking-wide transition-colors ${mutedColor}`}>
+                <p className={`text-xs md:text-sm tracking-wide transition-colors ${mutedColor}`}>
                   FoET, University of Lucknow
                 </p>
               </div>
@@ -180,7 +180,7 @@ const Header = () => {
               <Button
                 variant={!isScrolled ? "ghost" : "ghost"}
                 size="icon"
-                className={`rounded-full h-10 min-w-[2.5rem] px-0 hover:px-4 hover:bg-accent hover:text-accent-foreground transition-all duration-300 group flex items-center justify-center gap-0 hover:gap-2 ${!isScrolled ? "text-primary-foreground" : "text-foreground"}`}
+                className={`rounded-full h-10 min-w-[2.5rem] px-0 hover:px-4 hover:bg-accent hover:text-accent-foreground transition-all duration-300 group flex items-center justify-center gap-0 hover:gap-2 ${!showSolidHeader ? "text-primary-foreground" : "text-foreground bg-background/80 backdrop-blur-sm shadow-md"}`}
                 title="Login"
               >
                 <LogIn className="h-5 w-5 shrink-0" />
@@ -193,9 +193,9 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`lg:hidden p-2 rounded-md transition-colors ${!isScrolled
+              className={`lg:hidden p-2 rounded-md transition-colors ${!showSolidHeader
                 ? "text-primary-foreground hover:bg-primary-foreground/10"
-                : "text-foreground hover:bg-secondary"
+                : "text-foreground bg-background/80 backdrop-blur-sm shadow-md hover:bg-secondary"
                 }`}
               aria-label="Toggle menu"
             >
