@@ -23,6 +23,7 @@ import OurAlumni from "./pages/OurAlumni";
 import AdminLayout from "./components/admin/AdminLayout";
 import DashboardOverview from "./pages/admin/DashboardOverview";
 import EventHospitalityDashboard from "./pages/coordinator/EventHospitalityDashboard";
+import TeamDashboard from "./pages/coordinator/TeamDashboard";
 import EventsManagement from "./pages/admin/EventsManagement";
 import UserManagement from "./pages/admin/UserManagement";
 
@@ -83,6 +84,7 @@ const App = () => (
           {/* Coordinator Routes */}
           <Route path="/coordinator-login" element={<CoordinatorLogin />} />
           <Route path="/coordinator/events" element={<EventHospitalityDashboard />} />
+          <Route path="/coordinator/dashboard" element={<TeamDashboard />} />
 
           {/* Admin Login - Standalone Page */}
           <Route path="/admin-login" element={<AdminLogin />} />

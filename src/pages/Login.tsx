@@ -42,7 +42,7 @@ const Login = () => {
                                     </CardDescription>
                                 </CardHeader>
                                 <CardContent className="text-center relative z-10 mt-auto w-full">
-                                    <Link to="/team-structure">
+                                    <Link to="/coordinator-login">
                                         <Button className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                                             Access Dashboard <ArrowRight className="w-4 h-4 ml-2" />
                                         </Button>

@@ -80,14 +80,14 @@ const CoordinatorLogin = () => {
 
       if (data.password === values.password) {
         toast.success(`Welcome back, ${values.team} Coordinator`);
-        
+
         // --- REDIRECT LOGIC START ---
         if (values.team === "Event & Hospitality Team") {
-            // Redirect specifically to the Event Dashboard
-            navigate("/coordinator/events");
+          // Redirect specifically to the Event Dashboard
+          navigate("/coordinator/events");
         } else {
-            // Default fallback for other teams
-            navigate("/team-structure"); 
+          // Default fallback for other teams
+          navigate("/coordinator/dashboard");
         }
         // --- REDIRECT LOGIC END ---
 
@@ -125,7 +125,7 @@ const CoordinatorLogin = () => {
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              
+
               {/* Team Selection */}
               <FormField
                 control={form.control}
@@ -162,11 +162,11 @@ const CoordinatorLogin = () => {
                     <FormControl>
                       <div className="relative">
                         <User className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-                        <Input 
-                          placeholder="Enter username" 
-                          className="pl-10" 
+                        <Input
+                          placeholder="Enter username"
+                          className="pl-10"
                           disabled={isLoading}
-                          {...field} 
+                          {...field}
                         />
                       </div>
                     </FormControl>
