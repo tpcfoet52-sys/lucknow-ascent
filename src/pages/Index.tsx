@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import CompanyLogoStrip from "@/components/CompanyLogoStrip";
 import DirectorMessage from "@/components/DirectorMessage";
@@ -13,7 +12,7 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      {/* Header removed from here as it is now in App.tsx */}
       <main>
         <HeroSection />
         <CompanyLogoStrip />

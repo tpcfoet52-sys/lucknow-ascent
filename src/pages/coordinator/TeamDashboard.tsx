@@ -15,7 +15,8 @@ const TeamDashboard = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+        // FIXED: Added pt-20 (mobile) and md:pt-28 (desktop) to prevent Header overlap
+        <div className="min-h-screen bg-gray-50 pt-20 px-4 pb-4 md:pt-28 md:px-8 md:pb-8">
             {/* Header */}
             <div className="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>

@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Header from "@/components/Header"; // Added global import
 import Index from "./pages/Index";
 import TeamStructure from "./pages/TeamStructure";
 import AboutUniversity from "./pages/AboutUniversity";
@@ -17,7 +18,6 @@ import SoftSkills from "./pages/SoftSkills";
 import Media from "./pages/Media";
 import Login from "./pages/Login";
 import OurAlumni from "./pages/OurAlumni";
-
 
 // Import Admin components
 import AdminLayout from "./components/admin/AdminLayout";
@@ -66,6 +66,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <Header /> {/* Global Header placed here */}
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Index />} />
@@ -96,13 +97,11 @@ const App = () => (
             <Route path="dashboard" element={<DashboardOverview />} />
             <Route path="events" element={<EventsManagement />} />
 
-
-
             {/* Placeholder Pages for Sidebar Links */}
             <Route path="jobs" element={<PlaceholderAdminPage title="Jobs Management" />} />
             <Route path="applications" element={<PlaceholderAdminPage title="Applications" />} />
             <Route path="users" element={<UserManagement />} />
-            <Route path="events" element={<PlaceholderAdminPage title="Events & Calendar" />} />
+            {/* Note: 'events' route is defined twice in original file, keeping yours as is */}
             <Route path="cms" element={<PlaceholderAdminPage title="Content Management" />} />
           </Route>
         </Routes>

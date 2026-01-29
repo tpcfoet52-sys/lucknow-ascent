@@ -34,7 +34,7 @@ const eventSchema = z.object({
   description: z.string().optional(),
   event_date: z.string().min(1, "Date is required"),
   location: z.string().min(1, "Location is required"),
-  banner_url: z.string().optional(), // Added banner_url
+  banner_url: z.string().optional(),
 });
 
 interface Event {
@@ -43,7 +43,7 @@ interface Event {
   description: string;
   event_date: string;
   location: string;
-  banner_url?: string; // Added banner_url
+  banner_url?: string;
   status: 'pending' | 'approved' | 'deletion_requested';
 }
 
@@ -63,7 +63,7 @@ const EventHospitalityDashboard = () => {
   const [selectedEventId, setSelectedEventId] = useState<number | null>(null);
   const [registrations, setRegistrations] = useState<Registration[]>([]);
   const [loadingRegs, setLoadingRegs] = useState(false);
-  const [bannerFile, setBannerFile] = useState<File | null>(null); // State for file upload
+  const [bannerFile, setBannerFile] = useState<File | null>(null);
 
   const form = useForm<z.infer<typeof eventSchema>>({
     resolver: zodResolver(eventSchema),
@@ -195,7 +195,8 @@ const EventHospitalityDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+    // FIXED: Added pt-20 (mobile) and md:pt-28 (desktop)
+    <div className="min-h-screen bg-gray-50 pt-20 px-4 pb-4 md:pt-28 md:px-8 md:pb-8">
       {/* Header */}
       <div className="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
@@ -316,7 +317,8 @@ const EventHospitalityDashboard = () => {
 
         {/* Right Column: Registrations View */}
         <div className="lg:col-span-1">
-          <Card className="h-full sticky top-8 flex flex-col">
+          {/* FIXED: Changed from top-8 to top-28 to clear the fixed header */}
+          <Card className="h-full sticky top-28 flex flex-col">
             <CardHeader className="bg-muted/30 pb-4">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-lg">Student Registrations</CardTitle>
