@@ -51,12 +51,12 @@ const CompanyLogoStrip = () => {
         <div className="flex overflow-hidden">
           <motion.div
             className="flex items-center"
-            animate={{ x: [0, -4800] }}
+            animate={{ x: [0, -6000] }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 60,
+                duration: 50,
                 ease: "linear",
               },
             }}
@@ -65,17 +65,17 @@ const CompanyLogoStrip = () => {
             {[...companies, ...companies].map((company, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center justify-center gap-4 flex-shrink-0 mx-8"
-                style={{ minWidth: '150px' }}
+                className="flex flex-col items-center justify-center gap-5 flex-shrink-0 mx-10"
+                style={{ minWidth: '300px' }}
               >
-                <div className="h-20 w-40 flex items-center justify-center bg-white rounded-lg p-3 shadow-md border border-gray-100">
+                <div className="h-32 w-64 flex items-center justify-center bg-white rounded-xl p-5 shadow-lg border border-border/50 hover:shadow-xl hover:border-accent/30 transition-all duration-300">
                   <img
                     src={company.logo}
                     alt={`${company.name} logo`}
-                    className="h-full w-full object-contain"
+                    className="h-full w-full object-contain filter drop-shadow-sm"
                   />
                 </div>
-                <span className="font-semibold text-sm text-foreground whitespace-nowrap text-center">
+                <span className="font-bold text-base text-foreground/80 whitespace-nowrap text-center">
                   {company.name}
                 </span>
               </div>
