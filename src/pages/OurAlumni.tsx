@@ -180,20 +180,18 @@ const OurAlumni = () => {
                                 }}
                                 className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
                             >
-                                {/* Image Section */}
-                                <div className="aspect-square overflow-hidden relative bg-muted">
+                                {/* Image Section - Circular Profile Photo */}
+                                <div className="aspect-[4/3] overflow-hidden relative bg-muted flex items-center justify-center">
                                     {alumni.image ? (
-                                        <>
+                                        <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 group-hover:scale-110">
                                             <img
                                                 src={alumni.image}
                                                 alt={alumni.name}
-                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                className="w-full h-full object-cover"
                                             />
-                                            {/* Gradient overlay on hover */}
-                                            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                        </>
+                                        </div>
                                     ) : (
-                                        <div className="w-full h-full flex items-center justify-center bg-primary/5">
+                                        <div className="w-32 h-32 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
                                             <Award className="h-16 w-16 text-primary/40" />
                                         </div>
                                     )}
