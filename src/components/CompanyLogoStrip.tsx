@@ -19,19 +19,19 @@ import relianceLogo from "../assets/reliance-logo.png";
 import accentureLogo from "../assets/accenture-logo.png";
 
 const companies = [
-  { name: "SOTI", logo: sotiLogo },
+  { name: "SOTI", logo: sotiLogo, scale: 1.25 },
   { name: "Adobe", logo: adobeLogo },
-  { name: "Deloitte", logo: deloitteLogo },
+  { name: "Deloitte", logo: deloitteLogo, scale: 1.2 },
   { name: "Wipro", logo: wiproLogo },
-  { name: "NPCL", logo: npclLogo },
+  { name: "NPCL", logo: npclLogo, scale: 1.3 },
   { name: "HCL Tech", logo: hclLogo },
-  { name: "Genpact", logo: genpactLogo },
-  { name: "Adani Cements", logo: adaniLogo },
-  { name: "Motherson International", logo: mothersonLogo },
+  { name: "Genpact", logo: genpactLogo, scale: 1.25 },
+  { name: "Adani Cements", logo: adaniLogo, scale: 1.25 },
+  { name: "Motherson International", logo: mothersonLogo, scale: 1.25 },
   { name: "Allen", logo: allenLogo },
   { name: "PW", logo: pwLogo },
-  { name: "BYJU’S", logo: byjusLogo },
-  { name: "Tech Mahindra", logo: techMahindraLogo },
+  { name: "BYJU’S", logo: byjusLogo, scale: 1.3 },
+  { name: "Tech Mahindra", logo: techMahindraLogo, scale: 1.2 },
   { name: "Jaro Education", logo: jaroLogo },
   { name: "Reliance Industries Ltd.", logo: relianceLogo },
   { name: "Accenture", logo: accentureLogo }
@@ -73,6 +73,7 @@ const CompanyLogoStrip = () => {
                     src={company.logo}
                     alt={`${company.name} logo`}
                     className="h-full w-full object-contain"
+                    style={{ transform: company.scale ? `scale(${company.scale})` : 'scale(1)' }}
                   />
                 </div>
                 <span className="font-bold text-sm text-foreground/70 whitespace-nowrap text-center">
