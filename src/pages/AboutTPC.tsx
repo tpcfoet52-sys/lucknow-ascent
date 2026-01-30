@@ -217,7 +217,7 @@ const AboutTPC = () => {
       </section>
 
       {/* Vision Section */}
-      <section className="py-16 md:py-24">
+      <section className="section-padding">
         <div className="container-narrow">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -279,7 +279,7 @@ const AboutTPC = () => {
       </section>
 
       {/* Leadership */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="section-padding bg-muted/30">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -365,7 +365,7 @@ const AboutTPC = () => {
       </section>
 
       {/* Services */}
-      <section className="py-16 md:py-24">
+      <section className="section-padding">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -437,7 +437,7 @@ const AboutTPC = () => {
       </section>
 
       {/* Top Recruiters */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="section-padding bg-muted/30">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -473,7 +473,7 @@ const AboutTPC = () => {
       </section>
 
       {/* Training Programs */}
-      <section className="py-16 md:py-24">
+      <section className="section-padding">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -552,7 +552,7 @@ const AboutTPC = () => {
       </section>
 
       {/* Success Stories */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="section-padding bg-muted/30">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
