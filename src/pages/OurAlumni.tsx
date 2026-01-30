@@ -171,19 +171,19 @@ const OurAlumni = () => {
                                 custom={index}
                                 initial="initial"
                                 whileInView="animate"
-                                whileHover="hover"
+                                
                                 viewport={{ once: true }}
                                 variants={{
                                     initial: { opacity: 0, y: 30 },
                                     animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
                                     hover: { y: -5, transition: { duration: 0.3 } }
                                 }}
-                                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
+                                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
                             >
                                 {/* Image Section - Circular Profile Photo */}
                                 <div className="aspect-[4/3] overflow-hidden relative bg-card flex items-center justify-center pt-6">
                                     {alumni.image ? (
-                                        <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 group-hover:scale-110">
+                                        <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 ">
                                             <img
                                                 src={alumni.image}
                                                 alt={alumni.name}

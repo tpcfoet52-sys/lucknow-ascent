@@ -373,14 +373,14 @@ const AboutUniversity = () => {
                   custom={index}
                   initial="initial"
                   whileInView="animate"
-                  whileHover="hover"
+                  
                   viewport={{ once: true }}
                   variants={{
                     initial: { opacity: 0, y: 30 },
                     animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
                     hover: { y: -5, transition: { duration: 0.3 } }
                   }}
-                  className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
+                  className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
                 >
                   {/* Image Section */}
                   <div className="aspect-video overflow-hidden relative bg-muted">
@@ -389,7 +389,7 @@ const AboutUniversity = () => {
                         <img
                           src={program.image}
                           alt={program.name}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="w-full h-full object-cover transition-transform duration-500 "
                         />
                         {/* Gradient overlay on hover */}
                         <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -508,14 +508,14 @@ const AboutUniversity = () => {
                 custom={index}
                 initial="initial"
                 whileInView="animate"
-                whileHover="hover"
+                
                 viewport={{ once: true }}
                 variants={{
                   initial: { opacity: 0, y: 30 },
                   animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
                   hover: { y: -5, transition: { duration: 0.3 } }
                 }}
-                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
+                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
               >
                 {/* Image Section */}
                 <div className="aspect-video overflow-hidden relative bg-muted">
@@ -524,7 +524,7 @@ const AboutUniversity = () => {
                       <img
                         src={campus.image}
                         alt={campus.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="w-full h-full object-cover transition-transform duration-500 "
                       />
                       {/* Gradient overlay on hover */}
                       <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

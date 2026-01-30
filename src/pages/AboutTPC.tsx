@@ -314,18 +314,18 @@ const AboutTPC = () => {
                 custom={index}
                 initial="initial"
                 whileInView="animate"
-                whileHover="hover"
+                
                 viewport={{ once: true }}
                 variants={{
                   initial: { opacity: 0, y: 30 },
                   animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
                   hover: { y: -5, transition: { duration: 0.3 } }
                 }}
-                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
+                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
               >
                 {/* Image Section - Circular Profile Photo */}
                 <div className="aspect-[3/2] overflow-hidden relative bg-card flex items-center justify-center pt-2">
-                  <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 group-hover:scale-110">
+                  <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20  transition-all duration-300 ">
                     <img
                       src={leader.image}
                       alt={leader.name}
@@ -376,14 +376,14 @@ const AboutTPC = () => {
                   custom={index}
                   initial="initial"
                   whileInView="animate"
-                  whileHover="hover"
+                  
                   viewport={{ once: true }}
                   variants={{
                     initial: { opacity: 0, y: 30 },
                     animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
                     hover: { y: -5, transition: { duration: 0.3 } }
                   }}
-                  className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
+                  className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
                 >
 
 
@@ -440,7 +440,7 @@ const AboutTPC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUp}
-                className="bg-background border border-border rounded-lg px-5 py-3 text-sm font-medium text-foreground hover:border-accent/50 hover:bg-accent/5 transition-colors"
+                className="bg-background border border-border rounded-lg px-5 py-3 text-sm font-medium text-foreground  hover:bg-accent/5 transition-colors"
               >
                 {company}
               </motion.div>
@@ -471,14 +471,14 @@ const AboutTPC = () => {
                 custom={index}
                 initial="initial"
                 whileInView="animate"
-                whileHover="hover"
+                
                 viewport={{ once: true }}
                 variants={{
                   initial: { opacity: 0, y: 30 },
                   animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
                   hover: { y: -5, transition: { duration: 0.3 } }
                 }}
-                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
+                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
               >
                 {/* Image Section - Icon Placeholder */}
                 <div className="aspect-video overflow-hidden relative bg-muted">
@@ -539,14 +539,14 @@ const AboutTPC = () => {
                 custom={index}
                 initial="initial"
                 whileInView="animate"
-                whileHover="hover"
+                
                 viewport={{ once: true }}
                 variants={{
                   initial: { opacity: 0, y: 30 },
                   animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
                   hover: { y: -5, transition: { duration: 0.3 } }
                 }}
-                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
+                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
               >
                 {/* Image Section - Icon Placeholder */}
                 <div className="aspect-video overflow-hidden relative bg-muted">
@@ -708,7 +708,7 @@ const AboutTPC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUp}
-                className="flex items-center gap-3 bg-background border border-border rounded-lg p-4 hover:border-accent/50 hover:bg-accent/5 transition-all text-left group"
+                className="flex items-center gap-3 bg-background border border-border rounded-lg p-4  hover:bg-accent/5 transition-all text-left group"
               >
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
                   <FileText className="h-5 w-5 text-primary" />

@@ -106,7 +106,7 @@ const SoftSkills = () => {
                                         { title: "Active Listening", desc: "Listen to understand, not just to respond. Paraphrase what you hear." },
                                         { title: "Email Etiquette", desc: "Use clear subject lines, professional greetings, and proofread before sending." }
                                     ].map((skill, i) => (
-                                        <Card key={i} className="hover:shadow-md transition-all">
+                                        <Card key={i} className=" transition-all">
                                             <CardContent className="p-4">
                                                 <h4 className="font-semibold text-foreground mb-1">{skill.title}</h4>
                                                 <p className="text-sm text-muted-foreground">{skill.desc}</p>
@@ -152,9 +152,9 @@ const SoftSkills = () => {
                                     tags: ["Solidity", "Smart Contracts", "DeFi"]
                                 }
                             ].map((tech, i) => (
-                                <Card key={i} className="bg-background border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                                <Card key={i} className="bg-background border-border/50 shadow-sm  transition-all duration-300 group">
                                     <CardHeader>
-                                        <div className={`p-3 rounded-lg bg-secondary w-fit mb-4 group-hover:scale-110 transition-transform`}>
+                                        <div className={`p-3 rounded-lg bg-secondary w-fit mb-4  transition-transform`}>
                                             <tech.icon className={`w-8 h-8 ${tech.color}`} />
                                         </div>
                                         <CardTitle>{tech.title}</CardTitle>
@@ -183,7 +183,7 @@ const SoftSkills = () => {
                         </h2>
 
                         <div className="grid lg:grid-cols-2 gap-12">
-                            <Card className="hover:shadow-lg transition-all h-full">
+                            <Card className=" transition-all h-full">
                                 <CardContent className="p-6 md:p-8">
                                     <div className="flex gap-4">
                                         <div className="flex-shrink-0">
@@ -208,7 +208,7 @@ const SoftSkills = () => {
                                 </CardContent>
                             </Card>
 
-                            <Card className="hover:shadow-lg transition-all h-full">
+                            <Card className=" transition-all h-full">
                                 <CardContent className="p-6 md:p-8">
                                     <div className="flex gap-4">
                                         <div className="flex-shrink-0">
