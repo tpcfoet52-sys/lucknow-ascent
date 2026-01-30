@@ -177,10 +177,10 @@ const MediaPreview = () => {
 
                             <button
                                 onClick={() => setSelectedItem(null)}
-                                className="absolute top-4 right-4 p-2 bg-black/20 hover:bg-black/40 text-foreground/70 hover:text-foreground rounded-full transition-all duration-200 z-50 group"
+                                className="absolute top-4 right-4 p-2 md:p-3 bg-white text-black hover:bg-accent hover:text-accent-foreground rounded-full shadow-lg border border-border/10 transition-all duration-300 z-50 group"
                                 aria-label="Close modal"
                             >
-                                <X className="w-6 h-6 transition-transform group-hover:rotate-90" />
+                                <X className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:rotate-90" />
                             </button>
                         </motion.div>
                     </motion.div>
