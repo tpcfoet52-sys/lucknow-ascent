@@ -11,7 +11,8 @@ import {
   Calendar,
   ChevronRight,
   Mail,
-  Linkedin
+  Linkedin,
+  Phone
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -25,6 +26,41 @@ import erPavanKumarSingh from "@/assets/er-pavan-kumar-singh.jpg";
 import erGauravSrivastava from "@/assets/er-gaurav-srivastava.jpg";
 import erPrashantKumarSingh from "@/assets/er-prashant-kumar-singh.png";
 import riddhiSingh from "@/assets/riddhi-singh-rathore.jpg";
+
+const facultyMembers = [
+  {
+    name: "Dr. Himanshu Pandey",
+    title: "Associate Professor",
+    role: "T&P Cell Incharge",
+    phone: "7905287870",
+    email: "pandey_himanshu@lkouniv.ac.in",
+    image: drHimanshuPandey
+  },
+  {
+    name: "Er. Pavan Kumar Singh",
+    title: "Assistant Professor",
+    role: "Faculty Coordinator",
+    phone: "9406987292",
+    email: "pavanrajawat038@gmail.com",
+    image: erPavanKumarSingh
+  },
+  {
+    name: "Er. Gaurav Srivastava",
+    title: "Assistant Professor",
+    role: "Faculty Coordinator",
+    phone: "9717681158",
+    email: "gaurav.ap1793@gmail.com",
+    image: erGauravSrivastava
+  },
+  {
+    name: "Dr. Prashant Kumar Singh",
+    title: "Associate Professor",
+    role: "Faculty Coordinator",
+    phone: "9179122557",
+    email: "singh_pk@lkouniv.ac.in",
+    image: erPrashantKumarSingh
+  }
+];
 
 const teamStructureLinks = [
   { name: "Faculty Coordinators", href: "#faculty-coordinators" },
@@ -187,7 +223,7 @@ const TeamStructure = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-     
+
 
       {/* Hero Section with Background Image */}
       < section className="relative pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden" >
@@ -253,73 +289,40 @@ const TeamStructure = () => {
               Faculty Coordinator
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Dr. Himanshu Pandey */}
-              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
-                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
-                  <img
-                    src={drHimanshuPandey}
-                    alt="Dr. Himanshu Pandey"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
-                    Dr. Himanshu Pandey
-                  </h3>
-                  <p className="text-primary font-medium text-sm uppercase tracking-wide">T&P Cell In charge</p>
-                </div>
-              </div>
+              {facultyMembers.map((faculty, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
+                    <img
+                      src={faculty.image}
+                      alt={faculty.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 flex flex-col items-center">
+                    <h3 className="font-serif text-lg font-bold text-foreground mb-1">
+                      {faculty.name}
+                    </h3>
+                    <p className="text-accent text-xs font-semibold uppercase tracking-wider mb-1">{faculty.title}</p>
+                    <p className="text-muted-foreground text-[10px] font-medium uppercase tracking-wide mb-3">{faculty.role}</p>
 
-              {/* Er. Pavan Kumar Singh */}
-              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
-                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
-                  <img
-                    src={erPavanKumarSingh}
-                    alt="Er. Pavan Kumar Singh"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
-                    Er. Pavan Kumar Singh
-                  </h3>
-                  <p className="text-primary font-medium text-sm uppercase tracking-wide">Faculty Coordinator</p>
-                </div>
-              </div>
-
-              {/* Er. Gaurav Srivastava */}
-              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
-                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
-                  <img
-                    src={erGauravSrivastava}
-                    alt="Er. Gaurav Srivastava"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
-                    Er. Gaurav Srivastava
-                  </h3>
-                  <p className="text-primary font-medium text-sm uppercase tracking-wide">Faculty Coordinator</p>
-                </div>
-              </div>
-
-              {/* Er. Prashant Kumar Singh */}
-              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center">
-                <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
-                  <img
-                    src={erPrashantKumarSingh}
-                    alt="Er. Prashant Kumar Singh"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
-                    Er. Prashant Kumar Singh
-                  </h3>
-                  <p className="text-primary font-medium text-sm uppercase tracking-wide">Faculty Coordinator</p>
-                </div>
-              </div>
+                    <div className="flex items-center gap-3 mt-auto">
+                      <a href={`tel:${faculty.phone}`} className="p-2 rounded-full bg-secondary/50 text-muted-foreground hover:text-primary transition-colors hover:bg-primary/10" title={faculty.phone}>
+                        <Phone className="w-4 h-4" />
+                      </a>
+                      <a href={`mailto:${faculty.email}`} className="p-2 rounded-full bg-secondary/50 text-muted-foreground hover:text-primary transition-colors hover:bg-primary/10" title={faculty.email}>
+                        <Mail className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>
