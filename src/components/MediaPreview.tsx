@@ -174,15 +174,15 @@ const MediaPreview = () => {
                                 </div>
 
                             </div>
-                        </motion.div>
 
-                        <button
-                            onClick={() => setSelectedItem(null)}
-                            className="absolute top-4 right-4 p-2 bg-black/20 hover:bg-black/40 text-foreground/70 hover:text-foreground rounded-full transition-all duration-200 z-50 group"
-                            aria-label="Close modal"
-                        >
-                            <X className="w-6 h-6 transition-transform group-hover:rotate-90" />
-                        </button>
+                            <button
+                                onClick={() => setSelectedItem(null)}
+                                className="absolute top-4 right-4 p-2 bg-black/20 hover:bg-black/40 text-foreground/70 hover:text-foreground rounded-full transition-all duration-200 z-50 group"
+                                aria-label="Close modal"
+                            >
+                                <X className="w-6 h-6 transition-transform group-hover:rotate-90" />
+                            </button>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
