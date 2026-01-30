@@ -292,7 +292,7 @@ const AboutTPC = () => {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-5 max-w-3xl mx-auto">
             {[
               {
                 name: "Prof. S.P. Singh",
@@ -324,8 +324,8 @@ const AboutTPC = () => {
                 className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
               >
                 {/* Image Section - Circular Profile Photo */}
-                <div className="aspect-[4/3] overflow-hidden relative bg-card flex items-center justify-center pt-6">
-                  <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 group-hover:scale-110">
+                <div className="aspect-[4/3] overflow-hidden relative bg-card flex items-center justify-center pt-4">
+                  <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 group-hover:scale-110">
                     <img
                       src={leader.image}
                       alt={leader.name}
@@ -335,12 +335,12 @@ const AboutTPC = () => {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-5 relative z-10 bg-card text-center">
-                  <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
+                <div className="p-4 relative z-10 bg-card text-center">
+                  <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors">
                     {leader.name}
                   </h3>
-                  <p className="text-sm text-accent mt-1">{leader.role}</p>
-                  <p className="text-sm text-muted-foreground mt-3 italic">"{leader.quote}"</p>
+                  <p className="text-xs text-accent mt-0.5 font-medium">{leader.role}</p>
+                  <p className="text-xs text-muted-foreground mt-2 italic">"{leader.quote}"</p>
 
                   {/* Animated Description - Drops down on Hover */}
                   <motion.div
@@ -352,7 +352,7 @@ const AboutTPC = () => {
                     className="overflow-hidden"
                     transition={{ duration: 0.4, ease: "easeOut" }}
                   >
-                    <p className="text-sm text-muted-foreground mt-3 border-t border-border/50 pt-3 leading-relaxed">
+                    <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed">
                       {leader.hoverDesc}
                     </p>
                   </motion.div>
