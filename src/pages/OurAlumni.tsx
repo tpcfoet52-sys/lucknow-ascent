@@ -12,6 +12,7 @@ import qurratulainHyder from "@/assets/qurratulain-hyder.jpg";
 import vartikaSingh from "@/assets/vartika-singh.jpg";
 import vinodMehta from "@/assets/vinod-mehta.jpg";
 import nareshTrehan from "@/assets/naresh-trehan.jpg";
+import rituKaridhal from "@/assets/ritu-karidhal.jpg";
 
 const alumniLinks = [
     { name: "Alumni Network", href: "#network" },
@@ -29,7 +30,7 @@ const fadeInUp = {
 };
 
 const alumniList = [
-    { name: "Ritu Karidhal", role: "Senior Scientist, ISRO (Rocket Woman)", field: "Science & Technology", image: undefined },
+    { name: "Ritu Karidhal", role: "Senior Scientist, ISRO (Rocket Woman)", field: "Science & Technology", image: rituKaridhal },
     { name: "Naresh Trehan", role: "Founder, Medanta Hospital (Padma Shri)", field: "Medicine & Healthcare", image: nareshTrehan },
     { name: "S. P. Chakravarti", role: "Pioneer of Electronics Education", field: "Education & Technology", image: spChakravarti },
     { name: "Govind Ballabh Pant", role: "Freedom Fighter & 1st CM of UP", field: "Politics & Governance", image: govindBallabhPant },
