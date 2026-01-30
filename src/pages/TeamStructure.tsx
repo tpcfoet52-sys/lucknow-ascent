@@ -24,7 +24,7 @@ import tpcLogo from "@/assets/tpc-logo.jpeg";
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
 import erPavanKumarSingh from "@/assets/er-pavan-kumar-singh.jpg";
 import erGauravSrivastava from "@/assets/er-gaurav-srivastava.jpg";
-import erPrashantKumarSingh from "@/assets/er-prashant-kumar-singh.png";
+import erPrashantKumarSingh from "@/assets/dr-prashant-kumar-singh.png";
 import riddhiSingh from "@/assets/riddhi-singh-rathore.jpg";
 
 const facultyMembers = [
