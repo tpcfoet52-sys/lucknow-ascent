@@ -14,6 +14,7 @@ const mediaItems = [
         src: smartIndiaHackathon,
         title: "Smart India Hackathon 2025",
         date: "Jan 26, 2025",
+        description: "Students from our university participated in SIH 2025, working on innovative digital solutions for some of the most pressing problems of our nation."
     },
     {
         id: 2,
@@ -21,6 +22,7 @@ const mediaItems = [
         src: samsungInnovation,
         title: "Samsung Innovation Campus Program",
         date: "Jan 26, 2025",
+        description: "The Samsung Innovation Campus program provides specialized training in AI, IoT, Big Data, and Coding & Programming to enhance employability."
     },
 ];
 
@@ -58,31 +60,54 @@ const MediaPreview = () => {
                     {mediaItems.map((item, index) => (
                         <motion.div
                             key={item.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial="initial"
+                            whileInView="animate"
+                            whileHover="hover"
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.1 * index }}
-                            className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg transition-shadow"
+                            variants={{
+                                initial: { opacity: 0, y: 30 },
+                                animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
+                                hover: { y: -5, transition: { duration: 0.3 } }
+                            }}
+                            className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg transition-all duration-300"
                         >
                             <div className="aspect-video overflow-hidden">
                                 <img
                                     src={item.src}
                                     alt={item.title}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
+                                {/* Overlay gradient on hover */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             </div>
-                            <div className="p-4">
-                                <div className="flex justify-between items-start mb-2">
-                                    <Badge variant="secondary" className="text-xs">
+
+                            <div className="p-5 relative z-10 bg-card">
+                                <div className="flex justify-between items-start mb-3">
+                                    <Badge variant="outline" className="text-[10px] uppercase tracking-wider border-accent/20 text-accent">
                                         {item.type}
                                     </Badge>
                                     <span className="text-xs text-muted-foreground flex items-center gap-1">
                                         <Calendar className="w-3 h-3" /> {item.date}
                                     </span>
                                 </div>
-                                <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">
+                                <h3 className="text-lg font-bold text-foreground group-hover:text-accent transition-colors leading-tight mb-2">
                                     {item.title}
                                 </h3>
+
+                                {/* Animated Description Text - Reveal on Hover */}
+                                <motion.div
+                                    variants={{
+                                        initial: { height: 0, opacity: 0 },
+                                        animate: { height: 0, opacity: 0 },
+                                        hover: { height: "auto", opacity: 1 }
+                                    }}
+                                    className="overflow-hidden"
+                                    transition={{ duration: 0.4, ease: "easeOut" }}
+                                >
+                                    <p className="text-sm text-muted-foreground mt-2 border-t border-border/50 pt-3">
+                                        {item.description}
+                                    </p>
+                                </motion.div>
                             </div>
                         </motion.div>
                     ))}
