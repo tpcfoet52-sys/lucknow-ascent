@@ -34,23 +34,49 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = navLinks.filter(l => l.href.startsWith("#")).map(link => link.href.substring(1));
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element && element.getBoundingClientRect().top <= 100) {
-          setActiveSection(section);
-          break;
+      // Only handle scrollspy for home page sections
+      if (location.pathname === "/") {
+        const sections = navLinks.filter(l => l.href.startsWith("#")).map(link => link.href.substring(1));
+        let currentSection = "home";
+
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            // If the section is in the viewport (near top)
+            if (rect.top <= 100 && rect.bottom >= 100) {
+              currentSection = section;
+            }
+          }
+        }
+
+        // Only update active section if we are scrolling through sections on home page
+        // But if we are at the very top, force home
+        if (window.scrollY < 100) {
+          setActiveSection("home");
+        } else {
+          setActiveSection(currentSection);
         }
       }
     };
+
+    // Set initial active state based on route
+    if (location.pathname !== "/") {
+      setActiveSection(location.pathname);
+    } else {
+      // If on home page, reset to home or handle scroll
+      setActiveSection("home");
+    }
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const scrollToSection = (href: string) => {
     const element = document.getElementById(href.substring(1));
@@ -89,7 +115,7 @@ const Header = () => {
     }
   };
 
-  const location = useLocation();
+
   const isHomePage = location.pathname === "/";
 
   // Header should be solid if scrolled OR if not on home page
@@ -144,12 +170,12 @@ const Header = () => {
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(link, e)}
-                  className={`px-4 py-2 transition-colors text-sm font-medium relative flex items-center gap-1 cursor-pointer ${linkColor} ${activeSection === link.href.substring(1) ? "font-semibold" : ""
+                  className={`px-4 py-2 transition-colors text-sm font-medium relative flex items-center gap-1 cursor-pointer ${linkColor} ${activeSection === link.href.substring(1) || activeSection === link.href ? "font-semibold" : ""
                     }`}
                 >
                   {link.name}
                   {link.submenu && <ChevronDown className="h-3 w-3" />}
-                  <span className={`absolute bottom-1 left-4 right-4 h-0.5 transition-transform origin-left ${activeSection === link.href.substring(1) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  <span className={`absolute bottom-1 left-4 right-4 h-0.5 transition-transform origin-left ${activeSection === link.href.substring(1) || activeSection === link.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     } ${!isScrolled ? "bg-accent" : "bg-primary"}`} />
                 </a>
 
@@ -202,7 +228,7 @@ const Header = () => {
                 <div key={link.name}>
                   <button
                     onClick={(e) => handleNavClick(link, e as any)}
-                    className={`w-full flex items-center justify-between hover:text-primary hover:bg-secondary transition-colors py-3 px-4 rounded-md cursor-pointer ${activeSection === link.href.substring(1) ? "text-primary font-semibold bg-secondary" : "text-foreground"
+                    className={`w-full flex items-center justify-between hover:text-primary hover:bg-secondary transition-colors py-3 px-4 rounded-md cursor-pointer ${activeSection === link.href.substring(1) || activeSection === link.href ? "text-primary font-semibold bg-secondary" : "text-foreground"
                       }`}
                   >
                     {link.name}
