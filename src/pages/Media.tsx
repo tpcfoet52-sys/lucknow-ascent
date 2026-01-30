@@ -27,19 +27,94 @@ import planetsparkVirtualDrive from "@/assets/planetspark-virtual-drive.jpg";
 
 // Placeholder data for Gallery
 const galleryItems = [
-    { id: 101, type: "Events", src: smartIndiaHackathon, title: "Smart India Hackathon 2025", date: "Jan 26, 2025" },
-    { id: 102, type: "Events", src: samsungInnovation, title: "Samsung Innovation Campus Program", date: "Jan 26, 2025" },
-
-
-    { id: 8, type: "Events", src: tpcMeeting, title: "TPC Student Coordinator Meeting", date: "Jan 26, 2024" },
-    { id: 9, type: "Drives", src: learningRoutesDrive, title: "Learning Routes Placement Drive", date: "Jan 26, 2025" },
-    { id: 10, type: "Drives", src: jaroEducationDrive, title: "Jaro Education Placement Drive", date: "Jan 26, 2025" },
-    { id: 11, type: "Drives", src: rupeekVirtualDrive, title: "Rupeek Virtual Drive", date: "Jan 26, 2025" },
-    { id: 12, type: "Drives", src: planetsparkVirtualDrive, title: "Planetspark Virtual Placement Drive", date: "Jan 26, 2025" },
-    { id: 13, type: "Seminars", src: higherEducationSeminar, title: "Higher Education Opportunities", date: "Jan 26, 2025" },
-    { id: 14, type: "Achievements", src: sotiAchievement, title: "SOTI Selects Students (7.5 LPA)", date: "Jan 26, 2025" },
-    { id: 15, type: "Achievements", src: starPerformerNovember, title: "Star Performer - November 2025", date: "Nov 2025" },
-    { id: 16, type: "Achievements", src: planetsparkAchievement, title: "PlanetSpark Selects Students (6.50 LPA)", date: "Jan 26, 2025" },
+    {
+        id: 101,
+        type: "Events",
+        src: smartIndiaHackathon,
+        title: "Smart India Hackathon 2025",
+        date: "Jan 26, 2025",
+        summary: "Our students showcased exceptional talent at SIH 2025, solving real-world challenges with innovative digital solutions. The event fostered a spirit of entrepreneurship and technical excellence among participants, with several teams receiving commendations from industry экспертs."
+    },
+    {
+        id: 102,
+        type: "Events",
+        src: samsungInnovation,
+        title: "Samsung Innovation Campus Program",
+        date: "Jan 26, 2025",
+        summary: "The Samsung Innovation Campus program continues to bridge the gap between academia and industry. Through specialized training in AI, Data Science, and IoT, our students are gaining the future-ready skills required for the global tech landscape."
+    },
+    {
+        id: 8,
+        type: "Events",
+        src: tpcMeeting,
+        title: "TPC Student Coordinator Meeting",
+        date: "Jan 26, 2024",
+        summary: "A strategic session held with our dedicated student coordinators to plan the upcoming recruitment season. The meeting focused on enhancing student outreach, improving drive coordination, and refining the placement process at FoET."
+    },
+    {
+        id: 9,
+        type: "Drives",
+        src: learningRoutesDrive,
+        title: "Learning Routes Placement Drive",
+        date: "Jan 26, 2025",
+        summary: "Learning Routes visited our campus for an extensive hiring drive for Sales and Business Development roles. The session included a pre-placement talk, group discussions, and multiple rounds of interviews, resulting in several successful placements."
+    },
+    {
+        id: 10,
+        type: "Drives",
+        src: jaroEducationDrive,
+        title: "Jaro Education Placement Drive",
+        date: "Jan 26, 2025",
+        summary: "Jaro Education conducted a successful recruitment drive, offering competitive packages for Career Development roles. Their team expressed high satisfaction with the quality of candidates and the overall infrastructure provided by the university."
+    },
+    {
+        id: 11,
+        type: "Drives",
+        src: rupeekVirtualDrive,
+        title: "Rupeek Virtual Drive",
+        date: "Jan 26, 2025",
+        summary: "A virtual recruitment drive conducted by Rupeek, enabling students to participate from their convenience. The digital process was seamlessly managed through our online placement portal, ensuring a smooth experience for both recruiters and candidates."
+    },
+    {
+        id: 12,
+        type: "Drives",
+        src: planetsparkVirtualDrive,
+        title: "Planetspark Virtual Placement Drive",
+        date: "Jan 26, 2025",
+        summary: "PlanetSpark hosted a virtual drive focusing on roles in business development and creative content. The interactive session allowed students to demonstrate their communication skills and creative thinking through various online assessments."
+    },
+    {
+        id: 13,
+        type: "Seminars",
+        src: higherEducationSeminar,
+        title: "Higher Education Opportunities",
+        date: "Jan 26, 2025",
+        summary: "An insightful seminar conducted by industry experts and academic consultants about global higher education pathways. Students learned about test preparation, scholarships, and the application process for top-tier universities worldwide."
+    },
+    {
+        id: 14,
+        type: "Achievements",
+        src: sotiAchievement,
+        title: "SOTI Selects Students (7.5 LPA)",
+        date: "Jan 26, 2025",
+        summary: "Proud moment for FoET as SOTI recruited several of our talented students with an impressive package of 7.5 LPA. This achievement highlights the technical competence and industry-readiness of our students."
+    },
+    {
+        id: 15,
+        type: "Achievements",
+        src: starPerformerNovember,
+        title: "Star Performer - November 2025",
+        date: "Nov 2025",
+        summary: "Recognizing outstanding contributions and performance within our student community. These awards inspire others to excel in their academic and professional pursuits throughout the year."
+    },
+    {
+        id: 16,
+        type: "Achievements",
+        src: planetsparkAchievement,
+        title: "PlanetSpark Selects Students (6.50 LPA)",
+        date: "Jan 26, 2025",
+        summary: "Success continues with multiple students being selected by PlanetSpark for high-growth roles. This reflects our consistent efforts in maintaining strong corporate relations and providing quality career opportunities."
+    },
 ];
 
 const newsItems = [
@@ -55,12 +130,12 @@ const eventHighlights = [
 
 const Media = () => {
     const [filter, setFilter] = useState("All");
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null);
 
     const pressItems = [
-        { id: 1, src: luInNews, title: "University of Lucknow sets new placement record", date: "Jan 20, 2024" },
-        { id: 2, src: luInNews, title: "FoET students shine in National Hackathon", date: "Dec 15, 2023" },
-        { id: 3, src: luInNews, title: "New partnership announced with Microsoft", date: "Nov 10, 2023" },
+        { id: 1, src: luInNews, title: "University of Lucknow sets new placement record", date: "Jan 20, 2024", summary: "Coverage of FoET's record-breaking placement season in leading national dailies." },
+        { id: 2, src: luInNews, title: "FoET students shine in National Hackathon", date: "Dec 15, 2023", summary: "Highlighting the achievements of our students at the prestigious National Hackathon." },
+        { id: 3, src: luInNews, title: "New partnership announced with Microsoft", date: "Nov 10, 2023", summary: "Announcement of a landmark collaboration between our university and Microsoft for skill development." },
     ];
 
     const filteredGallery = filter === "All"
@@ -132,7 +207,7 @@ const Media = () => {
                                         exit={{ opacity: 0, scale: 0.9 }}
                                         transition={{ duration: 0.3 }}
                                         className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer"
-                                        onClick={() => setSelectedImage(item.src)}
+                                        onClick={() => setSelectedItem(item)}
                                     >
                                         <div className="aspect-video overflow-hidden">
                                             <img src={item.src} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -161,7 +236,11 @@ const Media = () => {
                         </h2>
                         <div className="grid md:grid-cols-3 gap-6">
                             {pressItems.map((item) => (
-                                <div key={item.id} className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer" onClick={() => setSelectedImage(item.src)}>
+                                <div
+                                    key={item.id}
+                                    className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer"
+                                    onClick={() => setSelectedItem({ ...item, type: "Press" } as any)}
+                                >
                                     <div className="aspect-video overflow-hidden">
                                         <img src={item.src} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                                     </div>
@@ -191,29 +270,67 @@ const Media = () => {
                 </div>
             </main >
             <AnimatePresence>
-                {selectedImage && (
+                {selectedItem && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        onClick={() => setSelectedImage(null)}
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+                        onClick={() => setSelectedItem(null)}
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 md:p-8 backdrop-blur-md"
                     >
                         <motion.div
-                            initial={{ scale: 0.9 }}
-                            animate={{ scale: 1 }}
-                            exit={{ scale: 0.9 }}
-                            className="relative max-w-7xl w-full max-h-[95vh] flex items-center justify-center"
+                            initial={{ scale: 0.9, y: 20 }}
+                            animate={{ scale: 1, y: 0 }}
+                            exit={{ scale: 0.9, y: 20 }}
+                            className="relative max-w-6xl w-full bg-card rounded-2xl shadow-3xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <img
-                                src={selectedImage}
-                                alt="Full View"
-                                className="max-w-full max-h-[95vh] object-contain rounded-lg shadow-2xl"
-                            />
+                            {/* Image Part */}
+                            <div className="w-full md:w-3/5 bg-black flex items-center justify-center overflow-hidden">
+                                <img
+                                    src={selectedItem.src}
+                                    alt={selectedItem.title}
+                                    className="max-w-full max-h-full object-contain"
+                                />
+                            </div>
+
+                            {/* Info Part */}
+                            <div className="w-full md:w-2/5 p-6 md:p-10 flex flex-col justify-center bg-card border-l border-border/50">
+                                <div className="mb-6">
+                                    <Badge variant="outline" className="text-xs uppercase tracking-widest border-accent/30 text-accent mb-4">
+                                        {selectedItem.type}
+                                    </Badge>
+                                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-foreground leading-tight mb-3">
+                                        {selectedItem.title}
+                                    </h3>
+                                    <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                                        <Calendar className="w-4 h-4" />
+                                        {selectedItem.date}
+                                    </div>
+                                </div>
+
+                                <div className="h-px w-full bg-border/50 mb-6" />
+
+                                <div className="space-y-4">
+                                    <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground/80">Event Summary</h4>
+                                    <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
+                                        {selectedItem.summary}
+                                    </p>
+                                </div>
+
+                                <div className="mt-8 pt-8 border-t border-border/50">
+                                    <Button
+                                        onClick={() => setSelectedItem(null)}
+                                        className="w-full md:w-auto bg-primary text-primary-foreground hover:bg-primary/90"
+                                    >
+                                        Close Gallery
+                                    </Button>
+                                </div>
+                            </div>
+
                             <button
-                                onClick={() => setSelectedImage(null)}
-                                className="absolute top-4 right-4 p-2 bg-black/50 text-white/90 hover:bg-black/80 hover:text-white rounded-full transition-colors"
+                                onClick={() => setSelectedItem(null)}
+                                className="absolute top-4 right-4 p-2 bg-black/50 text-white/90 hover:bg-black/80 hover:text-white rounded-full transition-colors z-10 md:hidden"
                             >
                                 <X className="w-6 h-6" />
                             </button>

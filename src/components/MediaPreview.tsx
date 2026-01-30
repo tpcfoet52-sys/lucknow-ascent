@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { Camera, ArrowRight, Calendar } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Camera, ArrowRight, Calendar, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
@@ -14,7 +15,8 @@ const mediaItems = [
         src: smartIndiaHackathon,
         title: "Smart India Hackathon 2025",
         date: "Jan 26, 2025",
-        description: "Students from our university participated in SIH 2025, working on innovative digital solutions for some of the most pressing problems of our nation."
+        description: "Students from our university participated in SIH 2025, working on innovative digital solutions for some of the most pressing problems of our nation.",
+        summary: "Our students showcased exceptional talent at SIH 2025, solving real-world challenges with innovative digital solutions. The event fostered a spirit of entrepreneurship and technical excellence among participants, with several teams receiving commendations from industry experts. This national-level platform allowed our bright minds to interact with mentors and peers from across the country."
     },
     {
         id: 2,
@@ -22,11 +24,14 @@ const mediaItems = [
         src: samsungInnovation,
         title: "Samsung Innovation Campus Program",
         date: "Jan 26, 2025",
-        description: "The Samsung Innovation Campus program provides specialized training in AI, IoT, Big Data, and Coding & Programming to enhance employability."
+        description: "The Samsung Innovation Campus program provides specialized training in AI, IoT, Big Data, and Coding & Programming to enhance employability.",
+        summary: "The Samsung Innovation Campus program continues to bridge the gap between academia and industry. Through specialized training in AI, Data Science, and IoT, our students are gaining the future-ready skills required for the global tech landscape. This initiative is part of our commitment to providing world-class technical education and ensuring our graduates are prepared for high-impact careers."
     },
 ];
 
 const MediaPreview = () => {
+    const [selectedItem, setSelectedItem] = useState<typeof mediaItems[0] | null>(null);
+
     return (
         <section className="section-padding bg-background">
             <div className="container-narrow">
@@ -70,6 +75,7 @@ const MediaPreview = () => {
                                 hover: { y: -5, transition: { duration: 0.3 } }
                             }}
                             className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg transition-all duration-300"
+                            onClick={() => setSelectedItem(item)}
                         >
                             <div className="aspect-video overflow-hidden">
                                 <img
@@ -107,12 +113,86 @@ const MediaPreview = () => {
                                     <p className="text-sm text-muted-foreground mt-2 border-t border-border/50 pt-3">
                                         {item.description}
                                     </p>
+                                    <p className="text-xs text-accent font-medium mt-2 flex items-center gap-1">
+                                        Click to view summary <ArrowRight className="w-3 h-3" />
+                                    </p>
                                 </motion.div>
                             </div>
                         </motion.div>
                     ))}
                 </div>
             </div>
+
+            {/* Event Detail Modal */}
+            <AnimatePresence>
+                {selectedItem && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedItem(null)}
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 md:p-8 backdrop-blur-md"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, y: 20 }}
+                            animate={{ scale: 1, y: 0 }}
+                            exit={{ scale: 0.9, y: 20 }}
+                            className="relative max-w-5xl w-full bg-card rounded-2xl shadow-3xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {/* Image Part */}
+                            <div className="w-full md:w-3/5 bg-black flex items-center justify-center overflow-hidden">
+                                <img
+                                    src={selectedItem.src}
+                                    alt={selectedItem.title}
+                                    className="max-w-full max-h-full object-contain"
+                                />
+                            </div>
+
+                            {/* Info Part */}
+                            <div className="w-full md:w-2/5 p-6 md:p-8 flex flex-col justify-center bg-card border-l border-border/50">
+                                <div className="mb-6">
+                                    <Badge variant="outline" className="text-xs uppercase tracking-widest border-accent/30 text-accent mb-4">
+                                        {selectedItem.type}
+                                    </Badge>
+                                    <h3 className="text-2xl font-serif font-bold text-foreground leading-tight mb-3">
+                                        {selectedItem.title}
+                                    </h3>
+                                    <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                                        <Calendar className="w-4 h-4" />
+                                        {selectedItem.date}
+                                    </div>
+                                </div>
+
+                                <div className="h-px w-full bg-border/50 mb-6" />
+
+                                <div className="space-y-4">
+                                    <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground/80">Event Summary</h4>
+                                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                                        {selectedItem.summary}
+                                    </p>
+                                </div>
+
+                                <div className="mt-8 pt-6 border-t border-border/50">
+                                    <Button
+                                        onClick={() => setSelectedItem(null)}
+                                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                                    >
+                                        Close
+                                    </Button>
+                                </div>
+                            </div>
+
+                            <button
+                                onClick={() => setSelectedItem(null)}
+                                className="absolute top-4 right-4 p-2 bg-black/50 text-white/90 hover:bg-black/80 hover:text-white rounded-full transition-colors z-10 md:hidden"
+                            >
+                                <X className="w-6 h-6" />
+                            </button>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };
