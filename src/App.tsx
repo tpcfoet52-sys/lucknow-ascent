@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Header from "@/components/Header"; 
+import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop"; // <--- 1. Import this
 
 import Index from "./pages/Index";
@@ -20,6 +20,9 @@ import SoftSkills from "./pages/SoftSkills";
 import Media from "./pages/Media";
 import Login from "./pages/Login";
 import OurAlumni from "./pages/OurAlumni";
+import Students from "./pages/Students";
+import PlacementRecords from "./pages/PlacementRecords";
+import Contact from "./pages/Contact";
 
 // Import Admin components
 import AdminLayout from "./components/admin/AdminLayout";
@@ -69,7 +72,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop /> {/* <--- 2. Add component here inside BrowserRouter */}
-        <Header /> 
+        <Header />
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Index />} />
@@ -83,7 +86,11 @@ const App = () => (
           <Route path="/interview-prep" element={<InterviewPrep />} />
           <Route path="/soft-skills" element={<SoftSkills />} />
           <Route path="/media" element={<Media />} />
+
           <Route path="/login" element={<Login />} />
+          <Route path="/students" element={<Students />} />
+          <Route path="/placement-records" element={<PlacementRecords />} />
+          <Route path="/contact" element={<Contact />} />
 
           {/* Coordinator Routes */}
           <Route path="/coordinator-login" element={<CoordinatorLogin />} />

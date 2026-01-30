@@ -15,7 +15,7 @@ import {
   ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import SubpageHeader from "@/components/SubpageHeader";
+
 import uolLogo from "@/assets/uol-logo.png";
 import naacBadge from "@/assets/naac-badge.png";
 import heroImage from "@/assets/university-hero-new.jpg";
@@ -314,7 +314,7 @@ const AboutTPC = () => {
                 custom={index}
                 initial="initial"
                 whileInView="animate"
-                
+
                 viewport={{ once: true }}
                 variants={{
                   initial: { opacity: 0, y: 30 },
@@ -376,7 +376,7 @@ const AboutTPC = () => {
                   custom={index}
                   initial="initial"
                   whileInView="animate"
-                  
+
                   viewport={{ once: true }}
                   variants={{
                     initial: { opacity: 0, y: 30 },
@@ -471,7 +471,7 @@ const AboutTPC = () => {
                 custom={index}
                 initial="initial"
                 whileInView="animate"
-                
+
                 viewport={{ once: true }}
                 variants={{
                   initial: { opacity: 0, y: 30 },
@@ -539,7 +539,7 @@ const AboutTPC = () => {
                 custom={index}
                 initial="initial"
                 whileInView="animate"
-                
+
                 viewport={{ once: true }}
                 variants={{
                   initial: { opacity: 0, y: 30 },

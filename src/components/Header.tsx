@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, ArrowLeft, LogIn } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowLeft } from "lucide-react";
 import { Button } from "./ui/button";
 
 import tpcLogo from "@/assets/tpc-logo.jpeg";
@@ -22,10 +22,10 @@ const navLinks: NavLink[] = [
     ]
   },
   { name: "Events", href: "/events" },
-  { name: "Students", href: "#students" },
+  { name: "Students", href: "/students" },
   { name: "Media", href: "/media" },
-  { name: "Placement Records", href: "#recruiters" },
-  { name: "Contact", href: "#connect" },
+  { name: "Placement Records", href: "/placement-records" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const Header = () => {
@@ -176,19 +176,7 @@ const Header = () => {
           {/* Right Section: Login + Mobile Menu (Grouped) */}
           <div className="flex items-center gap-3">
 
-            <Link to="/login">
-              <Button
-                variant={!isScrolled ? "ghost" : "ghost"}
-                size="icon"
-                className={`rounded-full h-10 min-w-[2.5rem] px-0 hover:px-4 hover:bg-accent hover:text-accent-foreground transition-all duration-300 group flex items-center justify-center gap-0 hover:gap-2 ${!showSolidHeader ? "text-primary-foreground" : "text-foreground bg-background/80 backdrop-blur-sm shadow-md"}`}
-                title="Login"
-              >
-                <LogIn className="h-5 w-5 shrink-0" />
-                <span className="max-w-0 overflow-hidden group-hover:max-w-[60px] opacity-0 group-hover:opacity-100 transition-all duration-300 text-sm font-medium whitespace-nowrap">
-                  Login
-                </span>
-              </Button>
-            </Link>
+
 
             {/* Mobile Menu Button */}
             <button
