@@ -325,7 +325,7 @@ const AboutTPC = () => {
               >
                 {/* Image Section - Circular Profile Photo */}
                 <div className="aspect-[4/3] overflow-hidden relative bg-card flex items-center justify-center pt-3">
-                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 group-hover:scale-110">
+                  <div className="w-20 h-15 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 group-hover:scale-110">
                     <img
                       src={leader.image}
                       alt={leader.name}
