@@ -4,6 +4,11 @@ import { Award } from "lucide-react";
 import uolLogo from "@/assets/uol-logo.png";
 import heroImage from "@/assets/university-hero-new.jpg";
 import naacBadge from "@/assets/naac-badge.png";
+import spChakravarti from "@/assets/sp-chakravarti.jpg";
+import govindBallabhPant from "@/assets/govind-ballabh-pant.jpg";
+import justiceAsAnand from "@/assets/justice-as-anand.jpg";
+import jagdishGandhi from "@/assets/jagdish-gandhi.jpg";
+import qurratulainHyder from "@/assets/qurratulain-hyder.jpg";
 
 const alumniLinks = [
     { name: "Alumni Network", href: "#network" },
@@ -21,15 +26,15 @@ const fadeInUp = {
 };
 
 const alumniList = [
-    { name: "Ritu Karidhal", role: "Senior Scientist, ISRO (Rocket Woman)", field: "Science & Technology" },
-    { name: "Naresh Trehan", role: "Founder, Medanta Hospital (Padma Shri)", field: "Medicine & Healthcare" },
-    { name: "S. P. Chakravarti", role: "Pioneer of Electronics Education", field: "Education & Technology" },
-    { name: "Govind Ballabh Pant", role: "Freedom Fighter & 1st CM of UP", field: "Politics & Governance" },
-    { name: "Justice A. S. Anand", role: "Former Chief Justice of India", field: "Law & Judiciary" },
-    { name: "Qurratulain Hyder", role: "Jnanpith Awardee Novelist", field: "Literature" },
-    { name: "Vinod Mehta", role: "Eminent Journalist (Editor, Outlook)", field: "Journalism & Media" },
-    { name: "Vartika Singh", role: "Indian model and beauty pageant titleholder", field: "Arts & Fashion" },
-    { name: "Jagdish Gandhi", role: "Founder, City Montessori School", field: "Education" },
+    { name: "Ritu Karidhal", role: "Senior Scientist, ISRO (Rocket Woman)", field: "Science & Technology", image: undefined },
+    { name: "Naresh Trehan", role: "Founder, Medanta Hospital (Padma Shri)", field: "Medicine & Healthcare", image: undefined },
+    { name: "S. P. Chakravarti", role: "Pioneer of Electronics Education", field: "Education & Technology", image: spChakravarti },
+    { name: "Govind Ballabh Pant", role: "Freedom Fighter & 1st CM of UP", field: "Politics & Governance", image: govindBallabhPant },
+    { name: "Justice A. S. Anand", role: "Former Chief Justice of India", field: "Law & Judiciary", image: justiceAsAnand },
+    { name: "Qurratulain Hyder", role: "Jnanpith Awardee Novelist", field: "Literature", image: qurratulainHyder },
+    { name: "Vinod Mehta", role: "Eminent Journalist (Editor, Outlook)", field: "Journalism & Media", image: undefined },
+    { name: "Vartika Singh", role: "Indian model and beauty pageant titleholder", field: "Arts & Fashion", image: undefined },
+    { name: "Jagdish Gandhi", role: "Founder, City Montessori School", field: "Education", image: jagdishGandhi },
 ];
 
 const OurAlumni = () => {
@@ -112,9 +117,19 @@ const OurAlumni = () => {
                                 variants={fadeInUp}
                                 className="bg-background border border-border rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300"
                             >
-                                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                                    <Award className="h-10 w-10 text-primary" />
-                                </div>
+                                {alumni.image ? (
+                                    <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-4 border-accent/20">
+                                        <img
+                                            src={alumni.image}
+                                            alt={alumni.name}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                ) : (
+                                    <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                                        <Award className="h-10 w-10 text-primary" />
+                                    </div>
+                                )}
                                 <h3 className="font-serif text-lg font-semibold text-foreground">{alumni.name}</h3>
                                 <p className="text-sm text-accent mt-1">{alumni.role}</p>
                                 <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
