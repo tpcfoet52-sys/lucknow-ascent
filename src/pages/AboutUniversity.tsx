@@ -36,6 +36,9 @@ import programManagement from "@/assets/program-management.jpg";
 import programPharmacy from "@/assets/program-pharmacy.jpg";
 import programYoga from "@/assets/program-yoga.jpg";
 
+import programTourism from "@/assets/tourism-collage.jpg";
+import programBVoc from "@/assets/mechanical-workshop.jpg";
+
 const aboutUniversityLinks = [
   { name: "Our Legacy", href: "#legacy" },
   { name: "Courses Offered", href: "#programs" },
@@ -61,8 +64,8 @@ const programs = [
   { name: "Management", icon: Briefcase, students: "1800+", image: programManagement, hoverDesc: "MBA programs specializing in Finance, Marketing, HR, and Operations. Industry-oriented curriculum with case studies, internships, and guest lectures from corporate leaders." },
   { name: "Pharmacy", icon: Pill, students: "800+", image: programPharmacy, hoverDesc: "B.Pharm and M.Pharm programs approved by PCI. Focus on pharmaceutical sciences, drug development, and clinical pharmacy with modern research facilities." },
   { name: "Yoga", icon: Sun, students: "500+", image: programYoga, hoverDesc: "UG and PG programs in Yoga and Alternative Medicine. Traditional wisdom meets modern science with research on therapeutic applications and wellness management." },
-  { name: "Tourism", icon: Globe, students: "400+", hoverDesc: "Programs in Tourism and Travel Management. Practical training in hospitality, tour operations, and heritage management with industry partnerships." },
-  { name: "B.Voc", icon: BookOpen, students: "600+", hoverDesc: "Vocational programs designed for skill development and employability. Industry-aligned curriculum with hands-on training and placement support." },
+  { name: "Tourism", icon: Globe, students: "400+", image: programTourism, hoverDesc: "Programs in Tourism and Travel Management. Practical training in hospitality, tour operations, and heritage management with industry partnerships." },
+  { name: "B.Voc", icon: BookOpen, students: "600+", image: programBVoc, hoverDesc: "Vocational programs designed for skill development and employability. Industry-aligned curriculum with hands-on training and placement support." },
 ];
 
 const infrastructure = [
