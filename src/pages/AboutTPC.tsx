@@ -397,12 +397,7 @@ const AboutTPC = () => {
                   }}
                   className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
                 >
-                  {/* Image Section - Icon Placeholder */}
-                  <div className="aspect-video overflow-hidden relative bg-muted">
-                    <div className="w-full h-full flex items-center justify-center bg-primary/5">
-                      <IconComponent className="h-16 w-16 text-primary/40" />
-                    </div>
-                  </div>
+
 
                   {/* Content Section */}
                   <div className="p-5 relative z-10 bg-card">
