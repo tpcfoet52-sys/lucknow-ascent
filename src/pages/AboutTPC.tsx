@@ -112,8 +112,7 @@ const trainingPrograms = [
   },
   {
     title: "Workshop: Reaching Out to Industries",
-    desc: "Resume Building & Interview Prep",
-    speaker: "Mr. Shubham Sing",
+    speaker: "Mr. Shubham Singh",
     role: "SDE, PhonePe",
     hoverDesc: "A comprehensive workshop on crafting effective resumes, mastering interview techniques, and understanding industry expectations. Learn strategies that helped professionals break into top tech companies."
   },
@@ -521,7 +520,7 @@ const AboutTPC = () => {
                   <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors mb-1 leading-tight">
                     {program.title}
                   </h3>
-                  {program.desc && <p className="text-xs text-muted-foreground mb-2">{program.desc}</p>}
+
 
                   <div className="pt-2 border-t border-border/40 mt-2">
                     <p className="text-accent font-medium text-xs">{program.speaker}</p>
