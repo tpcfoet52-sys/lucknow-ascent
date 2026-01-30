@@ -487,7 +487,7 @@ const AboutTPC = () => {
             </h2>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-7xl mx-auto">
             {trainingPrograms.map((program, index) => (
               <motion.div
                 key={program.title}
@@ -506,26 +506,26 @@ const AboutTPC = () => {
                 {/* Image Section - Icon Placeholder */}
                 <div className="aspect-video overflow-hidden relative bg-muted">
                   <div className="w-full h-full flex items-center justify-center bg-accent/5">
-                    <GraduationCap className="h-16 w-16 text-accent/40" />
+                    <GraduationCap className="h-10 w-10 text-accent/40" />
                   </div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-5 relative z-10 bg-card text-center">
-                  <div className="flex justify-center mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
-                      <GraduationCap className="h-5 w-5 text-accent" />
+                <div className="p-4 relative z-10 bg-card text-center">
+                  <div className="flex justify-center mb-2">
+                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
+                      <GraduationCap className="h-4 w-4 text-accent" />
                     </div>
                   </div>
 
-                  <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-accent transition-colors mb-1">
+                  <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors mb-1 leading-tight">
                     {program.title}
                   </h3>
-                  {program.desc && <p className="text-xs text-muted-foreground mb-3">{program.desc}</p>}
+                  {program.desc && <p className="text-xs text-muted-foreground mb-2">{program.desc}</p>}
 
-                  <div className="pt-3 border-t border-border/40">
-                    <p className="text-accent font-medium text-sm">{program.speaker}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{program.role}</p>
+                  <div className="pt-2 border-t border-border/40 mt-2">
+                    <p className="text-accent font-medium text-xs">{program.speaker}</p>
+                    <p className="text-[10px] text-muted-foreground mt-0.5">{program.role}</p>
                   </div>
 
                   {/* Animated Description - Drops down on Hover */}
@@ -538,7 +538,7 @@ const AboutTPC = () => {
                     className="overflow-hidden"
                     transition={{ duration: 0.4, ease: "easeOut" }}
                   >
-                    <p className="text-sm text-muted-foreground mt-3 border-t border-border/50 pt-3 leading-relaxed">
+                    <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed text-left">
                       {program.hoverDesc}
                     </p>
                   </motion.div>
@@ -546,6 +546,8 @@ const AboutTPC = () => {
               </motion.div>
             ))}
           </div>
+
+
         </div>
       </section>
 
@@ -621,10 +623,10 @@ const AboutTPC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Recruitment Process */}
-      <section className="py-16 md:py-24">
+      < section className="py-16 md:py-24" >
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -725,10 +727,10 @@ const AboutTPC = () => {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Download Center */}
-      <section className="py-16 md:py-24">
+      < section className="py-16 md:py-24" >
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -765,19 +767,19 @@ const AboutTPC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
 
 
       {/* Footer */}
-      <footer className="py-8 border-t border-border bg-background">
+      < footer className="py-8 border-t border-border bg-background" >
         <div className="container-narrow text-center">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Training & Placement Cell, University of Lucknow. All rights reserved.
           </p>
         </div>
-      </footer>
-    </div>
+      </footer >
+    </div >
   );
 };
 
