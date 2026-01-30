@@ -39,6 +39,9 @@ import programYoga from "@/assets/program-yoga.jpg";
 import programTourism from "@/assets/tourism-collage.jpg";
 import programBVoc from "@/assets/mechanical-workshop.jpg";
 
+import mainCampus from "@/assets/main-campus.jpg";
+import secondCampus from "@/assets/second-campus.jpg";
+
 const aboutUniversityLinks = [
   { name: "Our Legacy", href: "#legacy" },
   { name: "Courses Offered", href: "#programs" },
@@ -131,8 +134,8 @@ const accreditations = [
 const affiliations = ["UGC", "AIU", "BCI", "NCTE", "AICTE", "PCI"];
 
 const campusLocations = [
-  { name: "Main Campus", location: "Badshah Bagh, University Road", description: "Historic campus on eastern bank of Gomti river with traditional Avadh architecture.", hoverDesc: "Spread across 144 acres with heritage buildings dating back to 1920. Houses Science, Arts, and Commerce faculties. Features the iconic administrative block, central library with 5L+ books, and beautifully landscaped gardens along the Gomti river." },
-  { name: "New Campus (2nd)", location: "Jankipuram, Sitapur Road", description: "Modern 75-acre campus housing Faculty of Engineering & Technology, Management, and Law.", hoverDesc: "State-of-the-art campus established in 2017 with green building designs. Equipped with modern laboratories, smart classrooms, auditoriums, sports complex, separate hostels, and excellent placement infrastructure for professional programs." },
+  { name: "Main Campus", location: "Badshah Bagh, University Road", image: mainCampus, description: "Historic campus on eastern bank of Gomti river with traditional Avadh architecture.", hoverDesc: "Spread across 144 acres with heritage buildings dating back to 1920. Houses Science, Arts, and Commerce faculties. Features the iconic administrative block, central library with 5L+ books, and beautifully landscaped gardens along the Gomti river." },
+  { name: "New Campus (2nd)", location: "Jankipuram, Sitapur Road", image: secondCampus, description: "Modern 75-acre campus housing Faculty of Engineering & Technology, Management, and Law.", hoverDesc: "State-of-the-art campus established in 2017 with green building designs. Equipped with modern laboratories, smart classrooms, auditoriums, sports complex, separate hostels, and excellent placement infrastructure for professional programs." },
 ];
 
 const allFaculties = [
@@ -525,11 +528,23 @@ const AboutUniversity = () => {
                 }}
                 className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
               >
-                {/* Image Section - Using placeholder for now */}
+                {/* Image Section */}
                 <div className="aspect-video overflow-hidden relative bg-muted">
-                  <div className="w-full h-full flex items-center justify-center bg-primary/5">
-                    <MapPin className="h-10 w-10 text-primary/40" />
-                  </div>
+                  {campus.image ? (
+                    <>
+                      <img
+                        src={campus.image}
+                        alt={campus.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      {/* Gradient overlay on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </>
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-primary/5">
+                      <MapPin className="h-10 w-10 text-primary/40" />
+                    </div>
+                  )}
                 </div>
 
                 {/* Content Section */}
