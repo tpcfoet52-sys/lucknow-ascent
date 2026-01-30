@@ -342,20 +342,9 @@ const AboutTPC = () => {
                   <p className="text-xs text-accent mt-0.5 font-medium">{leader.role}</p>
                   <p className="text-xs text-muted-foreground mt-2 italic">"{leader.quote}"</p>
 
-                  {/* Animated Description - Drops down on Hover */}
-                  <motion.div
-                    variants={{
-                      initial: { height: 0, opacity: 0 },
-                      animate: { height: 0, opacity: 0 },
-                      hover: { height: "auto", opacity: 1 }
-                    }}
-                    className="overflow-hidden"
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                  >
-                    <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed">
-                      {leader.hoverDesc}
-                    </p>
-                  </motion.div>
+                  <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed">
+                    {leader.hoverDesc}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -413,20 +402,9 @@ const AboutTPC = () => {
 
                     <p className="text-sm text-muted-foreground">{service.desc}</p>
 
-                    {/* Animated Description - Drops down on Hover */}
-                    <motion.div
-                      variants={{
-                        initial: { height: 0, opacity: 0 },
-                        animate: { height: 0, opacity: 0 },
-                        hover: { height: "auto", opacity: 1 }
-                      }}
-                      className="overflow-hidden"
-                      transition={{ duration: 0.4, ease: "easeOut" }}
-                    >
-                      <p className="text-sm text-muted-foreground mt-2 border-t border-border/50 pt-3 leading-relaxed">
-                        {service.hoverDesc}
-                      </p>
-                    </motion.div>
+                    <p className="text-sm text-muted-foreground mt-2 border-t border-border/50 pt-3 leading-relaxed">
+                      {service.hoverDesc}
+                    </p>
                   </div>
                 </motion.div>
               );
@@ -527,20 +505,9 @@ const AboutTPC = () => {
                     <p className="text-[10px] text-muted-foreground mt-0.5">{program.role}</p>
                   </div>
 
-                  {/* Animated Description - Drops down on Hover */}
-                  <motion.div
-                    variants={{
-                      initial: { height: 0, opacity: 0 },
-                      animate: { height: 0, opacity: 0 },
-                      hover: { height: "auto", opacity: 1 }
-                    }}
-                    className="overflow-hidden"
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                  >
-                    <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed text-left">
-                      {program.hoverDesc}
-                    </p>
-                  </motion.div>
+                  <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed text-left">
+                    {program.hoverDesc}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -603,20 +570,9 @@ const AboutTPC = () => {
                   <p className="text-xl font-bold text-foreground mt-1">{story.package}</p>
                   <p className="text-xs text-muted-foreground mt-0.5">Batch of {story.year}</p>
 
-                  {/* Animated Description - Drops down on Hover */}
-                  <motion.div
-                    variants={{
-                      initial: { height: 0, opacity: 0 },
-                      animate: { height: 0, opacity: 0 },
-                      hover: { height: "auto", opacity: 1 }
-                    }}
-                    className="overflow-hidden"
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                  >
-                    <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed">
-                      {story.hoverDesc}
-                    </p>
-                  </motion.div>
+                  <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed">
+                    {story.hoverDesc}
+                  </p>
                 </div>
               </motion.div>
             ))}

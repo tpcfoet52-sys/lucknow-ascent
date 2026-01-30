@@ -418,20 +418,9 @@ const AboutUniversity = () => {
                       {program.students} Students Enrolled
                     </p>
 
-                    {/* Animated Description - Drops down on Hover */}
-                    <motion.div
-                      variants={{
-                        initial: { height: 0, opacity: 0 },
-                        animate: { height: 0, opacity: 0 },
-                        hover: { height: "auto", opacity: 1 }
-                      }}
-                      className="overflow-hidden"
-                      transition={{ duration: 0.4, ease: "easeOut" }}
-                    >
-                      <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed">
-                        {program.hoverDesc}
-                      </p>
-                    </motion.div>
+                    <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed">
+                      {program.hoverDesc}
+                    </p>
                   </div>
                 </motion.div>
               );
@@ -563,20 +552,9 @@ const AboutUniversity = () => {
 
                   <p className="text-muted-foreground text-xs">{campus.description}</p>
 
-                  {/* Animated Description - Drops down on Hover */}
-                  <motion.div
-                    variants={{
-                      initial: { height: 0, opacity: 0 },
-                      animate: { height: 0, opacity: 0 },
-                      hover: { height: "auto", opacity: 1 }
-                    }}
-                    className="overflow-hidden"
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                  >
-                    <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed">
-                      {campus.hoverDesc}
-                    </p>
-                  </motion.div>
+                  <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed">
+                    {campus.hoverDesc}
+                  </p>
                 </div>
               </motion.div>
             ))}

@@ -205,20 +205,9 @@ const OurAlumni = () => {
                                     <p className="text-sm text-accent mt-1 font-medium">{alumni.role}</p>
                                     <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
 
-                                    {/* Animated Description - Drops down on Hover */}
-                                    <motion.div
-                                        variants={{
-                                            initial: { height: 0, opacity: 0 },
-                                            animate: { height: 0, opacity: 0 },
-                                            hover: { height: "auto", opacity: 1 }
-                                        }}
-                                        className="overflow-hidden"
-                                        transition={{ duration: 0.4, ease: "easeOut" }}
-                                    >
-                                        <p className="text-xs text-muted-foreground mt-3 border-t border-border/50 pt-3 leading-relaxed text-left">
-                                            {alumni.description}
-                                        </p>
-                                    </motion.div>
+                                    <p className="text-xs text-muted-foreground mt-3 border-t border-border/50 pt-3 leading-relaxed text-left">
+                                        {alumni.description}
+                                    </p>
                                 </div>
                             </motion.div>
                         ))}
