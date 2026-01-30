@@ -51,13 +51,13 @@ const fadeInUp = {
 };
 
 const programs = [
-  { name: "Engineering", icon: Building, students: "2500+" },
-  { name: "Law", icon: Gavel, students: "1200+" },
-  { name: "Management", icon: Briefcase, students: "1800+" },
-  { name: "Pharmacy", icon: Pill, students: "800+" },
-  { name: "Yoga", icon: Sun, students: "500+" },
-  { name: "Tourism", icon: Globe, students: "400+" },
-  { name: "B.Voc", icon: BookOpen, students: "600+" },
+  { name: "Engineering", icon: Building, students: "2500+", hoverDesc: "Offering B.Tech and M.Tech programs in CSE, ECE, EE, CE, and ME. Focus on practical learning, industry collaboration, and placement excellence with state-of-the-art laboratories." },
+  { name: "Law", icon: Gavel, students: "1200+", hoverDesc: "LLB and LLM programs recognized by Bar Council of India. Comprehensive curriculum covering corporate law, constitutional law, and international law with moot court facilities." },
+  { name: "Management", icon: Briefcase, students: "1800+", hoverDesc: "MBA programs specializing in Finance, Marketing, HR, and Operations. Industry-oriented curriculum with case studies, internships, and guest lectures from corporate leaders." },
+  { name: "Pharmacy", icon: Pill, students: "800+", hoverDesc: "B.Pharm and M.Pharm programs approved by PCI. Focus on pharmaceutical sciences, drug development, and clinical pharmacy with modern research facilities." },
+  { name: "Yoga", icon: Sun, students: "500+", hoverDesc: "UG and PG programs in Yoga and Alternative Medicine. Traditional wisdom meets modern science with research on therapeutic applications and wellness management." },
+  { name: "Tourism", icon: Globe, students: "400+", hoverDesc: "Programs in Tourism and Travel Management. Practical training in hospitality, tour operations, and heritage management with industry partnerships." },
+  { name: "B.Voc", icon: BookOpen, students: "600+", hoverDesc: "Vocational programs designed for skill development and employability. Industry-aligned curriculum with hands-on training and placement support." },
 ];
 
 const infrastructure = [
@@ -123,8 +123,8 @@ const accreditations = [
 const affiliations = ["UGC", "AIU", "BCI", "NCTE", "AICTE", "PCI"];
 
 const campusLocations = [
-  { name: "Main Campus", location: "Badshah Bagh, University Road", description: "Historic campus on eastern bank of Gomti river with traditional Avadh architecture." },
-  { name: "New Campus (2nd)", location: "Jankipuram, Sitapur Road", description: "Modern 75-acre campus housing Faculty of Engineering & Technology, Management, and Law." },
+  { name: "Main Campus", location: "Badshah Bagh, University Road", description: "Historic campus on eastern bank of Gomti river with traditional Avadh architecture.", hoverDesc: "Spread across 144 acres with heritage buildings dating back to 1920. Houses Science, Arts, and Commerce faculties. Features the iconic administrative block, central library with 5L+ books, and beautifully landscaped gardens along the Gomti river." },
+  { name: "New Campus (2nd)", location: "Jankipuram, Sitapur Road", description: "Modern 75-acre campus housing Faculty of Engineering & Technology, Management, and Law.", hoverDesc: "State-of-the-art campus established in 2017 with green building designs. Equipped with modern laboratories, smart classrooms, auditoriums, sports complex, separate hostels, and excellent placement infrastructure for professional programs." },
 ];
 
 const allFaculties = [
@@ -147,7 +147,7 @@ const AboutUniversity = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      
+
 
       {/* Hero Section */}
       <section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden">
@@ -364,17 +364,34 @@ const AboutUniversity = () => {
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeInUp}
-                  className="group bg-background border border-border rounded-lg p-6 hover:border-accent/50 hover:shadow-lg transition-all"
+                  className="group relative bg-background border border-border rounded-lg p-6 hover:border-accent/50 hover:shadow-lg transition-all overflow-hidden"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                    <IconComponent className="h-6 w-6 text-primary" />
+                  {/* Main Content */}
+                  <div className="relative z-10 transition-opacity group-hover:opacity-0 duration-300">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                      <IconComponent className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="font-serif text-lg font-semibold text-foreground mb-1">
+                      {program.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {program.students} Students Enrolled
+                    </p>
                   </div>
-                  <h3 className="font-serif text-lg font-semibold text-foreground mb-1">
-                    {program.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {program.students} Students Enrolled
-                  </p>
+
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/95 to-primary/95 p-6 flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                    <IconComponent className="h-8 w-8 text-white mb-3" />
+                    <h3 className="font-serif text-lg font-semibold text-white mb-2">
+                      {program.name}
+                    </h3>
+                    <p className="text-sm text-white/90 leading-relaxed mb-2">
+                      {program.hoverDesc}
+                    </p>
+                    <p className="text-xs text-white/80 font-medium">
+                      {program.students} Students Enrolled
+                    </p>
+                  </div>
                 </motion.div>
               );
             })}
@@ -457,16 +474,27 @@ const AboutUniversity = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {campusLocations.map((campus, index) => (
               <motion.div key={campus.name} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                className="bg-card border border-border rounded-lg p-5">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-5 w-5 text-primary" />
+                className="group relative bg-card border border-border rounded-lg p-5 overflow-hidden">
+                {/* Main Content */}
+                <div className="relative z-10 transition-opacity group-hover:opacity-0 duration-300">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-serif font-semibold text-foreground">{campus.name}</h3>
+                      <p className="text-accent text-sm font-medium">{campus.location}</p>
+                      <p className="text-muted-foreground text-sm mt-1">{campus.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-serif font-semibold text-foreground">{campus.name}</h3>
-                    <p className="text-accent text-sm font-medium">{campus.location}</p>
-                    <p className="text-muted-foreground text-sm mt-1">{campus.description}</p>
-                  </div>
+                </div>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-accent/95 p-5 flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                  <MapPin className="h-8 w-8 text-white mb-3" />
+                  <h3 className="font-serif font-semibold text-white mb-2">{campus.name}</h3>
+                  <p className="text-white/90 text-sm font-medium mb-2">{campus.location}</p>
+                  <p className="text-white/90 text-sm leading-relaxed">{campus.hoverDesc}</p>
                 </div>
               </motion.div>
             ))}
@@ -509,10 +537,10 @@ const AboutUniversity = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Cultural Fests", desc: "Annual celebrations of art, music & dance", icon: Calendar },
-              { title: "Sports Complex", desc: "State-of-the-art athletic facilities", icon: Award },
-              { title: "Student Clubs", desc: "50+ clubs for diverse interests", icon: Users },
-              { title: "Global Exchange", desc: "Partnerships with 30+ universities worldwide", icon: Globe },
+              { title: "Cultural Fests", desc: "Annual celebrations of art, music & dance", icon: Calendar, hoverDesc: "Experience vibrant cultural festivals throughout the year featuring classical and contemporary performances, literary events, art exhibitions, and talent showcases that bring together students from all disciplines." },
+              { title: "Sports Complex", desc: "State-of-the-art athletic facilities", icon: Award, hoverDesc: "Modern sports infrastructure including cricket stadium, football field, basketball courts, indoor badminton and table tennis facilities, gymnasium, and yoga center promoting holistic student development." },
+              { title: "Student Clubs", desc: "50+ clubs for diverse interests", icon: Users, hoverDesc: "Join from 50+ active clubs covering technology, literature, drama, music, photography, social service, entrepreneurship, and more. Build leadership skills and pursue your passions beyond academics." },
+              { title: "Global Exchange", desc: "Partnerships with 30+ universities worldwide", icon: Globe, hoverDesc: "International collaboration programs with universities across USA, Europe, and Asia. Opportunities for student exchange, joint research projects, and exposure to global academic standards." },
             ].map((item, index) => {
               const IconComponent = item.icon;
               return (
@@ -523,13 +551,23 @@ const AboutUniversity = () => {
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeInUp}
-                  className="bg-background border border-border rounded-lg p-6 hover:shadow-lg transition-shadow"
+                  className="group relative bg-background border border-border rounded-lg p-6 hover:shadow-lg transition-shadow overflow-hidden"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                    <IconComponent className="h-6 w-6 text-accent" />
+                  {/* Main Content */}
+                  <div className="relative z-10 transition-opacity group-hover:opacity-0 duration-300">
+                    <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                      <IconComponent className="h-6 w-6 text-accent" />
+                    </div>
+                    <h3 className="font-serif text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground">{item.desc}</p>
                   </div>
-                  <h3 className="font-serif text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/95 to-primary/95 p-6 flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                    <IconComponent className="h-8 w-8 text-white mb-3" />
+                    <h3 className="font-serif text-base font-semibold text-white mb-2">{item.title}</h3>
+                    <p className="text-sm text-white/90 leading-relaxed">{item.hoverDesc}</p>
+                  </div>
                 </motion.div>
               );
             })}

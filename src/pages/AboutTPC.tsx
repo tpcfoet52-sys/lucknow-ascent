@@ -54,31 +54,37 @@ const services = [
   {
     title: "Placement Assistance",
     desc: "End-to-end support for campus recruitment drives and job placement",
+    hoverDesc: "Our dedicated team coordinates with top companies to organize campus drives, ensuring students get the best placement opportunities. We handle everything from company onboarding to final offer letters.",
     icon: Briefcase
   },
   {
     title: "Career Counseling",
     desc: "Personalized guidance for career planning and professional development",
+    hoverDesc: "One-on-one sessions with experienced career counselors help students identify their strengths, explore career paths, and make informed decisions about their professional journey.",
     icon: Target
   },
   {
     title: "Skill Development",
     desc: "Workshops on aptitude, communication, and technical skills",
+    hoverDesc: "Regular workshops and training sessions covering aptitude tests, group discussions, technical interviews, and soft skills to make students industry-ready and confident.",
     icon: GraduationCap
   },
   {
     title: "Industry Connect",
     desc: "Guest lectures, seminars, and industry interaction sessions",
+    hoverDesc: "Bridge the gap between academia and industry through expert talks, industrial visits, and networking events with professionals from leading organizations.",
     icon: Building2
   },
   {
     title: "Internship Coordination",
     desc: "Facilitating internship opportunities with leading companies",
+    hoverDesc: "We partner with top companies to provide meaningful internship experiences that give students real-world exposure and enhance their practical skills.",
     icon: Users
   },
   {
     title: "Alumni Network",
     desc: "Connecting students with successful alumni for mentorship",
+    hoverDesc: "Leverage our strong alumni network for mentorship, career guidance, and networking opportunities. Learn from those who've walked the path before you.",
     icon: Award
   },
 ];
@@ -101,29 +107,45 @@ const trainingPrograms = [
   {
     title: "Session on Scope in Civil Engineering",
     speaker: "Miss Surabhi Aggarwal",
-    role: "Geotechnical Engineer, Samsung C&T"
+    role: "Geotechnical Engineer, Samsung C&T",
+    hoverDesc: "An insightful session exploring career opportunities in civil engineering, focusing on geotechnical specializations and modern construction technologies used in global infrastructure projects."
   },
   {
     title: "Workshop: Reaching Out to Industries",
     desc: "Resume Building & Interview Prep",
     speaker: "Mr. Shubham Sing",
-    role: "SDE, PhonePe"
+    role: "SDE, PhonePe",
+    hoverDesc: "A comprehensive workshop on crafting effective resumes, mastering interview techniques, and understanding industry expectations. Learn strategies that helped professionals break into top tech companies."
   },
   {
     title: "Opportunities for Engineers in DRDO",
     speaker: "Dr. Ashish Dubey",
-    role: "Scientist 'G' & Project Director, DTTC Lucknow"
+    role: "Scientist 'G' & Project Director, DTTC Lucknow",
+    hoverDesc: "Discover exciting career paths in defense research and development. Learn about cutting-edge projects, recruitment processes, and the impact engineers make in national security and innovation."
   },
   {
     title: "Naval Aviation & Operations",
     speaker: "Lt. Cdr. Rohit Dhama (Retd.)",
-    role: "Ex-Indian Navy (10+ Years Exp.)"
+    role: "Ex-Indian Navy (10+ Years Exp.)",
+    hoverDesc: "Gain insights into naval aviation careers, operational challenges, and leadership opportunities in the Indian Navy. Understand the selection process and life of a naval officer."
   }
 ];
 
 const successStories = [
-  { name: "Karthik Gupta", company: "Qdrant", package: "₹26 LPA", year: "2023" },
-  { name: "Maria Khan", company: "Branch International", package: "₹22 LPA", year: "2024" },
+  {
+    name: "Karthik Gupta",
+    company: "Qdrant",
+    package: "₹26 LPA",
+    year: "2023",
+    hoverDesc: "Karthik's journey from a curious engineering student to a high-performing software engineer at Qdrant showcases dedication and smart preparation. His success in securing the highest package demonstrates the quality of training and opportunities at our university."
+  },
+  {
+    name: "Maria Khan",
+    company: "Branch International",
+    package: "₹22 LPA",
+    year: "2024",
+    hoverDesc: "Maria's exceptional performance in technical interviews and her strong foundation in computer science led her to Branch International. Her achievement inspires many students to pursue excellence in their chosen fields."
+  },
 ];
 
 const downloads = [
@@ -137,7 +159,7 @@ const AboutTPC = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      
+
 
       {/* Hero Section */}
       <section className="relative pt-20 md:pt-24 pb-16 md:pb-24 overflow-hidden">
@@ -277,12 +299,14 @@ const AboutTPC = () => {
                 name: "Prof. S.P. Singh",
                 role: "Dean, Faculty of Engineering & Technology",
                 image: profSpSingh,
-                quote: "Our mission is to nurture industry-ready professionals who contribute to nation-building."
+                quote: "Our mission is to nurture industry-ready professionals who contribute to nation-building.",
+                hoverDesc: "With decades of academic excellence and leadership, Prof. S.P. Singh oversees the strategic vision of engineering education at University of Lucknow. His commitment to student success drives our placement initiatives and industry partnerships."
               },
               {
                 name: "Dr. Himanshu Pandey",
                 role: "Associate Professor & Program Coordinator, Additional Director CPC",
                 image: drHimanshuPandey,
+                hoverDesc: "Dr. Himanshu Pandey brings innovative approaches to career development and placement strategies. His extensive industry connections and student-centric approach have significantly enhanced placement outcomes and training programs.",
                 quote: "We bridge academia and industry through strategic partnerships and comprehensive training."
               },
             ].map((leader, index) => (
@@ -293,16 +317,33 @@ const AboutTPC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUp}
-                className="bg-background border border-border rounded-lg p-6 text-center"
+                className="group relative bg-background border border-border rounded-lg p-6 text-center overflow-hidden"
               >
-                <img
-                  src={leader.image}
-                  alt={leader.name}
-                  className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-accent/20"
-                />
-                <h3 className="font-serif text-lg font-semibold text-foreground">{leader.name}</h3>
-                <p className="text-sm text-accent mt-1">{leader.role}</p>
-                <p className="text-sm text-muted-foreground mt-4 italic">"{leader.quote}"</p>
+                {/* Main Content */}
+                <div className="relative z-10 transition-opacity group-hover:opacity-0 duration-300">
+                  <img
+                    src={leader.image}
+                    alt={leader.name}
+                    className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-accent/20"
+                  />
+                  <h3 className="font-serif text-lg font-semibold text-foreground">{leader.name}</h3>
+                  <p className="text-sm text-accent mt-1">{leader.role}</p>
+                  <p className="text-sm text-muted-foreground mt-4 italic">"{leader.quote}"</p>
+                </div>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-accent/95 p-6 flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                  <img
+                    src={leader.image}
+                    alt={leader.name}
+                    className="w-20 h-20 rounded-full object-cover mx-auto mb-3 border-4 border-white/30"
+                  />
+                  <h3 className="font-serif text-lg font-semibold text-white mb-2">{leader.name}</h3>
+                  <p className="text-xs text-white/80 mb-3">{leader.role}</p>
+                  <p className="text-sm text-white/90 leading-relaxed">
+                    {leader.hoverDesc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -335,15 +376,29 @@ const AboutTPC = () => {
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeInUp}
-                  className="group bg-background border border-border rounded-lg p-6 hover:border-accent/50 hover:shadow-lg transition-all"
+                  className="group relative bg-background border border-border rounded-lg p-6 hover:border-accent/50 hover:shadow-lg transition-all overflow-hidden"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                    <IconComponent className="h-6 w-6 text-primary" />
+                  {/* Main Content */}
+                  <div className="relative z-10 transition-opacity group-hover:opacity-0 duration-300">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                      <IconComponent className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">{service.desc}</p>
                   </div>
-                  <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">{service.desc}</p>
+
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/95 to-primary/95 p-6 flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                    <IconComponent className="h-8 w-8 text-white mb-3" />
+                    <h3 className="font-serif text-lg font-semibold text-white mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-white/90 leading-relaxed">
+                      {service.hoverDesc}
+                    </p>
+                  </div>
                 </motion.div>
               );
             })}
@@ -411,19 +466,37 @@ const AboutTPC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUp}
-                className="group bg-background border border-border/50 rounded-lg p-6 text-center shadow-sm hover:shadow-xl hover:border-accent/50 transition-all duration-300"
+                className="group relative bg-background border border-border/50 rounded-lg p-6 text-center shadow-sm hover:shadow-xl hover:border-accent/50 transition-all duration-300 overflow-hidden"
               >
-                <div className="mb-4 inline-block group-hover:scale-110 transition-transform duration-300">
-                  <GraduationCap className="h-10 w-10 text-accent mx-auto" />
-                </div>
-                <h3 className="font-serif text-lg font-semibold text-foreground mb-1">
-                  {program.title}
-                </h3>
-                {program.desc && <p className="text-xs text-muted-foreground mb-2">{program.desc}</p>}
+                {/* Main Content */}
+                <div className="relative z-10 transition-opacity group-hover:opacity-0 duration-300">
+                  <div className="mb-4 inline-block group-hover:scale-110 transition-transform duration-300">
+                    <GraduationCap className="h-10 w-10 text-accent mx-auto" />
+                  </div>
+                  <h3 className="font-serif text-lg font-semibold text-foreground mb-1">
+                    {program.title}
+                  </h3>
+                  {program.desc && <p className="text-xs text-muted-foreground mb-2">{program.desc}</p>}
 
-                <div className="mt-4 pt-4 border-t border-border/40">
-                  <p className="text-accent font-medium text-sm">{program.speaker}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{program.role}</p>
+                  <div className="mt-4 pt-4 border-t border-border/40">
+                    <p className="text-accent font-medium text-sm">{program.speaker}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{program.role}</p>
+                  </div>
+                </div>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/95 to-primary/95 p-6 flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                  <GraduationCap className="h-10 w-10 text-white mx-auto mb-3" />
+                  <h3 className="font-serif text-base font-semibold text-white mb-3">
+                    {program.title}
+                  </h3>
+                  <p className="text-sm text-white/90 leading-relaxed mb-4">
+                    {program.hoverDesc}
+                  </p>
+                  <div className="pt-3 border-t border-white/20">
+                    <p className="text-white font-medium text-sm">{program.speaker}</p>
+                    <p className="text-xs text-white/80 mt-1">{program.role}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -455,15 +528,30 @@ const AboutTPC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUp}
-                className="group bg-background border border-border/50 rounded-lg p-6 text-center shadow-sm hover:shadow-xl hover:border-accent/50 transition-all duration-300"
+                className="group relative bg-background border border-border/50 rounded-lg p-6 text-center shadow-sm hover:shadow-xl hover:border-accent/50 transition-all duration-300 overflow-hidden"
               >
-                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <TrendingUp className="h-8 w-8 text-accent" />
+                {/* Main Content */}
+                <div className="relative z-10 transition-opacity group-hover:opacity-0 duration-300">
+                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <TrendingUp className="h-8 w-8 text-accent" />
+                  </div>
+                  <h3 className="font-serif text-lg font-semibold text-foreground">{story.name}</h3>
+                  <p className="text-accent font-medium mt-1">{story.company}</p>
+                  <p className="text-2xl font-bold text-foreground mt-2">{story.package}</p>
+                  <p className="text-xs text-muted-foreground mt-1">Batch of {story.year}</p>
                 </div>
-                <h3 className="font-serif text-lg font-semibold text-foreground">{story.name}</h3>
-                <p className="text-accent font-medium mt-1">{story.company}</p>
-                <p className="text-2xl font-bold text-foreground mt-2">{story.package}</p>
-                <p className="text-xs text-muted-foreground mt-1">Batch of {story.year}</p>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-accent/95 p-6 flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                  <TrendingUp className="h-10 w-10 text-white mx-auto mb-3" />
+                  <h3 className="font-serif text-lg font-semibold text-white mb-2">{story.name}</h3>
+                  <p className="text-white/90 font-medium mb-1">{story.company}</p>
+                  <p className="text-2xl font-bold text-white mb-3">{story.package}</p>
+                  <p className="text-sm text-white/90 leading-relaxed">
+                    {story.hoverDesc}
+                  </p>
+                  <p className="text-xs text-white/70 mt-3">Batch of {story.year}</p>
+                </div>
               </motion.div>
             ))}
           </div>
