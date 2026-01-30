@@ -566,7 +566,7 @@ const AboutTPC = () => {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-5 max-w-3xl mx-auto">
             {successStories.map((story, index) => (
               <motion.div
                 key={story.name}
@@ -585,24 +585,24 @@ const AboutTPC = () => {
                 {/* Image Section - Icon Placeholder */}
                 <div className="aspect-video overflow-hidden relative bg-muted">
                   <div className="w-full h-full flex items-center justify-center bg-accent/5">
-                    <TrendingUp className="h-16 w-16 text-accent/40" />
+                    <TrendingUp className="h-10 w-10 text-accent/40" />
                   </div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-5 relative z-10 bg-card text-center">
-                  <div className="flex justify-center mb-3">
-                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                      <TrendingUp className="h-6 w-6 text-accent" />
+                <div className="p-4 relative z-10 bg-card text-center">
+                  <div className="flex justify-center mb-2">
+                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                      <TrendingUp className="h-5 w-5 text-accent" />
                     </div>
                   </div>
 
-                  <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
+                  <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors leading-tight">
                     {story.name}
                   </h3>
-                  <p className="text-accent font-medium mt-1">{story.company}</p>
-                  <p className="text-2xl font-bold text-foreground mt-2">{story.package}</p>
-                  <p className="text-xs text-muted-foreground mt-1">Batch of {story.year}</p>
+                  <p className="text-accent font-medium mt-0.5 text-sm">{story.company}</p>
+                  <p className="text-xl font-bold text-foreground mt-1">{story.package}</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">Batch of {story.year}</p>
 
                   {/* Animated Description - Drops down on Hover */}
                   <motion.div
@@ -614,7 +614,7 @@ const AboutTPC = () => {
                     className="overflow-hidden"
                     transition={{ duration: 0.4, ease: "easeOut" }}
                   >
-                    <p className="text-sm text-muted-foreground mt-3 border-t border-border/50 pt-3 leading-relaxed">
+                    <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed">
                       {story.hoverDesc}
                     </p>
                   </motion.div>
