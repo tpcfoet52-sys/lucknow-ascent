@@ -19,19 +19,19 @@ import relianceLogo from "../assets/reliance-logo.png";
 import accentureLogo from "../assets/accenture-logo.png";
 
 const companies = [
-  { name: "SOTI", logo: sotiLogo, scale: 1.25 },
+  { name: "SOTI", logo: sotiLogo, scale: 1.5 },
   { name: "Adobe", logo: adobeLogo },
   { name: "Deloitte", logo: deloitteLogo, scale: 1.2 },
   { name: "Wipro", logo: wiproLogo },
   { name: "NPCL", logo: npclLogo, scale: 1.3 },
   { name: "HCL Tech", logo: hclLogo },
   { name: "Genpact", logo: genpactLogo, scale: 1.25 },
-  { name: "Adani Cements", logo: adaniLogo, scale: 1.25 },
-  { name: "Motherson International", logo: mothersonLogo, scale: 1.25 },
+  { name: "Adani Cements", logo: adaniLogo, scale: 1.5 },
+  { name: "Motherson International", logo: mothersonLogo, scale: 1.5 },
   { name: "Allen", logo: allenLogo },
   { name: "PW", logo: pwLogo },
-  { name: "BYJU’S", logo: byjusLogo, scale: 1.3 },
-  { name: "Tech Mahindra", logo: techMahindraLogo, scale: 1.2 },
+  { name: "BYJU’S", logo: byjusLogo, scale: 1.6 },
+  { name: "Tech Mahindra", logo: techMahindraLogo, scale: 1.45 },
   { name: "Jaro Education", logo: jaroLogo },
   { name: "Reliance Industries Ltd.", logo: relianceLogo },
   { name: "Accenture", logo: accentureLogo }
