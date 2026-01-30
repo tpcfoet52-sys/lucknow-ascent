@@ -313,36 +313,50 @@ const AboutTPC = () => {
               <motion.div
                 key={leader.name}
                 custom={index}
-                initial="hidden"
-                whileInView="visible"
+                initial="initial"
+                whileInView="animate"
+                whileHover="hover"
                 viewport={{ once: true }}
-                variants={fadeInUp}
-                className="group relative bg-background border border-border rounded-lg p-6 text-center overflow-hidden"
+                variants={{
+                  initial: { opacity: 0, y: 30 },
+                  animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
+                  hover: { y: -5, transition: { duration: 0.3 } }
+                }}
+                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
               >
-                {/* Main Content */}
-                <div className="relative z-10 transition-opacity group-hover:opacity-0 duration-300">
-                  <img
-                    src={leader.image}
-                    alt={leader.name}
-                    className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-accent/20"
-                  />
-                  <h3 className="font-serif text-lg font-semibold text-foreground">{leader.name}</h3>
-                  <p className="text-sm text-accent mt-1">{leader.role}</p>
-                  <p className="text-sm text-muted-foreground mt-4 italic">"{leader.quote}"</p>
+                {/* Image Section - Circular Profile Photo */}
+                <div className="aspect-[4/3] overflow-hidden relative bg-card flex items-center justify-center pt-6">
+                  <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 group-hover:scale-110">
+                    <img
+                      src={leader.image}
+                      alt={leader.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-accent/95 p-6 flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                  <img
-                    src={leader.image}
-                    alt={leader.name}
-                    className="w-20 h-20 rounded-full object-cover mx-auto mb-3 border-4 border-white/30"
-                  />
-                  <h3 className="font-serif text-lg font-semibold text-white mb-2">{leader.name}</h3>
-                  <p className="text-xs text-white/80 mb-3">{leader.role}</p>
-                  <p className="text-sm text-white/90 leading-relaxed">
-                    {leader.hoverDesc}
-                  </p>
+                {/* Content Section */}
+                <div className="p-5 relative z-10 bg-card text-center">
+                  <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
+                    {leader.name}
+                  </h3>
+                  <p className="text-sm text-accent mt-1">{leader.role}</p>
+                  <p className="text-sm text-muted-foreground mt-3 italic">"{leader.quote}"</p>
+
+                  {/* Animated Description - Drops down on Hover */}
+                  <motion.div
+                    variants={{
+                      initial: { height: 0, opacity: 0 },
+                      animate: { height: 0, opacity: 0 },
+                      hover: { height: "auto", opacity: 1 }
+                    }}
+                    className="overflow-hidden"
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                  >
+                    <p className="text-sm text-muted-foreground mt-3 border-t border-border/50 pt-3 leading-relaxed">
+                      {leader.hoverDesc}
+                    </p>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
@@ -365,7 +379,7 @@ const AboutTPC = () => {
             </h2>
           </motion.div>
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
@@ -402,7 +416,7 @@ const AboutTPC = () => {
                         </h3>
                       </div>
                     </div>
-                    
+
                     <p className="text-sm text-muted-foreground">{service.desc}</p>
 
                     {/* Animated Description - Drops down on Hover */}
@@ -483,41 +497,56 @@ const AboutTPC = () => {
               <motion.div
                 key={program.title}
                 custom={index}
-                initial="hidden"
-                whileInView="visible"
+                initial="initial"
+                whileInView="animate"
+                whileHover="hover"
                 viewport={{ once: true }}
-                variants={fadeInUp}
-                className="group relative bg-background border border-border/50 rounded-lg p-6 text-center shadow-sm hover:shadow-xl hover:border-accent/50 transition-all duration-300 overflow-hidden"
+                variants={{
+                  initial: { opacity: 0, y: 30 },
+                  animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
+                  hover: { y: -5, transition: { duration: 0.3 } }
+                }}
+                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
               >
-                {/* Main Content */}
-                <div className="relative z-10 transition-opacity group-hover:opacity-0 duration-300">
-                  <div className="mb-4 inline-block group-hover:scale-110 transition-transform duration-300">
-                    <GraduationCap className="h-10 w-10 text-accent mx-auto" />
-                  </div>
-                  <h3 className="font-serif text-lg font-semibold text-foreground mb-1">
-                    {program.title}
-                  </h3>
-                  {program.desc && <p className="text-xs text-muted-foreground mb-2">{program.desc}</p>}
-
-                  <div className="mt-4 pt-4 border-t border-border/40">
-                    <p className="text-accent font-medium text-sm">{program.speaker}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{program.role}</p>
+                {/* Image Section - Icon Placeholder */}
+                <div className="aspect-video overflow-hidden relative bg-muted">
+                  <div className="w-full h-full flex items-center justify-center bg-accent/5">
+                    <GraduationCap className="h-16 w-16 text-accent/40" />
                   </div>
                 </div>
 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/95 to-primary/95 p-6 flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                  <GraduationCap className="h-10 w-10 text-white mx-auto mb-3" />
-                  <h3 className="font-serif text-base font-semibold text-white mb-3">
+                {/* Content Section */}
+                <div className="p-5 relative z-10 bg-card text-center">
+                  <div className="flex justify-center mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                      <GraduationCap className="h-5 w-5 text-accent" />
+                    </div>
+                  </div>
+
+                  <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-accent transition-colors mb-1">
                     {program.title}
                   </h3>
-                  <p className="text-sm text-white/90 leading-relaxed mb-4">
-                    {program.hoverDesc}
-                  </p>
-                  <div className="pt-3 border-t border-white/20">
-                    <p className="text-white font-medium text-sm">{program.speaker}</p>
-                    <p className="text-xs text-white/80 mt-1">{program.role}</p>
+                  {program.desc && <p className="text-xs text-muted-foreground mb-3">{program.desc}</p>}
+
+                  <div className="pt-3 border-t border-border/40">
+                    <p className="text-accent font-medium text-sm">{program.speaker}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{program.role}</p>
                   </div>
+
+                  {/* Animated Description - Drops down on Hover */}
+                  <motion.div
+                    variants={{
+                      initial: { height: 0, opacity: 0 },
+                      animate: { height: 0, opacity: 0 },
+                      hover: { height: "auto", opacity: 1 }
+                    }}
+                    className="overflow-hidden"
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                  >
+                    <p className="text-sm text-muted-foreground mt-3 border-t border-border/50 pt-3 leading-relaxed">
+                      {program.hoverDesc}
+                    </p>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
@@ -545,33 +574,53 @@ const AboutTPC = () => {
               <motion.div
                 key={story.name}
                 custom={index}
-                initial="hidden"
-                whileInView="visible"
+                initial="initial"
+                whileInView="animate"
+                whileHover="hover"
                 viewport={{ once: true }}
-                variants={fadeInUp}
-                className="group relative bg-background border border-border/50 rounded-lg p-6 text-center shadow-sm hover:shadow-xl hover:border-accent/50 transition-all duration-300 overflow-hidden"
+                variants={{
+                  initial: { opacity: 0, y: 30 },
+                  animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
+                  hover: { y: -5, transition: { duration: 0.3 } }
+                }}
+                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
               >
-                {/* Main Content */}
-                <div className="relative z-10 transition-opacity group-hover:opacity-0 duration-300">
-                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <TrendingUp className="h-8 w-8 text-accent" />
+                {/* Image Section - Icon Placeholder */}
+                <div className="aspect-video overflow-hidden relative bg-muted">
+                  <div className="w-full h-full flex items-center justify-center bg-accent/5">
+                    <TrendingUp className="h-16 w-16 text-accent/40" />
                   </div>
-                  <h3 className="font-serif text-lg font-semibold text-foreground">{story.name}</h3>
+                </div>
+
+                {/* Content Section */}
+                <div className="p-5 relative z-10 bg-card text-center">
+                  <div className="flex justify-center mb-3">
+                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                      <TrendingUp className="h-6 w-6 text-accent" />
+                    </div>
+                  </div>
+
+                  <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
+                    {story.name}
+                  </h3>
                   <p className="text-accent font-medium mt-1">{story.company}</p>
                   <p className="text-2xl font-bold text-foreground mt-2">{story.package}</p>
                   <p className="text-xs text-muted-foreground mt-1">Batch of {story.year}</p>
-                </div>
 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-accent/95 p-6 flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                  <TrendingUp className="h-10 w-10 text-white mx-auto mb-3" />
-                  <h3 className="font-serif text-lg font-semibold text-white mb-2">{story.name}</h3>
-                  <p className="text-white/90 font-medium mb-1">{story.company}</p>
-                  <p className="text-2xl font-bold text-white mb-3">{story.package}</p>
-                  <p className="text-sm text-white/90 leading-relaxed">
-                    {story.hoverDesc}
-                  </p>
-                  <p className="text-xs text-white/70 mt-3">Batch of {story.year}</p>
+                  {/* Animated Description - Drops down on Hover */}
+                  <motion.div
+                    variants={{
+                      initial: { height: 0, opacity: 0 },
+                      animate: { height: 0, opacity: 0 },
+                      hover: { height: "auto", opacity: 1 }
+                    }}
+                    className="overflow-hidden"
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                  >
+                    <p className="text-sm text-muted-foreground mt-3 border-t border-border/50 pt-3 leading-relaxed">
+                      {story.hoverDesc}
+                    </p>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
