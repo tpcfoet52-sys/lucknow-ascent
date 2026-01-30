@@ -30,15 +30,69 @@ const fadeInUp = {
 };
 
 const alumniList = [
-    { name: "Ritu Karidhal", role: "Senior Scientist, ISRO (Rocket Woman)", field: "Science & Technology", image: rituKaridhal },
-    { name: "Naresh Trehan", role: "Founder, Medanta Hospital (Padma Shri)", field: "Medicine & Healthcare", image: nareshTrehan },
-    { name: "S. P. Chakravarti", role: "Pioneer of Electronics Education", field: "Education & Technology", image: spChakravarti },
-    { name: "Govind Ballabh Pant", role: "Freedom Fighter & 1st CM of UP", field: "Politics & Governance", image: govindBallabhPant },
-    { name: "Justice A. S. Anand", role: "Former Chief Justice of India", field: "Law & Judiciary", image: justiceAsAnand },
-    { name: "Qurratulain Hyder", role: "Jnanpith Awardee Novelist", field: "Literature", image: qurratulainHyder },
-    { name: "Vinod Mehta", role: "Eminent Journalist (Editor, Outlook)", field: "Journalism & Media", image: vinodMehta },
-    { name: "Vartika Singh", role: "Indian model and beauty pageant titleholder", field: "Arts & Fashion", image: vartikaSingh },
-    { name: "Jagdish Gandhi", role: "Founder, City Montessori School", field: "Education", image: jagdishGandhi },
+    {
+        name: "Ritu Karidhal",
+        role: "Senior Scientist, ISRO (Rocket Woman)",
+        field: "Science & Technology",
+        image: rituKaridhal,
+        description: "Known as the 'Rocket Woman of India', Ritu Karidhal played a crucial role in India's Mars Orbiter Mission (Mangalyaan) and Chandrayaan-2. Her pioneering work in space science has inspired countless women to pursue careers in STEM fields."
+    },
+    {
+        name: "Naresh Trehan",
+        role: "Founder, Medanta Hospital (Padma Shri)",
+        field: "Medicine & Healthcare",
+        image: nareshTrehan,
+        description: "A globally renowned cardiac surgeon and recipient of the Padma Shri and Padma Bhushan, Dr. Trehan founded Medanta - The Medicity. He has performed over 48,000 open-heart surgeries and revolutionized healthcare delivery in India."
+    },
+    {
+        name: "S. P. Chakravarti",
+        role: "Pioneer of Electronics Education",
+        field: "Education & Technology",
+        image: spChakravarti,
+        description: "A visionary educator who established India's first electronics engineering department. His contributions to technical education have shaped generations of engineers and laid the foundation for India's electronics industry."
+    },
+    {
+        name: "Govind Ballabh Pant",
+        role: "Freedom Fighter & 1st CM of UP",
+        field: "Politics & Governance",
+        image: govindBallabhPant,
+        description: "A key figure in India's independence movement and recipient of the Bharat Ratna, Pant served as the first Chief Minister of Uttar Pradesh. He championed land reforms and social justice, leaving an indelible mark on Indian democracy."
+    },
+    {
+        name: "Justice A. S. Anand",
+        role: "Former Chief Justice of India",
+        field: "Law & Judiciary",
+        image: justiceAsAnand,
+        description: "Served as the 29th Chief Justice of India and made landmark contributions to constitutional law. His judicial wisdom and commitment to justice have significantly influenced India's legal landscape and upheld the rule of law."
+    },
+    {
+        name: "Qurratulain Hyder",
+        role: "Jnanpith Awardee Novelist",
+        field: "Literature",
+        image: qurratulainHyder,
+        description: "One of the most influential Urdu writers of the 20th century and recipient of the Jnanpith Award. Her magnum opus 'Aag Ka Darya' is considered a masterpiece of Indo-Persian literature, chronicling 2,500 years of Indian history."
+    },
+    {
+        name: "Vinod Mehta",
+        role: "Eminent Journalist (Editor, Outlook)",
+        field: "Journalism & Media",
+        image: vinodMehta,
+        description: "A legendary journalist who served as the founding editor of Outlook magazine for over two decades. Known for his fearless journalism and editorial independence, he shaped public discourse in India through investigative reporting."
+    },
+    {
+        name: "Vartika Singh",
+        role: "Indian model and beauty pageant titleholder",
+        field: "Arts & Fashion",
+        image: vartikaSingh,
+        description: "A successful model and beauty pageant winner who has represented India on international platforms. She has been an advocate for women's empowerment and has used her platform to inspire young women across the country."
+    },
+    {
+        name: "Jagdish Gandhi",
+        role: "Founder, City Montessori School",
+        field: "Education",
+        image: jagdishGandhi,
+        description: "Founder of City Montessori School, the world's largest school recognized by Guinness World Records. A visionary educator and recipient of multiple international awards, he has pioneered educational reforms benefiting millions of children."
+    },
 ];
 
 const OurAlumni = () => {
@@ -119,24 +173,35 @@ const OurAlumni = () => {
                                 whileInView="visible"
                                 viewport={{ once: true }}
                                 variants={fadeInUp}
-                                className="bg-background border border-border rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300"
+                                className="group bg-background border border-border rounded-lg overflow-hidden hover:shadow-xl hover:border-accent/50 transition-all duration-300 relative cursor-pointer"
                             >
-                                {alumni.image ? (
-                                    <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-4 border-accent/20">
-                                        <img
-                                            src={alumni.image}
-                                            alt={alumni.name}
-                                            className="w-full h-full object-cover"
-                                        />
+                                <div className="p-6 text-center">
+                                    {alumni.image ? (
+                                        <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300">
+                                            <img
+                                                src={alumni.image}
+                                                alt={alumni.name}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </div>
+                                    ) : (
+                                        <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                                            <Award className="h-10 w-10 text-primary" />
+                                        </div>
+                                    )}
+                                    <h3 className="font-serif text-lg font-semibold text-foreground">{alumni.name}</h3>
+                                    <p className="text-sm text-accent mt-1">{alumni.role}</p>
+                                    <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
+                                </div>
+
+                                {/* Dropdown Description */}
+                                <div className="max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-500 ease-in-out">
+                                    <div className="px-6 pb-6 pt-3 border-t border-border/50 bg-muted/20">
+                                        <p className="text-xs text-muted-foreground leading-relaxed">
+                                            {alumni.description}
+                                        </p>
                                     </div>
-                                ) : (
-                                    <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                                        <Award className="h-10 w-10 text-primary" />
-                                    </div>
-                                )}
-                                <h3 className="font-serif text-lg font-semibold text-foreground">{alumni.name}</h3>
-                                <p className="text-sm text-accent mt-1">{alumni.role}</p>
-                                <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
+                                </div>
                             </motion.div>
                         ))}
                     </div>
