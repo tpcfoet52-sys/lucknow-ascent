@@ -226,7 +226,7 @@ const TeamStructure = () => {
 
 
       {/* Hero Section with Background Image */}
-      < section className="relative pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden" >
+      < section className="relative pt-20 md:pt-24 pb-8 md:pb-12 overflow-hidden" >
         {/* Background Image */}
         < div className="absolute inset-0 z-0" >
           <img
@@ -276,7 +276,7 @@ const TeamStructure = () => {
       </section >
 
       {/* Faculty Coordinator Section */}
-      <section className="py-12 bg-secondary/20">
+      <section className="py-8 bg-secondary/20">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -329,7 +329,7 @@ const TeamStructure = () => {
       </section>
 
       {/* Teams Grid - Student Coordinators */}
-      <section className="py-16 md:py-24">
+      <section className="pt-10 pb-16 md:pb-24">
         <div className="container-narrow">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
