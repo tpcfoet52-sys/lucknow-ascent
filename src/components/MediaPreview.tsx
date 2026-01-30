@@ -173,27 +173,20 @@ const MediaPreview = () => {
                                     </p>
                                 </div>
 
-                                <div className="mt-8 pt-6 border-t border-border/50">
-                                    <Button
-                                        onClick={() => setSelectedItem(null)}
-                                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                                    >
-                                        Close
-                                    </Button>
-                                </div>
                             </div>
-
-                            <button
-                                onClick={() => setSelectedItem(null)}
-                                className="absolute top-4 right-4 p-2 bg-black/50 text-white/90 hover:bg-black/80 hover:text-white rounded-full transition-colors z-10 md:hidden"
-                            >
-                                <X className="w-6 h-6" />
-                            </button>
                         </motion.div>
+
+                        <button
+                            onClick={() => setSelectedItem(null)}
+                            className="absolute top-4 right-4 p-2 bg-black/20 hover:bg-black/40 text-foreground/70 hover:text-foreground rounded-full transition-all duration-200 z-50 group"
+                            aria-label="Close modal"
+                        >
+                            <X className="w-6 h-6 transition-transform group-hover:rotate-90" />
+                        </button>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </section>
+        </section >
     );
 };
 
