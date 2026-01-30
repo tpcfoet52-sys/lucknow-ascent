@@ -358,7 +358,7 @@ const AboutUniversity = () => {
             </p>
           </motion.div>
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {programs.map((program, index) => {
               const IconComponent = program.icon;
               return (
@@ -390,25 +390,25 @@ const AboutUniversity = () => {
                       </>
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-primary/5">
-                        <IconComponent className="h-16 w-16 text-primary/40" />
+                        <IconComponent className="h-10 w-10 text-primary/40" />
                       </div>
                     )}
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-5 relative z-10 bg-card">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <IconComponent className="h-5 w-5 text-primary" />
+                  <div className="p-4 relative z-10 bg-card">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <IconComponent className="h-4 w-4 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-accent transition-colors leading-tight">
+                        <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors leading-tight">
                           {program.name}
                         </h3>
                       </div>
                     </div>
-                    
-                    <p className="text-sm text-muted-foreground mb-2">
+
+                    <p className="text-xs text-muted-foreground mb-1">
                       {program.students} Students Enrolled
                     </p>
 
@@ -422,7 +422,7 @@ const AboutUniversity = () => {
                       className="overflow-hidden"
                       transition={{ duration: 0.4, ease: "easeOut" }}
                     >
-                      <p className="text-sm text-muted-foreground mt-2 border-t border-border/50 pt-3 leading-relaxed">
+                      <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed">
                         {program.hoverDesc}
                       </p>
                     </motion.div>
@@ -506,7 +506,7 @@ const AboutUniversity = () => {
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mt-2">Campus Locations</h2>
             <p className="text-muted-foreground mt-2 text-sm">219 acres across 5 districts: Lucknow, Raebareli, Hardoi, Sitapur & Lakhimpur Kheri</p>
           </motion.div>
-                    <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {campusLocations.map((campus, index) => (
               <motion.div
                 key={campus.name}
@@ -542,7 +542,7 @@ const AboutUniversity = () => {
                       <p className="text-accent text-sm font-medium">{campus.location}</p>
                     </div>
                   </div>
-                  
+
                   <p className="text-muted-foreground text-sm">{campus.description}</p>
 
                   {/* Animated Description - Drops down on Hover */}
