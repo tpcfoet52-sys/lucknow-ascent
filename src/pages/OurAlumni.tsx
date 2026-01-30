@@ -102,7 +102,7 @@ const OurAlumni = () => {
 
 
             {/* Hero Section */}
-            <section className="relative pt-20 md:pt-24 pb-8 md:pb-12 overflow-hidden">
+            <section className="relative pt-20 md:pt-24 pb-16 md:pb-24 overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
                         src={heroImage}
@@ -150,7 +150,7 @@ const OurAlumni = () => {
             </section>
 
             {/* Alumni Grid Section */}
-            <section id="distinguished" className="pt-10 pb-16 md:pt-12 md:pb-24 bg-muted/30">
+            <section id="distinguished" className="py-16 md:py-24 bg-muted/30">
                 <div className="container-narrow">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -173,9 +173,9 @@ const OurAlumni = () => {
                                 whileInView="visible"
                                 viewport={{ once: true }}
                                 variants={fadeInUp}
-                                className="group bg-background border border-border rounded-lg overflow-visible hover:shadow-xl hover:border-accent/50 hover:z-10 transition-all duration-300 relative cursor-pointer"
+                                className="group bg-background border border-border rounded-lg overflow-visible hover:shadow-xl hover:border-accent/50 transition-all duration-300 relative cursor-pointer hover:z-10"
                             >
-                                <div className="p-6 text-center bg-background rounded-lg">
+                                <div className="p-6 text-center bg-background rounded-lg border border-border group-hover:border-accent/50 transition-colors duration-300">
                                     {alumni.image ? (
                                         <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300">
                                             <img
@@ -194,12 +194,14 @@ const OurAlumni = () => {
                                     <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
                                 </div>
 
-                                {/* Dropdown Description - Absolutely Positioned */}
-                                <div className="absolute top-full left-0 right-0 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 z-20">
-                                    <div className="px-6 pb-6 pt-3 border border-border/50 bg-background rounded-b-lg shadow-lg">
-                                        <p className="text-xs text-muted-foreground leading-relaxed">
-                                            {alumni.description}
-                                        </p>
+                                {/* Dropdown Description - Absolute positioned overlay */}
+                                <div className="absolute left-0 right-0 top-full opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 ease-in-out transform translate-y-0 group-hover:translate-y-0 z-20">
+                                    <div className="bg-background border border-accent/50 rounded-b-lg shadow-xl mx-0">
+                                        <div className="px-6 py-4 border-t border-border/50 bg-muted/20">
+                                            <p className="text-xs text-muted-foreground leading-relaxed">
+                                                {alumni.description}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </motion.div>
