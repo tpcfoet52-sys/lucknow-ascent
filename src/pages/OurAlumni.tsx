@@ -173,9 +173,9 @@ const OurAlumni = () => {
                                 whileInView="visible"
                                 viewport={{ once: true }}
                                 variants={fadeInUp}
-                                className="group bg-background border border-border rounded-lg overflow-hidden hover:shadow-xl hover:border-accent/50 transition-all duration-300 relative cursor-pointer"
+                                className="group bg-background border border-border rounded-lg overflow-visible hover:shadow-xl hover:border-accent/50 hover:z-10 transition-all duration-300 relative cursor-pointer"
                             >
-                                <div className="p-6 text-center">
+                                <div className="p-6 text-center bg-background rounded-lg">
                                     {alumni.image ? (
                                         <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300">
                                             <img
@@ -194,9 +194,9 @@ const OurAlumni = () => {
                                     <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
                                 </div>
 
-                                {/* Dropdown Description */}
-                                <div className="max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-500 ease-in-out">
-                                    <div className="px-6 pb-6 pt-3 border-t border-border/50 bg-muted/20">
+                                {/* Dropdown Description - Absolutely Positioned */}
+                                <div className="absolute top-full left-0 right-0 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 z-20">
+                                    <div className="px-6 pb-6 pt-3 border border-border/50 bg-background rounded-b-lg shadow-lg">
                                         <p className="text-xs text-muted-foreground leading-relaxed">
                                             {alumni.description}
                                         </p>
