@@ -164,45 +164,63 @@ const OurAlumni = () => {
                         </h2>
                     </motion.div>
 
-                    <div className="grid md:grid-cols-3 gap-6">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {alumniList.map((alumni, index) => (
                             <motion.div
                                 key={alumni.name}
                                 custom={index}
-                                initial="hidden"
-                                whileInView="visible"
+                                initial="initial"
+                                whileInView="animate"
+                                whileHover="hover"
                                 viewport={{ once: true }}
-                                variants={fadeInUp}
-                                className="group bg-background border border-border rounded-lg overflow-visible hover:shadow-xl hover:border-accent/50 transition-all duration-300 relative cursor-pointer hover:z-10"
+                                variants={{
+                                    initial: { opacity: 0, y: 30 },
+                                    animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
+                                    hover: { y: -5, transition: { duration: 0.3 } }
+                                }}
+                                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
                             >
-                                <div className="p-6 text-center bg-background rounded-lg border border-border group-hover:border-accent/50 transition-colors duration-300">
+                                {/* Image Section */}
+                                <div className="aspect-square overflow-hidden relative bg-muted">
                                     {alumni.image ? (
-                                        <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300">
+                                        <>
                                             <img
                                                 src={alumni.image}
                                                 alt={alumni.name}
-                                                className="w-full h-full object-cover"
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                             />
-                                        </div>
+                                            {/* Gradient overlay on hover */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        </>
                                     ) : (
-                                        <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                                            <Award className="h-10 w-10 text-primary" />
+                                        <div className="w-full h-full flex items-center justify-center bg-primary/5">
+                                            <Award className="h-16 w-16 text-primary/40" />
                                         </div>
                                     )}
-                                    <h3 className="font-serif text-lg font-semibold text-foreground">{alumni.name}</h3>
-                                    <p className="text-sm text-accent mt-1">{alumni.role}</p>
-                                    <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
                                 </div>
 
-                                {/* Dropdown Description - Absolute positioned overlay */}
-                                <div className="absolute left-0 right-0 top-full opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 ease-in-out transform translate-y-0 group-hover:translate-y-0 z-20">
-                                    <div className="bg-background border border-accent/50 rounded-b-lg shadow-xl mx-0">
-                                        <div className="px-6 py-4 border-t border-border/50 bg-muted/20">
-                                            <p className="text-xs text-muted-foreground leading-relaxed">
-                                                {alumni.description}
-                                            </p>
-                                        </div>
-                                    </div>
+                                {/* Content Section */}
+                                <div className="p-5 relative z-10 bg-card text-center">
+                                    <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
+                                        {alumni.name}
+                                    </h3>
+                                    <p className="text-sm text-accent mt-1 font-medium">{alumni.role}</p>
+                                    <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
+
+                                    {/* Animated Description - Drops down on Hover */}
+                                    <motion.div
+                                        variants={{
+                                            initial: { height: 0, opacity: 0 },
+                                            animate: { height: 0, opacity: 0 },
+                                            hover: { height: "auto", opacity: 1 }
+                                        }}
+                                        className="overflow-hidden"
+                                        transition={{ duration: 0.4, ease: "easeOut" }}
+                                    >
+                                        <p className="text-xs text-muted-foreground mt-3 border-t border-border/50 pt-3 leading-relaxed text-left">
+                                            {alumni.description}
+                                        </p>
+                                    </motion.div>
                                 </div>
                             </motion.div>
                         ))}
