@@ -30,6 +30,11 @@ import nirfBadge from "@/assets/nirf-ranking-badge.png";
 import centenaryLogo from "@/assets/centenary-logo.png";
 import naacBadge from "@/assets/naac-badge.png";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
+import programEngineering from "@/assets/program-engineering.jpg";
+import programLaw from "@/assets/program-law.jpg";
+import programManagement from "@/assets/program-management.jpg";
+import programPharmacy from "@/assets/program-pharmacy.jpg";
+import programYoga from "@/assets/program-yoga.jpg";
 
 const aboutUniversityLinks = [
   { name: "Our Legacy", href: "#legacy" },
@@ -51,11 +56,11 @@ const fadeInUp = {
 };
 
 const programs = [
-  { name: "Engineering", icon: Building, students: "2500+", hoverDesc: "Offering B.Tech and M.Tech programs in CSE, ECE, EE, CE, and ME. Focus on practical learning, industry collaboration, and placement excellence with state-of-the-art laboratories." },
-  { name: "Law", icon: Gavel, students: "1200+", hoverDesc: "LLB and LLM programs recognized by Bar Council of India. Comprehensive curriculum covering corporate law, constitutional law, and international law with moot court facilities." },
-  { name: "Management", icon: Briefcase, students: "1800+", hoverDesc: "MBA programs specializing in Finance, Marketing, HR, and Operations. Industry-oriented curriculum with case studies, internships, and guest lectures from corporate leaders." },
-  { name: "Pharmacy", icon: Pill, students: "800+", hoverDesc: "B.Pharm and M.Pharm programs approved by PCI. Focus on pharmaceutical sciences, drug development, and clinical pharmacy with modern research facilities." },
-  { name: "Yoga", icon: Sun, students: "500+", hoverDesc: "UG and PG programs in Yoga and Alternative Medicine. Traditional wisdom meets modern science with research on therapeutic applications and wellness management." },
+  { name: "Engineering", icon: Building, students: "2500+", image: programEngineering, hoverDesc: "Offering B.Tech and M.Tech programs in CSE, ECE, EE, CE, and ME. Focus on practical learning, industry collaboration, and placement excellence with state-of-the-art laboratories." },
+  { name: "Law", icon: Gavel, students: "1200+", image: programLaw, hoverDesc: "LLB and LLM programs recognized by Bar Council of India. Comprehensive curriculum covering corporate law, constitutional law, and international law with moot court facilities." },
+  { name: "Management", icon: Briefcase, students: "1800+", image: programManagement, hoverDesc: "MBA programs specializing in Finance, Marketing, HR, and Operations. Industry-oriented curriculum with case studies, internships, and guest lectures from corporate leaders." },
+  { name: "Pharmacy", icon: Pill, students: "800+", image: programPharmacy, hoverDesc: "B.Pharm and M.Pharm programs approved by PCI. Focus on pharmaceutical sciences, drug development, and clinical pharmacy with modern research facilities." },
+  { name: "Yoga", icon: Sun, students: "500+", image: programYoga, hoverDesc: "UG and PG programs in Yoga and Alternative Medicine. Traditional wisdom meets modern science with research on therapeutic applications and wellness management." },
   { name: "Tourism", icon: Globe, students: "400+", hoverDesc: "Programs in Tourism and Travel Management. Practical training in hospitality, tour operations, and heritage management with industry partnerships." },
   { name: "B.Voc", icon: BookOpen, students: "600+", hoverDesc: "Vocational programs designed for skill development and employability. Industry-aligned curriculum with hands-on training and placement support." },
 ];
@@ -364,11 +369,22 @@ const AboutUniversity = () => {
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeInUp}
-                  className="group relative bg-background border border-border rounded-lg p-6 hover:border-accent/50 hover:shadow-lg transition-all overflow-hidden"
+                  className="group relative bg-background border border-border rounded-lg overflow-hidden hover:border-accent/50 hover:shadow-lg transition-all"
                 >
+                  {/* Background Image (if available) */}
+                  {program.image && (
+                    <div className="absolute inset-0 z-0">
+                      <img
+                        src={program.image}
+                        alt={program.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background/90" />
+                    </div>
+                  )}
                   {/* Main Content */}
-                  <div className="relative z-10 transition-opacity group-hover:opacity-0 duration-300">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                  <div className="relative z-10 p-6 transition-opacity group-hover:opacity-0 duration-300">
+                    <div className="w-12 h-12 rounded-lg bg-primary/20 backdrop-blur-sm flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
                       <IconComponent className="h-6 w-6 text-primary" />
                     </div>
                     <h3 className="font-serif text-lg font-semibold text-foreground mb-1">
