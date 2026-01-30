@@ -68,11 +68,11 @@ const CompanyLogoStrip = () => {
                 className="flex flex-col items-center justify-center gap-4 flex-shrink-0 mx-6"
                 style={{ minWidth: '240px' }}
               >
-                <div className="h-24 w-48 flex items-center justify-center bg-white rounded-xl p-1.5 shadow-md border border-border/40 hover:shadow-lg hover:border-accent/20 transition-all duration-300">
+                <div className="h-24 w-48 flex items-center justify-center bg-white rounded-xl overflow-hidden shadow-md border border-border/40 hover:shadow-lg transition-all duration-300">
                   <img
                     src={company.logo}
                     alt={`${company.name} logo`}
-                    className="h-full w-full object-contain filter drop-shadow-sm p-1"
+                    className="h-full w-full object-contain"
                   />
                 </div>
                 <span className="font-bold text-sm text-foreground/70 whitespace-nowrap text-center">
