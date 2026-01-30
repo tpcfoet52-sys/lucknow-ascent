@@ -358,55 +358,74 @@ const AboutUniversity = () => {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {programs.map((program, index) => {
               const IconComponent = program.icon;
               return (
                 <motion.div
                   key={program.name}
                   custom={index}
-                  initial="hidden"
-                  whileInView="visible"
+                  initial="initial"
+                  whileInView="animate"
+                  whileHover="hover"
                   viewport={{ once: true }}
-                  variants={fadeInUp}
-                  className="group relative bg-background border border-border rounded-lg overflow-hidden hover:border-accent/50 hover:shadow-lg transition-all"
+                  variants={{
+                    initial: { opacity: 0, y: 30 },
+                    animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
+                    hover: { y: -5, transition: { duration: 0.3 } }
+                  }}
+                  className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
                 >
-                  {/* Background Image (if available) */}
-                  {program.image && (
-                    <div className="absolute inset-0 z-0">
-                      <img
-                        src={program.image}
-                        alt={program.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background/90" />
-                    </div>
-                  )}
-                  {/* Main Content */}
-                  <div className="relative z-10 p-6 transition-opacity group-hover:opacity-0 duration-300">
-                    <div className="w-12 h-12 rounded-lg bg-primary/20 backdrop-blur-sm flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                      <IconComponent className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="font-serif text-lg font-semibold text-foreground mb-1">
-                      {program.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {program.students} Students Enrolled
-                    </p>
+                  {/* Image Section */}
+                  <div className="aspect-video overflow-hidden relative bg-muted">
+                    {program.image ? (
+                      <>
+                        <img
+                          src={program.image}
+                          alt={program.name}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        {/* Gradient overlay on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </>
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-primary/5">
+                        <IconComponent className="h-16 w-16 text-primary/40" />
+                      </div>
+                    )}
                   </div>
 
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/95 to-primary/95 p-6 flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <IconComponent className="h-8 w-8 text-white mb-3" />
-                    <h3 className="font-serif text-lg font-semibold text-white mb-2">
-                      {program.name}
-                    </h3>
-                    <p className="text-sm text-white/90 leading-relaxed mb-2">
-                      {program.hoverDesc}
-                    </p>
-                    <p className="text-xs text-white/80 font-medium">
+                  {/* Content Section */}
+                  <div className="p-5 relative z-10 bg-card">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <IconComponent className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-accent transition-colors leading-tight">
+                          {program.name}
+                        </h3>
+                      </div>
+                    </div>
+                    
+                    <p className="text-sm text-muted-foreground mb-2">
                       {program.students} Students Enrolled
                     </p>
+
+                    {/* Animated Description - Drops down on Hover */}
+                    <motion.div
+                      variants={{
+                        initial: { height: 0, opacity: 0 },
+                        animate: { height: 0, opacity: 0 },
+                        hover: { height: "auto", opacity: 1 }
+                      }}
+                      className="overflow-hidden"
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+                    >
+                      <p className="text-sm text-muted-foreground mt-2 border-t border-border/50 pt-3 leading-relaxed">
+                        {program.hoverDesc}
+                      </p>
+                    </motion.div>
                   </div>
                 </motion.div>
               );
@@ -487,106 +506,62 @@ const AboutUniversity = () => {
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mt-2">Campus Locations</h2>
             <p className="text-muted-foreground mt-2 text-sm">219 acres across 5 districts: Lucknow, Raebareli, Hardoi, Sitapur & Lakhimpur Kheri</p>
           </motion.div>
-          <div className="grid md:grid-cols-2 gap-6">
+                    <div className="grid md:grid-cols-2 gap-6">
             {campusLocations.map((campus, index) => (
-              <motion.div key={campus.name} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                className="group relative bg-card border border-border rounded-lg p-5 overflow-hidden">
-                {/* Main Content */}
-                <div className="relative z-10 transition-opacity group-hover:opacity-0 duration-300">
-                  <div className="flex items-start gap-4">
+              <motion.div
+                key={campus.name}
+                custom={index}
+                initial="initial"
+                whileInView="animate"
+                whileHover="hover"
+                viewport={{ once: true }}
+                variants={{
+                  initial: { opacity: 0, y: 30 },
+                  animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
+                  hover: { y: -5, transition: { duration: 0.3 } }
+                }}
+                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg hover:border-accent/50 transition-all duration-300"
+              >
+                {/* Image Section - Using placeholder for now */}
+                <div className="aspect-video overflow-hidden relative bg-muted">
+                  <div className="w-full h-full flex items-center justify-center bg-primary/5">
+                    <MapPin className="h-16 w-16 text-primary/40" />
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="p-5 relative z-10 bg-card">
+                  <div className="flex items-start gap-3 mb-3">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <MapPin className="h-5 w-5 text-primary" />
                     </div>
-                    <div>
-                      <h3 className="font-serif font-semibold text-foreground">{campus.name}</h3>
+                    <div className="flex-1">
+                      <h3 className="font-serif font-semibold text-foreground group-hover:text-accent transition-colors">
+                        {campus.name}
+                      </h3>
                       <p className="text-accent text-sm font-medium">{campus.location}</p>
-                      <p className="text-muted-foreground text-sm mt-1">{campus.description}</p>
                     </div>
                   </div>
-                </div>
+                  
+                  <p className="text-muted-foreground text-sm">{campus.description}</p>
 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-accent/95 p-5 flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                  <MapPin className="h-8 w-8 text-white mb-3" />
-                  <h3 className="font-serif font-semibold text-white mb-2">{campus.name}</h3>
-                  <p className="text-white/90 text-sm font-medium mb-2">{campus.location}</p>
-                  <p className="text-white/90 text-sm leading-relaxed">{campus.hoverDesc}</p>
+                  {/* Animated Description - Drops down on Hover */}
+                  <motion.div
+                    variants={{
+                      initial: { height: 0, opacity: 0 },
+                      animate: { height: 0, opacity: 0 },
+                      hover: { height: "auto", opacity: 1 }
+                    }}
+                    className="overflow-hidden"
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                  >
+                    <p className="text-sm text-muted-foreground mt-2 border-t border-border/50 pt-3 leading-relaxed">
+                      {campus.hoverDesc}
+                    </p>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Faculties Section */}
-      <section id="all-faculties" className="section-padding">
-        <div className="container-narrow">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
-            <span className="text-xs font-semibold text-accent uppercase tracking-wider">Academic Structure</span>
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mt-2">13 Faculties</h2>
-          </motion.div>
-          <div className="flex flex-wrap justify-center gap-3">
-            {allFaculties.map((faculty, index) => (
-              <motion.span key={faculty} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                className="bg-card border border-border rounded-lg px-4 py-2 text-sm text-foreground hover:border-accent/30 transition-colors">
-                {faculty}
-              </motion.span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Campus Life */}
-      <section id="campus-life" className="section-padding">
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <span className="text-xs font-medium text-accent uppercase tracking-wider">Beyond Academics</span>
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
-              Vibrant Campus Life
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: "Cultural Fests", desc: "Annual celebrations of art, music & dance", icon: Calendar, hoverDesc: "Experience vibrant cultural festivals throughout the year featuring classical and contemporary performances, literary events, art exhibitions, and talent showcases that bring together students from all disciplines." },
-              { title: "Sports Complex", desc: "State-of-the-art athletic facilities", icon: Award, hoverDesc: "Modern sports infrastructure including cricket stadium, football field, basketball courts, indoor badminton and table tennis facilities, gymnasium, and yoga center promoting holistic student development." },
-              { title: "Student Clubs", desc: "50+ clubs for diverse interests", icon: Users, hoverDesc: "Join from 50+ active clubs covering technology, literature, drama, music, photography, social service, entrepreneurship, and more. Build leadership skills and pursue your passions beyond academics." },
-              { title: "Global Exchange", desc: "Partnerships with 30+ universities worldwide", icon: Globe, hoverDesc: "International collaboration programs with universities across USA, Europe, and Asia. Opportunities for student exchange, joint research projects, and exposure to global academic standards." },
-            ].map((item, index) => {
-              const IconComponent = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  custom={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeInUp}
-                  className="group relative bg-background border border-border rounded-lg p-6 hover:shadow-lg transition-shadow overflow-hidden"
-                >
-                  {/* Main Content */}
-                  <div className="relative z-10 transition-opacity group-hover:opacity-0 duration-300">
-                    <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                      <IconComponent className="h-6 w-6 text-accent" />
-                    </div>
-                    <h3 className="font-serif text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </div>
-
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/95 to-primary/95 p-6 flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <IconComponent className="h-8 w-8 text-white mb-3" />
-                    <h3 className="font-serif text-base font-semibold text-white mb-2">{item.title}</h3>
-                    <p className="text-sm text-white/90 leading-relaxed">{item.hoverDesc}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
           </div>
         </div>
       </section>
