@@ -102,7 +102,7 @@ const OurAlumni = () => {
 
 
             {/* Hero Section */}
-            <section className="relative pt-20 md:pt-24 pb-16 md:pb-24 overflow-hidden">
+            <section className="relative pt-20 md:pt-24 pb-8 md:pb-12 overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
                         src={heroImage}
@@ -150,7 +150,7 @@ const OurAlumni = () => {
             </section>
 
             {/* Alumni Grid Section */}
-            <section id="distinguished" className="py-16 md:py-24 bg-muted/30">
+            <section id="distinguished" className="pt-10 pb-16 md:pt-12 md:pb-24 bg-muted/30">
                 <div className="container-narrow">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
