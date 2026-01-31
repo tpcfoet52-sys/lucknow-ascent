@@ -30,11 +30,11 @@ const DirectorMessage = () => {
           className="bg-card rounded-md p-6 md:p-8 shadow-elevated-sm border border-border/50 mb-10"
         >
           <div className="flex flex-col md:flex-row items-start gap-6">
-            <div className="flex-shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-primary/50">
+            <div className="group flex-shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-primary/50">
               <img
                 src={profJaiPrakashSaini}
-                alt="Prof. Jai Prakash Saini"
-                className="w-full h-full object-cover"
+                alt="Vice Chancellor"
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
               />
             </div>
             <div className="flex-1">
@@ -82,11 +82,11 @@ const DirectorMessage = () => {
             className="bg-card rounded-md p-6 md:p-8 shadow-elevated-sm border border-border/50"
           >
             <div className="flex items-start gap-5 mb-6">
-              <div className="flex-shrink-0 w-20 h-20 rounded-full overflow-hidden border-2 border-accent/50">
+              <div className="group flex-shrink-0 w-20 h-20 rounded-full overflow-hidden border-2 border-accent/50">
                 <img
                   src={profSpSingh}
                   alt="Prof. Satendra Pal Singh"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div>
@@ -123,11 +123,11 @@ const DirectorMessage = () => {
             className="bg-card rounded-md p-6 md:p-8 shadow-elevated-sm border border-border/50"
           >
             <div className="flex items-start gap-5 mb-6">
-              <div className="flex-shrink-0 w-20 h-20 rounded-full overflow-hidden border-2 border-accent/50">
+              <div className="group flex-shrink-0 w-20 h-20 rounded-full overflow-hidden border-2 border-accent/50">
                 <img
                   src={drHimanshuPandey}
                   alt="Dr. Himanshu Pandey"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div>

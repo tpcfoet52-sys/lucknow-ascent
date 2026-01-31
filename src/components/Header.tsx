@@ -130,18 +130,11 @@ const Header = () => {
   const linkColor = !showSolidHeader ? "text-primary-foreground/80 hover:text-primary-foreground" : "text-muted-foreground hover:text-primary";
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}>
-      <div className="container-narrow">
-        <div className="flex items-center justify-center lg:justify-between h-16 md:h-20 gap-4">
+    <header className={`absolute lg:fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}>
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
+        <div className="flex items-center justify-between h-16 md:h-20 gap-4">
           {/* Logo - always visible */}
           <div className="flex items-center gap-4">
-            {!isHomePage && (
-              <Link to="/">
-                <Button variant="ghost" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
-                  <ArrowLeft className="h-5 w-5" />
-                </Button>
-              </Link>
-            )}
             <a
               href="#home"
               onClick={(e) => { e.preventDefault(); scrollToSection("#home"); }}
@@ -170,7 +163,7 @@ const Header = () => {
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(link, e)}
-                  className={`px-4 py-2 transition-colors text-sm font-medium relative flex items-center gap-1 cursor-pointer ${linkColor} ${activeSection === link.href.substring(1) || activeSection === link.href ? "font-semibold" : ""
+                  className={`px-4 py-2 transition-colors text-sm font-bold relative flex items-center gap-1 cursor-pointer ${linkColor} ${activeSection === link.href.substring(1) || activeSection === link.href ? "font-extrabold" : ""
                     }`}
                 >
                   {link.name}
@@ -187,7 +180,11 @@ const Header = () => {
                         <Link
                           key={sublink.name}
                           to={sublink.href}
-                          className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
+                          className={`block px-4 py-2 text-sm font-semibold transition-colors hover:bg-muted
+                            ${location.pathname === sublink.href
+                              ? "text-primary"
+                              : "text-muted-foreground hover:text-primary"
+                            }`}
                         >
                           {sublink.name}
                         </Link>
@@ -228,7 +225,7 @@ const Header = () => {
                 <div key={link.name}>
                   <button
                     onClick={(e) => handleNavClick(link, e as any)}
-                    className={`w-full flex items-center justify-between hover:text-primary hover:bg-secondary transition-colors py-3 px-4 rounded-md cursor-pointer ${activeSection === link.href.substring(1) || activeSection === link.href ? "text-primary font-semibold bg-secondary" : "text-foreground"
+                    className={`w-full flex items-center justify-between hover:text-primary hover:bg-secondary transition-colors py-3 px-4 rounded-md cursor-pointer ${activeSection === link.href.substring(1) || activeSection === link.href ? "text-primary font-bold bg-secondary" : "text-foreground font-semibold"
                       }`}
                   >
                     {link.name}

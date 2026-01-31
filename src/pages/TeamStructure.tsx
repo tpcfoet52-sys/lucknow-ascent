@@ -302,7 +302,7 @@ const TeamStructure = () => {
                     <img
                       src={faculty.image}
                       alt={faculty.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
                   </div>
                   <div className="flex-1 flex flex-col items-center">
@@ -345,7 +345,7 @@ const TeamStructure = () => {
                 <img
                   src={riddhiSingh}
                   alt="Riddhi Singh Rathore"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
               <div>

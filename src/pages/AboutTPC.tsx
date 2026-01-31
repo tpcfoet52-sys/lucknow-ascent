@@ -329,7 +329,7 @@ const AboutTPC = () => {
                     <img
                       src={leader.image}
                       alt={leader.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
                 </div>

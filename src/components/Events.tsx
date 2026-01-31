@@ -107,7 +107,7 @@ const Events = () => {
           student_email: formData.email,
           student_roll: formData.rollNumber,
           branch: formData.department,
-          mobile_number: formData.phone 
+          mobile_number: formData.phone
         }
       ]);
 
@@ -215,10 +215,10 @@ const Events = () => {
                   {/* Banner Image Area */}
                   <div className="relative h-48 w-full overflow-hidden bg-muted">
                     {event.banner_url ? (
-                      <img 
-                        src={event.banner_url} 
-                        alt={event.title} 
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      <img
+                        src={event.banner_url}
+                        alt={event.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-muted">
@@ -240,7 +240,7 @@ const Events = () => {
                       <h4 className="font-serif font-bold text-lg text-foreground mb-2 line-clamp-2" title={event.title}>
                         {event.title}
                       </h4>
-                      
+
                       <div className="space-y-2 mb-4">
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
                           <Calendar className="w-4 h-4 text-primary" />
@@ -255,7 +255,7 @@ const Events = () => {
                           <span className="line-clamp-1">{event.location}</span>
                         </div>
                       </div>
-                      
+
                       <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
                         {event.description}
                       </p>
@@ -300,11 +300,11 @@ const Events = () => {
                   className="bg-card rounded-lg p-4 border border-border shadow-sm flex gap-4 items-center"
                 >
                   <div className="h-12 w-12 rounded bg-muted flex items-center justify-center flex-shrink-0 overflow-hidden">
-                     {event.banner_url ? (
-                        <img src={event.banner_url} alt="" className="w-full h-full object-cover opacity-60 grayscale" />
-                     ) : (
-                        <Calendar className="h-5 w-5 text-muted-foreground/50" />
-                     )}
+                    {event.banner_url ? (
+                      <img src={event.banner_url} alt="" className="w-full h-full object-cover opacity-60 grayscale" />
+                    ) : (
+                      <Calendar className="h-5 w-5 text-muted-foreground/50" />
+                    )}
                   </div>
                   <div>
                     <h4 className="font-medium text-foreground text-sm line-clamp-1">{event.title}</h4>

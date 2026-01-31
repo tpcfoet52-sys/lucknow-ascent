@@ -4,6 +4,8 @@ import DirectorMessage from "@/components/DirectorMessage";
 import MediaPreview from "@/components/MediaPreview";
 import Footer from "@/components/Footer";
 
+import ConnectWithUs from "@/components/ConnectWithUs";
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -18,6 +20,7 @@ const Index = () => {
           <MediaPreview />
         </section>
         <section id="contact">
+          <ConnectWithUs />
           <Footer />
         </section>
       </main>

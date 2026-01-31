@@ -71,7 +71,7 @@ const StudentCorner = () => {
               <p className="text-muted-foreground mt-2 text-sm">
                 {resource.description}
               </p>
-              <div className="flex items-center gap-1 text-accent text-sm font-medium mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="flex items-center gap-1 text-accent text-sm font-medium mt-4 transition-colors">
                 Learn more <ExternalLink className="w-3 h-3" />
               </div>
             </motion.a>

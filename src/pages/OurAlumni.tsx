@@ -171,7 +171,7 @@ const OurAlumni = () => {
                                 custom={index}
                                 initial="initial"
                                 whileInView="animate"
-                                
+
                                 viewport={{ once: true }}
                                 variants={{
                                     initial: { opacity: 0, y: 30 },
@@ -187,7 +187,7 @@ const OurAlumni = () => {
                                             <img
                                                 src={alumni.image}
                                                 alt={alumni.name}
-                                                className="w-full h-full object-cover"
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                             />
                                         </div>
                                     ) : (
