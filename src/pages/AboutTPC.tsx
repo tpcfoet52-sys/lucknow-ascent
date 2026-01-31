@@ -22,10 +22,18 @@ import heroImage from "@/assets/university-hero-new.jpg";
 import profSpSingh from "@/assets/prof-sp-singh.jpg";
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
+import recruiters1 from "@/assets/our-recruiters-1.png";
+import recruiters2 from "@/assets/our-recruiters-2.png";
+import drdoSeminar from "@/assets/drdo-seminar.jpg";
+import workshopIndustries from "@/assets/workshop-industries.png";
+import navalAviation from "@/assets/naval-aviation.png";
+import civilEngineering from "@/assets/civil-engineering-session.png";
+import mariaKhan from "@/assets/maria-khan.png";
+import karthikGupta from "@/assets/karthik-gupta.png";
 
 const aboutTPCLinks = [
   { name: "Vision & Mission", href: "#vision" },
-  { name: "Leadership", href: "#leadership" },
+
   { name: "Our Services", href: "#services" },
   { name: "Top Recruiters", href: "#recruiters" },
   { name: "Training Programs", href: "#training" },
@@ -96,36 +104,37 @@ const stats = [
   { value: "₹26.0 LPA", label: "Highest Package", sublabel: "2023 Batch" },
 ];
 
-const topRecruiters = [
-  "Samsung", "HCL", "Wipro", "Infosys", "Jio", "Deloitte",
-  "Accenture", "Paytm", "Capgemini", "Cognizant", "Tech Mahindra",
-  "Amazon", "Flipkart", "Cedcoss", "Hexaware", "Sopra Steria",
-  "Ericsson", "TCS"
-];
+
+
+
 
 const trainingPrograms = [
   {
     title: "Session on Scope in Civil Engineering",
     speaker: "Miss Surabhi Aggarwal",
     role: "Geotechnical Engineer, Samsung C&T",
+    image: civilEngineering,
     hoverDesc: "An insightful session exploring career opportunities in civil engineering, focusing on geotechnical specializations and modern construction technologies used in global infrastructure projects."
   },
   {
     title: "Workshop: Reaching Out to Industries",
     speaker: "Mr. Shubham Singh",
     role: "SDE, PhonePe",
+    image: workshopIndustries,
     hoverDesc: "A comprehensive workshop on crafting effective resumes, mastering interview techniques, and understanding industry expectations. Learn strategies that helped professionals break into top tech companies."
   },
   {
     title: "Opportunities for Engineers in DRDO",
     speaker: "Dr. Ashish Dubey",
     role: "Scientist 'G' & Project Director, DTTC Lucknow",
+    image: drdoSeminar,
     hoverDesc: "Discover exciting career paths in defense research and development. Learn about cutting-edge projects, recruitment processes, and the impact engineers make in national security and innovation."
   },
   {
     title: "Naval Aviation & Operations",
     speaker: "Lt. Cdr. Rohit Dhama (Retd.)",
     role: "Ex-Indian Navy (10+ Years Exp.)",
+    image: navalAviation,
     hoverDesc: "Gain insights into naval aviation careers, operational challenges, and leadership opportunities in the Indian Navy. Understand the selection process and life of a naval officer."
   }
 ];
@@ -136,6 +145,7 @@ const successStories = [
     company: "Qdrant",
     package: "₹26 LPA",
     year: "2023",
+    image: karthikGupta,
     hoverDesc: "Karthik's journey from a curious engineering student to a high-performing software engineer at Qdrant showcases dedication and smart preparation. His success in securing the highest package demonstrates the quality of training and opportunities at our university."
   },
   {
@@ -143,6 +153,7 @@ const successStories = [
     company: "Branch International",
     package: "₹22 LPA",
     year: "2024",
+    image: mariaKhan,
     hoverDesc: "Maria's exceptional performance in technical interviews and her strong foundation in computer science led her to Branch International. Her achievement inspires many students to pursue excellence in their chosen fields."
   },
 ];
@@ -277,80 +288,7 @@ const AboutTPC = () => {
         </div>
       </section>
 
-      {/* Leadership */}
-      <section className="section-padding bg-muted/30">
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <span className="text-xs font-medium text-accent uppercase tracking-wider">Leadership</span>
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
-              Meet Our Leaders
-            </h2>
-          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-            {[
-              {
-                name: "Prof. S.P. Singh",
-                role: "Dean, Faculty of Engineering & Technology",
-                image: profSpSingh,
-                quote: "Our mission is to nurture industry-ready professionals who contribute to nation-building.",
-                hoverDesc: "With decades of academic excellence and leadership, Prof. S.P. Singh oversees the strategic vision of engineering education at University of Lucknow. His commitment to student success drives our placement initiatives and industry partnerships."
-              },
-              {
-                name: "Dr. Himanshu Pandey",
-                role: "Associate Professor & Program Coordinator, Additional Director CPC",
-                image: drHimanshuPandey,
-                hoverDesc: "Dr. Himanshu Pandey brings innovative approaches to career development and placement strategies. His extensive industry connections and student-centric approach have significantly enhanced placement outcomes and training programs.",
-                quote: "We bridge academia and industry through strategic partnerships and comprehensive training."
-              },
-            ].map((leader, index) => (
-              <motion.div
-                key={leader.name}
-                custom={index}
-                initial="initial"
-                whileInView="animate"
-
-                viewport={{ once: true }}
-                variants={{
-                  initial: { opacity: 0, y: 30 },
-                  animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
-                  hover: { y: -5, transition: { duration: 0.3 } }
-                }}
-                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
-              >
-                {/* Image Section - Circular Profile Photo */}
-                <div className="aspect-[3/2] overflow-hidden relative bg-card flex items-center justify-center pt-2">
-                  <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20  transition-all duration-300 ">
-                    <img
-                      src={leader.image}
-                      alt={leader.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                </div>
-
-                {/* Content Section */}
-                <div className="p-3 relative z-10 bg-card text-center">
-                  <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors">
-                    {leader.name}
-                  </h3>
-                  <p className="text-xs text-accent mt-0.5 font-medium">{leader.role}</p>
-                  <p className="text-xs text-muted-foreground mt-2 italic">"{leader.quote}"</p>
-
-                  <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed">
-                    {leader.hoverDesc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Services */}
       <section className="section-padding">
@@ -431,20 +369,9 @@ const AboutTPC = () => {
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            {topRecruiters.map((company, index) => (
-              <motion.div
-                key={company}
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInUp}
-                className="bg-background border border-border rounded-lg px-5 py-3 text-sm font-medium text-foreground  hover:bg-accent/5 transition-colors"
-              >
-                {company}
-              </motion.div>
-            ))}
+          <div className="flex flex-col gap-0 w-full">
+            <img src={recruiters1} alt="Our Top Recruiters Part 1" className="w-full h-auto object-cover block" />
+            <img src={recruiters2} alt="Our Top Recruiters Part 2" className="w-full h-auto object-cover block" />
           </div>
         </div>
       </section>
@@ -480,11 +407,17 @@ const AboutTPC = () => {
                 }}
                 className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
               >
-                {/* Image Section - Icon Placeholder */}
-                <div className="aspect-video overflow-hidden relative bg-muted">
-                  <div className="w-full h-full flex items-center justify-center bg-accent/5">
-                    <GraduationCap className="h-10 w-10 text-accent/40" />
-                  </div>
+                {/* Image Section - Icon Placeholder or Actual Image */}
+                <div className="aspect-[4/3] overflow-hidden relative bg-muted">
+                  {/* @ts-ignore */}
+                  {program.image ? (
+                    /* @ts-ignore */
+                    <img src={program.image} alt={program.title} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-accent/5">
+                      <GraduationCap className="h-10 w-10 text-accent/40" />
+                    </div>
+                  )}
                 </div>
 
                 {/* Content Section */}
@@ -548,11 +481,17 @@ const AboutTPC = () => {
                 }}
                 className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
               >
-                {/* Image Section - Icon Placeholder */}
-                <div className="aspect-video overflow-hidden relative bg-muted">
-                  <div className="w-full h-full flex items-center justify-center bg-accent/5">
-                    <TrendingUp className="h-10 w-10 text-accent/40" />
-                  </div>
+                {/* Image Section - Icon Placeholder or Actual Image */}
+                <div className="aspect-[4/3] overflow-hidden relative bg-muted">
+                  {/* @ts-ignore */}
+                  {story.image ? (
+                    /* @ts-ignore */
+                    <img src={story.image} alt={story.name} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-accent/5">
+                      <TrendingUp className="h-10 w-10 text-accent/40" />
+                    </div>
+                  )}
                 </div>
 
                 {/* Content Section */}

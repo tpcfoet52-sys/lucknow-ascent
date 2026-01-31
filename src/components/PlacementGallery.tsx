@@ -106,7 +106,7 @@ const PlacementGallery = () => {
           </button>
 
           {/* Slide Content */}
-          <div className="overflow-hidden rounded-sm">
+          <div className="overflow-hidden rounded-xl bg-primary p-8 md:p-12">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -114,11 +114,11 @@ const PlacementGallery = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="bg-primary p-8 md:p-12"
+                className="w-full"
               >
                 <div className="flex flex-col md:flex-row items-center gap-8">
                   {/* Company Logo */}
-                  <div className="flex-shrink-0 w-60 h-32 rounded-xl bg-white shadow-lg flex items-center justify-center p-1 border border-border/20 overflow-hidden">
+                  <div className="flex-shrink-0 w-60 h-32 rounded-xl bg-white shadow-lg flex items-center justify-center p-6 border border-border/20 overflow-hidden">
                     {hasError ? (
                       <span className="text-4xl font-bold text-primary">
                         {currentItem.company.charAt(0)}
@@ -127,7 +127,7 @@ const PlacementGallery = () => {
                       <img
                         src={logoUrl}
                         alt={`Placement Gallery Image ${currentIndex + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                         onError={() => setImageError(prev => ({ ...prev, [currentIndex]: true }))}
                       />
                     )}

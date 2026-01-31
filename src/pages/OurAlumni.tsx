@@ -181,9 +181,9 @@ const OurAlumni = () => {
                                 className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
                             >
                                 {/* Image Section - Circular Profile Photo */}
-                                <div className="aspect-[4/3] overflow-hidden relative bg-card flex items-center justify-center pt-6">
+                                <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
                                     {alumni.image ? (
-                                        <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 ">
+                                        <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 ">
                                             <img
                                                 src={alumni.image}
                                                 alt={alumni.name}
@@ -191,21 +191,21 @@ const OurAlumni = () => {
                                             />
                                         </div>
                                     ) : (
-                                        <div className="w-32 h-32 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
+                                        <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
                                             <Award className="h-16 w-16 text-primary/40" />
                                         </div>
                                     )}
                                 </div>
 
                                 {/* Content Section */}
-                                <div className="p-5 relative z-10 bg-card text-center">
-                                    <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
+                                <div className="p-3 relative z-10 bg-card text-center">
+                                    <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors">
                                         {alumni.name}
                                     </h3>
-                                    <p className="text-sm text-accent mt-1 font-medium">{alumni.role}</p>
+                                    <p className="text-xs text-accent mt-1 font-medium">{alumni.role}</p>
                                     <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
 
-                                    <p className="text-xs text-muted-foreground mt-3 border-t border-border/50 pt-3 leading-relaxed text-left">
+                                    <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed text-left">
                                         {alumni.description}
                                     </p>
                                 </div>

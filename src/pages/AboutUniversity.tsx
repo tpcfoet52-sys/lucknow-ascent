@@ -30,10 +30,10 @@ import nirfBadge from "@/assets/nirf-ranking-badge.png";
 import centenaryLogo from "@/assets/centenary-logo.png";
 import naacBadge from "@/assets/naac-badge.png";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
-import programEngineering from "@/assets/program-engineering.jpg";
-import programLaw from "@/assets/program-law.jpg";
-import programManagement from "@/assets/program-management.jpg";
-import programPharmacy from "@/assets/program-pharmacy.jpg";
+import programEngineering from "@/assets/engineering-academic-excellence.jpg";
+import programLaw from "@/assets/law-academic-excellence.jpg";
+import programManagement from "@/assets/management-academic-excellence.jpg";
+import programPharmacy from "@/assets/pharmacy-academic-excellence.jpg";
 import programYoga from "@/assets/program-yoga.jpg";
 
 import programTourism from "@/assets/tourism-collage.jpg";
@@ -391,8 +391,7 @@ const AboutUniversity = () => {
                           alt={program.name}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
-                        {/* Gradient overlay on hover */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        {/* Gradient overlay on hover - Removed */}
                       </>
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-primary/5">
@@ -526,8 +525,7 @@ const AboutUniversity = () => {
                         alt={campus.name}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      {/* Gradient overlay on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      {/* Gradient overlay on hover - Removed */}
                     </>
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-primary/5">

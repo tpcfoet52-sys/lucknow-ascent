@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/lib/supabase";
 
 // --- Assets ---
+import heroImage from "@/assets/university-hero-new.jpg";
 import luInNews from "@/assets/lu-in-news.jpg";
 import tpcMeeting from "@/assets/tpc-meeting.jpg";
 import learningRoutesDrive from "@/assets/learning-routes-drive.jpg";
@@ -129,20 +130,20 @@ const Media = () => {
     useEffect(() => {
         const fetchApprovedMedia = async () => {
             if (!supabase) return;
-            
+
             const { data } = await supabase
                 .from('unified_approvals')
                 .select('*')
                 .eq('status', 'approved')
                 .order('created_at', { ascending: false });
-            
+
             if (data) {
                 const formattedItems = data.map(item => ({
                     id: item.id,
                     // Map DB types to UI categories
-                    type: item.type === 'press_release' ? 'Press' : 
-                          item.type === 'achievement' ? 'Achievements' : 
-                          item.type === 'event' ? 'Events' : 'Gallery',
+                    type: item.type === 'press_release' ? 'Press' :
+                        item.type === 'achievement' ? 'Achievements' :
+                            item.type === 'event' ? 'Events' : 'Gallery',
                     src: item.image_url,
                     title: item.title,
                     date: new Date(item.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
@@ -158,7 +159,7 @@ const Media = () => {
     // --- Merge Data ---
     // 1. Photo Gallery (Events, Achievements, Drives, etc.)
     const allGalleryItems = [...dynamicItems.filter(i => i.type !== 'Press'), ...staticGalleryItems];
-    
+
     // 2. Press Releases (Specifically for the bottom section)
     const allPressItems = [...dynamicItems.filter(i => i.type === 'Press'), ...staticPressItems];
 
@@ -171,10 +172,18 @@ const Media = () => {
         <div className="min-h-screen bg-background flex flex-col">
             <Header />
 
-            <main className="flex-1 pt-24 pb-12">
+            <main className="flex-1 pb-12">
                 {/* Hero Section */}
-                <section className="relative py-12 md:py-20 mb-12">
-                    <div className="container-narrow text-center relative">
+                <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden mb-12">
+                    <div className="absolute inset-0 z-0">
+                        <img
+                            src={heroImage}
+                            alt="University of Lucknow"
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background" />
+                    </div>
+                    <div className="container-narrow text-center relative z-10">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
