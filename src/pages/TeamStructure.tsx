@@ -296,21 +296,21 @@ const TeamStructure = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-4 text-center hover:shadow-lg transition-all duration-300"
+                  className="bg-card rounded-xl p-4 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-3 text-center hover:shadow-lg transition-all duration-300 h-full"
                 >
-                  <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-4 border-accent/20">
+                  <div className="flex-shrink-0 w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20">
                     <img
                       src={faculty.image}
                       alt={faculty.name}
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
                   </div>
-                  <div className="flex-1 flex flex-col items-center">
-                    <h3 className="font-serif text-lg font-bold text-foreground mb-1">
+                  <div className="flex-1 flex flex-col items-center w-full">
+                    <h3 className="font-serif text-sm font-bold text-foreground mb-1 whitespace-nowrap overflow-hidden text-ellipsis w-full text-center">
                       {faculty.name}
                     </h3>
-                    <p className="text-accent text-xs font-semibold uppercase tracking-wider mb-1">{faculty.title}</p>
-                    <p className="text-muted-foreground text-[10px] font-medium uppercase tracking-wide mb-3">{faculty.role}</p>
+                    <p className="text-accent text-[10px] font-semibold uppercase tracking-wider mb-1 min-h-[1.5rem] flex items-center justify-center">{faculty.title}</p>
+                    <p className="text-muted-foreground text-[10px] font-medium uppercase tracking-wide mb-3 min-h-[1rem] flex items-center justify-center">{faculty.role}</p>
 
                     <div className="flex items-center gap-3 mt-auto">
                       <a href={`tel:${faculty.phone}`} className="p-2 rounded-full bg-secondary/50 text-muted-foreground hover:text-primary transition-colors hover:bg-primary/10" title={faculty.phone}>
@@ -333,15 +333,15 @@ const TeamStructure = () => {
         <div className="container-narrow">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
-              Student Coordinator <span className="text-gold-gradient">2025-26</span>
+              Student Coordinators <span className="text-gold-gradient">2025-26</span>
             </h2>
             <p className="text-muted-foreground mt-2">The dedicated student team driving TPC initiatives</p>
           </div>
 
           {/* New TPC Lead Section */}
           <div className="flex justify-center mb-16">
-            <div className="bg-card rounded-xl p-6 shadow-sm border border-border/40 flex flex-col items-center gap-4 text-center max-w-sm w-full hover:shadow-md transition-shadow duration-300">
-              <div className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border border-border">
+            <div className="bg-card rounded-xl p-5 shadow-sm border border-border/40 flex flex-col items-center gap-3 text-center max-w-xs w-full hover:shadow-md transition-shadow duration-300">
+              <div className="flex-shrink-0 w-24 h-24 rounded-full overflow-hidden border border-border">
                 <img
                   src={riddhiSingh}
                   alt="Riddhi Singh Rathore"
@@ -386,14 +386,14 @@ const TeamStructure = () => {
                   viewport={{ once: true, margin: "-50px" }}
                   variants={cardVariants}
                   onClick={() => setSelectedTeam(team)}
-                  className="group bg-background border border-border rounded-lg p-6 md:p-8 hover:border-accent/50 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                  className="group bg-background border border-border rounded-lg p-5 md:p-6 hover:border-accent/50 hover:shadow-xl transition-shadow duration-300 cursor-pointer flex flex-col h-full"
                 >
-                  <div className="flex items-start gap-4 mb-5">
+                  <div className="flex flex-col items-center text-center gap-3 mb-4">
                     <motion.div
                       className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors duration-300"
                       whileHover={{ rotate: 5, scale: 1.05 }}
                     >
-                      <IconComponent className="h-5 w-5 text-primary" />
+                      <IconComponent className="h-6 w-6 text-primary" />
                     </motion.div>
                     <div>
                       <h2 className="font-serif text-lg font-semibold text-foreground leading-tight mb-1">
@@ -405,7 +405,7 @@ const TeamStructure = () => {
                     </div>
                   </div>
 
-                  <div className="border-t border-border pt-5">
+                  <div className="border-t border-border pt-5 flex-1 flex flex-col justify-between">
                     <p className="text-xs font-medium text-accent uppercase tracking-wider mb-3">
                       Key Responsibilities
                     </p>
@@ -488,28 +488,7 @@ const TeamStructure = () => {
                   </div>
                 </div>
 
-                {/* Dashboard Stats */}
-                <div className="p-6 md:p-8 border-b border-border">
-                  <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-4">
-                    Team Statistics
-                  </h3>
-                  <div className="grid grid-cols-3 gap-4">
-                    {selectedTeam.stats.map((stat, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.1 }}
-                        className="bg-muted/30 rounded-lg p-4 text-center"
-                      >
-                        <p className="text-2xl md:text-3xl font-serif font-bold text-accent">
-                          {stat.value}
-                        </p>
-                        <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
+
 
                 {/* Team Members */}
                 <div className="p-6 md:p-8">

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Camera, Newspaper, X } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ConnectWithUs from "@/components/ConnectWithUs";
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/lib/supabase";
@@ -286,8 +286,7 @@ const Media = () => {
                         </div>
                     </section>
 
-                    {/* Connect with Us (Horizontal) */}
-                    <ConnectWithUs />
+
                 </div>
             </main>
 
