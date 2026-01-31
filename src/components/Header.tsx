@@ -132,7 +132,7 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}>
       <div className="container-narrow">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-center lg:justify-between h-16 md:h-20 gap-4">
           {/* Logo - always visible */}
           <div className="flex items-center gap-4">
             {!isHomePage && (
@@ -200,7 +200,7 @@ const Header = () => {
           </nav>
 
           {/* Right Section: Login + Mobile Menu (Grouped) */}
-          <div className="flex items-center gap-3 ml-auto">
+          <div className="flex items-center gap-3">
 
 
 
@@ -224,7 +224,7 @@ const Header = () => {
         isMobileMenuOpen && (
           <div className="lg:hidden bg-background border-t border-border animate-fade-in">
             <div className="container-narrow py-4 space-y-1">
-              {navLinks.map((link) => (
+              {navLinks.filter(link => link.name !== "Home").map((link) => (
                 <div key={link.name}>
                   <button
                     onClick={(e) => handleNavClick(link, e as any)}
