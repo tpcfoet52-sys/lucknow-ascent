@@ -74,7 +74,7 @@ const MediaPreview = () => {
                                 animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
                                 hover: { y: -5, transition: { duration: 0.3 } }
                             }}
-                            className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-lg transition-all duration-300"
+                            className="group relative overflow-hidden rounded-xl border border-border bg-card cursor-pointer transition-all duration-300"
                             onClick={() => setSelectedItem(item)}
                         >
                             <div className="aspect-video overflow-hidden">
