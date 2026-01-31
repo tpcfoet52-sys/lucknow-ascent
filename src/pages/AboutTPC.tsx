@@ -172,7 +172,7 @@ const AboutTPC = () => {
 
 
       {/* Hero Section */}
-      <section className="relative pt-20 md:pt-24 pb-16 md:pb-24 overflow-hidden">
+      <section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
@@ -227,7 +227,7 @@ const AboutTPC = () => {
       </section>
 
       {/* Vision Section */}
-      <section className="section-padding">
+      <section className="py-8 md:py-12">
         <div className="container-narrow">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -291,7 +291,7 @@ const AboutTPC = () => {
 
 
       {/* Services */}
-      <section className="section-padding">
+      <section className="py-8 md:py-12">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -352,7 +352,7 @@ const AboutTPC = () => {
       </section>
 
       {/* Top Recruiters */}
-      <section className="section-padding bg-muted/30">
+      <section className="py-8 md:py-12 bg-muted/30">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -377,7 +377,7 @@ const AboutTPC = () => {
       </section>
 
       {/* Training Programs */}
-      <section className="section-padding">
+      <section className="py-8 md:py-12">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -451,7 +451,7 @@ const AboutTPC = () => {
       </section>
 
       {/* Success Stories */}
-      <section className="section-padding bg-muted/30">
+      <section className="py-8 md:py-12 bg-muted/30">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -520,7 +520,7 @@ const AboutTPC = () => {
       </section >
 
       {/* Recruitment Process */}
-      < section className="py-16 md:py-24" >
+      <section className="py-12 md:py-16">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -624,13 +624,13 @@ const AboutTPC = () => {
       </section >
 
       {/* Download Center */}
-      < section className="py-16 md:py-24" >
+      <section className="py-8 md:py-12">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8"
           >
             <span className="text-xs font-medium text-accent uppercase tracking-wider">Resources</span>
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">

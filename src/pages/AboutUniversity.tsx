@@ -34,10 +34,10 @@ import programEngineering from "@/assets/engineering-academic-excellence.jpg";
 import programLaw from "@/assets/law-academic-excellence.jpg";
 import programManagement from "@/assets/management-academic-excellence.jpg";
 import programPharmacy from "@/assets/pharmacy-academic-excellence.jpg";
-import programYoga from "@/assets/program-yoga.jpg";
+import programYoga from "@/assets/yoga-academic-excellence.jpg";
 
 import programTourism from "@/assets/tourism-collage.jpg";
-import programBVoc from "@/assets/mechanical-workshop.jpg";
+
 
 import mainCampus from "@/assets/main-campus.jpg";
 import secondCampus from "@/assets/second-campus.jpg";
@@ -68,7 +68,6 @@ const programs = [
   { name: "Pharmacy", icon: Pill, students: "800+", image: programPharmacy, hoverDesc: "B.Pharm and M.Pharm programs approved by PCI. Focus on pharmaceutical sciences, drug development, and clinical pharmacy with modern research facilities." },
   { name: "Yoga", icon: Sun, students: "500+", image: programYoga, hoverDesc: "UG and PG programs in Yoga and Alternative Medicine. Traditional wisdom meets modern science with research on therapeutic applications and wellness management." },
   { name: "Tourism", icon: Globe, students: "400+", image: programTourism, hoverDesc: "Programs in Tourism and Travel Management. Practical training in hospitality, tour operations, and heritage management with industry partnerships." },
-  { name: "B.Voc", icon: BookOpen, students: "600+", image: programBVoc, hoverDesc: "Vocational programs designed for skill development and employability. Industry-aligned curriculum with hands-on training and placement support." },
 ];
 
 const infrastructure = [
