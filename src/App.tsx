@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop"; // <--- 1. Import this
-
+import ContentMediaDashboard from "./pages/coordinator/ContentMediaDashboard";
 import Index from "./pages/Index";
 import TeamStructure from "./pages/TeamStructure";
 import AboutUniversity from "./pages/AboutUniversity";
@@ -96,6 +96,7 @@ const App = () => (
           <Route path="/coordinator-login" element={<CoordinatorLogin />} />
           <Route path="/coordinator/events" element={<EventHospitalityDashboard />} />
           <Route path="/coordinator/dashboard" element={<TeamDashboard />} />
+          <Route path="/coordinator/media" element={<ContentMediaDashboard />} />
 
           {/* Admin Login - Standalone Page */}
           <Route path="/admin-login" element={<AdminLogin />} />
