@@ -200,7 +200,7 @@ const Header = () => {
           </nav>
 
           {/* Right Section: Login + Mobile Menu (Grouped) */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 ml-auto">
 
 
 
