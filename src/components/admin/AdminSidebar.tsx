@@ -5,7 +5,7 @@ import {
   Briefcase,
   FileText,
   Users,
-  Calendar,
+  CheckSquare, // <-- Changed from Calendar to CheckSquare
   FileEdit,
   LogOut,
   User
@@ -17,7 +17,8 @@ const sidebarItems = [
   { icon: Briefcase, label: 'Jobs', href: '/admin/jobs' },
   { icon: FileText, label: 'Applications', href: '/admin/applications' },
   { icon: Users, label: 'Users', href: '/admin/users' },
-  { icon: Calendar, label: 'Events', href: '/admin/events' },
+  // REPLACED: Events with Approvals
+  { icon: CheckSquare, label: 'Approvals', href: '/admin/approvals' },
   { icon: FileEdit, label: 'CMS', href: '/admin/cms' },
 ];
 

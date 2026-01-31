@@ -1,17 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Play, Calendar, ExternalLink, Camera, Video, Newspaper, Share2, Instagram, Linkedin, Mail, X } from "lucide-react";
+import { Calendar, Camera, Newspaper, X } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ConnectWithUs from "@/components/ConnectWithUs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { Link } from "react-router-dom";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { supabase } from "@/lib/supabase";
 
-import heroImage from "@/assets/university-hero-new.jpg";
-import uolLogo from "@/assets/uol-logo.png";
+// --- Assets ---
 import luInNews from "@/assets/lu-in-news.jpg";
 import tpcMeeting from "@/assets/tpc-meeting.jpg";
 import learningRoutesDrive from "@/assets/learning-routes-drive.jpg";
@@ -25,134 +22,159 @@ import planetsparkAchievement from "@/assets/planetspark-achievement.jpg";
 import rupeekVirtualDrive from "@/assets/rupeek-virtual-drive.jpg";
 import planetsparkVirtualDrive from "@/assets/planetspark-virtual-drive.jpg";
 
-// Placeholder data for Gallery
-const galleryItems = [
+// --- Static Data (Placeholders) ---
+const staticGalleryItems = [
     {
-        id: 101,
+        id: "static-101",
         type: "Events",
         src: smartIndiaHackathon,
         title: "Smart India Hackathon 2025",
         date: "Jan 26, 2025",
-        summary: "Our students showcased exceptional talent at SIH 2025, solving real-world challenges with innovative digital solutions. The event fostered a spirit of entrepreneurship and technical excellence among participants, with several teams receiving commendations from industry экспертs."
+        summary: "Our students showcased exceptional talent at SIH 2025, solving real-world challenges with innovative digital solutions."
     },
     {
-        id: 102,
+        id: "static-102",
         type: "Events",
         src: samsungInnovation,
         title: "Samsung Innovation Campus Program",
         date: "Jan 26, 2025",
-        summary: "The Samsung Innovation Campus program continues to bridge the gap between academia and industry. Through specialized training in AI, Data Science, and IoT, our students are gaining the future-ready skills required for the global tech landscape."
+        summary: "The Samsung Innovation Campus program continues to bridge the gap between academia and industry."
     },
     {
-        id: 8,
+        id: "static-8",
         type: "Events",
         src: tpcMeeting,
         title: "TPC Student Coordinator Meeting",
         date: "Jan 26, 2024",
-        summary: "A strategic session held with our dedicated student coordinators to plan the upcoming recruitment season. The meeting focused on enhancing student outreach, improving drive coordination, and refining the placement process at FoET."
+        summary: "A strategic session held with our dedicated student coordinators to plan the upcoming recruitment season."
     },
     {
-        id: 9,
+        id: "static-9",
         type: "Drives",
         src: learningRoutesDrive,
         title: "Learning Routes Placement Drive",
         date: "Jan 26, 2025",
-        summary: "Learning Routes visited our campus for an extensive hiring drive for Sales and Business Development roles. The session included a pre-placement talk, group discussions, and multiple rounds of interviews, resulting in several successful placements."
+        summary: "Learning Routes visited our campus for an extensive hiring drive for Sales and Business Development roles."
     },
     {
-        id: 10,
+        id: "static-10",
         type: "Drives",
         src: jaroEducationDrive,
         title: "Jaro Education Placement Drive",
         date: "Jan 26, 2025",
-        summary: "Jaro Education conducted a successful recruitment drive, offering competitive packages for Career Development roles. Their team expressed high satisfaction with the quality of candidates and the overall infrastructure provided by the university."
+        summary: "Jaro Education conducted a successful recruitment drive, offering competitive packages for Career Development roles."
     },
     {
-        id: 11,
+        id: "static-11",
         type: "Drives",
         src: rupeekVirtualDrive,
         title: "Rupeek Virtual Drive",
         date: "Jan 26, 2025",
-        summary: "A virtual recruitment drive conducted by Rupeek, enabling students to participate from their convenience. The digital process was seamlessly managed through our online placement portal, ensuring a smooth experience for both recruiters and candidates."
+        summary: "A virtual recruitment drive conducted by Rupeek, enabling students to participate from their convenience."
     },
     {
-        id: 12,
+        id: "static-12",
         type: "Drives",
         src: planetsparkVirtualDrive,
         title: "Planetspark Virtual Placement Drive",
         date: "Jan 26, 2025",
-        summary: "PlanetSpark hosted a virtual drive focusing on roles in business development and creative content. The interactive session allowed students to demonstrate their communication skills and creative thinking through various online assessments."
+        summary: "PlanetSpark hosted a virtual drive focusing on roles in business development and creative content."
     },
     {
-        id: 13,
+        id: "static-13",
         type: "Seminars",
         src: higherEducationSeminar,
         title: "Higher Education Opportunities",
         date: "Jan 26, 2025",
-        summary: "An insightful seminar conducted by industry experts and academic consultants about global higher education pathways. Students learned about test preparation, scholarships, and the application process for top-tier universities worldwide."
+        summary: "An insightful seminar conducted by industry experts and academic consultants about global higher education pathways."
     },
     {
-        id: 14,
+        id: "static-14",
         type: "Achievements",
         src: sotiAchievement,
         title: "SOTI Selects Students (7.5 LPA)",
         date: "Jan 26, 2025",
-        summary: "Proud moment for FoET as SOTI recruited several of our talented students with an impressive package of 7.5 LPA. This achievement highlights the technical competence and industry-readiness of our students."
+        summary: "Proud moment for FoET as SOTI recruited several of our talented students with an impressive package of 7.5 LPA."
     },
     {
-        id: 15,
+        id: "static-15",
         type: "Achievements",
         src: starPerformerNovember,
         title: "Star Performer - November 2025",
         date: "Nov 2025",
-        summary: "Recognizing outstanding contributions and performance within our student community. These awards inspire others to excel in their academic and professional pursuits throughout the year."
+        summary: "Recognizing outstanding contributions and performance within our student community."
     },
     {
-        id: 16,
+        id: "static-16",
         type: "Achievements",
         src: planetsparkAchievement,
         title: "PlanetSpark Selects Students (6.50 LPA)",
         date: "Jan 26, 2025",
-        summary: "Success continues with multiple students being selected by PlanetSpark for high-growth roles. This reflects our consistent efforts in maintaining strong corporate relations and providing quality career opportunities."
+        summary: "Success continues with multiple students being selected by PlanetSpark for high-growth roles."
     },
 ];
 
-const newsItems = [
-    { id: 1, source: "Times of India", title: "University of Lucknow sets new placement record", date: "Jan 20, 2024", link: "#" },
-    { id: 2, source: "Hindustan Times", title: "FoET students shine in National Hackathon", date: "Dec 15, 2023", link: "#" },
-    { id: 3, source: "Education Weekly", title: "New partnership announced with Microsoft", date: "Nov 10, 2023", link: "#" },
-];
-
-const eventHighlights = [
-    { id: 1, title: "Annual Job Fair 2024", date: "Feb 15, 2024", location: "Main Auditorium", desc: "Over 50 companies participating." },
-    { id: 2, title: "Alumni Meet", date: "Mar 10, 2024", location: "Conference Hall", desc: "Networking session with distinguished alumni." },
+const staticPressItems = [
+    { id: "press-1", src: luInNews, title: "University of Lucknow sets new placement record", date: "Jan 20, 2024", summary: "Coverage of FoET's record-breaking placement season in leading national dailies." },
+    { id: "press-2", src: luInNews, title: "FoET students shine in National Hackathon", date: "Dec 15, 2023", summary: "Highlighting the achievements of our students at the prestigious National Hackathon." },
+    { id: "press-3", src: luInNews, title: "New partnership announced with Microsoft", date: "Nov 10, 2023", summary: "Announcement of a landmark collaboration between our university and Microsoft for skill development." },
 ];
 
 const Media = () => {
     const [filter, setFilter] = useState("All");
-    const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null);
+    const [selectedItem, setSelectedItem] = useState<any | null>(null);
+    const [dynamicItems, setDynamicItems] = useState<any[]>([]);
 
-    const pressItems = [
-        { id: 1, src: luInNews, title: "University of Lucknow sets new placement record", date: "Jan 20, 2024", summary: "Coverage of FoET's record-breaking placement season in leading national dailies." },
-        { id: 2, src: luInNews, title: "FoET students shine in National Hackathon", date: "Dec 15, 2023", summary: "Highlighting the achievements of our students at the prestigious National Hackathon." },
-        { id: 3, src: luInNews, title: "New partnership announced with Microsoft", date: "Nov 10, 2023", summary: "Announcement of a landmark collaboration between our university and Microsoft for skill development." },
-    ];
+    // --- Fetch Approved Content from Supabase ---
+    useEffect(() => {
+        const fetchApprovedMedia = async () => {
+            if (!supabase) return;
+            
+            const { data } = await supabase
+                .from('unified_approvals')
+                .select('*')
+                .eq('status', 'approved')
+                .order('created_at', { ascending: false });
+            
+            if (data) {
+                const formattedItems = data.map(item => ({
+                    id: item.id,
+                    // Map DB types to UI categories
+                    type: item.type === 'press_release' ? 'Press' : 
+                          item.type === 'achievement' ? 'Achievements' : 
+                          item.type === 'event' ? 'Events' : 'Gallery',
+                    src: item.image_url,
+                    title: item.title,
+                    date: new Date(item.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+                    summary: item.description
+                }));
+                setDynamicItems(formattedItems);
+            }
+        };
 
+        fetchApprovedMedia();
+    }, []);
+
+    // --- Merge Data ---
+    // 1. Photo Gallery (Events, Achievements, Drives, etc.)
+    const allGalleryItems = [...dynamicItems.filter(i => i.type !== 'Press'), ...staticGalleryItems];
+    
+    // 2. Press Releases (Specifically for the bottom section)
+    const allPressItems = [...dynamicItems.filter(i => i.type === 'Press'), ...staticPressItems];
+
+    // --- Filter Logic ---
     const filteredGallery = filter === "All"
-        ? galleryItems
-        : galleryItems.filter(item => item.type === filter);
+        ? allGalleryItems
+        : allGalleryItems.filter(item => item.type === filter || (filter === "Events" && item.type === "Gallery"));
 
     return (
         <div className="min-h-screen bg-background flex flex-col">
             <Header />
 
             <main className="flex-1 pt-24 pb-12">
-
                 {/* Hero Section */}
                 <section className="relative py-12 md:py-20 mb-12">
                     <div className="container-narrow text-center relative">
-
-
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -227,19 +249,17 @@ const Media = () => {
                         </div>
                     </section>
 
-
-
                     {/* Press Release Section */}
                     <section>
                         <h2 className="font-serif text-3xl font-semibold mb-8 flex items-center gap-2">
                             <Newspaper className="w-6 h-6 text-accent" /> Press Releases
                         </h2>
                         <div className="grid md:grid-cols-3 gap-6">
-                            {pressItems.map((item) => (
+                            {allPressItems.map((item) => (
                                 <div
                                     key={item.id}
                                     className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer"
-                                    onClick={() => setSelectedItem({ ...item, type: "Press" } as any)}
+                                    onClick={() => setSelectedItem({ ...item, type: "Press" })}
                                 >
                                     <div className="aspect-video overflow-hidden">
                                         <img src={item.src} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -257,18 +277,12 @@ const Media = () => {
                         </div>
                     </section>
 
-                    {/* News & Connect Grid */}
-                    <div className="space-y-12">
-                        {/* News */}
-
-                        {/* Connect with Us (Horizontal) */}
-                        <ConnectWithUs />
-
-
-                    </div>
-
+                    {/* Connect with Us (Horizontal) */}
+                    <ConnectWithUs />
                 </div>
-            </main >
+            </main>
+
+            {/* Modal for Details */}
             <AnimatePresence>
                 {selectedItem && (
                     <motion.div
@@ -332,7 +346,7 @@ const Media = () => {
             </AnimatePresence>
 
             <Footer />
-        </div >
+        </div>
     );
 };
 

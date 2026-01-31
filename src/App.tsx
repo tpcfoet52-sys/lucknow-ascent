@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
-import ScrollToTop from "@/components/ScrollToTop"; // <--- 1. Import this
+import ScrollToTop from "@/components/ScrollToTop";
 import ContentMediaDashboard from "./pages/coordinator/ContentMediaDashboard";
 import Index from "./pages/Index";
 import TeamStructure from "./pages/TeamStructure";
@@ -29,7 +29,8 @@ import AdminLayout from "./components/admin/AdminLayout";
 import DashboardOverview from "./pages/admin/DashboardOverview";
 import EventHospitalityDashboard from "./pages/coordinator/EventHospitalityDashboard";
 import TeamDashboard from "./pages/coordinator/TeamDashboard";
-import EventsManagement from "./pages/admin/EventsManagement";
+// import EventsManagement from "./pages/admin/EventsManagement"; // <-- Removed old Events page
+import ApprovalsManagement from "./pages/admin/ApprovalsManagement"; // <-- Added Unified Approvals
 import UserManagement from "./pages/admin/UserManagement";
 
 const queryClient = new QueryClient();
@@ -71,7 +72,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToTop /> {/* <--- 2. Add component here inside BrowserRouter */}
+        <ScrollToTop />
         <Header />
         <Routes>
           {/* Public Routes */}
@@ -106,7 +107,9 @@ const App = () => (
             {/* Redirect /admin to /admin/dashboard */}
             <Route index element={<Navigate to="/admin/dashboard" replace />} />
             <Route path="dashboard" element={<DashboardOverview />} />
-            <Route path="events" element={<EventsManagement />} />
+            
+            {/* REPLACED: Old Events Route with Unified Approvals */}
+            <Route path="approvals" element={<ApprovalsManagement />} />
 
             {/* Placeholder Pages for Sidebar Links */}
             <Route path="jobs" element={<PlaceholderAdminPage title="Jobs Management" />} />
