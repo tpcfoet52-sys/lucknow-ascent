@@ -193,91 +193,17 @@ const Events = () => {
         <div className="mb-12">
           <h3 className="font-serif text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
             <Calendar className="w-5 h-5 text-primary" />
-            Upcoming Events
+            Active Events
           </h3>
 
           {upcomingEvents.length === 0 ? (
             <div className="text-center p-12 bg-card rounded-lg border border-dashed border-border text-muted-foreground">
-              No upcoming events scheduled at the moment.
+              No active events scheduled at the moment.
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {upcomingEvents.map((event, index) => (
-                <motion.div
-                  key={event.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 * index }}
-                  whileHover={{ y: -8 }}
-                  className="group flex flex-col bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-border"
-                >
-                  {/* Banner Image Area */}
-                  <div className="relative h-48 w-full overflow-hidden bg-muted">
-                    {event.banner_url ? (
-                      <img
-                        src={event.banner_url}
-                        alt={event.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-muted">
-                        <Calendar className="w-12 h-12 text-muted-foreground/30" />
-                      </div>
-                    )}
-                    <div className="absolute top-3 right-3">
-                      {event.registrationOpen && (
-                        <Badge className="bg-background text-foreground hover:bg-background/90 backdrop-blur-sm shadow-sm font-semibold border-none">
-                          Open Now
-                        </Badge>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Content Area */}
-                  <div className="flex flex-col flex-grow p-5">
-                    <div className="flex-grow">
-                      <h4 className="font-serif font-bold text-lg text-foreground mb-2 line-clamp-2" title={event.title}>
-                        {event.title}
-                      </h4>
-
-                      <div className="space-y-2 mb-4">
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Calendar className="w-4 h-4 text-primary" />
-                          <span>{event.formattedDate}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Clock className="w-4 h-4 text-primary" />
-                          <span>{event.formattedTime}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <MapPin className="w-4 h-4 text-primary" />
-                          <span className="line-clamp-1">{event.location}</span>
-                        </div>
-                      </div>
-
-                      <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
-                        {event.description}
-                      </p>
-                    </div>
-
-                    <div className="mt-auto pt-4 border-t border-dashed border-border">
-                      {event.registrationOpen ? (
-                        <Button
-                          variant="default" // Uses standard primary color
-                          className="w-full shadow-sm hover:shadow-md transition-all font-semibold"
-                          onClick={() => handleRegister(event)}
-                        >
-                          Register Now
-                        </Button>
-                      ) : (
-                        <Button disabled variant="secondary" className="w-full opacity-70">
-                          Registration Closed
-                        </Button>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
+                <EventCard key={event.id} event={event} index={index} onRegister={handleRegister} />
               ))}
             </div>
           )}
@@ -289,28 +215,9 @@ const Events = () => {
               <Clock className="w-5 h-5 text-muted-foreground" />
               Past Events
             </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {pastEvents.map((event, index) => (
-                <motion.div
-                  key={event.id}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 * index }}
-                  className="bg-card rounded-lg p-4 border border-border shadow-sm flex gap-4 items-center"
-                >
-                  <div className="h-12 w-12 rounded bg-muted flex items-center justify-center flex-shrink-0 overflow-hidden">
-                    {event.banner_url ? (
-                      <img src={event.banner_url} alt="" className="w-full h-full object-cover opacity-60 grayscale" />
-                    ) : (
-                      <Calendar className="h-5 w-5 text-muted-foreground/50" />
-                    )}
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground text-sm line-clamp-1">{event.title}</h4>
-                    <p className="text-muted-foreground text-xs mt-0.5">{event.formattedDate}</p>
-                  </div>
-                </motion.div>
+                <EventCard key={event.id} event={event} index={index} onRegister={handleRegister} isPast={true} />
               ))}
             </div>
           </div>
@@ -428,5 +335,92 @@ const Events = () => {
     </section>
   );
 };
+
+// Extracted Event Card Component for consistency
+const EventCard = ({ event, index, onRegister, isPast = false }: { event: any, index: number, onRegister: (e: any) => void, isPast?: boolean }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay: 0.1 * index }}
+    whileHover={{ y: -8 }}
+    className={`group flex flex-col bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-border ${isPast ? 'opacity-80' : ''}`}
+  >
+    {/* Banner Image Area */}
+    <div className="relative h-48 w-full overflow-hidden bg-muted">
+      {event.banner_url ? (
+        <img
+          src={event.banner_url}
+          alt={event.title}
+          className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${isPast ? 'grayscale' : ''}`}
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-muted">
+          <Calendar className="w-12 h-12 text-muted-foreground/30" />
+        </div>
+      )}
+      <div className="absolute top-3 right-3">
+        {event.registrationOpen && !isPast && (
+          <Badge className="bg-background text-foreground hover:bg-background/90 backdrop-blur-sm shadow-sm font-semibold border-none">
+            Open Now
+          </Badge>
+        )}
+        {isPast && (
+          <Badge variant="secondary" className="backdrop-blur-sm shadow-sm font-semibold">
+            Ended
+          </Badge>
+        )}
+      </div>
+    </div>
+
+    {/* Content Area */}
+    <div className="flex flex-col flex-grow p-5">
+      <div className="flex-grow">
+        <h4 className="font-serif font-bold text-lg text-foreground mb-2 line-clamp-2" title={event.title}>
+          {event.title}
+        </h4>
+
+        <div className="space-y-2 mb-4">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Calendar className="w-4 h-4 text-primary" />
+            <span>{event.formattedDate}</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Clock className="w-4 h-4 text-primary" />
+            <span>{event.formattedTime}</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <MapPin className="w-4 h-4 text-primary" />
+            <span className="line-clamp-1">{event.location}</span>
+          </div>
+        </div>
+
+        <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
+          {event.description}
+        </p>
+      </div>
+
+      <div className="mt-auto pt-4 border-t border-dashed border-border">
+        {isPast ? (
+          <Button disabled variant="outline" className="w-full">
+            Event Ended
+          </Button>
+        ) : event.registrationOpen ? (
+          <Button
+            variant="default"
+            className="w-full shadow-sm hover:shadow-md transition-all font-semibold"
+            onClick={() => onRegister(event)}
+          >
+            Register Now
+          </Button>
+        ) : (
+          <Button disabled variant="secondary" className="w-full opacity-70">
+            Registration Closed
+          </Button>
+        )}
+      </div>
+    </div>
+  </motion.div>
+);
 
 export default Events;

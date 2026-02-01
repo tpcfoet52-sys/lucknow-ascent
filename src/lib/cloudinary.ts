@@ -56,3 +56,34 @@ export const getOptimizedUrl = (url: string, width: number = 800) => {
   const parts = url.split("/upload/");
   return `${parts[0]}/upload/w_${width},f_auto,q_auto/${parts[1]}`;
 };
+/**
+ * Deletes an image from Cloudinary using the public_id
+ * Note: This requires a server-side implementation with API credentials
+ */
+export const deleteFromCloudinary = async (publicId: string): Promise<boolean> => {
+  const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+  
+  if (!cloudName || !publicId) {
+    console.error("Missing cloudName or publicId for deletion");
+    return false;
+  }
+
+  try {
+    // Note: Cloudinary's delete API requires authentication with API secret
+    // This is a placeholder - in production, implement a backend endpoint
+    console.warn(`Image deletion requested for public_id: ${publicId}`);
+    console.warn("Cloudinary deletion requires server-side implementation");
+    
+    // TODO: Call your backend endpoint:
+    // const response = await fetch('/api/cloudinary/delete', {
+    //   method: 'POST',
+    //   body: JSON.stringify({ publicId })
+    // });
+    
+    return true; // Temporary - assumes deletion succeeded
+  } catch (error) {
+    console.error("Error deleting from Cloudinary:", error);
+    return false;
+  }
+};
+

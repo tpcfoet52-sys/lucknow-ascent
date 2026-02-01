@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
 import ContentMediaDashboard from "./pages/coordinator/ContentMediaDashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Index from "./pages/Index";
 import TeamStructure from "./pages/TeamStructure";
 import AboutUniversity from "./pages/AboutUniversity";
@@ -29,9 +30,9 @@ import AdminLayout from "./components/admin/AdminLayout";
 import DashboardOverview from "./pages/admin/DashboardOverview";
 import EventHospitalityDashboard from "./pages/coordinator/EventHospitalityDashboard";
 import TeamDashboard from "./pages/coordinator/TeamDashboard";
-// import EventsManagement from "./pages/admin/EventsManagement"; // <-- Removed old Events page
-import ApprovalsManagement from "./pages/admin/ApprovalsManagement"; // <-- Added Unified Approvals
+import ApprovalsManagement from "./pages/admin/ApprovalsManagement";
 import UserManagement from "./pages/admin/UserManagement";
+// Removed DataMigration import
 
 const queryClient = new QueryClient();
 
@@ -97,7 +98,11 @@ const App = () => (
           <Route path="/coordinator-login" element={<CoordinatorLogin />} />
           <Route path="/coordinator/events" element={<EventHospitalityDashboard />} />
           <Route path="/coordinator/dashboard" element={<TeamDashboard />} />
-          <Route path="/coordinator/media" element={<ContentMediaDashboard />} />
+          <Route path="/coordinator/media" element={
+            <ProtectedRoute requiredTeam="Content & Media Team">
+              <ContentMediaDashboard />
+            </ProtectedRoute>
+          } />
 
           {/* Admin Login - Standalone Page */}
           <Route path="/admin-login" element={<AdminLogin />} />
@@ -107,9 +112,10 @@ const App = () => (
             {/* Redirect /admin to /admin/dashboard */}
             <Route index element={<Navigate to="/admin/dashboard" replace />} />
             <Route path="dashboard" element={<DashboardOverview />} />
-            
-            {/* REPLACED: Old Events Route with Unified Approvals */}
+
             <Route path="approvals" element={<ApprovalsManagement />} />
+
+            {/* Removed Migration Route */}
 
             {/* Placeholder Pages for Sidebar Links */}
             <Route path="jobs" element={<PlaceholderAdminPage title="Jobs Management" />} />

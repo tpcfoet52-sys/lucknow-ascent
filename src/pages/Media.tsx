@@ -7,119 +7,8 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/lib/supabase";
-
-// --- Assets ---
+// Assets (Only Hero and Logo assets if needed, but hero is still used)
 import heroImage from "@/assets/university-hero-new.jpg";
-import luInNews from "@/assets/lu-in-news.jpg";
-import tpcMeeting from "@/assets/tpc-meeting.jpg";
-import learningRoutesDrive from "@/assets/learning-routes-drive.jpg";
-import jaroEducationDrive from "@/assets/jaro-education-drive-v2.jpg";
-import higherEducationSeminar from "@/assets/higher-education-seminar.jpg";
-import sotiAchievement from "@/assets/soti-achievement.jpg";
-import samsungInnovation from "@/assets/samsung-innovation-campus.jpg";
-import smartIndiaHackathon from "@/assets/smart-india-hackathon.jpg";
-import starPerformerNovember from "@/assets/star-performer-november.jpg";
-import planetsparkAchievement from "@/assets/planetspark-achievement.jpg";
-import rupeekVirtualDrive from "@/assets/rupeek-virtual-drive.jpg";
-import planetsparkVirtualDrive from "@/assets/planetspark-virtual-drive.jpg";
-
-// --- Static Data (Placeholders) ---
-const staticGalleryItems = [
-    {
-        id: "static-101",
-        type: "Events",
-        src: smartIndiaHackathon,
-        title: "Smart India Hackathon 2025",
-        date: "Jan 26, 2025",
-        summary: "Our students showcased exceptional talent at SIH 2025, solving real-world challenges with innovative digital solutions."
-    },
-    {
-        id: "static-102",
-        type: "Events",
-        src: samsungInnovation,
-        title: "Samsung Innovation Campus Program",
-        date: "Jan 26, 2025",
-        summary: "The Samsung Innovation Campus program continues to bridge the gap between academia and industry."
-    },
-    {
-        id: "static-8",
-        type: "Events",
-        src: tpcMeeting,
-        title: "TPC Student Coordinator Meeting",
-        date: "Jan 26, 2024",
-        summary: "A strategic session held with our dedicated student coordinators to plan the upcoming recruitment season."
-    },
-    {
-        id: "static-9",
-        type: "Drives",
-        src: learningRoutesDrive,
-        title: "Learning Routes Placement Drive",
-        date: "Jan 26, 2025",
-        summary: "Learning Routes visited our campus for an extensive hiring drive for Sales and Business Development roles."
-    },
-    {
-        id: "static-10",
-        type: "Drives",
-        src: jaroEducationDrive,
-        title: "Jaro Education Placement Drive",
-        date: "Jan 26, 2025",
-        summary: "Jaro Education conducted a successful recruitment drive, offering competitive packages for Career Development roles."
-    },
-    {
-        id: "static-11",
-        type: "Drives",
-        src: rupeekVirtualDrive,
-        title: "Rupeek Virtual Drive",
-        date: "Jan 26, 2025",
-        summary: "A virtual recruitment drive conducted by Rupeek, enabling students to participate from their convenience."
-    },
-    {
-        id: "static-12",
-        type: "Drives",
-        src: planetsparkVirtualDrive,
-        title: "Planetspark Virtual Placement Drive",
-        date: "Jan 26, 2025",
-        summary: "PlanetSpark hosted a virtual drive focusing on roles in business development and creative content."
-    },
-    {
-        id: "static-13",
-        type: "Seminars",
-        src: higherEducationSeminar,
-        title: "Higher Education Opportunities",
-        date: "Jan 26, 2025",
-        summary: "An insightful seminar conducted by industry experts and academic consultants about global higher education pathways."
-    },
-    {
-        id: "static-14",
-        type: "Achievements",
-        src: sotiAchievement,
-        title: "SOTI Selects Students (7.5 LPA)",
-        date: "Jan 26, 2025",
-        summary: "Proud moment for FoET as SOTI recruited several of our talented students with an impressive package of 7.5 LPA."
-    },
-    {
-        id: "static-15",
-        type: "Achievements",
-        src: starPerformerNovember,
-        title: "Star Performer - November 2025",
-        date: "Nov 2025",
-        summary: "Recognizing outstanding contributions and performance within our student community."
-    },
-    {
-        id: "static-16",
-        type: "Achievements",
-        src: planetsparkAchievement,
-        title: "PlanetSpark Selects Students (6.50 LPA)",
-        date: "Jan 26, 2025",
-        summary: "Success continues with multiple students being selected by PlanetSpark for high-growth roles."
-    },
-];
-
-const staticPressItems = [
-    { id: "press-1", src: luInNews, title: "University of Lucknow sets new placement record", date: "Jan 20, 2024", summary: "Coverage of FoET's record-breaking placement season in leading national dailies." },
-    { id: "press-2", src: luInNews, title: "FoET students shine in National Hackathon", date: "Dec 15, 2023", summary: "Highlighting the achievements of our students at the prestigious National Hackathon." },
-    { id: "press-3", src: luInNews, title: "New partnership announced with Microsoft", date: "Nov 10, 2023", summary: "Announcement of a landmark collaboration between our university and Microsoft for skill development." },
-];
 
 const Media = () => {
     const [filter, setFilter] = useState("All");
@@ -158,10 +47,10 @@ const Media = () => {
 
     // --- Merge Data ---
     // 1. Photo Gallery (Events, Achievements, Drives, etc.)
-    const allGalleryItems = [...dynamicItems.filter(i => i.type !== 'Press'), ...staticGalleryItems];
+    const allGalleryItems = dynamicItems.filter(i => i.type !== 'Press');
 
     // 2. Press Releases (Specifically for the bottom section)
-    const allPressItems = [...dynamicItems.filter(i => i.type === 'Press'), ...staticPressItems];
+    const allPressItems = dynamicItems.filter(i => i.type === 'Press');
 
     // --- Filter Logic ---
     const filteredGallery = filter === "All"
@@ -228,33 +117,39 @@ const Media = () => {
                         </div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <AnimatePresence mode="popLayout">
-                                {filteredGallery.map((item) => (
-                                    <motion.div
-                                        key={item.id}
-                                        layout
-                                        initial={{ opacity: 0, scale: 0.9 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        exit={{ opacity: 0, scale: 0.9 }}
-                                        transition={{ duration: 0.3 }}
-                                        className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer"
-                                        onClick={() => setSelectedItem(item)}
-                                    >
-                                        <div className="aspect-video overflow-hidden">
-                                            <img src={item.src} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                                        </div>
-                                        <div className="p-4">
-                                            <div className="flex justify-between items-start mb-2">
-                                                <Badge variant="secondary" className="text-xs">{item.type}</Badge>
-                                                <span className="text-xs text-muted-foreground flex items-center gap-1">
-                                                    <Calendar className="w-3 h-3" /> {item.date}
-                                                </span>
+                            {filteredGallery.length === 0 ? (
+                                <div className="col-span-full text-center py-12 text-muted-foreground">
+                                    No items found.
+                                </div>
+                            ) : (
+                                <AnimatePresence mode="popLayout">
+                                    {filteredGallery.map((item) => (
+                                        <motion.div
+                                            key={item.id}
+                                            layout
+                                            initial={{ opacity: 0, scale: 0.9 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 0.9 }}
+                                            transition={{ duration: 0.3 }}
+                                            className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer"
+                                            onClick={() => setSelectedItem(item)}
+                                        >
+                                            <div className="aspect-video overflow-hidden">
+                                                <img src={item.src} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                                             </div>
-                                            <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">{item.title}</h3>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </AnimatePresence>
+                                            <div className="p-4">
+                                                <div className="flex justify-between items-start mb-2">
+                                                    <Badge variant="secondary" className="text-xs">{item.type}</Badge>
+                                                    <span className="text-xs text-muted-foreground flex items-center gap-1">
+                                                        <Calendar className="w-3 h-3" /> {item.date}
+                                                    </span>
+                                                </div>
+                                                <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">{item.title}</h3>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </AnimatePresence>
+                            )}
                         </div>
                     </section>
 
@@ -264,25 +159,31 @@ const Media = () => {
                             <Newspaper className="w-6 h-6 text-accent" /> Press Releases
                         </h2>
                         <div className="grid md:grid-cols-3 gap-6">
-                            {allPressItems.map((item) => (
-                                <div
-                                    key={item.id}
-                                    className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer"
-                                    onClick={() => setSelectedItem({ ...item, type: "Press" })}
-                                >
-                                    <div className="aspect-video overflow-hidden">
-                                        <img src={item.src} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                                    </div>
-                                    <div className="p-4">
-                                        <div className="flex justify-between items-start mb-2">
-                                            <span className="text-xs text-muted-foreground flex items-center gap-1">
-                                                <Calendar className="w-3 h-3" /> {item.date}
-                                            </span>
-                                        </div>
-                                        <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">{item.title}</h3>
-                                    </div>
+                            {allPressItems.length === 0 ? (
+                                <div className="col-span-full text-center py-12 text-muted-foreground">
+                                    No press releases found.
                                 </div>
-                            ))}
+                            ) : (
+                                allPressItems.map((item) => (
+                                    <div
+                                        key={item.id}
+                                        className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer"
+                                        onClick={() => setSelectedItem({ ...item, type: "Press" })}
+                                    >
+                                        <div className="aspect-video overflow-hidden">
+                                            <img src={item.src} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                                        </div>
+                                        <div className="p-4">
+                                            <div className="flex justify-between items-start mb-2">
+                                                <span className="text-xs text-muted-foreground flex items-center gap-1">
+                                                    <Calendar className="w-3 h-3" /> {item.date}
+                                                </span>
+                                            </div>
+                                            <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">{item.title}</h3>
+                                        </div>
+                                    </div>
+                                ))
+                            )}
                         </div>
                     </section>
 
@@ -313,6 +214,10 @@ const Media = () => {
                                     src={selectedItem.src}
                                     alt={selectedItem.title}
                                     className="max-w-full max-h-full object-contain"
+                                    onError={(e) => {
+                                        // Fallback for broken images
+                                        (e.target as HTMLImageElement).src = "https://via.placeholder.com/800x600?text=Image+Not+Found";
+                                    }}
                                 />
                             </div>
 
@@ -336,7 +241,7 @@ const Media = () => {
                                 <div className="space-y-4">
                                     <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground/80">Event Summary</h4>
                                     <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
-                                        {selectedItem.summary}
+                                        {selectedItem.summary || "No description available."}
                                     </p>
                                 </div>
                             </div>

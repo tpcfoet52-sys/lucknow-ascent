@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { format } from "date-fns";
-import { 
-  CheckCircle2, XCircle, Clock, Filter, 
-  Calendar, ImageIcon, FileText, Loader2, MessageSquare 
+import {
+  CheckCircle2, XCircle, Clock, Filter,
+  Calendar, ImageIcon, FileText, Loader2, MessageSquare
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { deleteFromCloudinary } from "@/lib/cloudinary";
 
 // Define the shape of our unified data
 interface ApprovalItem {
@@ -23,6 +24,7 @@ interface ApprovalItem {
   title: string;
   description: string;
   image_url: string;
+  cloudinary_public_id?: string; // For deletion when rejected
   status: 'pending' | 'approved' | 'rejected';
   created_at: string;
   details: any; // JSONB data
@@ -33,7 +35,7 @@ const ApprovalsManagement = () => {
   const [items, setItems] = useState<ApprovalItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [filterType, setFilterType] = useState<string>("all");
-  
+
   // Rejection Dialog State
   const [rejectId, setRejectId] = useState<string | null>(null);
   const [rejectReason, setRejectReason] = useState("");
@@ -41,7 +43,7 @@ const ApprovalsManagement = () => {
   const fetchApprovals = async () => {
     setIsLoading(true);
     if (!supabase) return;
-    
+
     const { data, error } = await supabase
       .from('unified_approvals')
       .select('*')
@@ -73,9 +75,9 @@ const ApprovalsManagement = () => {
     if (error) {
       toast({ title: "Update Failed", description: error.message, variant: "destructive" });
     } else {
-      toast({ 
-        title: newStatus === 'approved' ? "Approved" : "Rejected", 
-        description: `Item has been ${newStatus}.` 
+      toast({
+        title: newStatus === 'approved' ? "Approved" : "Rejected",
+        description: `Item has been ${newStatus}.`
       });
       fetchApprovals(); // Refresh UI
     }
@@ -108,8 +110,8 @@ const ApprovalsManagement = () => {
     }
   };
 
-  const filteredItems = filterType === "all" 
-    ? items 
+  const filteredItems = filterType === "all"
+    ? items
     : items.filter(i => i.type === filterType);
 
   const PendingList = filteredItems.filter(i => i.status === 'pending');
@@ -122,20 +124,20 @@ const ApprovalsManagement = () => {
           <h1 className="text-3xl font-bold tracking-tight">Approvals & Requests</h1>
           <p className="text-muted-foreground mt-1">Unified inbox for all coordinator submissions.</p>
         </div>
-        
+
         {/* Type Filter */}
         <div className="flex items-center gap-2 bg-muted p-1 rounded-lg">
           <Filter className="w-4 h-4 ml-2 text-muted-foreground" />
           {['all', 'event', 'gallery', 'press_release', 'achievement'].map((t) => (
-             <Button 
-               key={t}
-               variant={filterType === t ? "secondary" : "ghost"}
-               size="sm"
-               onClick={() => setFilterType(t)}
-               className="capitalize h-8"
-             >
-               {t.replace('_', ' ')}
-             </Button>
+            <Button
+              key={t}
+              variant={filterType === t ? "secondary" : "ghost"}
+              size="sm"
+              onClick={() => setFilterType(t)}
+              className="capitalize h-8"
+            >
+              {t.replace('_', ' ')}
+            </Button>
           ))}
         </div>
       </div>
@@ -158,9 +160,9 @@ const ApprovalsManagement = () => {
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               {PendingList.map((item) => (
-                <ApprovalCard 
-                  key={item.id} 
-                  item={item} 
+                <ApprovalCard
+                  key={item.id}
+                  item={item}
                   onApprove={() => handleStatusUpdate(item.id, 'approved')}
                   onReject={() => setRejectId(item.id)}
                   getTypeIcon={getTypeIcon}
@@ -172,29 +174,29 @@ const ApprovalsManagement = () => {
         </TabsContent>
 
         <TabsContent value="history" className="mt-6">
-           <div className="space-y-4">
-              {HistoryList.map(item => (
-                <div key={item.id} className="flex items-center justify-between p-4 border rounded-lg bg-card hover:bg-muted/50 transition-colors">
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-12 rounded bg-muted overflow-hidden shrink-0">
-                      {item.image_url && <img src={item.image_url} className="w-full h-full object-cover" />}
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <Badge variant="outline" className={getTypeColor(item.type)}>
-                          {item.type.replace('_', ' ')}
-                        </Badge>
-                        <span className="text-xs text-muted-foreground">{format(new Date(item.created_at), "MMM d, yyyy")}</span>
-                      </div>
-                      <h4 className="font-semibold text-sm">{item.title}</h4>
-                    </div>
+          <div className="space-y-4">
+            {HistoryList.map(item => (
+              <div key={item.id} className="flex items-center justify-between p-4 border rounded-lg bg-card hover:bg-muted/50 transition-colors">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-12 rounded bg-muted overflow-hidden shrink-0">
+                    {item.image_url && <img src={item.image_url} className="w-full h-full object-cover" />}
                   </div>
-                  <Badge variant={item.status === 'approved' ? 'default' : 'destructive'} className="capitalize">
-                    {item.status}
-                  </Badge>
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <Badge variant="outline" className={getTypeColor(item.type)}>
+                        {item.type.replace('_', ' ')}
+                      </Badge>
+                      <span className="text-xs text-muted-foreground">{format(new Date(item.created_at), "MMM d, yyyy")}</span>
+                    </div>
+                    <h4 className="font-semibold text-sm">{item.title}</h4>
+                  </div>
                 </div>
-              ))}
-           </div>
+                <Badge variant={item.status === 'approved' ? 'default' : 'destructive'} className="capitalize">
+                  {item.status}
+                </Badge>
+              </div>
+            ))}
+          </div>
         </TabsContent>
       </Tabs>
 
@@ -207,8 +209,8 @@ const ApprovalsManagement = () => {
           </DialogHeader>
           <div className="py-4">
             <Label>Feedback / Reason</Label>
-            <Textarea 
-              value={rejectReason} 
+            <Textarea
+              value={rejectReason}
               onChange={(e) => setRejectReason(e.target.value)}
               placeholder="e.g. Image quality is too low..."
             />
@@ -235,20 +237,20 @@ const ApprovalCard = ({ item, onApprove, onReject, getTypeIcon, getTypeColor }: 
       <div className="absolute top-2 right-2">
         <Badge className={`shadow-sm ${getTypeColor(item.type)}`}>
           <span className="flex items-center gap-1">
-             {getTypeIcon(item.type)} {item.type.replace('_', ' ')}
+            {getTypeIcon(item.type)} {item.type.replace('_', ' ')}
           </span>
         </Badge>
       </div>
     </div>
     <CardHeader className="pb-3">
       <div className="flex justify-between items-start text-xs text-muted-foreground mb-2">
-        <span className="flex items-center gap-1"><Clock className="w-3 h-3"/> {format(new Date(item.created_at), "MMM d, p")}</span>
+        <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {format(new Date(item.created_at), "MMM d, p")}</span>
       </div>
       <CardTitle className="text-lg leading-tight">{item.title}</CardTitle>
     </CardHeader>
     <CardContent className="flex-1 pb-3">
       <p className="text-sm text-muted-foreground line-clamp-3">{item.description}</p>
-      
+
       {/* Show Event Details if available */}
       {item.type === 'event' && item.details?.venue && (
         <div className="mt-3 p-2 bg-secondary/50 rounded text-xs">
@@ -258,10 +260,10 @@ const ApprovalCard = ({ item, onApprove, onReject, getTypeIcon, getTypeColor }: 
     </CardContent>
     <CardFooter className="pt-0 gap-3 border-t bg-muted/20 p-4">
       <Button variant="outline" className="flex-1 hover:bg-red-50 hover:text-red-600 border-red-200" onClick={onReject}>
-        <XCircle className="w-4 h-4 mr-2"/> Reject
+        <XCircle className="w-4 h-4 mr-2" /> Reject
       </Button>
       <Button className="flex-1 bg-green-600 hover:bg-green-700 text-white" onClick={onApprove}>
-        <CheckCircle2 className="w-4 h-4 mr-2"/> Approve
+        <CheckCircle2 className="w-4 h-4 mr-2" /> Approve
       </Button>
     </CardFooter>
   </Card>

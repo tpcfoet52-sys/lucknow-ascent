@@ -79,12 +79,22 @@ const CoordinatorLogin = () => {
       }
 
       if (data.password === values.password) {
+        // Store authentication in session storage
+        sessionStorage.setItem("coordinator_auth", JSON.stringify({
+          team: values.team,
+          username: values.username,
+          timestamp: Date.now()
+        }));
+
         toast.success(`Welcome back, ${values.team} Coordinator`);
 
         // --- REDIRECT LOGIC START ---
         if (values.team === "Event & Hospitality Team") {
           // Redirect specifically to the Event Dashboard
           navigate("/coordinator/events");
+        } else if (values.team === "Content & Media Team") {
+          // Redirect to Content Media Dashboard
+          navigate("/coordinator/media");
         } else {
           // Default fallback for other teams
           navigate("/coordinator/dashboard");

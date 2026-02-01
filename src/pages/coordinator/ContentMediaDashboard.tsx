@@ -89,13 +89,14 @@ const ContentMediaDashboard = () => {
       // 1. Upload Image to Cloudinary
       const uploadResult = await uploadToCloudinary(selectedFile);
 
-      // 2. Insert Record into Supabase
+      // 2. Insert Record into Supabase with Cloudinary public_id
       if (supabase) {
         const { error } = await supabase.from('unified_approvals').insert([{
           title: data.title,
           description: data.description,
           type: data.type,
           image_url: uploadResult.secure_url,
+          cloudinary_public_id: uploadResult.public_id, // Store for deletion if rejected
           status: 'pending',
           details: {},
         }]);
@@ -132,7 +133,7 @@ const ContentMediaDashboard = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 space-y-8 animate-fade-in">
+    <div className="container mx-auto p-6 pt-24 md:pt-28 space-y-8 animate-fade-in">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <h1 className="text-3xl font-bold font-serif text-primary">Content & Media Dashboard</h1>
