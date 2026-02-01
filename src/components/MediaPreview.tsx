@@ -67,12 +67,10 @@ const MediaPreview = () => {
                             key={item.id}
                             initial="initial"
                             whileInView="animate"
-                            whileHover="hover"
                             viewport={{ once: true }}
                             variants={{
                                 initial: { opacity: 0, y: 30 },
-                                animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
-                                hover: { y: -5, transition: { duration: 0.3 } }
+                                animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } }
                             }}
                             className="group relative overflow-hidden rounded-xl border border-border bg-card cursor-pointer transition-all duration-300"
                             onClick={() => setSelectedItem(item)}

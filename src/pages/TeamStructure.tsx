@@ -76,6 +76,8 @@ interface TeamMember {
   phone?: string;
   linkedin?: string;
   image?: string;
+  branch?: string;
+  year?: string;
 }
 
 interface Team {
@@ -96,9 +98,15 @@ const teams: Team[] = [
     icon: Users,
     keyPoints: ["Alumni engagement", "Finding leads for internship and placement opportunities", "Helping establishing networks with HRs and Companies"],
     members: [
-      { id: 1, name: "Vikram Patel", role: "Team Lead" },
-      { id: 2, name: "Ananya Mishra", role: "Alumni Coordinator" },
-      { id: 3, name: "Rohit Verma", role: "Partnership Manager" },
+      { id: 1, name: "Ramakant Mishra", role: "Team Lead", year: "3rd Year", branch: "B.Tech ECE" },
+      { id: 2, name: "Rashmi Kushwaha", role: "Co-Lead", year: "2nd Year", branch: "BCA" },
+      { id: 3, name: "Akash Singh", role: "Co-Lead", year: "2nd Year", branch: "B.Tech CSE-AI" },
+      { id: 4, name: "Srishti Mishra", role: "Team Member", year: "2nd Year", branch: "B.Tech CSE-AI" },
+      { id: 5, name: "Akash Kumar Yadav", role: "Team Member", year: "2nd Year", branch: "B.Tech CSE-AI" },
+      { id: 6, name: "Harshit Yadav", role: "Team Member", year: "1st Year", branch: "B.Tech CSE" },
+      { id: 7, name: "Astitva Bharadwaj", role: "Team Member", year: "1st Year", branch: "BCA" },
+      { id: 8, name: "Riya Jainer", role: "Team Member", year: "1st Year", branch: "B.Tech EE" },
+      { id: 9, name: "Divyanshu Dubey", role: "Team Member", year: "2nd Year", branch: "B.Tech ECE" },
     ],
     stats: [
       { label: "Alumni Connected", value: "500+" },
@@ -113,10 +121,14 @@ const teams: Team[] = [
     icon: Building2,
     keyPoints: ["Company outreach", "JAF processing", "MoU management", "Recruiter relations"],
     members: [
-      { id: 1, name: "Rahul Sharma", role: "Team Lead" },
-      { id: 2, name: "Priya Gupta", role: "Corporate Coordinator" },
-      { id: 3, name: "Amit Kumar", role: "Recruiter Relations" },
-      { id: 4, name: "Sneha Singh", role: "MoU Manager" },
+      { id: 1, name: "Kshitij Singh", role: "Team Lead", year: "3rd Year", branch: "B.Tech ECE" },
+      { id: 2, name: "Aryan Tripathi", role: "Team Lead", year: "2nd Year", branch: "B.Tech EE" },
+      { id: 3, name: "Abhinav Singh", role: "Team Lead", year: "2nd Year", branch: "B.Tech CSE" },
+      { id: 4, name: "Aditya Swamy", role: "Team Member", year: "2nd Year", branch: "B.Tech ME" },
+      { id: 5, name: "Shivaksh Singh", role: "Team Member", year: "1st Year", branch: "B.Tech CSE-AI" },
+      { id: 6, name: "Himanshu Mishra", role: "Team Member", year: "1st Year", branch: "B.Tech EE" },
+      { id: 7, name: "Shreya Pandey", role: "Team Member", year: "1st Year", branch: "B.Tech EE" },
+      { id: 8, name: "Abhay Kumar Yadav", role: "Team Member", year: "2nd Year", branch: "B.Tech CE" },
     ],
     stats: [
       { label: "Companies Reached", value: "150+" },
@@ -131,10 +143,14 @@ const teams: Team[] = [
     icon: Briefcase,
     keyPoints: ["Soft skill training", "Skill assessments", "Internship coordination", "Industry collaboration"],
     members: [
-      { id: 1, name: "Kavita Joshi", role: "Team Lead" },
-      { id: 2, name: "Arjun Reddy", role: "Training Coordinator" },
-      { id: 3, name: "Meera Nair", role: "Internship Manager" },
-      { id: 4, name: "Sanjay Tiwari", role: "Skill Assessment Head" },
+      { id: 1, name: "Prateek Jaiswal", role: "Team Lead", year: "3rd Year", branch: "B.Tech CE" },
+      { id: 2, name: "Arnav Singh Chauhan", role: "Team Lead", year: "3rd Year", branch: "B.Tech" },
+      { id: 3, name: "Aman Kumar Yadav", role: "Co-Lead", year: "2nd Year", branch: "B.Tech EE" },
+      { id: 4, name: "Abhishek Bajpai", role: "Co-Lead", year: "2nd Year", branch: "B.Tech CSE" },
+      { id: 5, name: "Tejas Kumar Vishwakarma", role: "Team Member", year: "1st Year", branch: "BCA" },
+      { id: 6, name: "Kanishka", role: "Team Member", year: "2nd Year", branch: "B.Tech CSE" },
+      { id: 7, name: "Satyam Nagar", role: "Team Member", year: "1st Year", branch: "B.Tech CSE-AI" },
+      { id: 8, name: "Kashvi Jaiswal", role: "Team Member", year: "1st Year", branch: "BCA" },
     ],
     stats: [
       { label: "Training Sessions", value: "60+" },
@@ -149,10 +165,16 @@ const teams: Team[] = [
     icon: Code,
     keyPoints: ["Website development", "Technical support", "Database management", "UI/UX design"],
     members: [
-      { id: 1, name: "Dev Sharma", role: "Team Lead" },
-      { id: 2, name: "Riya Agarwal", role: "Frontend Developer" },
-      { id: 3, name: "Karan Mehta", role: "Backend Developer" },
-      { id: 4, name: "Pooja Yadav", role: "UI/UX Designer" },
+      { id: 1, name: "Tejas Bharadwaj", role: "Team Lead", year: "3rd Year", branch: "B.Tech ECE" },
+      { id: 2, name: "Sivasti Awasthi", role: "Team Lead", year: "3rd Year", branch: "B.Tech ECE" },
+      { id: 3, name: "Aditya Sharma", role: "Co-Lead", year: "3rd Year", branch: "B.Tech CSE" },
+      { id: 4, name: "Varun Sagar", role: "Co-Lead", year: "2nd Year", branch: "B.Tech CE" },
+      { id: 5, name: "Ayush Kumar Mishra", role: "Team Member", year: "2nd Year", branch: "B.Tech EE" },
+      { id: 6, name: "Divyanshu Singh Chauhan", role: "Team Member", year: "2nd Year", branch: "B.Tech CSE" },
+      { id: 7, name: "Shahid Ali Mansuri", role: "Team Member", year: "1st Year", branch: "B.Tech CSE" },
+      { id: 8, name: "Arti", role: "Team Member", year: "1st Year", branch: "B.Tech CSE-AI" },
+      { id: 9, name: "Subodh Kushwaha", role: "Team Member", year: "2nd Year", branch: "B.Tech ECE" },
+      { id: 10, name: "Piyush Singh", role: "Team Member", year: "2nd Year", branch: "B.Tech ECE" },
     ],
     stats: [
       { label: "Features Deployed", value: "25+" },
@@ -167,10 +189,14 @@ const teams: Team[] = [
     icon: Camera,
     keyPoints: ["Social media management", "Content writing", "Photography/videography", "Brand management"],
     members: [
-      { id: 1, name: "Neha Kapoor", role: "Team Lead" },
-      { id: 2, name: "Aditya Saxena", role: "Content Writer" },
-      { id: 3, name: "Shreya Das", role: "Social Media Manager" },
-      { id: 4, name: "Varun Khanna", role: "Photographer" },
+      { id: 1, name: "Tanishka Soni", role: "Team Lead", year: "3rd Year", branch: "B.Tech CSE" },
+      { id: 2, name: "Ishan Chawla", role: "Co-Lead", year: "2nd Year", branch: "B.Tech CSE-AI" },
+      { id: 3, name: "Akriti Rao", role: "Team Member", year: "1st Year", branch: "B.Tech CSE" },
+      { id: 4, name: "Prachi Aswal", role: "Team Member", year: "1st Year", branch: "BCA" },
+      { id: 5, name: "Shubham Mishra", role: "Team Member", year: "1st Year", branch: "B.Tech CSE-AI" },
+      { id: 6, name: "Vishnu", role: "Team Member", year: "1st Year", branch: "B.Tech CE" },
+      { id: 7, name: "Smriti Shukla", role: "Team Member", year: "1st Year", branch: "B.Tech ME" },
+      { id: 8, name: "Anshu Pandey", role: "Team Member", year: "1st Year", branch: "B.Tech ME" },
     ],
     stats: [
       { label: "Posts Created", value: "500+" },
@@ -185,10 +211,16 @@ const teams: Team[] = [
     icon: Calendar,
     keyPoints: ["Campus drive logistics", "Venue management", "Recruiter hospitality", "Volunteer coordination"],
     members: [
-      { id: 1, name: "Ishaan Malhotra", role: "Team Lead" },
-      { id: 2, name: "Tanvi Bhatt", role: "Event Coordinator" },
-      { id: 3, name: "Rajat Sinha", role: "Hospitality Manager" },
-      { id: 4, name: "Kriti Jain", role: "Volunteer Head" },
+      { id: 1, name: "Abhay Yadav", role: "Team Lead", year: "3rd Year", branch: "B.Tech CE" },
+      { id: 2, name: "Aayush Aaryan", role: "Co-Lead", year: "2nd Year", branch: "B.Tech CE" },
+      { id: 3, name: "Mohd. Faisal", role: "Co-Lead", year: "3rd Year", branch: "B.Tech ECE" },
+      { id: 4, name: "Jatin Yadav", role: "Co-Lead", year: "2nd Year", branch: "B.Tech CE" },
+      { id: 5, name: "Kuldeep Yadav", role: "Team Member", year: "2nd Year", branch: "B.Tech CSE-AI" },
+      { id: 6, name: "Akshay Kumar Dubey", role: "Team Member", year: "2nd Year", branch: "B.Tech CSE-AI" },
+      { id: 7, name: "Shubham Singh", role: "Team Member", year: "2nd Year", branch: "B.Tech CSE-AI" },
+      { id: 8, name: "Anushka Dwivedi", role: "Team Member", year: "1st Year", branch: "B.Tech CSE" },
+      { id: 9, name: "Rajvardhan Shukla", role: "Team Member", year: "2nd Year", branch: "B.Tech CSE-AI" },
+      { id: 10, name: "Anvi Jaiswal", role: "Team Member", year: "1st Year", branch: "B.Tech CSE" },
     ],
     stats: [
       { label: "Events Managed", value: "50+" },
@@ -252,7 +284,7 @@ const TeamStructure = () => {
               <motion.img
                 src={uolLogo}
                 alt="University of Lucknow"
-                className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                className="w-20 h-20 md:w-28 md:h-28 object-contain"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
@@ -261,7 +293,7 @@ const TeamStructure = () => {
               <motion.img
                 src={tpcBadge}
                 alt="TPC Badge"
-                className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                className="w-20 h-20 md:w-28 md:h-28 object-contain"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
@@ -350,7 +382,27 @@ const TeamStructure = () => {
 
           {/* New TPC Lead Section */}
           <div className="flex flex-col md:flex-row justify-center items-stretch gap-6 mb-16">
-            {/* Riddhi Singh Rathore Card */}
+            {/* Student Coordinators Group Photo Card - Swapped to first position */}
+            <div className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center max-w-xs w-full transition-all duration-300">
+              <div
+                onClick={() => setShowGroupPhoto(true)}
+                className="w-full rounded-lg overflow-hidden cursor-pointer border border-border/30 hover:border-accent/50 transition-colors"
+                style={{ aspectRatio: '4/3' }}
+              >
+                <img
+                  src={studentCoordinatorsGroup}
+                  alt="Student Coordinators 2025-26"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+              <div className="flex flex-col items-center w-full">
+                <h3 className="font-serif text-sm font-bold text-foreground mb-1 text-center">
+                  Student Coordinators 2025-26
+                </h3>
+              </div>
+            </div>
+
+            {/* Riddhi Singh Rathore Card - Swapped to second position */}
             <div className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center max-w-xs w-full transition-all duration-300">
               <div className="flex-shrink-0 w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20">
                 <img
@@ -381,26 +433,6 @@ const TeamStructure = () => {
                     </svg>
                   </a>
                 </div>
-              </div>
-            </div>
-
-            {/* Student Coordinators Group Photo Card */}
-            <div className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center max-w-xs w-full transition-all duration-300">
-              <div
-                onClick={() => setShowGroupPhoto(true)}
-                className="w-full rounded-lg overflow-hidden cursor-pointer border border-border/30 hover:border-accent/50 transition-colors"
-                style={{ aspectRatio: '4/3' }}
-              >
-                <img
-                  src={studentCoordinatorsGroup}
-                  alt="Student Coordinators 2025-26"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-              <div className="flex flex-col items-center w-full">
-                <h3 className="font-serif text-sm font-bold text-foreground mb-1 text-center">
-                  Student Coordinators 2025-26
-                </h3>
               </div>
             </div>
           </div>
@@ -557,32 +589,39 @@ const TeamStructure = () => {
                   <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-6">
                     Team Members
                   </h3>
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {selectedTeam.members.map((member, idx) => (
                       <motion.div
                         key={member.id}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="flex items-center gap-4 p-4 bg-muted/20 rounded-lg hover:bg-muted/40 transition-colors"
+                        className="flex flex-col items-center p-6 bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
                       >
-                        <Avatar className="w-12 h-12 border-2 border-accent/20">
-                          <AvatarImage src={member.image} />
-                          <AvatarFallback className="bg-primary text-primary-foreground font-medium">
+                        <Avatar className="w-24 h-24 border-4 border-background shadow-lg mb-4">
+                          <AvatarImage src={member.image} className="object-cover" />
+                          <AvatarFallback className="bg-primary text-primary-foreground text-xl font-bold">
                             {member.name.split(' ').map(n => n[0]).join('')}
                           </AvatarFallback>
                         </Avatar>
-                        <div className="flex-1 min-w-0">
-                          <p className="font-medium text-foreground truncate">{member.name}</p>
-                          <p className="text-sm text-muted-foreground truncate">{member.role}</p>
+
+                        <div className="text-center w-full space-y-2 mb-4">
+                          <h4 className="font-serif text-lg font-bold text-foreground leading-tight">{member.name}</h4>
+                          <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide">{member.role}</p>
+                          {(member.branch || member.year) && (
+                            <span className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs font-semibold rounded-full border border-accent/20 mt-1">
+                              {member.year} {member.year && member.branch && "•"} {member.branch}
+                            </span>
+                          )}
                         </div>
-                        <div className="flex items-center gap-2">
-                          <button className="w-8 h-8 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-white transition-all hover:scale-110">
+
+                        <div className="flex items-center gap-3 mt-auto">
+                          <a href="#" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
                             <Mail className="w-4 h-4" />
-                          </button>
-                          <button className="w-8 h-8 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-white transition-all hover:scale-110">
+                          </a>
+                          <a href="#" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
                             <Linkedin className="w-4 h-4" />
-                          </button>
+                          </a>
                         </div>
                       </motion.div>
                     ))}
