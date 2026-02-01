@@ -107,10 +107,11 @@ const DirectorMessage = () => {
             </div>
 
             <p className="text-foreground mt-5 leading-relaxed text-sm">
-              With over 105 years of academic heritage, the Faculty of Engineering & Technology
-              has consistently produced leaders who have made significant contributions across
-              diverse industries. Our placement cell works tirelessly to connect our talented
-              students with top recruiters, achieving record-breaking placements year after year.
+              The Faculty of Engineering and Technology, established in 2017, reflects this
+              very spirit of innovation and progress. With forward-looking teaching
+              methods, dedicated faculty, and hands-on opportunities, we ensure that our
+              students don’t just learn theories but also apply them to real-world
+              challenges.
             </p>
           </motion.div>
 
