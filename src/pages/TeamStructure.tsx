@@ -26,6 +26,7 @@ import erPavanKumarSingh from "@/assets/er-pavan-kumar-singh.jpg";
 import erGauravSrivastava from "@/assets/er-gaurav-srivastava.jpg";
 import erPrashantKumarSingh from "@/assets/dr-prashant-kumar-singh.png";
 import riddhiSingh from "@/assets/riddhi-singh-rathore.jpg";
+import studentCoordinatorsGroup from "@/assets/student-coordinators-2025-26.jpg";
 
 const facultyMembers = [
   {
@@ -219,6 +220,7 @@ const cardVariants = {
 
 const TeamStructure = () => {
   const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
+  const [showGroupPhoto, setShowGroupPhoto] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -296,7 +298,7 @@ const TeamStructure = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="bg-card rounded-xl p-4 shadow-elevated-sm border border-border/50 flex flex-col items-center gap-3 text-center hover:shadow-lg transition-all duration-300 h-full"
+                  className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center transition-all duration-300 h-full"
                 >
                   <div className="flex-shrink-0 w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20">
                     <img
@@ -338,41 +340,102 @@ const TeamStructure = () => {
             <p className="text-muted-foreground mt-2">The dedicated student team driving TPC initiatives</p>
           </div>
 
+          {/* Key Focus Areas */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <span className="px-4 py-2 bg-accent/10 text-accent text-sm font-medium rounded-full border border-accent/20">Campus Recruitment</span>
+            <span className="px-4 py-2 bg-accent/10 text-accent text-sm font-medium rounded-full border border-accent/20">Industry Connect</span>
+            <span className="px-4 py-2 bg-accent/10 text-accent text-sm font-medium rounded-full border border-accent/20">Skill Development</span>
+            <span className="px-4 py-2 bg-accent/10 text-accent text-sm font-medium rounded-full border border-accent/20">Career Guidance</span>
+          </div>
+
           {/* New TPC Lead Section */}
-          <div className="flex justify-center mb-16">
-            <div className="bg-card rounded-xl p-5 shadow-sm border border-border/40 flex flex-col items-center gap-3 text-center max-w-xs w-full hover:shadow-md transition-shadow duration-300">
-              <div className="flex-shrink-0 w-24 h-24 rounded-full overflow-hidden border border-border">
+          <div className="flex flex-col md:flex-row justify-center items-stretch gap-6 mb-16">
+            {/* Riddhi Singh Rathore Card */}
+            <div className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center max-w-xs w-full transition-all duration-300">
+              <div className="flex-shrink-0 w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20">
                 <img
                   src={riddhiSingh}
                   alt="Riddhi Singh Rathore"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
-              <div>
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+              <div className="flex-1 flex flex-col items-center w-full">
+                <h3 className="font-serif text-sm font-bold text-foreground mb-1 whitespace-nowrap overflow-hidden text-ellipsis w-full text-center">
                   Riddhi Singh Rathore
                 </h3>
-                <p className="text-primary font-medium text-sm uppercase tracking-wide">
+                <p className="text-accent text-[10px] font-semibold uppercase tracking-wider mb-1 flex items-center justify-center">
                   Student Coordinator Lead
                 </p>
-                <p className="text-xs text-muted-foreground mt-1">2025-26</p>
+                <p className="text-muted-foreground text-[10px] font-medium uppercase tracking-wide mb-3 flex items-center justify-center">2025-26</p>
 
-                <div className="flex items-center justify-center gap-4 mt-4">
-                  <a href="mailto:singhrathoreriddhi874@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
-                    <Mail className="w-5 h-5" />
+                <div className="flex items-center justify-center gap-3 mt-auto">
+                  <a href="mailto:singhrathoreriddhi874@gmail.com" className="p-2 rounded-full bg-secondary/50 text-muted-foreground hover:text-primary transition-colors hover:bg-primary/10">
+                    <Mail className="w-4 h-4" />
                   </a>
-                  <a href="https://linkedin.com/in/riddhi-singh-rathore-997b962aa" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[#0077b5] transition-colors">
-                    <Linkedin className="w-5 h-5" />
+                  <a href="https://linkedin.com/in/riddhi-singh-rathore-997b962aa" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-secondary/50 text-muted-foreground hover:text-[#0077b5] transition-colors hover:bg-primary/10">
+                    <Linkedin className="w-4 h-4" />
                   </a>
-                  <a href="https://x.com/riddhi_sin22754" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <a href="https://x.com/riddhi_sin22754" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors hover:bg-primary/10">
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
                     </svg>
                   </a>
                 </div>
               </div>
             </div>
+
+            {/* Student Coordinators Group Photo Card */}
+            <div className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center max-w-xs w-full transition-all duration-300">
+              <div
+                onClick={() => setShowGroupPhoto(true)}
+                className="w-full rounded-lg overflow-hidden cursor-pointer border border-border/30 hover:border-accent/50 transition-colors"
+                style={{ aspectRatio: '4/3' }}
+              >
+                <img
+                  src={studentCoordinatorsGroup}
+                  alt="Student Coordinators 2025-26"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+              <div className="flex flex-col items-center w-full">
+                <h3 className="font-serif text-sm font-bold text-foreground mb-1 text-center">
+                  Student Coordinators 2025-26
+                </h3>
+              </div>
+            </div>
           </div>
+
+          {/* Group Photo Fullscreen Modal */}
+          <AnimatePresence>
+            {showGroupPhoto && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+                onClick={() => setShowGroupPhoto(false)}
+              >
+                <button
+                  onClick={() => setShowGroupPhoto(false)}
+                  className="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-10"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+                <motion.img
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.9, opacity: 0 }}
+                  src={studentCoordinatorsGroup}
+                  alt="Student Coordinators 2025-26"
+                  className="max-w-full max-h-[90vh] object-contain rounded-lg"
+                  onClick={(e) => e.stopPropagation()}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teams.map((team, index) => {
               const IconComponent = team.icon;
@@ -382,11 +445,10 @@ const TeamStructure = () => {
                   custom={index}
                   initial="hidden"
                   whileInView="visible"
-                  whileHover="hover"
                   viewport={{ once: true, margin: "-50px" }}
                   variants={cardVariants}
                   onClick={() => setSelectedTeam(team)}
-                  className="group bg-background border border-border rounded-lg p-5 md:p-6 hover:border-accent/50 hover:shadow-xl transition-shadow duration-300 cursor-pointer flex flex-col h-full"
+                  className="group bg-background border border-border rounded-lg p-5 md:p-6 hover:border-accent/50 transition-colors duration-300 cursor-pointer flex flex-col h-full"
                 >
                   <div className="flex flex-col items-center text-center gap-3 mb-4">
                     <motion.div

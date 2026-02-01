@@ -215,6 +215,55 @@ const OurAlumni = () => {
                 </div>
             </section>
 
+            {/* Engineering Alumni Section */}
+            <section className="section-padding bg-background">
+                <div className="container-narrow">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-12"
+                    >
+                        <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
+                            Faculty of Engineering & Technology Alumni
+                        </h2>
+                    </motion.div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {[1, 2, 3].map((item, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.1 * index }}
+                                className="group relative overflow-hidden rounded-xl border border-border bg-card cursor-pointer transition-all duration-300"
+                            >
+                                {/* Image Section - Circular Profile Photo Placeholder */}
+                                <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
+                                    <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
+                                        <Award className="h-16 w-16 text-primary/40" />
+                                    </div>
+                                </div>
+
+                                {/* Content Section Placeholder */}
+                                <div className="p-3 relative z-10 bg-card text-center">
+                                    <h3 className="font-serif text-base font-semibold text-foreground">
+                                        Alumni Name
+                                    </h3>
+                                    <p className="text-xs text-accent mt-1 font-medium">Role / Designation</p>
+                                    <p className="text-xs text-muted-foreground mt-1">Company / Organization</p>
+
+                                    <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed text-left">
+                                        Description of the alumni's achievements and contributions will appear here.
+                                    </p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* Footer */}
             <footer className="py-8 border-t border-border bg-background">
                 <div className="container-narrow text-center">

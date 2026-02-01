@@ -30,9 +30,11 @@ const Media = () => {
                 const formattedItems = data.map(item => ({
                     id: item.id,
                     // Map DB types to UI categories
-                    type: item.type === 'press_release' ? 'Press' :
-                        item.type === 'achievement' ? 'Achievements' :
-                            item.type === 'event' ? 'Events' : 'Gallery',
+                    type: (item.title && item.title.includes("Placement Drive")) ? 'Drives' :
+                        (item.title && item.title.includes("Higher Education Opportunities")) ? 'Seminars' :
+                            item.type === 'press_release' ? 'Press' :
+                                item.type === 'achievement' ? 'Achievements' :
+                                    item.type === 'event' ? 'Events' : 'Gallery',
                     src: item.image_url,
                     title: item.title,
                     date: new Date(item.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),

@@ -427,10 +427,6 @@ const AboutUniversity = () => {
         </div>
       </section>
 
-
-
-
-
       {/* Quick Facts Section */}
       <section id="quick-facts" className="section-padding bg-muted/30">
         <div className="container-narrow">
@@ -448,7 +444,7 @@ const AboutUniversity = () => {
               const IconComponent = fact.icon;
               return (
                 <motion.div key={fact.label} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                  className="bg-card border border-border rounded-lg p-4 text-center hover:shadow-md transition-shadow">
+                  className="bg-card border border-border rounded-lg p-4 text-center hover:border-accent/50 transition-colors duration-300">
                   <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-3">
                     <IconComponent className="h-5 w-5 text-accent" />
                   </div>
@@ -473,9 +469,9 @@ const AboutUniversity = () => {
               const IconComponent = item.icon;
               return (
                 <motion.div key={item.title} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                  className={`bg-card border rounded-lg p-5 ${item.highlight ? 'border-accent/50 ring-1 ring-accent/20' : 'border-border'}`}>
-                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-3 ${item.highlight ? 'bg-accent/20' : 'bg-primary/10'}`}>
-                    <IconComponent className={`h-5 w-5 ${item.highlight ? 'text-accent' : 'text-primary'}`} />
+                  className="bg-card border border-border rounded-lg p-5 hover:border-accent/50 transition-colors duration-300">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 bg-primary/10">
+                    <IconComponent className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="font-serif font-semibold text-foreground mb-1">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.description}</p>
@@ -483,11 +479,7 @@ const AboutUniversity = () => {
               );
             })}
           </div>
-          <div className="flex flex-wrap justify-center gap-2">
-            {affiliations.map((aff, index) => (
-              <span key={index} className="bg-secondary text-foreground text-sm px-3 py-1.5 rounded-full border border-border">{aff}</span>
-            ))}
-          </div>
+
         </div>
       </section>
 
