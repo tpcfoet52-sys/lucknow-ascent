@@ -1,4 +1,4 @@
-import { Share2, Linkedin, Instagram, Mail } from "lucide-react";
+import { Share2, Linkedin, Instagram, Mail, Phone } from "lucide-react";
 
 const ConnectWithUs = () => {
     return (
@@ -28,6 +28,9 @@ const ConnectWithUs = () => {
                         </a>
                         <a href="mailto:placement_foet@lkouniv.ac.in" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
                             <Mail className="w-5 h-5" />
+                        </a>
+                        <a href="tel:+917905287870" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title="+91-79052 87870">
+                            <Phone className="w-5 h-5" />
                         </a>
                     </div>
                 </div>

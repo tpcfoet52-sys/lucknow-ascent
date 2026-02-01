@@ -315,10 +315,10 @@ const TeamStructure = () => {
                     <p className="text-muted-foreground text-[10px] font-medium uppercase tracking-wide mb-3 min-h-[1rem] flex items-center justify-center">{faculty.role}</p>
 
                     <div className="flex items-center gap-3 mt-auto">
-                      <a href={`tel:${faculty.phone}`} className="p-2 rounded-full bg-secondary/50 text-muted-foreground hover:text-primary transition-colors hover:bg-primary/10" title={faculty.phone}>
+                      <a href={`tel:${faculty.phone}`} className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={faculty.phone}>
                         <Phone className="w-4 h-4" />
                       </a>
-                      <a href={`mailto:${faculty.email}`} className="p-2 rounded-full bg-secondary/50 text-muted-foreground hover:text-primary transition-colors hover:bg-primary/10" title={faculty.email}>
+                      <a href={`mailto:${faculty.email}`} className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={faculty.email}>
                         <Mail className="w-4 h-4" />
                       </a>
                     </div>
@@ -369,13 +369,13 @@ const TeamStructure = () => {
                 <p className="text-muted-foreground text-[10px] font-medium uppercase tracking-wide mb-3 flex items-center justify-center">2025-26</p>
 
                 <div className="flex items-center justify-center gap-3 mt-auto">
-                  <a href="mailto:singhrathoreriddhi874@gmail.com" className="p-2 rounded-full bg-secondary/50 text-muted-foreground hover:text-primary transition-colors hover:bg-primary/10">
+                  <a href="mailto:singhrathoreriddhi874@gmail.com" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
                     <Mail className="w-4 h-4" />
                   </a>
-                  <a href="https://linkedin.com/in/riddhi-singh-rathore-997b962aa" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-secondary/50 text-muted-foreground hover:text-[#0077b5] transition-colors hover:bg-primary/10">
+                  <a href="https://linkedin.com/in/riddhi-singh-rathore-997b962aa" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
                     <Linkedin className="w-4 h-4" />
                   </a>
-                  <a href="https://x.com/riddhi_sin22754" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors hover:bg-primary/10">
+                  <a href="https://x.com/riddhi_sin22754" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
                     <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
                     </svg>
@@ -577,10 +577,10 @@ const TeamStructure = () => {
                           <p className="text-sm text-muted-foreground truncate">{member.role}</p>
                         </div>
                         <div className="flex items-center gap-2">
-                          <button className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors">
+                          <button className="w-8 h-8 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-white transition-all hover:scale-110">
                             <Mail className="w-4 h-4" />
                           </button>
-                          <button className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors">
+                          <button className="w-8 h-8 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-white transition-all hover:scale-110">
                             <Linkedin className="w-4 h-4" />
                           </button>
                         </div>

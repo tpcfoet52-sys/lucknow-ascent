@@ -107,14 +107,15 @@ const HeroSection = () => {
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
-            <Button
-              variant="heroDark"
-              size="lg"
-              className="min-w-[200px] text-base font-medium"
-              onClick={() => scrollToSection("recruiters")}
-            >
-              For Recruiters
-            </Button>
+            <Link to="/students">
+              <Button
+                variant="heroDark"
+                size="lg"
+                className="min-w-[200px] text-base font-medium"
+              >
+                For Students
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
 

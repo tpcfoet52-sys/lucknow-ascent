@@ -1,7 +1,7 @@
 import PlacementStats from "@/components/PlacementStats";
 import RecruiterPortal from "@/components/RecruiterPortal";
 import PlacementGallery from "@/components/PlacementGallery";
-
+import ConnectWithUs from "@/components/ConnectWithUs";
 import Footer from "@/components/Footer";
 
 const PlacementRecords = () => {
@@ -13,6 +13,7 @@ const PlacementRecords = () => {
                 <RecruiterPortal />
                 <PlacementGallery />
             </main>
+            <ConnectWithUs />
             <Footer />
         </div>
     );

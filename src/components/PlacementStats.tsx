@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Users, Building2, Award } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import gateQualifiers2025 from "@/assets/gate-qualifiers-2025.png";
+import ConnectWithUs from "./ConnectWithUs";
 
 const stats = [
-  { label: "Highest Package (2023 Batch)", value: "₹26.0", unit: "LPA", icon: Award },
-  { label: "Average Package (Overall)", value: "₹9.0", unit: "LPA", icon: TrendingUp },
-  { label: "Jobs Offered (2025)", value: "543", unit: "+", icon: Users },
-  { label: "Partner Companies", value: "500", unit: "+", icon: Building2 },
+  { label: "Highest Package (2025 Batch)", value: "₹27.0", unit: "LPA", icon: Award, note: "Maria Khan (CSE)" },
+  { label: "Average Package (Overall)", value: "₹9.0", unit: "LPA", icon: TrendingUp, note: "" },
+  { label: "Jobs Offered (2025)", value: "543", unit: "+", icon: Users, note: "" },
+  { label: "Partner Companies", value: "500", unit: "+", icon: Building2, note: "" },
 ];
 
 // FoET / Engineering (UG 4-Year) Students Placed Data
@@ -21,35 +23,33 @@ const foetPlacementData = [
 const yearlyData = [
   {
     year: "2020-21",
-    ugPlaced: 888,
-    pgPlaced: 325,
-    avgPackage: 5.5,
-    highestPackage: 10,
-    total: 1213
+    highestPackage: 9,
+    studentName: "Sudhanshu Prajapati",
+    branch: "CSE"
   },
   {
     year: "2021-22",
-    ugPlaced: 935,
-    pgPlaced: 1218,
-    avgPackage: 7.0,
-    highestPackage: 15,
-    total: 2153
+    highestPackage: 14,
+    studentName: "Prateek Mishra",
+    branch: "CSE"
   },
   {
     year: "2022-23",
-    ugPlaced: 1011,
-    pgPlaced: 1249,
-    avgPackage: 8.25,
-    highestPackage: 26.0,
-    total: 2260
+    highestPackage: 22.2,
+    studentName: "Kriti Vajpaye",
+    branch: "CSE"
   },
   {
     year: "2023-24",
-    ugPlaced: 1507,
-    pgPlaced: 1944,
-    avgPackage: 8.5,
-    highestPackage: 23.6,
-    total: 3451
+    highestPackage: 26,
+    studentName: "Kartikey Pandey",
+    branch: "ECE"
+  },
+  {
+    year: "2024-25",
+    highestPackage: 27,
+    studentName: "Maria Khan",
+    branch: "CSE"
   },
 ];
 
@@ -70,8 +70,6 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 const PlacementStats = () => {
-  const maxPlacements = Math.max(...yearlyData.map(d => d.total));
-
   return (
     <section id="statistics" className="section-padding bg-cream">
       <div className="container-narrow">
@@ -111,6 +109,7 @@ const PlacementStats = () => {
                 <span className="text-sm font-medium text-accent">{stat.unit}</span>
               </div>
               <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+              {stat.note && <p className="text-[10px] text-accent/80 mt-0.5">{stat.note}</p>}
             </motion.div>
           ))}
         </div>
@@ -125,7 +124,7 @@ const PlacementStats = () => {
         >
           <div className="mb-5">
             <h3 className="font-serif text-lg font-semibold text-foreground">
-              📊 FoET / Engineering (UG 4-Year) Students Placed
+              FoET / Engineering (UG 4-Year) Students Placed
             </h3>
             <p className="text-sm text-muted-foreground mt-1">
               University of Lucknow (2020–2025)
@@ -163,82 +162,85 @@ const PlacementStats = () => {
           </div>
         </motion.div>
 
-        {/* Year-wise Detailed Stats */}
-        <div className="grid lg:grid-cols-2 gap-6">
-          {/* Year-wise Growth Chart */}
-          <motion.div
-            initial={{ opacity: 0, x: -15 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-card rounded-md p-5 md:p-6 shadow-elevated-sm border border-border/50"
-          >
-            <h3 className="font-serif text-lg font-semibold text-foreground mb-5">Total Students Placed (All Streams)</h3>
-            <div className="flex items-end justify-between gap-3 h-40">
-              {yearlyData.map((data, index) => (
-                <div key={index} className="flex-1 flex flex-col items-center gap-2">
-                  <motion.div
-                    initial={{ height: 0 }}
-                    whileInView={{ height: `${(data.total / maxPlacements) * 100}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, delay: 0.1 * index, ease: "easeOut" }}
-                    className="w-full bg-primary rounded-t relative group cursor-pointer"
-                  >
-                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-foreground text-background text-xs px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                      {data.total.toLocaleString()}
-                    </div>
-                  </motion.div>
-                  <span className="text-xs text-muted-foreground text-center">{data.year}</span>
-                </div>
-              ))}
+        {/* Year-wise Highest Package - Enhanced Design */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-card rounded-md p-5 md:p-6 shadow-elevated-sm border border-border/50"
+        >
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="font-serif text-lg font-semibold text-foreground">Year-wise Highest Package</h3>
+            <div className="flex items-center gap-2 text-accent">
+              <TrendingUp className="w-4 h-4" />
+              <span className="text-sm font-semibold">+200% Growth</span>
             </div>
-            <div className="mt-5 pt-4 border-t border-border">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">4-Year Growth</span>
-                <span className="text-base font-serif font-semibold text-accent">+185%</span>
-              </div>
-            </div>
-          </motion.div>
+          </div>
 
-          {/* Detailed Year Stats */}
-          <motion.div
-            initial={{ opacity: 0, x: 15 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-card rounded-md p-5 md:p-6 shadow-elevated-sm border border-border/50"
-          >
-            <h3 className="font-serif text-lg font-semibold text-foreground mb-5">Year-wise Breakdown</h3>
-            <div className="space-y-4">
-              {yearlyData.map((data, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.1 * index }}
-                  className="p-3 bg-secondary/50 rounded-md"
-                >
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="font-medium text-foreground text-sm">{data.year}</span>
-                    <span className="text-accent font-semibold text-sm">{data.total.toLocaleString()} placed</span>
+          {/* Timeline Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            {yearlyData.map((data, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 * index }}
+                className="relative group"
+              >
+                <div className="bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-lg p-4 border border-border/30 hover:border-accent/50 transition-all duration-300 h-full">
+                  {/* Year Badge */}
+                  <div className="inline-block px-2 py-0.5 bg-accent/10 rounded text-accent text-xs font-semibold mb-3">
+                    {data.year}
                   </div>
-                  <div className="grid grid-cols-2 gap-4 text-xs text-muted-foreground">
-                    <div>
-                      <span className="block">UG: {data.ugPlaced} | PG: {data.pgPlaced}</span>
-                      <span className="text-accent font-medium">Avg: ₹{data.avgPackage} LPA</span>
-                    </div>
-                    <div>
-                      <span className="block text-muted-foreground/70">Highest Package</span>
-                      <span className="text-accent font-semibold">₹{data.highestPackage} LPA</span>
-                    </div>
+
+                  {/* Package Amount */}
+                  <div className="mb-3">
+                    <span className="font-serif text-2xl font-bold text-foreground">₹{data.highestPackage}</span>
+                    <span className="text-accent text-sm font-medium ml-1">LPA</span>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+
+                  {/* Student Info */}
+                  <div className="space-y-1">
+                    <p className="text-foreground text-sm font-medium leading-tight">{data.studentName}</p>
+                    <p className="text-accent text-xs font-semibold">{data.branch}</p>
+                  </div>
+
+                  {/* Growth Indicator for latest */}
+                  {index === yearlyData.length - 1 && (
+                    <div className="mt-3 pt-2 border-t border-accent/20">
+                      <div className="flex items-center gap-1 text-accent">
+                        <Award className="w-3 h-3" />
+                        <span className="text-[10px] font-semibold uppercase tracking-wide">Current Record</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* GATE Qualifiers 2025 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-8 bg-card rounded-md p-5 md:p-6 shadow-elevated-sm border border-border/50"
+        >
+          <h3 className="font-serif text-lg font-semibold text-foreground mb-5 text-center">GATE Qualifiers 2025</h3>
+          <div className="w-full rounded-lg overflow-hidden">
+            <img
+              src={gateQualifiers2025}
+              alt="GATE Qualifiers 2025"
+              className="w-full h-auto object-contain"
+            />
+          </div>
+        </motion.div>
       </div>
+
     </section>
   );
 };

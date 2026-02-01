@@ -101,7 +101,7 @@ const stats = [
   { value: "543", label: "Jobs Offered", sublabel: "2024-25" },
   { value: "₹3.0 LPA", label: "Minimum Package", sublabel: "2024-25" },
   { value: "₹9.0 LPA", label: "Average Package", sublabel: "Overall" },
-  { value: "₹26.0 LPA", label: "Highest Package", sublabel: "2023 Batch" },
+  { value: "₹27 LPA", label: "Highest Package", sublabel: "2024-25 (Maria Khan)" },
 ];
 
 
@@ -151,10 +151,10 @@ const successStories = [
   {
     name: "Maria Khan",
     company: "Branch International",
-    package: "₹22 LPA",
-    year: "2024",
+    package: "₹27 LPA",
+    year: "2025",
     image: mariaKhan,
-    hoverDesc: "Maria's exceptional performance in technical interviews and her strong foundation in computer science led her to Branch International. Her achievement inspires many students to pursue excellence in their chosen fields."
+    hoverDesc: "Maria's exceptional performance in technical interviews and her strong foundation in computer science led her to Branch International with the highest package of ₹27 LPA. Her achievement inspires many students to pursue excellence in their chosen fields."
   },
 ];
 
