@@ -128,7 +128,7 @@ const teams: Team[] = [
       { id: 5, name: "Shivaksh Singh", role: "Team Member", year: "1st Year", branch: "B.Tech CSE-AI" },
       { id: 6, name: "Himanshu Mishra", role: "Team Member", year: "1st Year", branch: "B.Tech EE" },
       { id: 7, name: "Shreya Pandey", role: "Team Member", year: "1st Year", branch: "B.Tech EE" },
-      { id: 8, name: "Abhay Kumar Yadav", role: "Team Member", year: "2nd Year", branch: "B.Tech CE" },
+      { id: 8, name: "Abhay Pratap Yadav", role: "Team Member", year: "2nd Year", branch: "B.Tech CE" },
     ],
     stats: [
       { label: "Companies Reached", value: "150+" },
