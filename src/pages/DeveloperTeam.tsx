@@ -28,7 +28,7 @@ const DeveloperTeam = () => {
                 },
                 {
                     name: "Srishti Mishra",
-                    role: "Data Accuracy Lead",
+                    role: "Frontend Developer",
                     program: "B.Tech Computer Science & Engineering – Artificial Intelligence",
                     batch: "2024–2028",
                     linkedin: "https://www.linkedin.com/in/mishrasrishti108/",
