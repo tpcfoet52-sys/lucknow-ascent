@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Clock, Building2, ChevronDown } from "lucide-react";
+import { Clock, Building2, ChevronDown, Phone, Smartphone, MapPin, Train, Car } from "lucide-react";
 import ConnectWithUs from "@/components/ConnectWithUs";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -66,7 +66,7 @@ const Contact = () => {
                             className="mb-10"
                         >
                             <h3 className="font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
-                                <span>📱</span> Social Networks
+                                <Smartphone className="w-5 h-5 text-accent" /> Social Networks
                             </h3>
                             <div className="grid md:grid-cols-3 gap-4">
                                 {/* LinkedIn */}
@@ -185,7 +185,7 @@ const Contact = () => {
                                                 <div className="px-4 pb-4 pt-2 bg-muted/30 border-t border-border">
                                                     <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                                                         <a href="tel:+917905287870" className="hover:text-accent transition-colors flex items-center gap-1">
-                                                            📞 +91-79052 87870
+                                                            <Phone className="w-3 h-3" /> +91-79052 87870
                                                         </a>
                                                         <a href="https://www.linkedin.com/in/himanshu-pandey-272a55ab/" target="_blank" rel="noopener noreferrer" className="hover:text-[#0A66C2] transition-colors flex items-center gap-1">
                                                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -233,8 +233,8 @@ const Contact = () => {
                                                                 <span className="text-sm text-foreground font-medium">Riddhi Singh</span>
                                                             </div>
                                                             <div className="flex items-center gap-3">
-                                                                <a href="tel:+917310324848" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-                                                                    📞 +91 73103 24848
+                                                                <a href="tel:+917310324848" className="text-sm text-muted-foreground hover:text-accent transition-colors flex items-center gap-1">
+                                                                    <Phone className="w-3 h-3" /> +91 73103 24848
                                                                 </a>
                                                                 <a href="https://www.linkedin.com/in/riddhi-singh-rathore-997b962aa/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[#0A66C2] transition-colors">
                                                                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -247,8 +247,8 @@ const Contact = () => {
                                                         <div className="flex items-center justify-between">
                                                             <span className="text-sm text-foreground">Aryan Tripathi</span>
                                                             <div className="flex items-center gap-3">
-                                                                <a href="tel:+916392469229" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-                                                                    📞 +91 63924 69229
+                                                                <a href="tel:+916392469229" className="text-sm text-muted-foreground hover:text-accent transition-colors flex items-center gap-1">
+                                                                    <Phone className="w-3 h-3" /> +91 63924 69229
                                                                 </a>
                                                                 <a href="https://www.linkedin.com/in/aryan-tripathi-45346a254/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[#0A66C2] transition-colors">
                                                                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -261,8 +261,8 @@ const Contact = () => {
                                                         <div className="flex items-center justify-between">
                                                             <span className="text-sm text-foreground">Abhinav Singh</span>
                                                             <div className="flex items-center gap-3">
-                                                                <a href="tel:+918112910276" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-                                                                    📞 +91 81129 10276
+                                                                <a href="tel:+918112910276" className="text-sm text-muted-foreground hover:text-accent transition-colors flex items-center gap-1">
+                                                                    <Phone className="w-3 h-3" /> +91 81129 10276
                                                                 </a>
                                                                 <a href="https://www.linkedin.com/in/abhinavatwork/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[#0A66C2] transition-colors">
                                                                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -298,8 +298,8 @@ const Contact = () => {
                             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
                                 How To Reach Us?
                             </h2>
-                            <p className="text-muted-foreground mt-2 text-sm">
-                                📍 Lucknow University New Campus, Sultanpur Village, Jankipuram Extension, Lucknow – 226021
+                            <p className="text-muted-foreground mt-2 text-sm flex items-center justify-center gap-1">
+                                <MapPin className="w-4 h-4 text-accent" /> Lucknow University New Campus, Sultanpur Village, Jankipuram Extension, Lucknow – 226021
                             </p>
                         </motion.div>
 
@@ -336,7 +336,7 @@ const Contact = () => {
                                 <div className="bg-card border border-border rounded-lg p-4">
                                     <div className="flex items-center gap-3 mb-2">
                                         <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0">
-                                            <span className="text-base">🚇</span>
+                                            <Train className="w-4 h-4 text-red-600" />
                                         </div>
                                         <h4 className="font-semibold text-sm text-foreground">By Metro</h4>
                                     </div>
@@ -349,7 +349,7 @@ const Contact = () => {
                                 <div className="bg-card border border-border rounded-lg p-4">
                                     <div className="flex items-center gap-3 mb-2">
                                         <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                                            <span className="text-base">🚆</span>
+                                            <Train className="w-4 h-4 text-blue-600" />
                                         </div>
                                         <h4 className="font-semibold text-sm text-foreground">By Train (from Charbagh)</h4>
                                     </div>
@@ -365,7 +365,7 @@ const Contact = () => {
                                 <div className="bg-card border border-border rounded-lg p-4">
                                     <div className="flex items-center gap-3 mb-2">
                                         <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                                            <span className="text-base">🚕</span>
+                                            <Car className="w-4 h-4 text-green-600" />
                                         </div>
                                         <h4 className="font-semibold text-sm text-foreground">By Cab</h4>
                                     </div>
