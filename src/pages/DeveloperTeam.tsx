@@ -156,8 +156,11 @@ const DeveloperTeam = () => {
                                                 <p className="text-accent text-xs font-semibold uppercase tracking-wider mb-1 flex items-center justify-center">
                                                     {member.role}
                                                 </p>
-                                                <p className="text-muted-foreground text-[10px] font-medium uppercase tracking-wide mb-3 flex items-center justify-center">
-                                                    {member.program} • {member.batch}
+                                                <p className="text-muted-foreground text-[10px] font-medium uppercase tracking-wide mt-1 text-center">
+                                                    {member.program}
+                                                </p>
+                                                <p className="text-muted-foreground text-[10px] font-medium uppercase tracking-wide mb-3 text-center">
+                                                    {member.batch}
                                                 </p>
 
                                                 {member.linkedin && (
