@@ -17,7 +17,7 @@ const ResumeGuide = () => {
 
             <main className="flex-1 pt-24 pb-12">
                 {/* Hero Section */}
-                <section className="relative py-12 md:py-20 mb-6">
+                <section className="relative py-12 md:py-20 mb-2">
                     <div className="container-narrow text-center relative">
 
 
@@ -45,7 +45,7 @@ const ResumeGuide = () => {
                     </div>
                 </section>
 
-                <div className="container-narrow py-12 space-y-16">
+                <div className="container-narrow py-6 space-y-16">
 
                     {/* ATS Checker Portal */}
                     <ATSChecker />
