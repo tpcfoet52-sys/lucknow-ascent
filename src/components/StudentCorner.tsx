@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { FileText, BookOpen, UserCheck, Calendar, ExternalLink } from "lucide-react";
-import { Button } from "./ui/button";
+import { FileText, BookOpen, UserCheck, ExternalLink } from "lucide-react";
 
 const resources = [
   {
@@ -21,12 +20,6 @@ const resources = [
     description: "Communication, presentation, and leadership development programs.",
     link: "/soft-skills",
   },
-  {
-    icon: Calendar,
-    title: "Placement Calendar",
-    description: "Stay updated with upcoming drives, deadlines, and events.",
-    link: "/placement-calendar",
-  },
 ];
 
 const StudentCorner = () => {
@@ -43,15 +36,15 @@ const StudentCorner = () => {
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">Student Resources</span>
           <h2 className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mt-3">
-            Prepare for Your <span className="text-gold-gradient">Dream Career</span>
+            Tools for Your <span className="text-gold-gradient">Professional Journey</span>
           </h2>
           <p className="max-w-2xl mx-auto text-muted-foreground mt-4 text-lg">
             Access comprehensive resources designed to help you excel in interviews and secure your ideal placement.
           </p>
         </motion.div>
 
-        {/* Resources Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Resources Grid - Now 3 columns */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {resources.map((resource, index) => (
             <motion.a
               key={index}

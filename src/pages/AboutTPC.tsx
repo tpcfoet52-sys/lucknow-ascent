@@ -141,7 +141,7 @@ const trainingPrograms = [
 
 const successStories = [
   {
-    name: "Karthik Gupta",
+    name: "Kartikey Gupta",
     company: "Qdrant",
     package: "₹26 LPA",
     year: "2023",
@@ -409,9 +409,7 @@ const AboutTPC = () => {
               >
                 {/* Image Section - Icon Placeholder or Actual Image */}
                 <div className="aspect-[4/3] overflow-hidden relative bg-muted">
-                  {/* @ts-ignore */}
                   {program.image ? (
-                    /* @ts-ignore */
                     <img src={program.image} alt={program.title} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-accent/5">
@@ -483,9 +481,7 @@ const AboutTPC = () => {
               >
                 {/* Image Section - Icon Placeholder or Actual Image */}
                 <div className="aspect-[4/3] overflow-hidden relative bg-muted">
-                  {/* @ts-ignore */}
                   {story.image ? (
-                    /* @ts-ignore */
                     <img src={story.image} alt={story.name} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-accent/5">

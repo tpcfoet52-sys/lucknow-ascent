@@ -224,7 +224,7 @@ const Header = () => {
               {navLinks.filter(link => link.name !== "Home").map((link) => (
                 <div key={link.name}>
                   <button
-                    onClick={(e) => handleNavClick(link, e as any)}
+                    onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleNavClick(link, e)}
                     className={`w-full flex items-center justify-between hover:text-primary hover:bg-secondary transition-colors py-3 px-4 rounded-md cursor-pointer ${activeSection === link.href.substring(1) || activeSection === link.href ? "text-primary font-bold bg-secondary" : "text-foreground font-semibold"
                       }`}
                   >

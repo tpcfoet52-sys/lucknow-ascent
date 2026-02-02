@@ -10,10 +10,19 @@ import { supabase } from "@/lib/supabase";
 // Assets (Only Hero and Logo assets if needed, but hero is still used)
 import heroImage from "@/assets/university-hero-new.jpg";
 
+interface MediaItem {
+    id: string;
+    type: string;
+    src: string;
+    title: string;
+    date: string;
+    summary: string;
+}
+
 const Media = () => {
     const [filter, setFilter] = useState("All");
-    const [selectedItem, setSelectedItem] = useState<any | null>(null);
-    const [dynamicItems, setDynamicItems] = useState<any[]>([]);
+    const [selectedItem, setSelectedItem] = useState<MediaItem | null>(null);
+    const [dynamicItems, setDynamicItems] = useState<MediaItem[]>([]);
 
     // --- Fetch Approved Content from Supabase ---
     useEffect(() => {
@@ -33,7 +42,7 @@ const Media = () => {
                     type: (item.title && item.title.includes("Placement Drive")) ? 'Drives' :
                         (item.title && item.title.includes("Higher Education Opportunities")) ? 'Seminars' :
                             item.type === 'press_release' ? 'Press' :
-                                item.type === 'achievement' ? 'Achievements' :
+                                item.type === 'achievement' ? 'Top Performers' :
                                     item.type === 'event' ? 'Events' : 'Gallery',
                     src: item.image_url,
                     title: item.title,
@@ -104,7 +113,7 @@ const Media = () => {
                             </div>
 
                             <div className="flex flex-wrap gap-2">
-                                {["All", "Drives", "Events", "Seminars", "Achievements"].map((cat) => (
+                                {["All", "Drives", "Events", "Seminars", "Top Performers"].map((cat) => (
                                     <Button
                                         key={cat}
                                         variant={filter === cat ? "default" : "outline"}

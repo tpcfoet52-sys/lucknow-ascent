@@ -53,7 +53,7 @@ const yearlyData = [
   },
 ];
 
-const CustomTooltip = ({ active, payload, label }: any) => {
+const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) => {
   if (active && payload && payload.length) {
     const data = foetPlacementData.find(d => d.year === label);
     return (

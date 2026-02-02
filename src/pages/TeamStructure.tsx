@@ -12,7 +12,8 @@ import {
   ChevronRight,
   Mail,
   Linkedin,
-  Phone
+  Phone,
+  X
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -121,7 +122,7 @@ const teams: Team[] = [
     icon: Building2,
     keyPoints: ["Company outreach", "JAF processing", "MoU management", "Recruiter relations"],
     members: [
-<<<<<<< HEAD
+
       { id: 1, name: "Kshitiz Singh", role: "Team Lead", year: "3rd Year", branch: "B.Tech ECE", linkedin: "https://www.linkedin.com/in/kshitiz-singh-0163a432a/" },
       { id: 2, name: "Aryan Tripathi", role: "Team Lead", year: "2nd Year", branch: "B.Tech EE", linkedin: "https://www.linkedin.com/in/aryan-tripathi-45346a254/" },
       { id: 3, name: "Abhinav Singh", role: "Team Lead", year: "2nd Year", branch: "B.Tech CSE", linkedin: "https://www.linkedin.com/in/abhinavatwork/" },
@@ -450,11 +451,9 @@ const TeamStructure = () => {
               >
                 <button
                   onClick={() => setShowGroupPhoto(false)}
-                  className="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-10"
+                  className="absolute top-4 right-4 p-2 md:p-3 bg-white text-black hover:bg-accent hover:text-accent-foreground rounded-full shadow-lg border border-border/10 transition-all duration-300 z-50 group"
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  <X className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:rotate-90" />
                 </button>
                 <motion.img
                   initial={{ scale: 0.9, opacity: 0 }}
@@ -572,14 +571,12 @@ const TeamStructure = () => {
                         <p className="text-muted-foreground">{selectedTeam.description}</p>
                       </div>
                     </div>
-                    <Button
-                      variant="ghost"
-                      size="sm"
+                    <button
                       onClick={() => setSelectedTeam(null)}
-                      className="text-muted-foreground hover:text-foreground"
+                      className="p-2 bg-white text-black hover:bg-accent hover:text-accent-foreground rounded-full shadow-lg border border-border/10 transition-all duration-300 group"
                     >
-                      ✕
-                    </Button>
+                      <X className="w-5 h-5 transition-transform group-hover:rotate-90" />
+                    </button>
                   </div>
                 </div>
 

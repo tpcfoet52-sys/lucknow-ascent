@@ -337,7 +337,7 @@ const Events = () => {
 };
 
 // Extracted Event Card Component for consistency
-const EventCard = ({ event, index, onRegister, isPast = false }: { event: any, index: number, onRegister: (e: any) => void, isPast?: boolean }) => (
+const EventCard = ({ event, index, onRegister, isPast = false }: { event: Event, index: number, onRegister: (e: Event) => void, isPast?: boolean }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}

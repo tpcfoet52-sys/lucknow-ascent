@@ -7,8 +7,18 @@ import { toast } from "@/components/ui/use-toast";
 import { Check, X, Clock, Loader2 } from "lucide-react";
 import { format } from "date-fns";
 
+interface MediaRequest {
+  id: string;
+  title: string;
+  description: string;
+  image_url: string;
+  type: string;
+  created_at: string;
+  status: 'pending' | 'approved' | 'rejected';
+}
+
 export default function MediaRequests() {
-  const [requests, setRequests] = useState<any[]>([]);
+  const [requests, setRequests] = useState<MediaRequest[]>([]);
   const [loading, setLoading] = useState(true);
 
   const fetchRequests = async () => {
@@ -33,7 +43,7 @@ export default function MediaRequests() {
 
   const handleAction = async (id: string, action: 'approved' | 'rejected') => {
     if (!supabase) return;
-    
+
     const { error } = await supabase
       .from('media_submissions')
       .update({ status: action })

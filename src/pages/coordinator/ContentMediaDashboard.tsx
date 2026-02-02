@@ -41,7 +41,7 @@ const ContentMediaDashboard = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [submissions, setSubmissions] = useState<MediaSubmission[]>([]);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  
+
   // State to control tabs programmatically
   const [activeTab, setActiveTab] = useState("submissions");
 
@@ -105,18 +105,18 @@ const ContentMediaDashboard = () => {
       }
 
       toast({ title: "Submission Successful", description: "Your content has been sent for admin approval." });
-      
+
       // Reset and switch back to list view
       form.reset();
       setSelectedFile(null);
       fetchSubmissions();
       setActiveTab("submissions");
-      
-    } catch (error: any) {
+
+    } catch (error) {
       console.error(error);
       toast({
         title: "Submission Failed",
-        description: error.message || "Failed to submit content.",
+        description: error instanceof Error ? error.message : "Failed to submit content.",
         variant: "destructive",
       });
     } finally {
@@ -139,7 +139,7 @@ const ContentMediaDashboard = () => {
           <h1 className="text-3xl font-bold font-serif text-primary">Content & Media Dashboard</h1>
           <p className="text-muted-foreground mt-1">Manage press releases, gallery photos, and news updates.</p>
         </div>
-        
+
         {/* Main Add Button */}
         <Button onClick={() => setActiveTab("new")} className="shadow-md">
           <Plus className="w-4 h-4 mr-2" /> New Submission
@@ -187,12 +187,12 @@ const ContentMediaDashboard = () => {
                 </CardContent>
               </Card>
             ))}
-            
+
             {/* Empty State with Explicit Button */}
             {submissions.length === 0 && (
               <div className="col-span-full flex flex-col items-center justify-center py-16 text-muted-foreground border-2 border-dashed rounded-xl bg-muted/30">
                 <div className="bg-muted p-4 rounded-full mb-4">
-                   <ImagePlus className="w-8 h-8 opacity-50" />
+                  <ImagePlus className="w-8 h-8 opacity-50" />
                 </div>
                 <h3 className="text-lg font-medium text-foreground mb-1">No submissions yet</h3>
                 <p className="mb-6 max-w-sm text-center">Get started by uploading your first press release, gallery photo, or student achievement.</p>
@@ -222,17 +222,17 @@ const ContentMediaDashboard = () => {
                     <FormControl>
                       <div className="flex flex-col gap-3">
                         <div className="flex items-center gap-4 p-4 border-2 border-dashed rounded-lg bg-muted/20 hover:bg-muted/50 transition-colors">
-                            <div className="bg-primary/10 p-2 rounded-full">
-                                <UploadCloud className="w-6 h-6 text-primary" />
-                            </div>
-                            <div className="flex-1">
-                                <Input
-                                type="file"
-                                accept="image/*"
-                                onChange={(e) => setSelectedFile(e.target.files?.[0] || null)}
-                                className="cursor-pointer file:text-primary file:font-medium"
-                                />
-                            </div>
+                          <div className="bg-primary/10 p-2 rounded-full">
+                            <UploadCloud className="w-6 h-6 text-primary" />
+                          </div>
+                          <div className="flex-1">
+                            <Input
+                              type="file"
+                              accept="image/*"
+                              onChange={(e) => setSelectedFile(e.target.files?.[0] || null)}
+                              className="cursor-pointer file:text-primary file:font-medium"
+                            />
+                          </div>
                         </div>
                         {selectedFile && (
                           <span className="text-sm text-green-600 flex items-center px-2">

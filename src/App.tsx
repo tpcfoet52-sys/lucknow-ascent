@@ -14,7 +14,7 @@ import AboutTPC from "./pages/AboutTPC";
 import AdminLogin from "./pages/AdminLogin";
 import EventsPage from "./pages/Events";
 import CoordinatorLogin from "./pages/CoordinatorLogin";
-import PlacementCalendar from "./pages/PlacementCalendar";
+
 import ResumeGuide from "./pages/ResumeGuide";
 import InterviewPrep from "./pages/InterviewPrep";
 import SoftSkills from "./pages/SoftSkills";
@@ -83,7 +83,7 @@ const App = () => (
           <Route path="/our-alumni" element={<OurAlumni />} />
           <Route path="/about-tpc" element={<AboutTPC />} />
           <Route path="/events" element={<EventsPage />} />
-          <Route path="/placement-calendar" element={<PlacementCalendar />} />
+
           <Route path="/resume-guide" element={<ResumeGuide />} />
           <Route path="/interview-prep" element={<InterviewPrep />} />
           <Route path="/soft-skills" element={<SoftSkills />} />

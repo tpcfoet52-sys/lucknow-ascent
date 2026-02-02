@@ -27,7 +27,7 @@ interface ApprovalItem {
   cloudinary_public_id?: string; // For deletion when rejected
   status: 'pending' | 'approved' | 'rejected';
   created_at: string;
-  details: any; // JSONB data
+  details: Record<string, unknown> | null; // JSONB data
   feedback?: string;
 }
 
@@ -64,7 +64,7 @@ const ApprovalsManagement = () => {
   const handleStatusUpdate = async (id: string, newStatus: 'approved' | 'rejected', feedback?: string) => {
     if (!supabase) return;
 
-    const updatePayload: any = { status: newStatus };
+    const updatePayload: { status: 'approved' | 'rejected'; feedback?: string } = { status: newStatus };
     if (feedback) updatePayload.feedback = feedback;
 
     const { error } = await supabase
@@ -225,8 +225,16 @@ const ApprovalsManagement = () => {
   );
 };
 
+interface ApprovalCardProps {
+  item: ApprovalItem;
+  onApprove: () => void;
+  onReject: () => void;
+  getTypeIcon: (type: string) => React.ReactNode;
+  getTypeColor: (type: string) => string;
+}
+
 // Helper Component for the Card
-const ApprovalCard = ({ item, onApprove, onReject, getTypeIcon, getTypeColor }: any) => (
+const ApprovalCard = ({ item, onApprove, onReject, getTypeIcon, getTypeColor }: ApprovalCardProps) => (
   <Card className="flex flex-col overflow-hidden border-l-4 border-l-primary/20">
     <div className="aspect-video bg-muted relative overflow-hidden group">
       {item.image_url ? (
@@ -252,9 +260,9 @@ const ApprovalCard = ({ item, onApprove, onReject, getTypeIcon, getTypeColor }: 
       <p className="text-sm text-muted-foreground line-clamp-3">{item.description}</p>
 
       {/* Show Event Details if available */}
-      {item.type === 'event' && item.details?.venue && (
+      {item.type === 'event' && item.details && typeof item.details === 'object' && (
         <div className="mt-3 p-2 bg-secondary/50 rounded text-xs">
-          <strong>Venue:</strong> {item.details.venue} | <strong>Date:</strong> {item.details.date}
+          <strong>Venue:</strong> {(item.details as { venue: string }).venue} | <strong>Date:</strong> {(item.details as { date: string }).date}
         </div>
       )}
     </CardContent>

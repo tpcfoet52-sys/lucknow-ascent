@@ -42,116 +42,6 @@ const Contact = () => {
                     </div>
                 </section>
 
-                {/* How To Reach Us Section - Map + Best Route */}
-                <section className="section-padding">
-                    <div className="container-narrow">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="text-center mb-8"
-                        >
-                            <span className="text-xs font-medium text-accent uppercase tracking-wider">Location & Directions</span>
-                            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
-                                How To Reach Us?
-                            </h2>
-                            <p className="text-muted-foreground mt-2 text-sm">
-                                📍 Lucknow University New Campus, Sultanpur Village, Jankipuram Extension, Lucknow – 226021
-                            </p>
-                        </motion.div>
-
-                        <div className="grid lg:grid-cols-2 gap-6">
-                            {/* Map Preview */}
-                            <motion.div
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                className="rounded-xl overflow-hidden border border-border shadow-sm min-h-[400px] lg:min-h-[500px]"
-                            >
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.4558!2d80.9397!3d26.9124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be37d0fa0b26d%3A0x1f16a3e7d8d7f8!2sTraining%20%26%20Placement%20Cell%2C%20Faculty%20of%20Engineering%20%26%20Technology%2C%20University%20of%20Lucknow!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                                    width="100%"
-                                    height="100%"
-                                    style={{ border: 0 }}
-                                    allowFullScreen
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                    title="Training & Placement Cell Location"
-                                ></iframe>
-                            </motion.div>
-
-                            {/* Best Route - Stacked Cards */}
-                            <motion.div
-                                initial={{ opacity: 0, x: 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                className="flex flex-col gap-4"
-                            >
-                                <h3 className="font-semibold text-lg text-foreground">Best Route</h3>
-
-                                {/* By Metro */}
-                                <div className="bg-card border border-border rounded-lg p-4">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0">
-                                            <span className="text-base">🚇</span>
-                                        </div>
-                                        <h4 className="font-semibold text-sm text-foreground">By Metro</h4>
-                                    </div>
-                                    <p className="text-muted-foreground text-xs leading-relaxed pl-11">
-                                        Take the Lucknow Metro (Red Line) → <span className="font-medium text-foreground">IT College</span> or <span className="font-medium text-foreground">Vishwavidyalaya</span> station → e-rickshaw/auto to New Campus (10–15 min).
-                                    </p>
-                                </div>
-
-                                {/* By Train (from Charbagh) */}
-                                <div className="bg-card border border-border rounded-lg p-4">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                                            <span className="text-base">🚆</span>
-                                        </div>
-                                        <h4 className="font-semibold text-sm text-foreground">By Train (from Charbagh)</h4>
-                                    </div>
-                                    <div className="text-muted-foreground text-xs leading-relaxed pl-11 space-y-1">
-                                        <p className="font-medium text-foreground">Charbagh Railway Station → LU New Campus</p>
-                                        <p>From Charbagh, take the Metro (Red Line) towards <span className="font-medium text-foreground">IT College</span>.</p>
-                                        <p>Get down at <span className="font-medium text-foreground">IT College</span> or <span className="font-medium text-foreground">Vishwavidyalaya</span>.</p>
-                                        <p>Take an e-rickshaw/auto to <span className="font-medium text-foreground">"Lucknow University New Campus, Jankipuram Extension"</span>.</p>
-                                    </div>
-                                </div>
-
-                                {/* By Cab */}
-                                <div className="bg-card border border-border rounded-lg p-4">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                                            <span className="text-base">�</span>
-                                        </div>
-                                        <h4 className="font-semibold text-sm text-foreground">By Cab</h4>
-                                    </div>
-                                    <p className="text-muted-foreground text-xs leading-relaxed pl-11">
-                                        Book <span className="font-medium text-foreground">Ola/Uber</span> → Enter: <span className="font-medium text-foreground">"Lucknow University New Campus, Jankipuram Extension"</span> → Main gate drop.
-                                    </p>
-                                </div>
-
-                                {/* Office Info */}
-                                <div className="grid grid-cols-2 gap-3 mt-2">
-                                    <div className="bg-muted/50 border border-border rounded-lg p-3">
-                                        <div className="flex items-center gap-2 mb-1">
-                                            <Building2 className="h-4 w-4 text-primary" />
-                                            <span className="font-semibold text-xs text-foreground">Office</span>
-                                        </div>
-                                        <p className="text-muted-foreground text-xs">TPC Office, FoET Building</p>
-                                    </div>
-                                    <div className="bg-muted/50 border border-border rounded-lg p-3">
-                                        <div className="flex items-center gap-2 mb-1">
-                                            <Clock className="h-4 w-4 text-accent" />
-                                            <span className="font-semibold text-xs text-foreground">Hours</span>
-                                        </div>
-                                        <p className="text-muted-foreground text-xs">Mon-Fri: 10AM-5PM • Sat: 10AM-2PM</p>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </div>
-                    </div>
-                </section>
 
                 {/* Coordinators & Connect Section */}
                 <section className="section-padding bg-muted/30">
@@ -341,7 +231,6 @@ const Contact = () => {
                                                         <div className="flex items-center justify-between">
                                                             <div className="flex items-center gap-2">
                                                                 <span className="text-sm text-foreground font-medium">Riddhi Singh</span>
-                                                                <span className="text-xs bg-accent/10 text-accent px-2 py-0.5 rounded-full font-medium">Lead</span>
                                                             </div>
                                                             <div className="flex items-center gap-3">
                                                                 <a href="tel:+917310324848" className="text-sm text-muted-foreground hover:text-accent transition-colors">
@@ -395,6 +284,117 @@ const Contact = () => {
 
                 {/* Connect With Us Section */}
                 <ConnectWithUs />
+
+                {/* Location & Directions Section - Map + Best Route */}
+                <section className="section-padding">
+                    <div className="container-narrow">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-center mb-8"
+                        >
+                            <span className="text-xs font-medium text-accent uppercase tracking-wider">Location & Directions</span>
+                            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
+                                How To Reach Us?
+                            </h2>
+                            <p className="text-muted-foreground mt-2 text-sm">
+                                📍 Lucknow University New Campus, Sultanpur Village, Jankipuram Extension, Lucknow – 226021
+                            </p>
+                        </motion.div>
+
+                        <div className="grid lg:grid-cols-2 gap-6">
+                            {/* Map Preview */}
+                            <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                className="rounded-xl overflow-hidden border border-border shadow-sm min-h-[400px] lg:min-h-[500px]"
+                            >
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.4558!2d80.9397!3d26.9124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be37d0fa0b26d%3A0x1f16a3e7d8d7f8!2sTraining%20%26%20Placement%20Cell%2C%20Faculty%20of%20Engineering%20%26%20Technology%2C%20University%20of%20Lucknow!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    title="Training & Placement Cell Location"
+                                ></iframe>
+                            </motion.div>
+
+                            {/* Best Route - Stacked Cards */}
+                            <motion.div
+                                initial={{ opacity: 0, x: 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                className="flex flex-col gap-4"
+                            >
+                                <h3 className="font-semibold text-lg text-foreground">Best Route</h3>
+
+                                {/* By Metro */}
+                                <div className="bg-card border border-border rounded-lg p-4">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0">
+                                            <span className="text-base">🚇</span>
+                                        </div>
+                                        <h4 className="font-semibold text-sm text-foreground">By Metro</h4>
+                                    </div>
+                                    <p className="text-muted-foreground text-xs leading-relaxed pl-11">
+                                        Take the Lucknow Metro (Red Line) → <span className="font-medium text-foreground">IT College</span> or <span className="font-medium text-foreground">Vishwavidyalaya</span> station → e-rickshaw/auto to New Campus (10–15 min).
+                                    </p>
+                                </div>
+
+                                {/* By Train (from Charbagh) */}
+                                <div className="bg-card border border-border rounded-lg p-4">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                                            <span className="text-base">🚆</span>
+                                        </div>
+                                        <h4 className="font-semibold text-sm text-foreground">By Train (from Charbagh)</h4>
+                                    </div>
+                                    <div className="text-muted-foreground text-xs leading-relaxed pl-11 space-y-1">
+                                        <p className="font-medium text-foreground">Charbagh Railway Station → LU New Campus</p>
+                                        <p>From Charbagh, take the Metro (Red Line) towards <span className="font-medium text-foreground">IT College</span>.</p>
+                                        <p>Get down at <span className="font-medium text-foreground">IT College</span> or <span className="font-medium text-foreground">Vishwavidyalaya</span>.</p>
+                                        <p>Take an e-rickshaw/auto to <span className="font-medium text-foreground">"Lucknow University New Campus, Jankipuram Extension"</span>.</p>
+                                    </div>
+                                </div>
+
+                                {/* By Cab */}
+                                <div className="bg-card border border-border rounded-lg p-4">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                                            <span className="text-base">🚕</span>
+                                        </div>
+                                        <h4 className="font-semibold text-sm text-foreground">By Cab</h4>
+                                    </div>
+                                    <p className="text-muted-foreground text-xs leading-relaxed pl-11">
+                                        Book <span className="font-medium text-foreground">Ola/Uber</span> → Enter: <span className="font-medium text-foreground">"Lucknow University New Campus, Jankipuram Extension"</span> → Main gate drop.
+                                    </p>
+                                </div>
+
+                                {/* Office Info */}
+                                <div className="grid grid-cols-2 gap-3 mt-2">
+                                    <div className="bg-muted/50 border border-border rounded-lg p-3">
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <Building2 className="h-4 w-4 text-primary" />
+                                            <span className="font-semibold text-xs text-foreground">Office</span>
+                                        </div>
+                                        <p className="text-muted-foreground text-xs">TPC Office, FoET Building</p>
+                                    </div>
+                                    <div className="bg-muted/50 border border-border rounded-lg p-3">
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <Clock className="h-4 w-4 text-accent" />
+                                            <span className="font-semibold text-xs text-foreground">Hours</span>
+                                        </div>
+                                        <p className="text-muted-foreground text-xs">Mon-Fri: 10AM-5PM • Sat: 10AM-2PM</p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </div>
+                    </div>
+                </section>
             </main>
 
             <Footer />
