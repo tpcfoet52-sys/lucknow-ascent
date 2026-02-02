@@ -121,7 +121,7 @@ const teams: Team[] = [
     icon: Building2,
     keyPoints: ["Company outreach", "JAF processing", "MoU management", "Recruiter relations"],
     members: [
-      { id: 1, name: "Kshitij Singh", role: "Team Lead", year: "3rd Year", branch: "B.Tech ECE" },
+      { id: 1, name: "Kshitiz Singh", role: "Team Lead", year: "3rd Year", branch: "B.Tech ECE" },
       { id: 2, name: "Aryan Tripathi", role: "Team Lead", year: "2nd Year", branch: "B.Tech EE" },
       { id: 3, name: "Abhinav Singh", role: "Team Lead", year: "2nd Year", branch: "B.Tech CSE" },
       { id: 4, name: "Aditya Swamy", role: "Team Member", year: "2nd Year", branch: "B.Tech ME" },
