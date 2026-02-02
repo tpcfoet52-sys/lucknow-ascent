@@ -136,26 +136,23 @@ const DeveloperTeam = () => {
                                             viewport={{ once: true }}
                                             custom={memberIndex}
                                             variants={fadeInUp}
-                                            className="bg-muted/30 border border-border/50 rounded-xl p-5 hover:border-accent/30 transition-all"
+                                            className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center w-full transition-all duration-300 hover:border-accent/40 hover:shadow-sm"
                                         >
-                                            <div className="flex items-start gap-4">
-                                                {/* Avatar Placeholder */}
-                                                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                                    <span className="text-lg font-semibold text-primary">
-                                                        {member.name.charAt(0)}
-                                                    </span>
-                                                </div>
-                                                <div>
-                                                    <h3 className="font-semibold text-foreground text-base">
-                                                        {member.name}
-                                                    </h3>
-                                                    <p className="text-sm text-muted-foreground mt-1">
-                                                        {member.program}
-                                                    </p>
-                                                    <p className="text-xs text-accent font-medium mt-1">
-                                                        Batch: {member.batch}
-                                                    </p>
-                                                </div>
+                                            <div className="flex-shrink-0 w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20 bg-muted flex items-center justify-center">
+                                                <span className="text-3xl font-bold text-accent/50">
+                                                    {member.name.charAt(0)}
+                                                </span>
+                                            </div>
+                                            <div className="flex-1 flex flex-col items-center w-full">
+                                                <h3 className="font-serif text-lg font-bold text-foreground mb-1 whitespace-nowrap overflow-hidden text-ellipsis w-full text-center">
+                                                    {member.name}
+                                                </h3>
+                                                <p className="text-accent text-xs font-semibold uppercase tracking-wider mb-1 flex items-center justify-center">
+                                                    {member.role}
+                                                </p>
+                                                <p className="text-muted-foreground text-[10px] font-medium uppercase tracking-wide mb-3 flex items-center justify-center">
+                                                    {member.program} • {member.batch}
+                                                </p>
                                             </div>
                                         </motion.div>
                                     ))}
