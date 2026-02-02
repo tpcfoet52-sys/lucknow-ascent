@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2, Layout, Database, HeartHandshake, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Code2, Layout, Database, HeartHandshake } from "lucide-react";
 import Footer from "@/components/Footer";
 
 const DeveloperTeam = () => {
@@ -79,15 +78,6 @@ const DeveloperTeam = () => {
                 {/* Hero Section */}
                 <section className="relative py-12 md:py-16">
                     <div className="container-narrow">
-                        {/* Back Button */}
-                        <Link
-                            to="/"
-                            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
-                        >
-                            <ArrowLeft className="w-4 h-4" />
-                            <span className="text-sm">Back to Home</span>
-                        </Link>
-
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
