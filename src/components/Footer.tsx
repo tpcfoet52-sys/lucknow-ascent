@@ -63,6 +63,7 @@ const Footer = () => {
                 { name: "Placement Statistics", href: "#recruiters" },
                 { name: "Student Resources", href: "#students" },
                 { name: "Team Structure", href: "/team" },
+                { name: "Website Developers", href: "/developer-team" },
               ].map((link, index) => (
                 <li key={index}>
                   <a
