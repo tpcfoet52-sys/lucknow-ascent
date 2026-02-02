@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2, Layout, Database, HeartHandshake, Linkedin } from "lucide-react";
+import { Code2, Layout, Database, HeartHandshake, Linkedin, Mail } from "lucide-react";
 import Footer from "@/components/Footer";
 
 const DeveloperTeam = () => {
@@ -24,6 +24,7 @@ const DeveloperTeam = () => {
                     program: "B.Tech Computer Science & Engineering – Artificial Intelligence",
                     batch: "2024–2028",
                     linkedin: "https://www.linkedin.com/in/akashsinghmrj64/",
+                    email: "mailto:akash.singh@example.com",
                 },
                 {
                     name: "Srishti Mishra",
@@ -31,6 +32,7 @@ const DeveloperTeam = () => {
                     program: "B.Tech Computer Science & Engineering – Artificial Intelligence",
                     batch: "2024–2028",
                     linkedin: "https://www.linkedin.com/in/mishrasrishti108/",
+                    email: "mailto:srishti.mishra@example.com",
                 },
             ],
         },
@@ -45,6 +47,7 @@ const DeveloperTeam = () => {
                     program: "B.Tech Computer Science & Engineering – Artificial Intelligence",
                     batch: "2024–2028",
                     linkedin: "#",
+                    email: "mailto:anurag@example.com",
                 },
                 {
                     name: "Akash Kumar Yadav",
@@ -52,6 +55,7 @@ const DeveloperTeam = () => {
                     program: "B.Tech Computer Science & Engineering – Artificial Intelligence",
                     batch: "2024–2028",
                     linkedin: "https://www.linkedin.com/in/akash-kumar-yadav-b1a33430b/",
+                    email: "mailto:akash.yadav@example.com",
                 },
             ],
         },
@@ -66,6 +70,7 @@ const DeveloperTeam = () => {
                     program: "BCA",
                     batch: "2024–2027",
                     linkedin: "https://www.linkedin.com/in/rashmikushwaha2005/",
+                    email: "mailto:rashmi@example.com",
                 },
                 {
                     name: "Aryan Tripathi",
@@ -73,6 +78,7 @@ const DeveloperTeam = () => {
                     program: "B.Tech Electrical Engineering",
                     batch: "2024–2028",
                     linkedin: "https://www.linkedin.com/in/aryan-tripathi-45346a254/",
+                    email: "mailto:aryan.tripathi@example.com",
                 },
             ],
         },
@@ -163,13 +169,18 @@ const DeveloperTeam = () => {
                                                     {member.batch}
                                                 </p>
 
-                                                {member.linkedin && (
-                                                    <div className="flex items-center justify-center gap-3 mt-auto">
+                                                <div className="flex items-center justify-center gap-3 mt-auto">
+                                                    {member.email && (
+                                                        <a href={member.email} className="p-2 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                                            <Mail className="w-4 h-4" />
+                                                        </a>
+                                                    )}
+                                                    {member.linkedin && (
                                                         <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
                                                             <Linkedin className="w-4 h-4" />
                                                         </a>
-                                                    </div>
-                                                )}
+                                                    )}
+                                                </div>
                                             </div>
                                         </motion.div>
                                     ))}
