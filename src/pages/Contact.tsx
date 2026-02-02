@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Clock, Building2, ChevronDown, Phone, Smartphone, MapPin, Train, Car } from "lucide-react";
+import { Clock, Building2, ChevronDown, Phone, Smartphone, MapPin, Train, Car, Users } from "lucide-react";
 import ConnectWithUs from "@/components/ConnectWithUs";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -153,7 +153,7 @@ const Contact = () => {
                             viewport={{ once: true }}
                         >
                             <h3 className="font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
-                                <span>👥</span> Connect With Us
+                                <Users className="w-5 h-5 text-accent" /> Connect With Us
                             </h3>
                             <div className="space-y-2">
                                 {/* Training & Placement Cell Incharge */}
