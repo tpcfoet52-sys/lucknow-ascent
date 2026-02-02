@@ -46,7 +46,7 @@ const DeveloperTeam = () => {
                     role: "Backend Developer",
                     program: "B.Tech Computer Science & Engineering – Artificial Intelligence",
                     batch: "2024–2028",
-                    linkedin: "#",
+                    linkedin: "https://www.linkedin.com/in/anurag-210a86317/",
                     email: "mailto:anurag@example.com",
                 },
                 {
@@ -65,7 +65,7 @@ const DeveloperTeam = () => {
             color: "bg-purple-500/10 text-purple-600",
             members: [
                 {
-                    name: "Rashmi",
+                    name: "Rashmi Kushwaha",
                     role: "Support Team",
                     program: "BCA",
                     batch: "2024–2027",
