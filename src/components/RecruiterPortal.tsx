@@ -148,10 +148,10 @@ const RecruiterPortal = () => {
             {/* Core / PSU / Manufacturing */}
             <div>
               <div className="flex justify-center mb-3">
-                <span className="border-2 border-accent text-accent bg-transparent text-xs font-bold px-4 py-1.5 rounded-full shadow-sm tracking-wide uppercase backdrop-blur-sm">Core / PSU / Manufacturing</span>
+                <span className="border-2 border-accent text-accent bg-transparent text-xs font-bold px-4 py-1.5 rounded-full shadow-sm tracking-wide uppercase backdrop-blur-sm">Core / Manufacturing</span>
               </div>
               <div className="flex flex-wrap justify-center gap-2">
-                {["Adani Group", "Ambuja Cements", "DRDO", "Mahindra Group", "Reliance Industries", "Tata Steel", "Yazaki India", "Ashok Leyland", "CMR Green", "Emmvee Energy", "JBM Auto", "Lumax Industries", "Motherson", "Nuclear Fuel Complex"].map((company, index) => (
+                {["Adani Group", "Ambuja Cements", "Mahindra Group", "Reliance Industries", "Tata Steel", "Yazaki India", "Ashok Leyland", "CMR Green", "Emmvee Energy", "JBM Auto", "Lumax Industries", "Motherson"].map((company, index) => (
                   <div key={index} className="bg-primary-foreground/10 border border-primary-foreground/20 rounded-full px-3 py-1 text-primary-foreground text-xs">
                     {company}
                   </div>
