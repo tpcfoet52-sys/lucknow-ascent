@@ -22,8 +22,7 @@ import heroImage from "@/assets/university-hero-new.jpg";
 import profSpSingh from "@/assets/prof-sp-singh.jpg";
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
-import recruiters1 from "@/assets/our-recruiters-1.png";
-import recruiters2 from "@/assets/our-recruiters-2.png";
+import topRecruiters from "@/assets/top-recruiters.jpg";
 import drdoSeminar from "@/assets/drdo-seminar.jpg";
 import workshopIndustries from "@/assets/workshop-industries.png";
 import navalAviation from "@/assets/naval-aviation.png";
@@ -369,9 +368,8 @@ const AboutTPC = () => {
             </p>
           </motion.div>
 
-          <div className="flex flex-col gap-0 w-full">
-            <img src={recruiters1} alt="Our Top Recruiters Part 1" className="w-full h-auto object-cover block" />
-            <img src={recruiters2} alt="Our Top Recruiters Part 2" className="w-full h-auto object-cover block" />
+          <div className="flex flex-col gap-0 w-full border border-border/50 rounded-xl overflow-hidden shadow-sm">
+            <img src={topRecruiters} alt="Our Top Recruiters" className="w-full h-auto object-contain block bg-white" />
           </div>
         </div>
       </section>
