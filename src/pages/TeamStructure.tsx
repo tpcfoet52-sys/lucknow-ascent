@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import uolLogo from "@/assets/uol-logo.png";
-import tpcBadge from "@/assets/uol-category-1-badge.jpg";
+import tpcBadge from "@/assets/uol-category-1-badge.png";
 import heroImage from "@/assets/university-hero-new.jpg";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";

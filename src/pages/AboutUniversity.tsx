@@ -28,7 +28,7 @@ import uolLogo from "@/assets/uol-logo.png";
 import heroImage from "@/assets/university-hero-new.jpg";
 import nirfBadge from "@/assets/nirf-ranking-badge.png";
 import centenaryLogo from "@/assets/centenary-logo.png";
-import naacBadge from "@/assets/uol-category-1-badge.jpg";
+import naacBadge from "@/assets/uol-category-1-badge.png";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
 import programEngineering from "@/assets/engineering-academic-excellence.jpg";
 import programLaw from "@/assets/law-academic-excellence.jpg";

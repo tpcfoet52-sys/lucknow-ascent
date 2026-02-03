@@ -3,7 +3,7 @@ import { Award } from "lucide-react";
 
 import uolLogo from "@/assets/uol-logo.png";
 import heroImage from "@/assets/university-hero-new.jpg";
-import naacBadge from "@/assets/uol-category-1-badge.jpg";
+import naacBadge from "@/assets/uol-category-1-badge.png";
 import spChakravarti from "@/assets/sp-chakravarti.jpg";
 import govindBallabhPant from "@/assets/govind-ballabh-pant.jpg";
 import justiceAsAnand from "@/assets/justice-as-anand.jpg";
