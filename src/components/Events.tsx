@@ -182,10 +182,10 @@ const Events = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-medium text-sm uppercase tracking-wider">Events</span>
-          <h2 className="heading-display text-2xl md:text-3xl lg:text-4xl text-foreground mt-2">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-2 tracking-tight">
             Placement <span className="text-gold-gradient">Events & Activities</span>
           </h2>
-          <p className="max-w-xl mx-auto text-muted-foreground mt-3 text-base">
+          <p className="max-w-xl mx-auto text-muted-foreground mt-3 text-base md:text-lg leading-relaxed">
             Stay updated with upcoming placement drives, workshops, and career development sessions.
           </p>
         </motion.div>

@@ -114,10 +114,10 @@ const DeveloperTeam = () => {
                                     Behind The Scenes
                                 </span>
                             </div>
-                            <h1 className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-6">
+                            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6 tracking-tight">
                                 Website <span className="text-gold-gradient">Development & Support Team</span>
                             </h1>
-                            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                            <p className="text-muted-foreground text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
                                 This website is a collaborative student initiative developed under the
                                 Training and Placement Cell to ensure accuracy, usability, and a
                                 professional digital presence.
