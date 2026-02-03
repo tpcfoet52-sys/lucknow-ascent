@@ -46,17 +46,7 @@ const Contact = () => {
                 {/* Coordinators & Connect Section */}
                 <section className="section-padding bg-muted/30">
                     <div className="container-narrow">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="text-center mb-8"
-                        >
-                            <span className="text-xs font-medium text-accent uppercase tracking-wider">Get Connected</span>
-                            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
-                                Coordinators & Connect
-                            </h2>
-                        </motion.div>
+
 
                         {/* Social Networks - Horizontal Layout */}
                         <motion.div
@@ -282,8 +272,6 @@ const Contact = () => {
                     </div>
                 </section>
 
-                {/* Connect With Us Section */}
-                <ConnectWithUs />
 
                 {/* Location & Directions Section - Map + Best Route */}
                 <section className="section-padding">
@@ -395,6 +383,9 @@ const Contact = () => {
                         </div>
                     </div>
                 </section>
+
+                {/* Connect With Us Section */}
+                <ConnectWithUs />
             </main>
 
             <Footer />

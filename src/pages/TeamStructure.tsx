@@ -28,6 +28,11 @@ import erGauravSrivastava from "@/assets/er-gaurav-srivastava.jpg";
 import erPrashantKumarSingh from "@/assets/dr-prashant-kumar-singh.png";
 import riddhiSingh from "@/assets/riddhi-singh-rathore.jpg";
 import studentCoordinatorsGroup from "@/assets/student-coordinators-2025-26.jpg";
+import akashSingh from "@/assets/akash-singh.jpg";
+import srishtiMishra from "@/assets/srishti-mishra.jpg";
+import rashmiKushwaha from "@/assets/rashmi-kushwaha.jpg";
+import aryanTripathi from "@/assets/aryan-tripathi.jpg";
+import akashKumarYadav from "@/assets/akash-kumar-yadav.jpg";
 
 const facultyMembers = [
   {
@@ -100,10 +105,10 @@ const teams: Team[] = [
     keyPoints: ["Alumni engagement", "Finding leads for internship and placement opportunities", "Helping establishing networks with HRs and Companies"],
     members: [
       { id: 1, name: "Ramakant Mishra", role: "Team Lead", year: "3rd Year", branch: "B.Tech ECE", linkedin: "https://www.linkedin.com/in/ramakant-mishra-935199275/" },
-      { id: 2, name: "Rashmi Kushwaha", role: "Co-Lead", year: "2nd Year", branch: "BCA", linkedin: "https://www.linkedin.com/in/rashmikushwaha2005/" },
-      { id: 3, name: "Akash Singh", role: "Co-Lead", year: "2nd Year", branch: "B.Tech CSE-AI", linkedin: "https://www.linkedin.com/in/akashsinghmrj64/" },
-      { id: 4, name: "Srishti Mishra", role: "Team Member", year: "2nd Year", branch: "B.Tech CSE-AI", linkedin: "https://www.linkedin.com/in/mishrasrishti108/" },
-      { id: 5, name: "Akash Kumar Yadav", role: "Team Member", year: "2nd Year", branch: "B.Tech CSE-AI", linkedin: "https://www.linkedin.com/in/akash-kumar-yadav-b1a33430b/" },
+      { id: 2, name: "Rashmi Kushwaha", role: "Co-Lead", year: "2nd Year", branch: "BCA", linkedin: "https://www.linkedin.com/in/rashmikushwaha2005/", image: rashmiKushwaha },
+      { id: 3, name: "Akash Singh", role: "Co-Lead", year: "2nd Year", branch: "B.Tech CSE-AI", linkedin: "https://www.linkedin.com/in/akashsinghmrj64/", image: akashSingh },
+      { id: 4, name: "Srishti Mishra", role: "Team Member", year: "2nd Year", branch: "B.Tech CSE-AI", linkedin: "https://www.linkedin.com/in/mishrasrishti108/", image: srishtiMishra },
+      { id: 5, name: "Akash Kumar Yadav", role: "Team Member", year: "2nd Year", branch: "B.Tech CSE-AI", linkedin: "https://www.linkedin.com/in/akash-kumar-yadav-b1a33430b/", image: akashKumarYadav },
       { id: 6, name: "Harshit Yadav", role: "Team Member", year: "1st Year", branch: "B.Tech CSE", linkedin: "https://www.linkedin.com/in/harshit-yadav-690036341/" },
       { id: 7, name: "Astitva Bharadwaj", role: "Team Member", year: "1st Year", branch: "BCA", linkedin: "https://www.linkedin.com/in/astitva-bhardwajlu/" },
       { id: 8, name: "Riya Jainer", role: "Team Member", year: "1st Year", branch: "B.Tech EE", linkedin: "https://www.linkedin.com/in/riya-jainer-61ab39384/" },
@@ -124,7 +129,7 @@ const teams: Team[] = [
     members: [
 
       { id: 1, name: "Kshitiz Singh", role: "Team Lead", year: "3rd Year", branch: "B.Tech ECE", linkedin: "https://www.linkedin.com/in/kshitiz-singh-0163a432a/" },
-      { id: 2, name: "Aryan Tripathi", role: "Team Lead", year: "2nd Year", branch: "B.Tech EE", linkedin: "https://www.linkedin.com/in/aryan-tripathi-45346a254/" },
+      { id: 2, name: "Aryan Tripathi", role: "Team Lead", year: "2nd Year", branch: "B.Tech EE", linkedin: "https://www.linkedin.com/in/aryan-tripathi-45346a254/", image: aryanTripathi },
       { id: 3, name: "Abhinav Singh", role: "Team Lead", year: "2nd Year", branch: "B.Tech CSE", linkedin: "https://www.linkedin.com/in/abhinavatwork/" },
       { id: 4, name: "Aditya Swamy", role: "Team Member", year: "2nd Year", branch: "B.Tech ME", linkedin: "https://www.linkedin.com/in/aditya-swamy-773698300/" },
       { id: 5, name: "Shivaksh Singh", role: "Team Member", year: "1st Year", branch: "B.Tech CSE-AI", linkedin: "https://www.linkedin.com/in/shivaksh-singh-626a93384/" },
