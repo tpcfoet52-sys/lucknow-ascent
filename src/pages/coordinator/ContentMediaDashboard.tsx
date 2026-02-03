@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { format } from "date-fns";
-import { Loader2, FileText, CheckCircle2, XCircle, Plus, UploadCloud, Clock, ImagePlus } from "lucide-react";
+import { Loader2, FileText, CheckCircle2, XCircle, Plus, UploadCloud, Clock, ImagePlus, Trash2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -21,7 +21,7 @@ import { uploadToCloudinary } from "@/lib/cloudinary";
 const mediaFormSchema = z.object({
   title: z.string().min(5, "Title must be at least 5 characters"),
   description: z.string().min(20, "Description must be at least 20 characters"),
-  type: z.enum(["gallery", "press_release", "achievement"]),
+  type: z.enum(["drive", "event", "seminar", "top_performer", "press_release"]),
 });
 
 type MediaFormValues = z.infer<typeof mediaFormSchema>;
@@ -30,9 +30,9 @@ interface MediaSubmission {
   id: string;
   title: string;
   description: string;
-  type: 'gallery' | 'press_release' | 'achievement';
+  type: 'drive' | 'event' | 'seminar' | 'top_performer' | 'press_release';
   image_url: string;
-  status: 'pending' | 'approved' | 'rejected';
+  status: 'pending' | 'approved' | 'rejected' | 'pending_deletion';
   created_at: string;
   feedback?: string;
 }
@@ -50,7 +50,7 @@ const ContentMediaDashboard = () => {
     defaultValues: {
       title: "",
       description: "",
-      type: "gallery",
+      type: "event",
     },
   });
 
@@ -60,13 +60,44 @@ const ContentMediaDashboard = () => {
     const { data, error } = await supabase
       .from('unified_approvals')
       .select('*')
-      .in('type', ['gallery', 'press_release', 'achievement'])
+      .in('type', ['drive', 'event', 'seminar', 'top_performer', 'press_release'])
       .order('created_at', { ascending: false });
+
+
 
     if (error) {
       console.error("Error fetching submissions:", error);
     } else {
       setSubmissions(data as MediaSubmission[]);
+    }
+  };
+
+  const handleDeleteRequest = async (id: string) => {
+    if (!supabase) return;
+
+    // Optimistic update
+    setSubmissions(prev => prev.map(item =>
+      item.id === id ? { ...item, status: 'pending_deletion' } : item
+    ));
+
+    const { error } = await supabase
+      .from('unified_approvals')
+      .update({ status: 'pending_deletion' })
+      .eq('id', id);
+
+    if (error) {
+      console.error("Error requesting deletion:", error);
+      toast({
+        title: "Error",
+        description: "Failed to request deletion.",
+        variant: "destructive",
+      });
+      fetchSubmissions(); // Revert on error
+    } else {
+      toast({
+        title: "Deletion Requested",
+        description: "Admin will review your request to remove this content.",
+      });
     }
   };
 
@@ -128,6 +159,7 @@ const ContentMediaDashboard = () => {
     switch (status) {
       case 'approved': return <Badge className="bg-green-500 hover:bg-green-600"><CheckCircle2 className="w-3 h-3 mr-1" /> Published</Badge>;
       case 'rejected': return <Badge variant="destructive"><XCircle className="w-3 h-3 mr-1" /> Rejected</Badge>;
+      case 'pending_deletion': return <Badge variant="destructive" className="bg-red-100 text-red-800 border-red-200 hover:bg-red-200"><XCircle className="w-3 h-3 mr-1" /> Deletion Requested</Badge>;
       default: return <Badge variant="secondary" className="bg-yellow-500/15 text-yellow-600 hover:bg-yellow-500/25"><Clock className="w-3 h-3 mr-1" /> Pending Review</Badge>;
     }
   };
@@ -174,11 +206,30 @@ const ContentMediaDashboard = () => {
                     <span className="text-xs text-muted-foreground">{format(new Date(item.created_at), 'MMM d, yyyy')}</span>
                   </div>
                   <CardTitle className="line-clamp-1 text-lg">{item.title}</CardTitle>
+                  <CardTitle className="line-clamp-1 text-lg">{item.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
                     {item.description}
                   </p>
+
+                  {item.status === 'approved' && (
+                    <div className="flex justify-end mb-2">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-red-500 hover:text-red-700 hover:bg-red-50 h-8"
+                        onClick={() => {
+                          if (confirm("Are you sure you want to request deletion for this item?")) {
+                            handleDeleteRequest(item.id);
+                          }
+                        }}
+                      >
+                        <Trash2 className="w-4 h-4 mr-2" /> Request Deletion
+                      </Button>
+                    </div>
+                  )}
+
                   {item.status === 'rejected' && item.feedback && (
                     <div className="bg-red-50 p-3 rounded-md text-xs text-red-600 border border-red-100">
                       <strong>Admin Feedback:</strong> {item.feedback}
@@ -272,9 +323,11 @@ const ContentMediaDashboard = () => {
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              <SelectItem value="gallery">Photo Gallery</SelectItem>
+                              <SelectItem value="drive">Placement Drive</SelectItem>
+                              <SelectItem value="event">Event</SelectItem>
+                              <SelectItem value="seminar">Seminar</SelectItem>
+                              <SelectItem value="top_performer">Top Performer</SelectItem>
                               <SelectItem value="press_release">Press Release</SelectItem>
-                              <SelectItem value="achievement">Student Achievement</SelectItem>
                             </SelectContent>
                           </Select>
                           <FormMessage />

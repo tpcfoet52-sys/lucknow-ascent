@@ -39,11 +39,14 @@ const Media = () => {
                 const formattedItems = data.map(item => ({
                     id: item.id,
                     // Map DB types to UI categories
-                    type: (item.title && item.title.includes("Placement Drive")) ? 'Drives' :
-                        (item.title && item.title.includes("Higher Education Opportunities")) ? 'Seminars' :
-                            item.type === 'press_release' ? 'Press' :
-                                item.type === 'achievement' ? 'Top Performers' :
-                                    item.type === 'event' ? 'Events' : 'Gallery',
+                    type: item.type === 'drive' ? 'Drives' :
+                        item.type === 'seminar' ? 'Seminars' :
+                            item.type === 'top_performer' ? 'Top Performers' :
+                                item.type === 'press_release' ? 'Press' :
+                                    // Legacy Fallbacks
+                                    (item.title && item.title.includes("Placement Drive")) ? 'Drives' :
+                                        (item.title && item.title.includes("Higher Education Opportunities")) ? 'Seminars' :
+                                            item.type === 'achievement' ? 'Top Performers' : 'Events',
                     src: item.image_url,
                     title: item.title,
                     date: new Date(item.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
@@ -66,7 +69,7 @@ const Media = () => {
     // --- Filter Logic ---
     const filteredGallery = filter === "All"
         ? allGalleryItems
-        : allGalleryItems.filter(item => item.type === filter || (filter === "Events" && item.type === "Gallery"));
+        : allGalleryItems.filter(item => item.type === filter);
 
     return (
         <div className="min-h-screen bg-background flex flex-col">
