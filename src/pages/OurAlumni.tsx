@@ -3,7 +3,7 @@ import { Award } from "lucide-react";
 
 import uolLogo from "@/assets/uol-logo.png";
 import heroImage from "@/assets/university-hero-new.jpg";
-import naacBadge from "@/assets/naac-badge.png";
+import naacBadge from "@/assets/uol-category-1-badge.jpg";
 import spChakravarti from "@/assets/sp-chakravarti.jpg";
 import govindBallabhPant from "@/assets/govind-ballabh-pant.jpg";
 import justiceAsAnand from "@/assets/justice-as-anand.jpg";
@@ -124,7 +124,7 @@ const OurAlumni = () => {
                             <motion.img
                                 src={naacBadge}
                                 alt="NAAC A++ Accreditation"
-                                className="w-20 h-20 md:w-28 md:h-28 object-contain"
+                                className="w-20 h-20 md:w-28 md:h-28 object-contain rounded-full"
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: 0.2, duration: 0.5 }}

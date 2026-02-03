@@ -17,7 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 import uolLogo from "@/assets/uol-logo.png";
-import naacBadge from "@/assets/naac-badge.png";
+import naacBadge from "@/assets/uol-category-1-badge.jpg";
 import heroImage from "@/assets/university-hero-new.jpg";
 import profSpSingh from "@/assets/prof-sp-singh.jpg";
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
@@ -208,7 +208,7 @@ const AboutTPC = () => {
                   <img
                     src={naacBadge}
                     alt="NAAC A++ Badge"
-                    className="w-20 h-20 md:w-28 md:h-28 object-contain mb-1"
+                    className="w-20 h-20 md:w-28 md:h-28 object-contain mb-1 rounded-full"
                   />
                 </motion.div>
               </div>

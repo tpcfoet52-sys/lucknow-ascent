@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import uolLogo from "@/assets/uol-logo.png";
-import tpcBadge from "@/assets/naac-badge.png";
+import tpcBadge from "@/assets/uol-category-1-badge.jpg";
 import heroImage from "@/assets/university-hero-new.jpg";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
@@ -316,7 +316,7 @@ const TeamStructure = () => {
               <motion.img
                 src={tpcBadge}
                 alt="TPC Badge"
-                className="w-20 h-20 md:w-28 md:h-28 object-contain"
+                className="w-20 h-20 md:w-28 md:h-28 object-contain rounded-full"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
