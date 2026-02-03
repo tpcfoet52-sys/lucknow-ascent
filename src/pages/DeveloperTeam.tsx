@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
 import { Code2, Layout, Database, HeartHandshake, Linkedin, Mail } from "lucide-react";
+import akashSingh from "@/assets/akash-singh.jpg";
+import srishtiMishra from "@/assets/srishti-mishra.jpg";
+import anurag from "@/assets/anurag.jpg";
+import rashmiKushwaha from "@/assets/rashmi-kushwaha.jpg";
+import aryanTripathi from "@/assets/aryan-tripathi.jpg";
+import akashKumarYadav from "@/assets/akash-kumar-yadav.jpg";
 import Footer from "@/components/Footer";
 
 const DeveloperTeam = () => {
@@ -16,7 +22,7 @@ const DeveloperTeam = () => {
         {
             title: "Frontend Development & Data Accuracy",
             icon: Layout,
-            color: "bg-blue-500/10 text-blue-600",
+            color: "bg-accent/10 text-accent",
             members: [
                 {
                     name: "Akash Singh",
@@ -24,7 +30,8 @@ const DeveloperTeam = () => {
                     program: "B.Tech Computer Science & Engineering – Artificial Intelligence",
                     batch: "2024–2028",
                     linkedin: "https://www.linkedin.com/in/akashsinghmrj64/",
-                    email: "mailto:akash.singh@example.com",
+                    email: "mailto:akashsinghmrj64@gmail.com",
+                    image: akashSingh,
                 },
                 {
                     name: "Srishti Mishra",
@@ -32,14 +39,15 @@ const DeveloperTeam = () => {
                     program: "B.Tech Computer Science & Engineering – Artificial Intelligence",
                     batch: "2024–2028",
                     linkedin: "https://www.linkedin.com/in/mishrasrishti108/",
-                    email: "mailto:srishti.mishra@example.com",
+                    email: "mailto:mishrasrishti108@gmail.com",
+                    image: srishtiMishra,
                 },
             ],
         },
         {
             title: "Backend Development",
             icon: Database,
-            color: "bg-green-500/10 text-green-600",
+            color: "bg-accent/10 text-accent",
             members: [
                 {
                     name: "Anurag",
@@ -47,7 +55,8 @@ const DeveloperTeam = () => {
                     program: "B.Tech Computer Science & Engineering – Artificial Intelligence",
                     batch: "2024–2028",
                     linkedin: "https://www.linkedin.com/in/anurag-210a86317/",
-                    email: "mailto:anurag@example.com",
+                    email: "mailto:anurag00744@outlook.com",
+                    image: anurag,
                 },
                 {
                     name: "Akash Kumar Yadav",
@@ -55,14 +64,15 @@ const DeveloperTeam = () => {
                     program: "B.Tech Computer Science & Engineering – Artificial Intelligence",
                     batch: "2024–2028",
                     linkedin: "https://www.linkedin.com/in/akash-kumar-yadav-b1a33430b/",
-                    email: "mailto:akash.yadav@example.com",
+                    email: "mailto:akashkumar197yadav@gmail.com",
+                    image: akashKumarYadav,
                 },
             ],
         },
         {
             title: "Support & Assistance",
             icon: HeartHandshake,
-            color: "bg-purple-500/10 text-purple-600",
+            color: "bg-accent/10 text-accent",
             members: [
                 {
                     name: "Rashmi Kushwaha",
@@ -70,7 +80,8 @@ const DeveloperTeam = () => {
                     program: "BCA",
                     batch: "2024–2027",
                     linkedin: "https://www.linkedin.com/in/rashmikushwaha2005/",
-                    email: "mailto:rashmi@example.com",
+                    email: "mailto:rashmingkushwaha@gmail.com",
+                    image: rashmiKushwaha,
                 },
                 {
                     name: "Aryan Tripathi",
@@ -78,7 +89,8 @@ const DeveloperTeam = () => {
                     program: "B.Tech Electrical Engineering",
                     batch: "2024–2028",
                     linkedin: "https://www.linkedin.com/in/aryan-tripathi-45346a254/",
-                    email: "mailto:aryan.tripathi@example.com",
+                    email: "mailto:tripathiaryan647@gmail.com",
+                    image: aryanTripathi,
                 },
             ],
         },
@@ -150,10 +162,20 @@ const DeveloperTeam = () => {
                                             variants={fadeInUp}
                                             className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center w-full transition-all duration-300 hover:border-accent/40 hover:shadow-sm"
                                         >
-                                            <div className="flex-shrink-0 w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20 bg-muted flex items-center justify-center">
-                                                <span className="text-3xl font-bold text-accent/50">
-                                                    {member.name.charAt(0)}
-                                                </span>
+                                            <div className="flex-shrink-0 w-36 h-36 rounded-full overflow-hidden border-4 border-accent/20 bg-muted flex items-center justify-center">
+                                                {/* @ts-ignore */}
+                                                {member.image ? (
+                                                    <img
+                                                        // @ts-ignore
+                                                        src={member.image}
+                                                        alt={member.name}
+                                                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                                                    />
+                                                ) : (
+                                                    <span className="text-5xl font-bold text-accent/50">
+                                                        {member.name.charAt(0)}
+                                                    </span>
+                                                )}
                                             </div>
                                             <div className="flex-1 flex flex-col items-center w-full">
                                                 <h3 className="font-serif text-lg font-bold text-foreground mb-1 whitespace-nowrap overflow-hidden text-ellipsis w-full text-center">
