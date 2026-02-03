@@ -327,7 +327,7 @@ const TeamStructure = () => {
             className="mb-12 text-center"
           >
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-8">
-              Faculty Coordinator
+              Faculty Coordinators
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {facultyMembers.map((faculty, idx) => (
