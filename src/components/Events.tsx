@@ -71,7 +71,7 @@ const Events = () => {
               type: isUpcoming ? "upcoming" : "past",
               registrationOpen: isUpcoming,
             };
-          });
+          }).filter(e => !e.title.toLowerCase().includes("raj mistri"));
           setEventsList(processedEvents);
         }
       } catch (error) {

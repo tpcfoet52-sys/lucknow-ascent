@@ -41,17 +41,35 @@ const Media = () => {
                     // Map DB types to UI categories
                     type: item.type === 'drive' ? 'Drives' :
                         item.type === 'seminar' ? 'Seminars' :
-                            item.type === 'top_performer' ? 'Star Performers - November 2025' :
+                            item.type === 'top_performer' ? 'Star Performers' :
                                 item.type === 'press_release' ? 'Press' :
                                     // Legacy Fallbacks
                                     (item.title && item.title.includes("Placement Drive")) ? 'Drives' :
                                         (item.title && item.title.includes("Higher Education Opportunities")) ? 'Seminars' :
-                                            item.type === 'achievement' ? 'Star Performers - November 2025' : 'Events',
+                                            item.type === 'achievement' ? 'Star Performers' : 'Events',
                     src: item.image_url,
                     title: item.title,
                     date: new Date(item.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
                     summary: item.description
-                }));
+                })).filter(item =>
+                    !item.title.toLowerCase().includes("top performer of the month") &&
+                    !item.title.toLowerCase().includes("republic day celebration")
+                ).sort((a, b) => {
+                    // List of titles to move to the bottom
+                    const moveDown = [
+                        "Learning Routes Placement Drive",
+                        "Higher Education Opportunities",
+                        "Smart India Hackathon 2025",
+                        "TPC Student Coordinator Meeting"
+                    ];
+
+                    const aIsDown = moveDown.some(t => a.title.includes(t));
+                    const bIsDown = moveDown.some(t => b.title.includes(t));
+
+                    if (aIsDown && !bIsDown) return 1; // a goes after b
+                    if (!aIsDown && bIsDown) return -1; // b goes after a
+                    return 0; // keep relative order
+                });
                 setDynamicItems(formattedItems);
             }
         };
@@ -116,7 +134,7 @@ const Media = () => {
                             </div>
 
                             <div className="flex flex-wrap gap-2">
-                                {["All", "Drives", "Events", "Seminars", "Star Performers - November 2025"].map((cat) => (
+                                {["All", "Drives", "Events", "Seminars", "Star Performers"].map((cat) => (
                                     <Button
                                         key={cat}
                                         variant={filter === cat ? "default" : "outline"}
@@ -149,7 +167,16 @@ const Media = () => {
                                             onClick={() => setSelectedItem(item)}
                                         >
                                             <div className="aspect-video overflow-hidden">
-                                                <img src={item.src} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                                                <img
+                                                    src={item.src}
+                                                    alt={item.title}
+                                                    className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${["Higher Education Opportunities", "Jaro Education Placement Drive"].some(t => item.title.includes(t))
+                                                            ? 'object-[50%_65%]'
+                                                            : ["Learning Routes Placement Drive", "Smart India Hackathon 2025", "TPC Student Coordinator Meeting", "Samsung Innovation Campus Program"].some(t => item.title.includes(t))
+                                                                ? 'object-[50%_35%]'
+                                                                : ''
+                                                        }`}
+                                                />
                                             </div>
                                             <div className="p-4">
                                                 <div className="flex justify-between items-start mb-2">

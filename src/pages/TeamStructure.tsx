@@ -66,6 +66,22 @@ const facultyMembers = [
     phone: "9179122557",
     email: "singh_pk@lkouniv.ac.in",
     image: erPrashantKumarSingh
+  },
+  {
+    name: "Dr. Roli Kushwaha",
+    title: "Assistant Professor (ECE)",
+    role: "Faculty Coordinator",
+    phone: "",
+    email: "",
+    image: tpcLogo
+  },
+  {
+    name: "Unknown",
+    title: "Assistant Professor",
+    role: "Faculty Coordinator",
+    phone: "",
+    email: "",
+    image: tpcLogo
   }
 ];
 
@@ -329,7 +345,7 @@ const TeamStructure = () => {
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-8">
               Faculty Coordinators
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="flex flex-wrap justify-center gap-8">
               {facultyMembers.map((faculty, idx) => (
                 <motion.div
                   key={idx}
@@ -337,7 +353,7 @@ const TeamStructure = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center transition-all duration-300 h-full"
+                  className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center transition-all duration-300 h-full w-full max-w-xs"
                 >
                   <div className="flex-shrink-0 w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20">
                     <img
