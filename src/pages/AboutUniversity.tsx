@@ -192,7 +192,7 @@ const AboutUniversity = () => {
               <motion.img
                 src={uolLogo}
                 alt="University of Lucknow"
-                className="w-24 h-24 md:w-32 md:h-32 object-contain"
+                className="w-20 h-20 md:w-28 md:h-28 object-contain"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}

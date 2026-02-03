@@ -193,7 +193,7 @@ const AboutTPC = () => {
                 <motion.img
                   src={uolLogo}
                   alt="University of Lucknow"
-                  className="w-20 h-20 md:w-24 md:h-24 object-contain"
+                  className="w-20 h-20 md:w-28 md:h-28 object-contain"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
@@ -208,7 +208,7 @@ const AboutTPC = () => {
                   <img
                     src={naacBadge}
                     alt="NAAC A++ Badge"
-                    className="w-16 h-16 md:w-20 md:h-20 object-contain mb-1"
+                    className="w-20 h-20 md:w-28 md:h-28 object-contain mb-1"
                   />
                 </motion.div>
               </div>
