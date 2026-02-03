@@ -149,7 +149,7 @@ const DeveloperTeam = () => {
                         </div>
 
                         {/* All 4 members in one row */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div className="flex flex-wrap justify-center gap-6">
                             {teamSections.slice(0, 2).flatMap(section => section.members).map((member, memberIndex) => (
                                 <motion.div
                                     key={member.name}
@@ -158,7 +158,7 @@ const DeveloperTeam = () => {
                                     viewport={{ once: true }}
                                     custom={memberIndex}
                                     variants={fadeInUp}
-                                    className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center w-full transition-all duration-300 hover:border-accent/40 hover:shadow-sm"
+                                    className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center w-full max-w-[280px] transition-all duration-300 hover:border-accent/40 hover:shadow-sm"
                                 >
                                     <div className="flex-shrink-0 w-28 h-28 rounded-full overflow-hidden border-4 border-accent/20 bg-muted flex items-center justify-center">
                                         {/* @ts-ignore */}
@@ -216,7 +216,7 @@ const DeveloperTeam = () => {
                         </div>
 
                         {/* Support members in same style grid */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div className="flex flex-wrap justify-center gap-6">
                             {teamSections.slice(2).flatMap(section => section.members).map((member, memberIndex) => (
                                 <motion.div
                                     key={member.name}
@@ -225,7 +225,7 @@ const DeveloperTeam = () => {
                                     viewport={{ once: true }}
                                     custom={memberIndex}
                                     variants={fadeInUp}
-                                    className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center w-full transition-all duration-300 hover:border-accent/40 hover:shadow-sm"
+                                    className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center w-full max-w-[280px] transition-all duration-300 hover:border-accent/40 hover:shadow-sm"
                                 >
                                     <div className="flex-shrink-0 w-28 h-28 rounded-full overflow-hidden border-4 border-accent/20 bg-muted flex items-center justify-center">
                                         {/* @ts-ignore */}
