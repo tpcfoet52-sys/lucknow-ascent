@@ -216,7 +216,7 @@ const AboutTPC = () => {
             </div>
 
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 tracking-tight">
-              Training & Placement Cell
+              Training & <span className="text-gold-gradient">Placement Cell</span>
             </h1>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
               Empowering students with skills, opportunities, and connections to build successful careers

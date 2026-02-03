@@ -323,7 +323,7 @@ const TeamStructure = () => {
               />
             </div>
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 tracking-tight">
-              TPC Team Structure
+              TPC <span className="text-gold-gradient">Team Structure</span>
             </h1>
             <p className="text-muted-foreground text-base md:text-lg max-w-xl leading-relaxed">
               Meet the dedicated teams that power the Training & Placement Cell of University of Lucknow

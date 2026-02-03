@@ -83,7 +83,7 @@ const PlacementStats = () => {
         >
           <span className="text-accent font-medium text-sm uppercase tracking-wider">Placement Statistics</span>
           <h2 className="heading-display text-2xl md:text-3xl lg:text-4xl text-foreground mt-2">
-            Year-Wise Placement Growth
+            Year-Wise <span className="text-gold-gradient">Placement Growth</span>
           </h2>
           <p className="max-w-xl mx-auto text-muted-foreground mt-3 text-base">
             University of Lucknow's consistent growth in campus placements.

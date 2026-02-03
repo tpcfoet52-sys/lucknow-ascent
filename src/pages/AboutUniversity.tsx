@@ -208,7 +208,7 @@ const AboutUniversity = () => {
             </div>
 
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 tracking-tight">
-              About University of Lucknow
+              About <span className="text-gold-gradient">University of Lucknow</span>
             </h1>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
               Established in 1920, the University of Lucknow stands as one of India's premier institutions

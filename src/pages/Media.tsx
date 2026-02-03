@@ -95,7 +95,7 @@ const Media = () => {
 
             <main className="flex-1 pb-12">
                 {/* Hero Section */}
-                <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden mb-12">
+                <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 overflow-hidden mb-0">
                     <div className="absolute inset-0 z-0">
                         <img
                             src={heroImage}
@@ -111,17 +111,17 @@ const Media = () => {
                             transition={{ duration: 0.6 }}
                         >
                             <span className="text-accent font-medium text-sm uppercase tracking-wider">Media & Content</span>
-                            <h1 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mt-4 mb-6">
+                            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-4 mb-6 tracking-tight">
                                 Campus <span className="text-gold-gradient">Chronicles</span>
                             </h1>
-                            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                            <p className="text-muted-foreground text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
                                 Capturing moments of excellence, innovation, and success. Explore our journey through photos, videos, and press coverage.
                             </p>
                         </motion.div>
                     </div>
                 </section>
 
-                <div className="container-narrow space-y-20">
+                <div className="container-narrow space-y-12 mt-8">
 
                     {/* Photo Gallery with Filters */}
                     <section>
@@ -171,10 +171,10 @@ const Media = () => {
                                                     src={item.src}
                                                     alt={item.title}
                                                     className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${["Higher Education Opportunities", "Jaro Education Placement Drive"].some(t => item.title.includes(t))
-                                                            ? 'object-[50%_65%]'
-                                                            : ["Learning Routes Placement Drive", "Smart India Hackathon 2025", "TPC Student Coordinator Meeting", "Samsung Innovation Campus Program"].some(t => item.title.includes(t))
-                                                                ? 'object-[50%_35%]'
-                                                                : ''
+                                                        ? 'object-[50%_65%]'
+                                                        : ["Learning Routes Placement Drive", "Smart India Hackathon 2025", "TPC Student Coordinator Meeting", "Samsung Innovation Campus Program"].some(t => item.title.includes(t))
+                                                            ? 'object-[50%_35%]'
+                                                            : ''
                                                         }`}
                                                 />
                                             </div>
