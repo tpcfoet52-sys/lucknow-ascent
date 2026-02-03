@@ -32,20 +32,9 @@ import {
 } from "@/components/ui/select";
 import { supabase } from "@/lib/supabase";
 
-// List of teams matching TeamStructure.tsx
-const TEAMS = [
-  "Team Corporate Connect",
-  "Networking & Outreach Team",
-  "Team Industry Interface",
-  "Web Dev & Design Team",
-  "Content & Media Team",
-  "Event & Hospitality Team",
-];
-
 const formSchema = z.object({
-  username: z.string().min(1, "Username is required"),
+  email: z.string().email("Please enter a valid email"),
   password: z.string().min(1, "Password is required"),
-  team: z.string().min(1, "Please select your team"),
 });
 
 const CoordinatorLogin = () => {
@@ -56,53 +45,50 @@ const CoordinatorLogin = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      email: "",
       password: "",
-      team: "",
     },
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsLoading(true);
     try {
-      const { data, error } = await supabase
-        .from('coordinators')
-        .select('*')
-        .eq('username', values.username)
-        .eq('team_name', values.team)
-        .single();
+      // Ensure user is signed out before sign-in attempt to avoid stale sessions
+      await supabase.auth.signOut();
 
-      if (error || !data) {
-        toast.error("Invalid credentials or team selection");
+      // Attempt to sign in
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: values.email,
+        password: values.password,
+      });
+
+      if (error) {
+        toast.error(error.message || "Invalid credentials");
         setIsLoading(false);
         return;
       }
 
-      if (data.password === values.password) {
-        // Store authentication in session storage
-        sessionStorage.setItem("coordinator_auth", JSON.stringify({
-          team: values.team,
-          username: values.username,
-          timestamp: Date.now()
-        }));
+      if (data.user) {
+        // Check for team in metadata
+        const teamName = data.user.user_metadata?.team;
 
-        toast.success(`Welcome back, ${values.team} Coordinator`);
+        if (!teamName) {
+          toast.error("Account active but no team assigned. Contact Admin.");
+          await supabase.auth.signOut();
+          setIsLoading(false);
+          return;
+        }
 
-        // --- REDIRECT LOGIC START ---
-        if (values.team === "Event & Hospitality Team") {
-          // Redirect specifically to the Event Dashboard
+        toast.success(`Welcome to ${teamName}`);
+
+        // Redirect logic based on team
+        if (teamName === "Event & Hospitality Team") {
           navigate("/coordinator/events");
-        } else if (values.team === "Content & Media Team") {
-          // Redirect to Content Media Dashboard
+        } else if (teamName === "Content & Media Team") {
           navigate("/coordinator/media");
         } else {
-          // Default fallback for other teams
           navigate("/coordinator/dashboard");
         }
-        // --- REDIRECT LOGIC END ---
-
-      } else {
-        toast.error("Invalid credentials");
       }
     } catch (err) {
       console.error("Login error:", err);
@@ -136,44 +122,18 @@ const CoordinatorLogin = () => {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
 
-              {/* Team Selection */}
+              {/* Email */}
               <FormField
                 control={form.control}
-                name="team"
+                name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Select Team</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select your team" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {TEAMS.map((team) => (
-                          <SelectItem key={team} value={team}>
-                            {team}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              {/* Username */}
-              <FormField
-                control={form.control}
-                name="username"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Username</FormLabel>
+                    <FormLabel>Email</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <User className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
                         <Input
-                          placeholder="Enter username"
+                          placeholder="Enter coordinator email"
                           className="pl-10"
                           disabled={isLoading}
                           {...field}

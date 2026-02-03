@@ -1,6 +1,7 @@
 import { ReactNode, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 interface ProtectedRouteProps {
     children: ReactNode;
@@ -12,46 +13,74 @@ const ProtectedRoute = ({ children, requiredTeam }: ProtectedRouteProps) => {
     const [isChecking, setIsChecking] = useState(true);
 
     useEffect(() => {
-        const checkAuth = () => {
-            const authData = sessionStorage.getItem("coordinator_auth");
-
-            if (!authData) {
-                // Not logged in, redirect to coordinator login
-                navigate("/coordinator-login");
-                return;
-            }
-
+        const checkAuth = async () => {
             try {
-                const { team, timestamp } = JSON.parse(authData);
+                // Get current session
+                const { data: { session } } = await supabase.auth.getSession();
 
-                // Check if session is still valid (24 hours)
-                const sessionAge = Date.now() - timestamp;
-                const maxAge = 24 * 60 * 60 * 1000; // 24 hours
+                if (!session) {
+                    // Not logged in
+                    const isScanningAdmin = window.location.pathname.startsWith('/admin');
+                    navigate(isScanningAdmin ? "/admin-login" : "/coordinator-login");
+                    return;
+                }
 
-                if (sessionAge > maxAge) {
-                    // Session expired
-                    sessionStorage.removeItem("coordinator_auth");
+                const userMetadata = session.user.user_metadata;
+                const userTeam = userMetadata?.team;
+                const isAdmin = userMetadata?.role === 'admin';
+
+                // 1. If it's an admin route, verify the 'admin' role metadata
+                if (window.location.pathname.startsWith('/admin')) {
+                    if (!isAdmin) {
+                        console.warn("Unauthorized access attempt: Not an Admin");
+                        navigate("/admin-login");
+                        return;
+                    }
+                }
+                // 2. If it's a specific team route, verify the team matches
+                else if (requiredTeam && userTeam !== requiredTeam) {
+                    console.warn(`Unauthorized access attempt: Expected ${requiredTeam}, found ${userTeam}`);
+
+                    // Specific dashboard redirects based on team
+                    if (userTeam === "Event & Hospitality Team") {
+                        navigate("/coordinator/events");
+                    } else if (userTeam === "Content & Media Team") {
+                        navigate("/coordinator/media");
+                    } else if (userTeam) {
+                        navigate("/coordinator/dashboard");
+                    } else {
+                        navigate("/coordinator-login");
+                    }
+                    return;
+                }
+                // 3. Fallback: If it's a coordinator route and user has NO team metadata
+                else if (!isAdmin && !userTeam && window.location.pathname.startsWith('/coordinator')) {
+                    console.error("User logged in but missing team metadata");
                     navigate("/coordinator-login");
                     return;
                 }
 
-                // Check if user has required team access
-                if (requiredTeam && team !== requiredTeam) {
-                    // Wrong team, redirect to their dashboard
-                    navigate("/coordinator/dashboard");
-                    return;
-                }
-
-                // All checks passed
+                // Auth valid
                 setIsChecking(false);
             } catch (error) {
-                // Invalid auth data
-                sessionStorage.removeItem("coordinator_auth");
+                console.error("Auth check failed", error);
                 navigate("/coordinator-login");
             }
         };
 
         checkAuth();
+
+        // Listen for auth changes
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+            if (event === 'SIGNED_OUT' || !session) {
+                const isScanningAdmin = window.location.pathname.startsWith('/admin');
+                navigate(isScanningAdmin ? "/admin-login" : "/coordinator-login");
+            }
+        });
+
+        return () => {
+            subscription.unsubscribe();
+        };
     }, [navigate, requiredTeam]);
 
     if (isChecking) {

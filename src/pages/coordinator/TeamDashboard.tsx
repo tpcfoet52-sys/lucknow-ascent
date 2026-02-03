@@ -1,16 +1,26 @@
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { ArrowLeft, LogOut, LayoutDashboard, FileText, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { supabase } from "@/lib/supabase";
+import { useEffect, useState } from "react";
 
 const TeamDashboard = () => {
     const navigate = useNavigate();
-    // In a real app, we would get the user context here
-    const teamName = "Team Member"; // Placeholder
+    const [teamName, setTeamName] = useState<string>("Team Member");
 
-    const handleLogout = () => {
-        // Add logout logic here (e.g., clear supabase session)
+    useEffect(() => {
+        const getSession = async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session?.user?.user_metadata?.team) {
+                setTeamName(session.user.user_metadata.team);
+            }
+        };
+        getSession();
+    }, []);
+
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
         navigate("/coordinator-login");
     };
 

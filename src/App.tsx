@@ -98,8 +98,16 @@ const App = () => (
 
           {/* Coordinator Routes */}
           <Route path="/coordinator-login" element={<CoordinatorLogin />} />
-          <Route path="/coordinator/events" element={<EventHospitalityDashboard />} />
-          <Route path="/coordinator/dashboard" element={<TeamDashboard />} />
+          <Route path="/coordinator/events" element={
+            <ProtectedRoute requiredTeam="Event & Hospitality Team">
+              <EventHospitalityDashboard />
+            </ProtectedRoute>
+          } />
+          <Route path="/coordinator/dashboard" element={
+            <ProtectedRoute>
+              <TeamDashboard />
+            </ProtectedRoute>
+          } />
           <Route path="/coordinator/media" element={
             <ProtectedRoute requiredTeam="Content & Media Team">
               <ContentMediaDashboard />
@@ -110,7 +118,11 @@ const App = () => (
           <Route path="/admin-login" element={<AdminLogin />} />
 
           {/* Admin Dashboard - Protected Area with Sidebar Layout */}
-          <Route path="/admin" element={<AdminLayout />}>
+          <Route path="/admin" element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }>
             {/* Redirect /admin to /admin/dashboard */}
             <Route index element={<Navigate to="/admin/dashboard" replace />} />
             <Route path="dashboard" element={<DashboardOverview />} />

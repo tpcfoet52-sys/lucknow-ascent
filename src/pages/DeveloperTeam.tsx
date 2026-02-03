@@ -51,7 +51,7 @@ const DeveloperTeam = () => {
             members: [
                 {
                     name: "Anurag",
-                    role: "Backend Developer",
+                    role: "Technical Architect",
                     program: "B.Tech Computer Science & Engineering – Artificial Intelligence",
                     batch: "2024-28",
                     linkedin: "https://www.linkedin.com/in/anurag-210a86317/",

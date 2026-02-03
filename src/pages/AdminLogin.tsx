@@ -28,7 +28,7 @@ import { Input } from "@/components/ui/input";
 import { supabase } from "@/lib/supabase";
 
 const formSchema = z.object({
-  username: z.string().min(1, "Username is required"),
+  email: z.string().email("Please enter a valid email"),
   password: z.string().min(1, "Password is required"),
 });
 
@@ -40,7 +40,7 @@ const AdminLogin = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      email: "",
       password: "",
     },
   });
@@ -48,26 +48,32 @@ const AdminLogin = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsLoading(true);
     try {
-      // Query the database for the user
-      const { data, error } = await supabase
-        .from('admins')
-        .select('*')
-        .eq('username', values.username)
-        .single();
+      // Clear existing session
+      await supabase.auth.signOut();
 
-      if (error || !data) {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: values.email,
+        password: values.password,
+      });
+
+      if (error) {
         toast.error("Invalid credentials");
         setIsLoading(false);
         return;
       }
 
-      // Check if password matches
-      // Note: In production, verify hashed passwords here instead of direct string comparison
-      if (data.password === values.password) {
+      if (data.user) {
+        const isAdmin = data.user.user_metadata?.role === 'admin';
+
+        if (!isAdmin) {
+          toast.error("Access denied: Not an administrator account.");
+          await supabase.auth.signOut();
+          setIsLoading(false);
+          return;
+        }
+
         toast.success("Login successful");
         navigate("/admin/dashboard");
-      } else {
-        toast.error("Invalid credentials");
       }
     } catch (err) {
       console.error("Login error:", err);
@@ -103,18 +109,18 @@ const AdminLogin = () => {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
                 control={form.control}
-                name="username"
+                name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Username</FormLabel>
+                    <FormLabel>Email</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <User className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-                        <Input 
-                          placeholder="Enter username" 
-                          className="pl-10" 
+                        <Input
+                          placeholder="Enter admin email"
+                          className="pl-10"
                           disabled={isLoading}
-                          {...field} 
+                          {...field}
                         />
                       </div>
                     </FormControl>
