@@ -66,7 +66,7 @@ const DeveloperTeam = () => {
             members: [
                 {
                     name: "Rashmi Kushwaha",
-                    role: "Support Team",
+                    role: "Support & Assistance",
                     program: "BCA",
                     batch: "2024–2027",
                     linkedin: "https://www.linkedin.com/in/rashmikushwaha2005/",
@@ -74,7 +74,7 @@ const DeveloperTeam = () => {
                 },
                 {
                     name: "Aryan Tripathi",
-                    role: "Support Team",
+                    role: "Support & Assistance",
                     program: "B.Tech Electrical Engineering",
                     batch: "2024–2028",
                     linkedin: "https://www.linkedin.com/in/aryan-tripathi-45346a254/",
