@@ -77,7 +77,7 @@ const DeveloperTeam = () => {
                 {
                     name: "Rashmi Kushwaha",
                     role: "Support & Assistance",
-                    program: "BCA",
+                    program: "Bachelor of Computer Applications",
                     batch: "2024–2027",
                     linkedin: "https://www.linkedin.com/in/rashmikushwaha2005/",
                     email: "mailto:rashmingkushwaha@gmail.com",
