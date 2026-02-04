@@ -28,11 +28,14 @@ import erGauravSrivastava from "@/assets/er-gaurav-srivastava.jpg";
 import erPrashantKumarSingh from "@/assets/dr-prashant-kumar-singh.png";
 import riddhiSingh from "@/assets/riddhi-singh-rathore.jpg";
 import studentCoordinatorsGroup from "@/assets/student-coordinators-2025-26.jpg";
-import akashSingh from "@/assets/akash-singh.jpg";
+import akashSingh from "@/assets/akash-singh-new.jpg";
 import srishtiMishra from "@/assets/srishti-mishra.jpg";
 import rashmiKushwaha from "@/assets/rashmi-kushwaha.jpg";
 import aryanTripathi from "@/assets/aryan-tripathi.jpg";
 import akashKumarYadav from "@/assets/akash-kumar-yadav.jpg";
+import erRoliKushwaha from "@/assets/er-roli-kushwaha.jpg";
+import erSonamSingh from "@/assets/er-sonam-singh.jpg";
+import erMarutiMaurya from "@/assets/er-maruti-maurya.jpg";
 
 const facultyMembers = [
   {
@@ -68,20 +71,28 @@ const facultyMembers = [
     image: erPrashantKumarSingh
   },
   {
-    name: "Dr. Roli Kushwaha",
-    title: "Assistant Professor (ECE)",
-    role: "Faculty Coordinator",
-    phone: "",
-    email: "",
-    image: tpcLogo
-  },
-  {
-    name: "Unknown",
+    name: "Er. Roli Kushwaha",
     title: "Assistant Professor",
     role: "Faculty Coordinator",
-    phone: "",
-    email: "",
-    image: tpcLogo
+    phone: "7007538905",
+    email: "rolikushwaha.academics22@gmail.com",
+    image: erRoliKushwaha
+  },
+  {
+    name: "Er. Sonam Singh",
+    title: "Assistant Professor",
+    role: "Faculty Coordinator",
+    phone: "7007928931",
+    email: "ssinghsonam061@gmail.com",
+    image: erSonamSingh
+  },
+  {
+    name: "Er. Maruti Maurya",
+    title: "Assistant Professor",
+    role: "Faculty Coordinator",
+    phone: "7020464299",
+    email: "maurya_maruti@lkouniv.ac.in",
+    image: erMarutiMaurya
   }
 ];
 

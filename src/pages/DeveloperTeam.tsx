@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Code2, Layout, Database, HeartHandshake, Linkedin, Mail } from "lucide-react";
-import akashSingh from "@/assets/akash-singh.jpg";
+import akashSingh from "@/assets/akash-singh-new.jpg";
 import srishtiMishra from "@/assets/srishti-mishra.jpg";
 import anurag from "@/assets/anurag.jpg";
 import rashmiKushwaha from "@/assets/rashmi-kushwaha.jpg";
@@ -167,6 +167,7 @@ const DeveloperTeam = () => {
                                                 src={member.image}
                                                 alt={member.name}
                                                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                                                style={member.name === "Srishti Mishra" ? { objectPosition: "center 35%" } : undefined}
                                             />
                                         ) : (
                                             <span className="text-3xl font-bold text-accent/50">

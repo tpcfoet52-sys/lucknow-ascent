@@ -24,11 +24,13 @@ import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
 import tpcLogo from "@/assets/tpc-logo.jpeg";
 import topRecruiters from "@/assets/top-recruiters.jpg";
 import drdoSeminar from "@/assets/drdo-seminar.jpg";
+import drdoOpportunities from "@/assets/drdo-opportunities.jpg";
 import workshopIndustries from "@/assets/workshop-industries.png";
 import navalAviation from "@/assets/naval-aviation.png";
 import civilEngineering from "@/assets/civil-engineering-session.png";
 import mariaKhan from "@/assets/maria-khan.png";
 import karthikGupta from "@/assets/karthik-gupta.png";
+import cloudNetworkingWebinar from "@/assets/cloud-networking-webinar.jpg";
 
 const aboutTPCLinks = [
   { name: "Vision & Mission", href: "#vision" },
@@ -126,7 +128,7 @@ const trainingPrograms = [
     title: "Opportunities for Engineers in DRDO",
     speaker: "Dr. Ashish Dubey",
     role: "Scientist 'G' & Project Director, DTTC Lucknow",
-    image: drdoSeminar,
+    image: drdoOpportunities,
     hoverDesc: "Discover exciting career paths in defense research and development. Learn about cutting-edge projects, recruitment processes, and the impact engineers make in national security and innovation."
   },
   {
@@ -135,6 +137,13 @@ const trainingPrograms = [
     role: "Ex-Indian Navy (10+ Years Exp.)",
     image: navalAviation,
     hoverDesc: "Gain insights into naval aviation careers, operational challenges, and leadership opportunities in the Indian Navy. Understand the selection process and life of a naval officer."
+  },
+  {
+    title: "The Evolving World of Cloud, Networking & IT Infrastructure",
+    speaker: "Mr. Monish Manoj Sahani",
+    role: "Arizona State University, USA",
+    image: cloudNetworkingWebinar,
+    hoverDesc: "Key takeaways: Navigating the Master's degree landscape in the USA, a reality check on the current job market, and demystifying the role of Product Management in modern tech organizations."
   }
 ];
 
