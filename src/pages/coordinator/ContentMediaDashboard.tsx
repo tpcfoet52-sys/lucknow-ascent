@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { format } from "date-fns";
-import { Loader2, FileText, CheckCircle2, XCircle, Plus, UploadCloud, Clock, ImagePlus, Trash2 } from "lucide-react";
+import { Loader2, FileText, CheckCircle2, XCircle, Plus, UploadCloud, Clock, ImagePlus, Trash2, LogOut } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,6 +16,7 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/lib/supabase";
 import { uploadToCloudinary } from "@/lib/cloudinary";
+import { useLogout } from "@/hooks/useLogout";
 
 // --- Form Schema ---
 const mediaFormSchema = z.object({
@@ -38,6 +39,7 @@ interface MediaSubmission {
 }
 
 const ContentMediaDashboard = () => {
+  const { logout } = useLogout();
   const [isLoading, setIsLoading] = useState(false);
   const [submissions, setSubmissions] = useState<MediaSubmission[]>([]);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -172,10 +174,14 @@ const ContentMediaDashboard = () => {
           <p className="text-muted-foreground mt-1">Manage press releases, gallery photos, and news updates.</p>
         </div>
 
-        {/* Main Add Button */}
-        <Button onClick={() => setActiveTab("new")} className="shadow-md">
-          <Plus className="w-4 h-4 mr-2" /> New Submission
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button variant="outline" size="sm" onClick={logout} className="gap-2">
+            <LogOut className="w-4 h-4" /> Logout
+          </Button>
+          <Button onClick={() => setActiveTab("new")} className="shadow-md">
+            <Plus className="w-4 h-4 mr-2" /> New Submission
+          </Button>
+        </div>
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">

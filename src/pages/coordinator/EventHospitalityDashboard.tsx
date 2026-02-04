@@ -3,12 +3,13 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
-import { 
-  Plus, Calendar, MapPin, Trash2, Users, 
-  Loader2, ArrowLeft, Download, Phone, ImageIcon 
+import {
+  Plus, Calendar, MapPin, Trash2, Users,
+  Loader2, ArrowLeft, Download, Phone, ImageIcon, LogOut
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
+import { useLogout } from "@/hooks/useLogout";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -57,6 +58,7 @@ interface Registration {
 }
 
 const EventHospitalityDashboard = () => {
+  const { logout } = useLogout();
   const [events, setEvents] = useState<Event[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isCreateOpen, setIsCreateOpen] = useState(false);
@@ -77,7 +79,7 @@ const EventHospitalityDashboard = () => {
       .from('events')
       .select('*')
       .order('created_at', { ascending: false });
-    
+
     if (!error && data) setEvents(data);
     setIsLoading(false);
   };
@@ -93,7 +95,7 @@ const EventHospitalityDashboard = () => {
       if (bannerFile) {
         const fileExt = bannerFile.name.split('.').pop();
         const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
-        
+
         const { error: uploadError } = await supabase.storage
           .from('event-banners')
           .upload(fileName, bannerFile);
@@ -103,11 +105,11 @@ const EventHospitalityDashboard = () => {
           toast.error("Failed to upload banner image");
           return;
         }
-        
+
         const { data: publicUrlData } = supabase.storage
           .from('event-banners')
           .getPublicUrl(fileName);
-        
+
         bannerUrl = publicUrlData.publicUrl;
       }
 
@@ -120,7 +122,7 @@ const EventHospitalityDashboard = () => {
 
       if (error) throw error;
       toast.success("Event created! Waiting for Admin approval.");
-      
+
       // Cleanup
       setIsCreateOpen(false);
       setBannerFile(null);
@@ -134,8 +136,8 @@ const EventHospitalityDashboard = () => {
 
   // --- Request Deletion ---
   const requestDeletion = async (id: number) => {
-    if(!confirm("Are you sure? Admin approval required to delete.")) return;
-    
+    if (!confirm("Are you sure? Admin approval required to delete.")) return;
+
     const { error } = await supabase
       .from('events')
       .update({ status: 'deletion_requested' })
@@ -156,7 +158,7 @@ const EventHospitalityDashboard = () => {
       .from('registrations')
       .select('*')
       .eq('event_id', eventId);
-    
+
     if (!error && data) setRegistrations(data);
     setLoadingRegs(false);
   };
@@ -169,7 +171,7 @@ const EventHospitalityDashboard = () => {
     }
 
     const headers = ["Student Name", "Email", "Mobile Number", "Roll Number", "Branch"];
-    
+
     const csvContent = [
       headers.join(","),
       ...registrations.map(reg => [
@@ -190,7 +192,7 @@ const EventHospitalityDashboard = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
+
     toast.success("Download started");
   };
 
@@ -207,56 +209,62 @@ const EventHospitalityDashboard = () => {
           <p className="text-muted-foreground">Manage events and view student registrations</p>
         </div>
 
-        <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
-          <DialogTrigger asChild>
-            <Button variant="gold" className="gap-2">
-              <Plus className="h-4 w-4" /> Create Event
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
-            <DialogHeader>
-              <DialogTitle>Create New Event</DialogTitle>
-              <DialogDescription>Event will be visible after Admin approval.</DialogDescription>
-            </DialogHeader>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 pt-2">
-                
-                {/* File Upload Input */}
-                <div className="space-y-2">
-                  <FormLabel>Event Banner (Optional)</FormLabel>
-                  <div className="flex items-center gap-2">
-                    <Input 
-                      type="file" 
-                      accept="image/*" 
-                      onChange={(e) => setBannerFile(e.target.files?.[0] || null)}
-                      className="cursor-pointer"
-                    />
-                  </div>
-                  <p className="text-xs text-muted-foreground">Recommended size: 1200x600px. Max 5MB.</p>
-                </div>
+        <div className="flex items-center gap-3">
+          <Button variant="outline" className="gap-2" onClick={logout}>
+            <LogOut className="h-4 w-4" /> Logout
+          </Button>
 
-                <FormField control={form.control} name="title" render={({ field }) => (
-                  <FormItem><FormLabel>Event Title</FormLabel><FormControl><Input placeholder="e.g. Annual Tech Fest" {...field} /></FormControl><FormMessage /></FormItem>
-                )} />
-                <FormField control={form.control} name="event_date" render={({ field }) => (
-                  <FormItem><FormLabel>Date & Time</FormLabel><FormControl><Input type="datetime-local" {...field} /></FormControl><FormMessage /></FormItem>
-                )} />
-                <FormField control={form.control} name="location" render={({ field }) => (
-                  <FormItem><FormLabel>Location</FormLabel><FormControl><Input placeholder="e.g. Auditorium" {...field} /></FormControl><FormMessage /></FormItem>
-                )} />
-                <FormField control={form.control} name="description" render={({ field }) => (
-                  <FormItem><FormLabel>Description</FormLabel><FormControl><Textarea placeholder="Event details..." {...field} /></FormControl><FormMessage /></FormItem>
-                )} />
-                <Button type="submit" variant="navy" className="w-full">Submit for Approval</Button>
-              </form>
-            </Form>
-          </DialogContent>
-        </Dialog>
+          <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
+            <DialogTrigger asChild>
+              <Button variant="gold" className="gap-2">
+                <Plus className="h-4 w-4" /> Create Event
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle>Create New Event</DialogTitle>
+                <DialogDescription>Event will be visible after Admin approval.</DialogDescription>
+              </DialogHeader>
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 pt-2">
+
+                  {/* File Upload Input */}
+                  <div className="space-y-2">
+                    <FormLabel>Event Banner (Optional)</FormLabel>
+                    <div className="flex items-center gap-2">
+                      <Input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => setBannerFile(e.target.files?.[0] || null)}
+                        className="cursor-pointer"
+                      />
+                    </div>
+                    <p className="text-xs text-muted-foreground">Recommended size: 1200x600px. Max 5MB.</p>
+                  </div>
+
+                  <FormField control={form.control} name="title" render={({ field }) => (
+                    <FormItem><FormLabel>Event Title</FormLabel><FormControl><Input placeholder="e.g. Annual Tech Fest" {...field} /></FormControl><FormMessage /></FormItem>
+                  )} />
+                  <FormField control={form.control} name="event_date" render={({ field }) => (
+                    <FormItem><FormLabel>Date & Time</FormLabel><FormControl><Input type="datetime-local" {...field} /></FormControl><FormMessage /></FormItem>
+                  )} />
+                  <FormField control={form.control} name="location" render={({ field }) => (
+                    <FormItem><FormLabel>Location</FormLabel><FormControl><Input placeholder="e.g. Auditorium" {...field} /></FormControl><FormMessage /></FormItem>
+                  )} />
+                  <FormField control={form.control} name="description" render={({ field }) => (
+                    <FormItem><FormLabel>Description</FormLabel><FormControl><Textarea placeholder="Event details..." {...field} /></FormControl><FormMessage /></FormItem>
+                  )} />
+                  <Button type="submit" variant="navy" className="w-full">Submit for Approval</Button>
+                </form>
+              </Form>
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
 
       {/* Main Content Grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
+
         {/* Left Column: Events List */}
         <div className="lg:col-span-2 space-y-6">
           <h2 className="text-xl font-semibold">Your Events</h2>
@@ -282,8 +290,8 @@ const EventHospitalityDashboard = () => {
                             </CardDescription>
                           </div>
                           <Badge variant={
-                            event.status === 'approved' ? 'default' : 
-                            event.status === 'deletion_requested' ? 'destructive' : 'secondary'
+                            event.status === 'approved' ? 'default' :
+                              event.status === 'deletion_requested' ? 'destructive' : 'secondary'
                           }>
                             {event.status === 'deletion_requested' ? 'Delete Requested' : event.status}
                           </Badge>
@@ -293,14 +301,14 @@ const EventHospitalityDashboard = () => {
                         <p className="text-sm text-muted-foreground line-clamp-2">{event.description}</p>
                       </CardContent>
                       <CardFooter className="flex justify-between border-t pt-4">
-                        <Button 
-                          variant="outline" size="sm" 
+                        <Button
+                          variant="outline" size="sm"
                           onClick={() => viewRegistrations(event.id)}
                           disabled={event.status !== 'approved'}
                         >
                           <Users className="h-4 w-4 mr-2" /> View Registrations
                         </Button>
-                        
+
                         {event.status !== 'deletion_requested' && (
                           <Button variant="ghost" size="sm" className="text-red-500 hover:text-red-700 hover:bg-red-50" onClick={() => requestDeletion(event.id)}>
                             <Trash2 className="h-4 w-4 mr-2" /> Request Delete

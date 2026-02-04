@@ -5,24 +5,25 @@ import {
   Briefcase,
   FileText,
   Users,
-  CheckSquare, // <-- Changed from Calendar to CheckSquare
+  CheckSquare,
   FileEdit,
   LogOut,
   User
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLogout } from '@/hooks/useLogout';
 
 const sidebarItems = [
   { icon: LayoutDashboard, label: 'Dashboard', href: '/admin/dashboard' },
   { icon: Briefcase, label: 'Jobs', href: '/admin/jobs' },
   { icon: FileText, label: 'Applications', href: '/admin/applications' },
-  // REPLACED: Events with Approvals
   { icon: CheckSquare, label: 'Approvals', href: '/admin/approvals' },
   { icon: FileEdit, label: 'CMS', href: '/admin/cms' },
 ];
 
 export const AdminSidebar = () => {
   const location = useLocation();
+  const { logout } = useLogout();
 
   return (
     <div className="flex h-full flex-col justify-between border-r bg-gray-100/40 dark:bg-gray-800/40">
@@ -64,7 +65,11 @@ export const AdminSidebar = () => {
             <p className="text-xs text-muted-foreground">admin@tpc.com</p>
           </div>
         </div>
-        <Button variant="ghost" className="w-full justify-start text-muted-foreground hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20">
+        <Button
+          variant="ghost"
+          className="w-full justify-start text-muted-foreground hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20"
+          onClick={logout}
+        >
           <LogOut className="mr-2 h-4 w-4" />
           Logout
         </Button>

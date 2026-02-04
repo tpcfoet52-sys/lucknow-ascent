@@ -4,9 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { supabase } from "@/lib/supabase";
 import { useEffect, useState } from "react";
+import { useLogout } from "@/hooks/useLogout";
 
 const TeamDashboard = () => {
     const navigate = useNavigate();
+    const { logout } = useLogout();
     const [teamName, setTeamName] = useState<string>("Team Member");
 
     useEffect(() => {
@@ -18,11 +20,6 @@ const TeamDashboard = () => {
         };
         getSession();
     }, []);
-
-    const handleLogout = async () => {
-        await supabase.auth.signOut();
-        navigate("/coordinator-login");
-    };
 
     return (
         // FIXED: Added pt-20 (mobile) and md:pt-28 (desktop) to prevent Header overlap
@@ -37,7 +34,7 @@ const TeamDashboard = () => {
                     <p className="text-muted-foreground">Manage your team's activities and resources</p>
                 </div>
 
-                <Button variant="outline" className="gap-2" onClick={handleLogout}>
+                <Button variant="outline" className="gap-2" onClick={logout}>
                     <LogOut className="h-4 w-4" /> Logout
                 </Button>
             </div>
