@@ -143,7 +143,7 @@ const successStories = [
     name: "Kartikey Gupta",
     company: "Qdrant",
     package: "₹26 LPA",
-    year: "2023",
+    year: "2023-24",
     image: karthikGupta,
     hoverDesc: "Karthik's journey from a curious engineering student to a high-performing software engineer at Qdrant showcases dedication and smart preparation. His success in securing the highest package demonstrates the quality of training and opportunities at our university."
   },
