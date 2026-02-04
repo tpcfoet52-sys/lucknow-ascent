@@ -151,7 +151,7 @@ const successStories = [
     name: "Maria Khan",
     company: "Branch International",
     package: "₹27 LPA",
-    year: "2025",
+    year: "2024-25",
     image: mariaKhan,
     hoverDesc: "Maria's exceptional performance in technical interviews and her strong foundation in computer science led her to Branch International with the highest package of ₹27 LPA. Her achievement inspires many students to pursue excellence in their chosen fields."
   },
