@@ -300,7 +300,7 @@ const Contact = () => {
                                 className="rounded-xl overflow-hidden border border-border shadow-sm min-h-[400px] lg:min-h-[500px]"
                             >
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.4558!2d80.9397!3d26.9124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be37d0fa0b26d%3A0x1f16a3e7d8d7f8!2sTraining%20%26%20Placement%20Cell%2C%20Faculty%20of%20Engineering%20%26%20Technology%2C%20University%20of%20Lucknow!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                                    src="https://maps.google.com/maps?q=loc:26.9124,80.9397+(WWHQ%2BJC7%2C+Training+%26+Placement+Cell%2C+Faculty+of+Engineering+%26+Technology+University+of+Lucknow)&t=&z=15&ie=UTF8&iwloc=&output=embed"
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}
