@@ -19,15 +19,15 @@ const Footer = () => {
     <footer id="contact" className="bg-primary text-primary-foreground">
       {/* Main Footer */}
       <div className="container-narrow py-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 pl-24">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 pl-16">
           {/* About & Socials */}
-          <div>
+          <div className="lg:-ml-4">
             <div>
-              <div className="flex items-center gap-2 mb-3">
+              <div className="flex items-center gap-3 mb-3">
                 <img
                   src={uolLogo}
                   alt="University of Lucknow"
-                  className="w-10 h-10 object-contain rounded-full"
+                  className="w-14 h-14 object-contain rounded-full"
                 />
                 <div>
                   <p className="font-serif font-semibold text-base">Training & Placement Cell</p>
@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="lg:ml-6">
             <h4 className="font-serif font-semibold text-base mb-3">Quick Links</h4>
             <ul className="space-y-1.5">
               {[
@@ -62,7 +62,7 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="lg:-ml-16">
             <h4 className="font-serif font-semibold text-base mb-3">Contact Us</h4>
             <ul className="space-y-1.5">
               <li className="flex items-start gap-3">
@@ -94,7 +94,7 @@ const Footer = () => {
           </div>
 
           {/* Developed by - Right-most */}
-          <div>
+          <div className="lg:ml-4">
             <h4 className="font-serif font-semibold text-base mb-3">Developed by</h4>
             <ul className="space-y-1.5">
               {[
