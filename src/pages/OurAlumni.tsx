@@ -153,7 +153,7 @@ const OurAlumni = () => {
                         </div>
 
                         <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 tracking-tight">
-                            Our Distinguished <span className="text-gold-gradient">Alumni</span>
+                            Our <span className="text-gold-gradient">Alumni & Achievers</span>
                         </h1>
                         <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
                             Celebrating the achievements of our graduates who have made significant contributions to society and their respective fields.
