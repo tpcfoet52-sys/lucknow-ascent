@@ -24,7 +24,6 @@ import OurAlumni from "./pages/OurAlumni";
 import Students from "./pages/Students";
 import PlacementRecords from "./pages/PlacementRecords";
 import Contact from "./pages/Contact";
-import DeveloperTeam from "./pages/DeveloperTeam";
 
 // Import Admin components
 import AdminLayout from "./components/admin/AdminLayout";
@@ -94,7 +93,6 @@ const App = () => (
           <Route path="/students" element={<Students />} />
           <Route path="/placement-records" element={<PlacementRecords />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/developer-team" element={<DeveloperTeam />} />
 
           {/* Coordinator Routes */}
           <Route path="/coordinator-login" element={<CoordinatorLogin />} />

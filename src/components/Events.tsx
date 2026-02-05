@@ -343,25 +343,31 @@ const EventCard = ({ event, index, onRegister, isPast = false }: { event: Event,
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: 0.1 * index }}
-    whileHover={{ y: -8 }}
-    className={`group flex flex-col bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-border ${isPast ? 'opacity-80' : ''}`}
+    variants={{
+      hover: { y: -5, transition: { duration: 0.3 } }
+    }}
+    whileHover="hover"
+    className={`group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card transition-all duration-300 ${isPast ? 'opacity-80' : ''}`}
   >
-    {/* Banner Image Area */}
-    <div className="relative h-48 w-full overflow-hidden bg-muted">
+    {/* Image Section */}
+    <div className="aspect-video overflow-hidden relative bg-muted">
       {event.banner_url ? (
-        <img
-          src={event.banner_url}
-          alt={event.title}
-          className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${isPast ? 'grayscale' : ''}`}
-        />
+        <>
+          <img
+            src={event.banner_url}
+            alt={event.title}
+            className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${isPast ? 'grayscale' : ''}`}
+          />
+        </>
       ) : (
-        <div className="w-full h-full flex items-center justify-center bg-muted">
-          <Calendar className="w-12 h-12 text-muted-foreground/30" />
+        <div className="w-full h-full flex items-center justify-center bg-primary/5">
+          <Calendar className="h-10 w-10 text-primary/40" />
         </div>
       )}
+      {/* Badge overlay */}
       <div className="absolute top-3 right-3">
         {event.registrationOpen && !isPast && (
-          <Badge className="bg-background text-foreground hover:bg-background/90 backdrop-blur-sm shadow-sm font-semibold border-none">
+          <Badge className="bg-green-600 text-white hover:bg-green-700 backdrop-blur-sm shadow-sm font-semibold border-none">
             Open Now
           </Badge>
         )}
@@ -373,48 +379,54 @@ const EventCard = ({ event, index, onRegister, isPast = false }: { event: Event,
       </div>
     </div>
 
-    {/* Content Area */}
-    <div className="flex flex-col flex-grow p-5">
-      <div className="flex-grow">
-        <h4 className="font-serif font-bold text-lg text-foreground mb-2 line-clamp-2" title={event.title}>
-          {event.title}
-        </h4>
-
-        <div className="space-y-2 mb-4">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Calendar className="w-4 h-4 text-primary" />
-            <span>{event.formattedDate}</span>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Clock className="w-4 h-4 text-primary" />
-            <span>{event.formattedTime}</span>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <MapPin className="w-4 h-4 text-primary" />
-            <span className="line-clamp-1">{event.location}</span>
-          </div>
+    {/* Content Section */}
+    <div className="p-4 relative z-10 bg-card">
+      <div className="flex items-center gap-3 mb-3">
+        <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+          <Calendar className="h-4 w-4 text-primary" />
         </div>
-
-        <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
-          {event.description}
-        </p>
+        <div className="flex-1">
+          <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors leading-tight line-clamp-2">
+            {event.title}
+          </h3>
+        </div>
       </div>
 
-      <div className="mt-auto pt-4 border-t border-dashed border-border">
+      <div className="space-y-1.5 mb-3">
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <Calendar className="w-3.5 h-3.5 text-accent" />
+          <span>{event.formattedDate}</span>
+        </div>
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <Clock className="w-3.5 h-3.5 text-accent" />
+          <span>{event.formattedTime}</span>
+        </div>
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <MapPin className="w-3.5 h-3.5 text-accent" />
+          <span className="line-clamp-1">{event.location}</span>
+        </div>
+      </div>
+
+      <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed line-clamp-3">
+        {event.description}
+      </p>
+
+      <div className="mt-3">
         {isPast ? (
-          <Button disabled variant="outline" className="w-full">
+          <Button disabled variant="outline" size="sm" className="w-full">
             Event Ended
           </Button>
         ) : event.registrationOpen ? (
           <Button
             variant="default"
+            size="sm"
             className="w-full shadow-sm hover:shadow-md transition-all font-semibold"
             onClick={() => onRegister(event)}
           >
             Register Now
           </Button>
         ) : (
-          <Button disabled variant="secondary" className="w-full opacity-70">
+          <Button disabled variant="secondary" size="sm" className="w-full opacity-70">
             Registration Closed
           </Button>
         )}

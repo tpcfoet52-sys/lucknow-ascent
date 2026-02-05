@@ -18,52 +18,36 @@ const Footer = () => {
   return (
     <footer id="contact" className="bg-primary text-primary-foreground">
       {/* Main Footer */}
-      <div className="container-narrow py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="container-narrow py-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 pl-24">
           {/* About & Socials */}
-          <div className="lg:col-span-2 space-y-6">
+          <div>
             <div>
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-2 mb-3">
                 <img
                   src={uolLogo}
                   alt="University of Lucknow"
-                  className="w-12 h-12 object-contain rounded-full"
+                  className="w-10 h-10 object-contain rounded-full"
                 />
                 <div>
-                  <p className="font-serif font-semibold text-lg">Training & Placement Cell</p>
+                  <p className="font-serif font-semibold text-base">Training & Placement Cell</p>
                   <p className="text-sm text-primary-foreground/70">FoET, University of Lucknow</p>
                 </div>
               </div>
-              <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-md">
-                Connecting Engineering Education with Industry
-                Training and Placement Cell, Faculty of Engineering and Technology (Est. 2017)  University of Lucknow
+              <p className="text-primary-foreground/80 text-sm leading-relaxed">
+                Connecting Engineering Education with Industry Excellence since 2017.
               </p>
-            </div>
-
-            {/* Social Media Links */}
-            <div className="flex items-center gap-4">
-              <a href="https://x.com/PlacementEnggLU" className="bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground p-2 rounded-full transition-all duration-300" aria-label="X (formerly Twitter)">
-                <XLogo className="w-4 h-4" />
-              </a>
-              <a href="https://www.linkedin.com/company/training-and-placement-cell-foet-university-of-lucknow/posts/?feedView=all" className="bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground p-2 rounded-full transition-all duration-300" aria-label="LinkedIn">
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a href="https://www.instagram.com/tpcfoet/?hl=en" className="bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground p-2 rounded-full transition-all duration-300" aria-label="Instagram">
-                <Instagram className="w-4 h-4" />
-              </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-serif font-semibold text-base mb-4">Quick Links</h4>
-            <ul className="space-y-2.5">
+            <h4 className="font-serif font-semibold text-base mb-3">Quick Links</h4>
+            <ul className="space-y-1.5">
               {[
                 { name: "About TPC", href: "#about" },
                 { name: "Placement Statistics", href: "#recruiters" },
                 { name: "Student Resources", href: "#students" },
-                { name: "Team Structure", href: "/team" },
-                { name: "Website Developers", href: "/developer-team" },
               ].map((link, index) => (
                 <li key={index}>
                   <a
@@ -79,8 +63,8 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-serif font-semibold text-base mb-4">Contact Us</h4>
-            <ul className="space-y-3">
+            <h4 className="font-serif font-semibold text-base mb-3">Contact Us</h4>
+            <ul className="space-y-1.5">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/80 text-sm">
@@ -108,29 +92,59 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+
+          {/* Developed by - Right-most */}
+          <div>
+            <h4 className="font-serif font-semibold text-base mb-3">Developed by</h4>
+            <ul className="space-y-1.5">
+              {[
+                { name: "Akash Singh", linkedin: "https://www.linkedin.com/in/akashsinghmrj64/" },
+                { name: "Srishti Mishra", linkedin: "https://www.linkedin.com/in/mishrasrishti108/" },
+                { name: "Anurag", linkedin: "https://www.linkedin.com/in/anurag-210a86317/" },
+                { name: "Akash Kumar Yadav", linkedin: "https://www.linkedin.com/in/akash-kumar-yadav-b1a33430b/" },
+                { name: "Rashmi Kushwaha", linkedin: "https://www.linkedin.com/in/rashmikushwaha2005/" },
+                { name: "Aryan Tripathi", linkedin: "https://www.linkedin.com/in/aryan-tripathi-45346a254/" }
+              ].map((dev, index) => (
+                <li key={index} className="flex items-center gap-2">
+                  <a
+                    href={dev.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:text-accent/80 transition-colors"
+                    aria-label={`${dev.name} LinkedIn`}
+                  >
+                    <Linkedin className="w-3.5 h-3.5" />
+                  </a>
+                  <span className="text-primary-foreground/70 text-sm">{dev.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="border-t border-primary-foreground/10">
-        <div className="container-narrow py-5">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            {/* FIXED: Removed random number '007442' from here */}
-            <p className="text-primary-foreground/60 text-sm">
+        <div className="container-narrow py-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3">
+            {/* Copyright */}
+            <p className="text-primary-foreground/60 text-xs md:text-sm">
               © {new Date().getFullYear()} University of Lucknow. All rights reserved.
             </p>
-            <div className="flex items-center gap-6">
-              <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors text-sm">
+
+            {/* Center Links */}
+            <div className="flex items-center gap-4 md:gap-6">
+              <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm">
                 Privacy Policy
               </a>
-              <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors text-sm">
+              <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm">
                 Terms of Use
               </a>
               <a
                 href="https://www.lkouniv.ac.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary-foreground/60 hover:text-accent transition-colors text-sm flex items-center gap-1"
+                className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm flex items-center gap-1"
               >
                 UOL Website <ExternalLink className="w-3 h-3" />
               </a>

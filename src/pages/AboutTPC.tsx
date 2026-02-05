@@ -15,6 +15,7 @@ import {
   ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Footer from "@/components/Footer";
 
 import uolLogo from "@/assets/uol-logo.png";
 import naacBadge from "@/assets/uol-category-1-badge.png";
@@ -74,14 +75,14 @@ const services = [
   },
   {
     title: "Skill Development",
-    desc: "Workshops on aptitude, communication, and technical skills",
-    hoverDesc: "Regular workshops and training sessions covering aptitude tests, group discussions, technical interviews, and soft skills to make students industry-ready and confident.",
+    desc: "Workshops on aptitude, communication and technical skills",
+    hoverDesc: "Regular workshops and training sessions covering aptitude tests, group discussions, technical interviews and soft skills to make students industry-ready and confident.",
     icon: GraduationCap
   },
   {
     title: "Industry Connect",
-    desc: "Guest lectures, seminars, and industry interaction sessions",
-    hoverDesc: "Bridge the gap between academia and industry through expert talks, industrial visits, and networking events with professionals from leading organizations.",
+    desc: "Guest lectures, seminars and industry interaction sessions",
+    hoverDesc: "Bridge the gap between academia and industry through expert talks, industrial visits and networking events with professionals from leading organizations.",
     icon: Building2
   },
   {
@@ -93,7 +94,7 @@ const services = [
   {
     title: "Alumni Network",
     desc: "Connecting students with successful alumni for mentorship",
-    hoverDesc: "Leverage our strong alumni network for mentorship, career guidance, and networking opportunities. Learn from those who've walked the path before you.",
+    hoverDesc: "Leverage our strong alumni network for mentorship, career guidance and networking opportunities. Learn from those who've walked the path before you.",
     icon: Award
   },
 ];
@@ -102,7 +103,7 @@ const stats = [
   { value: "543", label: "Jobs Offered", sublabel: "2024-25" },
   { value: "₹3.0 LPA", label: "Minimum Package", sublabel: "2024-25" },
   { value: "₹9.0 LPA", label: "Average Package", sublabel: "Overall" },
-  { value: "₹27 LPA", label: "Highest Package", sublabel: "2024-25 (Maria Khan)" },
+  { value: "₹26 LPA", label: "Highest Package", sublabel: "2023-24 (Kartikey Gupta)" },
 ];
 
 
@@ -122,21 +123,21 @@ const trainingPrograms = [
     speaker: "Mr. Shubham Singh",
     role: "SDE, PhonePe",
     image: workshopIndustries,
-    hoverDesc: "A comprehensive workshop on crafting effective resumes, mastering interview techniques, and understanding industry expectations. Learn strategies that helped professionals break into top tech companies."
+    hoverDesc: "A comprehensive workshop on crafting effective resumes, mastering interview techniques and understanding industry expectations. Learn strategies that helped professionals break into top tech companies."
   },
   {
     title: "Opportunities for Engineers in DRDO",
     speaker: "Dr. Ashish Dubey",
     role: "Scientist 'G' & Project Director, DTTC Lucknow",
     image: drdoOpportunities,
-    hoverDesc: "Discover exciting career paths in defense research and development. Learn about cutting-edge projects, recruitment processes, and the impact engineers make in national security and innovation."
+    hoverDesc: "Discover exciting career paths in defense research and development. Learn about cutting-edge projects, recruitment processes and the impact engineers make in national security and innovation."
   },
   {
     title: "Naval Aviation & Operations",
     speaker: "Lt. Cdr. Rohit Dhama (Retd.)",
     role: "Ex-Indian Navy (10+ Years Exp.)",
     image: navalAviation,
-    hoverDesc: "Gain insights into naval aviation careers, operational challenges, and leadership opportunities in the Indian Navy. Understand the selection process and life of a naval officer."
+    hoverDesc: "Gain insights into naval aviation careers, operational challenges and leadership opportunities in the Indian Navy. Understand the selection process and life of a naval officer."
   },
   {
     title: "The Evolving World of Cloud, Networking & IT Infrastructure",
@@ -159,10 +160,10 @@ const successStories = [
   {
     name: "Maria Khan",
     company: "Branch International",
-    package: "₹27 LPA",
+    package: "₹22 LPA + Equity",
     year: "2024-25",
     image: mariaKhan,
-    hoverDesc: "Maria's exceptional performance in technical interviews and her strong foundation in computer science led her to Branch International with the highest package of ₹27 LPA. Her achievement inspires many students to pursue excellence in their chosen fields."
+    hoverDesc: "Maria's exceptional performance in technical interviews and her strong foundation in computer science led her to Branch International with an attractive package of ₹22 LPA plus equity. Her achievement inspires many students to pursue excellence in their chosen fields."
   },
 ];
 
@@ -228,7 +229,7 @@ const AboutTPC = () => {
               Training & <span className="text-gold-gradient">Placement Cell</span>
             </h1>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              Empowering students with skills, opportunities, and connections to build successful careers
+              Empowering students with skills, opportunities and connections to build successful careers
             </p>
           </motion.div>
         </div>
@@ -592,7 +593,7 @@ const AboutTPC = () => {
                   </div>
                   <h4 className="font-serif text-lg font-semibold text-foreground mb-2">Round 2: Personal Interview</h4>
                   <p className="text-sm text-muted-foreground">
-                    One-on-one interaction to assess communication skills, teamwork spirit, and genuine interest in TPC activities.
+                    One-on-one interaction to assess communication skills, teamwork spirit and genuine interest in TPC activities.
                   </p>
                 </div>
               </motion.div>
@@ -668,14 +669,7 @@ const AboutTPC = () => {
 
 
 
-      {/* Footer */}
-      < footer className="py-8 border-t border-border bg-background" >
-        <div className="container-narrow text-center">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Training & Placement Cell, University of Lucknow. All rights reserved.
-          </p>
-        </div>
-      </footer >
+      <Footer />
     </div >
   );
 };

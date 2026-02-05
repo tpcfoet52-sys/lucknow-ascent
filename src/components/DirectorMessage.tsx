@@ -47,23 +47,12 @@ const DirectorMessage = () => {
               <div className="relative mb-5">
                 <Quote className="absolute -top-1 -left-1 w-5 h-5 text-accent/30" />
                 <blockquote className="text-muted-foreground text-sm leading-relaxed italic pl-6 border-l-2 border-primary/50">
-                  "Prof. Jai Prakash Saini assumed charge as Vice Chancellor of the University of Lucknow
-                  on 14 January 2026, bringing 38+ years of experience in academics, research, and
-                  university administration."
+                  "Our goal is to blend our rich academic heritage with modern technological advancement. We are committed to nurturing industry-ready professionals through research-driven education and robust industry partnerships. At the University of Lucknow, we don't just grant degrees; we empower future leaders to innovate and excel on a global stage."
                 </blockquote>
               </div>
 
               <p className="text-foreground leading-relaxed text-sm mb-4">
-                A senior Professor of Electronics & Communication Engineering, he has served as Vice Chancellor
-                of MMMUT Gorakhpur and NSUT New Delhi, with additional charge of DTU New Delhi, and has held
-                key roles including Chairman Training & Placement, Dean (R&D), and Coordinator of major
-                national programs.
-              </p>
-
-              <p className="text-foreground leading-relaxed text-sm">
-                His strong focus on industry–academia collaboration, MoUs, incubation, innovation, and student
-                training aligns closely with the objectives of the Training & Placement Cell, Faculty of
-                Engineering and Technology, in strengthening student employability and placement outcomes.
+                Prof. Jai Prakash Saini is the Vice-Chancellor of the University of Lucknow. An eminent academician in Electronics & Communication Engineering and an alumnus of IIT Kanpur, he brings over 38 years of expertise to the role. Having previously led NSUT Delhi and MMMUT Gorakhpur, Prof. Saini is dedicated to transforming the university into a global hub for innovation, digital excellence, and NEP 2020 implementation.
               </p>
 
 
@@ -99,19 +88,12 @@ const DirectorMessage = () => {
             <div className="relative">
               <Quote className="absolute -top-1 -left-1 w-5 h-5 text-accent/30" />
               <blockquote className="text-muted-foreground text-sm leading-relaxed italic pl-6 border-l-2 border-accent/50">
-                "The Training & Placement Cell of the University of Lucknow is committed to bridging
-                the gap between academic excellence and industry requirements. Our mission is to
-                empower every student with the skills, confidence, and opportunities they need to
-                build successful careers."
+                "Our mission at FoET is to nurture engineers who are not only technically proficient but also globally competitive. We welcome industry partners to engage with our vibrant talent pool and witness the innovation brewing at the University of Lucknow."
               </blockquote>
             </div>
 
             <p className="text-foreground mt-5 leading-relaxed text-sm">
-              The Faculty of Engineering and Technology, established in 2017, reflects this
-              very spirit of innovation and progress. With forward-looking teaching
-              methods, dedicated faculty, and hands-on opportunities, we ensure that our
-              students don’t just learn theories but also apply them to real-world
-              challenges.
+              Prof. Satendra Pal Singh, Dean of the Faculty of Engineering and Technology, is a distinguished academician with a global outlook. Holding a Ph.D. from IIT (BHU) Varanasi and nearly a decade of research experience at Sejong University, South Korea, he seamlessly integrates international standards with rigorous technical education.
             </p>
           </motion.div>
 
@@ -145,18 +127,12 @@ const DirectorMessage = () => {
             <div className="relative">
               <Quote className="absolute -top-1 -left-1 w-5 h-5 text-accent/30" />
               <blockquote className="text-muted-foreground text-sm leading-relaxed italic pl-6 border-l-2 border-accent/50">
-                "Innovation and employability are at the core of what we do. Our goal is to prepare
-                students not just for jobs, but for impactful careers. Through industry collaborations,
-                mentorship programs, and incubation support, we ensure every student is ready to
-                excel in the professional world."
+                "Our mission is to transform students into industry-ready professionals through a blend of technical mastery and soft-skill development. We are committed to fostering a vibrant recruitment ecosystem that connects our innovative talent pool with global industry leaders."
               </blockquote>
             </div>
 
             <p className="text-foreground mt-5 leading-relaxed text-sm">
-              As the Incharge of T&P Cell, FoET and Member of the Incubation Cell, Dr. Himanshu Pandey
-              is dedicated to mentoring innovation and enhancing employability. His vision focuses
-              on building strong industry-academia partnerships and providing students with
-              hands-on exposure to emerging technologies and career opportunities.
+              Dr. Himanshu Pandey is the In-charge of the Training & Placement Cell (TPC) and an Associate Professor of Computer Science at the University of Lucknow. With extensive experience in Industry-Academia collaboration, he leads the university's efforts in bridging the gap between technical education and global corporate requirements.
             </p>
 
 

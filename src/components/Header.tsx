@@ -19,7 +19,6 @@ const navLinks: NavLink[] = [
       { name: "About TPC", href: "/about-tpc" },
       { name: "Our Alumni", href: "/our-alumni" },
       { name: "Our Team", href: "/team-structure" },
-      { name: "Website Developers", href: "/developer-team" },
     ]
   },
   { name: "Events", href: "/events" },

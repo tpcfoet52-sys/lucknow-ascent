@@ -16,6 +16,7 @@ import {
   X
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Footer from "@/components/Footer";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import uolLogo from "@/assets/uol-logo.png";
@@ -688,22 +689,7 @@ const TeamStructure = () => {
 
 
 
-      {/* Minimal Footer */}
-      < footer className="py-8 border-t border-border" >
-        <div className="container-narrow">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-3">
-              <img
-                src={uolLogo}
-                alt="University of Lucknow"
-                className="w-8 h-8 object-contain opacity-70"
-              />
-              <span>Training & Placement Cell, University of Lucknow</span>
-            </div>
-            <p>© {new Date().getFullYear()} All rights reserved.</p>
-          </div>
-        </div>
-      </footer >
+      <Footer />
     </div >
   );
 };

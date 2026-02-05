@@ -275,10 +275,10 @@ const ResumeGuide = () => {
                                 "Skills listed match the Job Description",
                                 "Margins are balanced (not too crammed)"
                             ].map((item, i) => (
-                                <label key={i} className="flex items-center gap-3 p-3 hover:bg-secondary/50 rounded cursor-pointer transition-colors">
-                                    <input type="checkbox" className="w-5 h-5 rounded border-gray-300 text-accent focus:ring-accent" />
+                                <div key={i} className="flex items-start gap-3 p-3 hover:bg-secondary/50 rounded transition-colors">
+                                    <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0 mt-2"></span>
                                     <span className="text-foreground/80">{item}</span>
-                                </label>
+                                </div>
                             ))}
                         </div>
                     </section>

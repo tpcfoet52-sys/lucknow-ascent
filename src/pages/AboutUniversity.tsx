@@ -23,6 +23,7 @@ import {
   Building2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Footer from "@/components/Footer";
 
 import uolLogo from "@/assets/uol-logo.png";
 import heroImage from "@/assets/university-hero-new.jpg";
@@ -62,7 +63,7 @@ const fadeInUp = {
 };
 
 const programs = [
-  { name: "Engineering", icon: Building, students: "2500+", image: programEngineering, hoverDesc: "Offering B.Tech and M.Tech programs in CSE, ECE, EE, CE, and ME. Focus on practical learning, industry collaboration, and placement excellence with state-of-the-art laboratories." },
+  { name: "Engineering", icon: Building, students: "2500+", image: programEngineering, hoverDesc: "Offering B.Tech (CSE, CSE-AI, ECE, EE, CE and ME), BCA and M.Tech Programs. Focus on practical learning, industry collaboration and placement excellence with state-of-the-art laboratories." },
   { name: "Law", icon: Gavel, students: "1200+", image: programLaw, hoverDesc: "LLB and LLM programs recognized by Bar Council of India. Comprehensive curriculum covering corporate law, constitutional law, and international law with moot court facilities." },
   { name: "Management", icon: Briefcase, students: "1800+", image: programManagement, hoverDesc: "MBA programs specializing in Finance, Marketing, HR, and Operations. Industry-oriented curriculum with case studies, internships, and guest lectures from corporate leaders." },
   { name: "Pharmacy", icon: Pill, students: "800+", image: programPharmacy, hoverDesc: "B.Pharm and M.Pharm programs approved by PCI. Focus on pharmaceutical sciences, drug development, and clinical pharmacy with modern research facilities." },
@@ -103,7 +104,7 @@ const milestones = [
   },
   {
     year: "2020",
-    event: "Grand Centenary Celebrations held Nov 19-25. PM Narendra Modi released commemorative ₹100 coin. Week-long cultural, literary & sports festivities."
+    event: "The University of Lucknow celebrated its Centenary from November 19–25. Prime Minister Narendra Modi released a commemorative ₹100 coin, and the week featured cultural, literary, and sports events honoring the university’s 100-year legacy."
   },
   {
     year: "2022",
@@ -274,14 +275,14 @@ const AboutUniversity = () => {
                   {/* Desktop Card - Left or Right */}
                   <div className={`flex-1 ${index % 2 === 0 ? "md:pr-8 md:flex md:justify-end" : "md:pl-8 md:flex md:justify-start"} hidden md:block`}>
                     <motion.div
-                      className="bg-background/80 backdrop-blur-sm border border-border/60 rounded-lg p-5 inline-block shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 text-left max-w-md"
+                      className="bg-background/80 backdrop-blur-sm border border-border/60 rounded-lg p-5 inline-block shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 max-w-md"
                       whileHover={{ scale: 1.02 }}
                     >
                       <div className="flex items-center gap-2 mb-2">
                         <Calendar className="w-4 h-4 text-accent/70" />
                         <p className="font-serif text-xl font-bold text-accent">{milestone.year}</p>
                       </div>
-                      <p className="text-foreground text-sm leading-relaxed">{milestone.event}</p>
+                      <p className="text-foreground text-sm leading-relaxed text-justify">{milestone.event}</p>
                     </motion.div>
                   </div>
 
@@ -544,14 +545,7 @@ const AboutUniversity = () => {
         </div>
       </section >
 
-      {/* Footer */}
-      <footer className="py-8 border-t border-border bg-background" >
-        <div className="container-narrow text-center">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} University of Lucknow. All rights reserved.
-          </p>
-        </div>
-      </footer >
+      <Footer />
     </div >
   );
 };

@@ -6,8 +6,8 @@ import { Button } from "./ui/button";
 const stats = [
   {
     icon: Trophy,
-    value: "₹27 LPA",
-    label: "Highest Package (2025 Batch)",
+    value: "₹22 LPA + Equity",
+    label: "Highest Package (2024-25)",
     subLabel: "Maria Khan",
   },
   {

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Award } from "lucide-react";
+import Footer from "@/components/Footer";
 
 import uolLogo from "@/assets/uol-logo.png";
 import heroImage from "@/assets/university-hero-new.jpg";
@@ -13,6 +14,7 @@ import vartikaSingh from "@/assets/vartika-singh.jpg";
 import vinodMehta from "@/assets/vinod-mehta.jpg";
 import nareshTrehan from "@/assets/naresh-trehan.jpg";
 import rituKaridhal from "@/assets/ritu-karidhal.jpg";
+import kartikeyGupta from "@/assets/karthik-gupta.png";
 
 const alumniLinks = [
     { name: "Alumni Network", href: "#network" },
@@ -92,6 +94,17 @@ const alumniList = [
         field: "Education",
         image: jagdishGandhi,
         description: "Founder of City Montessori School, the world's largest school recognized by Guinness World Records. A visionary educator and recipient of multiple international awards, he has pioneered educational reforms benefiting millions of children."
+    },
+];
+
+const foetAlumniList = [
+    {
+        name: "Kartikey Gupta",
+        role: "Software Development Engineer",
+        company: "Qdrant",
+        batch: "2023-24",
+        image: kartikeyGupta,
+        description: "A talented software engineer who secured a position at Qdrant, a leading vector database company. His expertise in artificial intelligence and database technologies has made him a valuable contributor to cutting-edge AI infrastructure solutions."
     },
 ];
 
@@ -230,32 +243,42 @@ const OurAlumni = () => {
                     </motion.div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[1, 2, 3].map((item, index) => (
+                        {foetAlumniList.map((alumni, index) => (
                             <motion.div
-                                key={index}
+                                key={alumni.name}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.1 * index }}
-                                className="group relative overflow-hidden rounded-xl border border-border bg-card cursor-pointer transition-all duration-300"
+                                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer transition-all duration-300"
                             >
-                                {/* Image Section - Circular Profile Photo Placeholder */}
+                                {/* Image Section - Circular Profile Photo */}
                                 <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
-                                    <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
-                                        <Award className="h-16 w-16 text-primary/40" />
-                                    </div>
+                                    {alumni.image ? (
+                                        <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300">
+                                            <img
+                                                src={alumni.image}
+                                                alt={alumni.name}
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            />
+                                        </div>
+                                    ) : (
+                                        <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
+                                            <Award className="h-16 w-16 text-primary/40" />
+                                        </div>
+                                    )}
                                 </div>
 
-                                {/* Content Section Placeholder */}
+                                {/* Content Section */}
                                 <div className="p-3 relative z-10 bg-card text-center">
-                                    <h3 className="font-serif text-base font-semibold text-foreground">
-                                        Alumni Name
+                                    <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors">
+                                        {alumni.name}
                                     </h3>
-                                    <p className="text-xs text-accent mt-1 font-medium">Role / Designation</p>
-                                    <p className="text-xs text-muted-foreground mt-1">Company / Organization</p>
+                                    <p className="text-xs text-accent mt-1 font-medium">{alumni.role}</p>
+                                    <p className="text-xs text-muted-foreground mt-1">{alumni.company} • Batch {alumni.batch}</p>
 
                                     <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed text-left">
-                                        Description of the alumni's achievements and contributions will appear here.
+                                        {alumni.description}
                                     </p>
                                 </div>
                             </motion.div>
@@ -264,14 +287,7 @@ const OurAlumni = () => {
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer className="py-8 border-t border-border bg-background">
-                <div className="container-narrow text-center">
-                    <p className="text-sm text-muted-foreground">
-                        © {new Date().getFullYear()} University of Lucknow. All rights reserved.
-                    </p>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 };
