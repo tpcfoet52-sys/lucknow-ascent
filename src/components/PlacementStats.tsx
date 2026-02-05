@@ -5,7 +5,7 @@ import gateQualifiers2025 from "@/assets/gate-qualifiers-2025.png";
 import ConnectWithUs from "./ConnectWithUs";
 
 const stats = [
-  { label: "Highest Package (2024-25)", value: "₹22.0", unit: "LPA", icon: Award, note: "Maria Khan (CSE)" },
+  { label: "Highest Package (2023-24)", value: "₹26.0", unit: "LPA", icon: Award, note: "Kartikey Gupta (ECE)" },
   { label: "Average Package (Overall)", value: "₹9.0", unit: "LPA", icon: TrendingUp, note: "" },
   { label: "Jobs Offered (2025)", value: "543", unit: "+", icon: Users, note: "" },
   { label: "Partner Companies", value: "500", unit: "+", icon: Building2, note: "" },
@@ -42,7 +42,7 @@ const yearlyData = [
   {
     year: "2023-24",
     highestPackage: 26,
-    studentName: "Kartikey Pandey",
+    studentName: "Kartikey Gupta",
     branch: "ECE"
   },
   {
