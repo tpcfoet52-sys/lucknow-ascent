@@ -120,7 +120,7 @@ const OurAlumni = () => {
                     <img
                         src={heroImage}
                         alt="University of Lucknow Campus"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-[center_20%]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background" />
                 </div>

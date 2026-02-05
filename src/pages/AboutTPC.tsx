@@ -186,7 +186,7 @@ const AboutTPC = () => {
           <img
             src={heroImage}
             alt="University of Lucknow Campus"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-[center_20%]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background" />
         </div>
@@ -198,31 +198,23 @@ const AboutTPC = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
-              <div className="flex items-center gap-6">
-                <motion.img
-                  src={uolLogo}
-                  alt="University of Lucknow"
-                  className="w-20 h-20 md:w-28 md:h-28 object-contain"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                />
-                <div className="w-px h-16 bg-border" />
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.3, duration: 0.5 }}
-                  className="flex flex-col items-center"
-                >
-                  <img
-                    src={naacBadge}
-                    alt="NAAC A++ Badge"
-                    className="w-20 h-20 md:w-28 md:h-28 object-contain mb-1 rounded-full"
-                  />
-                </motion.div>
-              </div>
-
+            <div className="flex items-center justify-center gap-6 md:gap-10 mb-8">
+              <motion.img
+                src={naacBadge}
+                alt="NAAC A++ Badge"
+                className="w-20 h-20 md:w-28 md:h-28 object-contain rounded-full"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+              />
+              <motion.img
+                src={uolLogo}
+                alt="University of Lucknow"
+                className="w-20 h-20 md:w-28 md:h-28 object-contain"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+              />
             </div>
 
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 tracking-tight">

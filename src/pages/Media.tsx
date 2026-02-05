@@ -91,20 +91,19 @@ const Media = () => {
 
     return (
         <div className="min-h-screen bg-background flex flex-col">
-            <Header />
 
             <main className="flex-1 pb-12">
                 {/* Hero Section */}
-                <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden mb-0">
+                <section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden mb-0">
                     <div className="absolute inset-0 z-0">
                         <img
                             src={heroImage}
                             alt="University of Lucknow"
                             className="w-full h-full object-cover object-[center_20%]"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background" />
                     </div>
-                    <div className="container-narrow text-center relative z-10">
+                    <div className="container-narrow text-center relative z-10 pt-8 md:pt-16">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}

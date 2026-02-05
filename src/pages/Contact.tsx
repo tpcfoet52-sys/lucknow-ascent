@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Clock, Building2, ChevronDown, Phone, Smartphone, MapPin, Train, Car, Users } from "lucide-react";
 import ConnectWithUs from "@/components/ConnectWithUs";
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+// Header removed
 
 // Social Media Screenshots
 import socialLinkedin from "@/assets/social-linkedin.jpg";
@@ -20,9 +20,7 @@ const Contact = () => {
 
     return (
         <div className="min-h-screen bg-background flex flex-col">
-            <Header />
-
-            <main className="flex-grow pt-24">
+            <main className="flex-grow pt-20">
                 {/* Hero Section */}
                 <section className="section-padding bg-muted/30">
                     <div className="container-narrow text-center">

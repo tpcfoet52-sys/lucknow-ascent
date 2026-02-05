@@ -304,18 +304,18 @@ const TeamStructure = () => {
 
 
       {/* Hero Section with Background Image */}
-      < section className="relative pt-20 md:pt-24 pb-8 md:pb-12 overflow-hidden" >
+      < section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden" >
         {/* Background Image */}
         < div className="absolute inset-0 z-0" >
           <img
             src={heroImage}
             alt="University of Lucknow Campus"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-[center_20%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background" />
         </div >
 
-        <div className="relative z-10 container-narrow pt-8 md:pt-12">
+        <div className="relative z-10 container-narrow pt-8 md:pt-16">
 
 
           <motion.div
@@ -324,20 +324,19 @@ const TeamStructure = () => {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center text-center"
           >
-            <div className="flex items-center gap-4 mb-8">
-              <motion.img
-                src={uolLogo}
-                alt="University of Lucknow"
-                className="w-20 h-20 md:w-28 md:h-28 object-contain"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-              />
-              <div className="w-px h-12 bg-border" />
+            <div className="flex items-center justify-center gap-6 md:gap-10 mb-8">
               <motion.img
                 src={tpcBadge}
                 alt="TPC Badge"
                 className="w-20 h-20 md:w-28 md:h-28 object-contain rounded-full"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+              />
+              <motion.img
+                src={uolLogo}
+                alt="University of Lucknow"
+                className="w-20 h-20 md:w-28 md:h-28 object-contain"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}

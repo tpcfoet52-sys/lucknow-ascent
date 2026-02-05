@@ -98,7 +98,7 @@ const DeveloperTeam = () => {
 
     return (
         <div className="min-h-screen bg-background flex flex-col">
-            <main className="flex-1 pt-24 pb-12">
+            <main className="flex-1 pt-20 pb-12">
                 {/* Hero Section */}
                 <section className="relative py-12 md:py-16">
                     <div className="container-narrow">
