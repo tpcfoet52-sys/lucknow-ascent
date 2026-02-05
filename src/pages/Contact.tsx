@@ -287,7 +287,7 @@ const Contact = () => {
                                 How To Reach Us?
                             </h2>
                             <p className="text-muted-foreground mt-2 text-sm flex items-center justify-center gap-1 text-center">
-                                <MapPin className="w-4 h-4 text-accent flex-shrink-0" /> Faculty Of Engineering & Technology, University of Lucknow, New Campus Rd, Sultanpur Village, Jankipuram, Lucknow, Uttar Pradesh 226031
+                                <MapPin className="w-4 h-4 text-accent flex-shrink-0" /> WWHQ+JC7, Training & Placement Cell, Faculty of Engineering & Technology University of Lucknow, New Campus Rd, Sultanpur Village, Jankipuram Extension, Lucknow, Uttar Pradesh 226031
                             </p>
                         </motion.div>
 
@@ -300,7 +300,7 @@ const Contact = () => {
                                 className="rounded-xl overflow-hidden border border-border shadow-sm min-h-[400px] lg:min-h-[500px]"
                             >
                                 <iframe
-                                    src="https://maps.google.com/maps?q=loc:26.9124,80.9397+(Faculty+Of+Engineering+%26+Technology%2C+University+of+Lucknow%2C+New+Campus+Rd%2C+Sultanpur+Village%2C+Jankipuram%2C+Lucknow%2C+Uttar+Pradesh+226031)&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                    src="https://maps.google.com/maps?q=WWHQ%2BJC7%2C+Training+%26+Placement+Cell%2C+Faculty+of+Engineering+%26+Technology+University+of+Lucknow%2C+New+Campus+Rd%2C+Sultanpur+Village%2C+Jankipuram+Extension%2C+Lucknow%2C+Uttar+Pradesh+226031&t=&z=15&ie=UTF8&iwloc=&output=embed"
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}
