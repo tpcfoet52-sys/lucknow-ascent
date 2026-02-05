@@ -22,7 +22,7 @@ export const useLogout = () => {
             } else {
                 navigate("/coordinator-login");
             }
-        } catch (error: any) {
+        } catch (error: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
             console.error("Logout error:", error);
             toast.error(error.message || "Failed to log out");
         }

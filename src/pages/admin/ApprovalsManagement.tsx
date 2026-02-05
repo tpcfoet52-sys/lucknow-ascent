@@ -18,6 +18,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { deleteFromCloudinary } from "@/lib/cloudinary";
 
 // Define the shape of our unified data
+interface EventDetails {
+  venue?: string;
+  date?: string;
+  team?: string;
+  [key: string]: unknown;
+}
+
 interface ApprovalItem {
   id: string;
   type: 'drive' | 'event' | 'seminar' | 'top_performer' | 'press_release';
@@ -61,8 +68,10 @@ const ApprovalsManagement = () => {
       toast({ title: "Error", description: "Failed to load approvals", variant: "destructive" });
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const unifiedItems: ApprovalItem[] = (unifiedData || []).map((i: any) => ({ ...i, source: 'unified' }));
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const eventItems: ApprovalItem[] = (eventsData || []).map((e: any) => ({
       id: e.id.toString(),
       type: 'event',
@@ -94,7 +103,7 @@ const ApprovalsManagement = () => {
     // Map status for events table (it might use different strings? EventsManagement uses 'approved'/'pending')
     // unified uses: pending, approved, rejected, pending_deletion
 
-    let dbStatus = newStatus;
+    const dbStatus = newStatus;
     // If it's the events table, rejection might just be 'pending' or 'rejected' depending on logic?
     // EventsManagement delete logic: deleteEvent (permanent) or updateStatus.
 
@@ -102,6 +111,7 @@ const ApprovalsManagement = () => {
     const id = item.id;
 
     // Prepare payload
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const updatePayload: any = { status: dbStatus };
     if (feedback && item.source === 'unified') updatePayload.feedback = feedback;
 
@@ -350,9 +360,9 @@ const ApprovalCard = ({ item, onApprove, onReject, onConfirmDelete, onRejectDele
       {/* Show Event Details if available */}
       {item.type === 'event' && item.details && typeof item.details === 'object' && (
         <div className="mt-3 p-2 bg-secondary/50 rounded text-xs space-y-1">
-          {(item.details as any).venue && <div><strong>Venue:</strong> {(item.details as any).venue}</div>}
-          {(item.details as any).date && <div><strong>Date:</strong> {(item.details as any).date}</div>}
-          {(item.details as any).team && <div><strong>By:</strong> {(item.details as any).team}</div>}
+          {(item.details as EventDetails).venue && <div><strong>Venue:</strong> {(item.details as EventDetails).venue}</div>}
+          {(item.details as EventDetails).date && <div><strong>Date:</strong> {(item.details as EventDetails).date}</div>}
+          {(item.details as EventDetails).team && <div><strong>By:</strong> {(item.details as EventDetails).team}</div>}
         </div>
       )}
     </CardContent>
