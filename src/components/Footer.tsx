@@ -71,7 +71,7 @@ const Footer = () => {
                   WWHQ+JC7, Training & Placement Cell,<br />
                   Faculty of Engineering & Technology University of Lucknow,<br />
                   New Campus Rd, Sultanpur Village, Jankipuram Extension,<br />
-                  Lucknow, Uttar Pradesh 226031 <a href="https://www.google.com/maps/search/?api=1&query=WWHQ%2BJC7%2C+Training+%26+Placement+Cell" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline ml-1 text-[10px]">(Map View)</a>
+                  Lucknow, Uttar Pradesh 226031 <a href="https://www.google.com/maps/search/?api=1&query=WWHQ%2BJC7%2C+Training+%26+Placement+Cell%2C+Faculty+of+Engineering+%26+Technology+University+of+Lucknow%2C+New+Campus+Rd%2C+Sultanpur+Village%2C+Jankipuram+Extension%2C+Lucknow%2C+Uttar+Pradesh+226031" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline ml-1 text-[10px]">(Map View)</a>
                 </span>
               </li>
               <li className="flex items-center gap-3 justify-center md:justify-start w-full">

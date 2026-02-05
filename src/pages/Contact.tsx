@@ -287,7 +287,7 @@ const Contact = () => {
                                 How To Reach Us?
                             </h2>
                             <p className="text-muted-foreground mt-2 text-sm flex items-center justify-center gap-1 text-center">
-                                <MapPin className="w-4 h-4 text-accent flex-shrink-0" /> WWHQ+JC7, Training & Placement Cell, Faculty of Engineering & Technology, New Campus Rd, Sultanpur Village, Jankipuram Extension, Lucknow – 226031
+                                <MapPin className="w-4 h-4 text-accent flex-shrink-0" /> WWHQ+JC7, Training & Placement Cell, Faculty of Engineering & Technology University of Lucknow, New Campus Rd, Sultanpur Village, Jankipuram Extension, Lucknow, Uttar Pradesh 226031
                             </p>
                         </motion.div>
 
