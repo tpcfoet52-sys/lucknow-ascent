@@ -89,7 +89,7 @@ const alumniList = [
         description: "A successful model and beauty pageant winner who has represented India on international platforms. She has been an advocate for women's empowerment and has used her platform to inspire young women across the country."
     },
     {
-        name: "Jagdish Gandhi",
+        name: "Late Jagdish Gandhi",
         role: "Founder, City Montessori School",
         field: "Education",
         image: jagdishGandhi,
