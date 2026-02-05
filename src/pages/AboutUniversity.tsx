@@ -483,7 +483,7 @@ const AboutUniversity = () => {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
             <span className="text-xs font-semibold text-accent uppercase tracking-wider">Our Campuses</span>
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mt-2">Campus Locations</h2>
-            <p className="text-muted-foreground mt-2 text-sm">219 acres across 5 districts: Lucknow, Raebareli, Hardoi, Sitapur & Lakhimpur Kheri</p>
+
           </motion.div>
           <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
             {campusLocations.map((campus, index) => (

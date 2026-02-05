@@ -19,9 +19,9 @@ const Footer = () => {
     <footer id="contact" className="bg-primary text-primary-foreground">
       {/* Main Footer */}
       <div className="container-narrow py-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center md:text-left">
+        <div className="grid md:grid-cols-2 lg:flex lg:justify-between gap-6 lg:gap-10 text-center md:text-left">
           {/* About & Socials */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center md:items-start lg:max-w-xs">
             <div>
               <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
                 <img
@@ -63,7 +63,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="flex flex-col items-center md:items-start">
-            <h4 className="font-serif font-semibold text-sm mb-3">Contact Us</h4>
+            <h4 className="font-serif font-semibold text-sm mb-3 md:ml-7">Contact Us</h4>
             <ul className="space-y-1.5 flex flex-col items-center md:items-start w-full">
               <li className="flex items-start gap-3 justify-center md:justify-start w-full">
                 <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
@@ -95,7 +95,7 @@ const Footer = () => {
 
           {/* Developed by - Right-most */}
           <div className="flex flex-col items-center md:items-start">
-            <h4 className="font-serif font-semibold text-sm mb-3">Developed by</h4>
+            <h4 className="font-serif font-semibold text-sm mb-3 md:ml-[1.375rem]">Developed by</h4>
             <ul className="space-y-1.5 flex flex-col items-center md:items-start">
               {[
                 { name: "Akash Singh", linkedin: "https://www.linkedin.com/in/akashsinghmrj64/" },
