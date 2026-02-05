@@ -37,6 +37,7 @@ import akashKumarYadav from "@/assets/akash-kumar-yadav.jpg";
 import erRoliKushwaha from "@/assets/er-roli-kushwaha.jpg";
 import erSonamSingh from "@/assets/er-sonam-singh.jpg";
 import erMarutiMaurya from "@/assets/er-maruti-maurya.jpg";
+import erNamitaSrivastava from "@/assets/er-namita-srivastava.png";
 
 const facultyMembers = [
   {
@@ -94,6 +95,14 @@ const facultyMembers = [
     phone: "7020464299",
     email: "maurya_maruti@lkouniv.ac.in",
     image: erMarutiMaurya
+  },
+  {
+    name: "Er. Namita Srivastava",
+    title: "Assistant Professor",
+    role: "Faculty Coordinator",
+    phone: "9651314977",
+    email: "namitas25@gmail.com",
+    image: erNamitaSrivastava
   }
 ];
 
