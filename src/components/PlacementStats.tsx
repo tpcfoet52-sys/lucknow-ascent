@@ -158,7 +158,6 @@ const PlacementStats = () => {
           </div>
           <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
             <span className="text-sm text-muted-foreground">5-Year Growth (2020-2025)</span>
-            <span className="text-base font-serif font-semibold text-accent">+242%</span>
           </div>
         </motion.div>
 
@@ -172,10 +171,6 @@ const PlacementStats = () => {
         >
           <div className="flex items-center justify-between mb-6">
             <h3 className="font-serif text-lg font-semibold text-foreground">Year-wise Highest Package</h3>
-            <div className="flex items-center gap-2 text-accent">
-              <TrendingUp className="w-4 h-4" />
-              <span className="text-sm font-semibold">+200% Growth</span>
-            </div>
           </div>
 
           {/* Timeline Cards */}
@@ -207,15 +202,7 @@ const PlacementStats = () => {
                     <p className="text-accent text-xs font-semibold">{data.branch}</p>
                   </div>
 
-                  {/* Growth Indicator for latest */}
-                  {index === yearlyData.length - 1 && (
-                    <div className="mt-3 pt-2 border-t border-accent/20">
-                      <div className="flex items-center gap-1 text-accent">
-                        <Award className="w-3 h-3" />
-                        <span className="text-[10px] font-semibold uppercase tracking-wide">Current Record</span>
-                      </div>
-                    </div>
-                  )}
+
                 </div>
               </motion.div>
             ))}

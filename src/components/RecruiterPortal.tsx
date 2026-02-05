@@ -6,9 +6,9 @@ import { Button } from "./ui/button";
 const stats = [
   {
     icon: Trophy,
-    value: "₹22 LPA",
-    label: "Highest Package (2024-25)",
-    subLabel: "Maria Khan",
+    value: "₹26 LPA",
+    label: "Highest Package (2023-24)",
+    subLabel: "Kartikey Gupta",
   },
   {
     icon: TrendingUp,
