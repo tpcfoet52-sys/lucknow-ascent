@@ -26,7 +26,10 @@ const ConnectWithUs = () => {
                         <a href="https://www.instagram.com/tpcfoet?igsh=cm05d2NpbnRoNGNp" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
                             <Instagram className="w-5 h-5" />
                         </a>
-                        <a href="mailto:placement_foet@lkouniv.ac.in" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                        <a href="mailto:placement_foet@lkouniv.ac.in" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title="placement_foet@lkouniv.ac.in">
+                            <Mail className="w-5 h-5" />
+                        </a>
+                        <a href="mailto:trainingfoet@gmail.com" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title="trainingfoet@gmail.com">
                             <Mail className="w-5 h-5" />
                         </a>
                         <a href="tel:+917905287870" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title="+91-79052 87870">
