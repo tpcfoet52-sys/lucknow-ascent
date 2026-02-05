@@ -95,12 +95,12 @@ const Media = () => {
 
             <main className="flex-1 pb-12">
                 {/* Hero Section */}
-                <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 overflow-hidden mb-0">
+                <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden mb-0">
                     <div className="absolute inset-0 z-0">
                         <img
                             src={heroImage}
                             alt="University of Lucknow"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-[center_20%]"
                         />
                         <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background" />
                     </div>
@@ -125,15 +125,16 @@ const Media = () => {
 
                     {/* Photo Gallery with Filters */}
                     <section>
-                        <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+                        <div className="flex flex-col items-center text-center mb-12 gap-6">
                             <div>
-                                <h2 className="font-serif text-3xl font-semibold flex items-center gap-2">
+                                <span className="text-xs font-medium text-accent uppercase tracking-wider">Visual Tour</span>
+                                <h2 className="font-serif text-3xl font-semibold flex items-center justify-center gap-2 mt-2">
                                     <Camera className="w-6 h-6 text-accent" /> Photo Gallery
                                 </h2>
                                 <p className="text-muted-foreground mt-2">Highlights from recent campus activities.</p>
                             </div>
 
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-wrap justify-center gap-2">
                                 {["All", "Drives", "Events", "Seminars", "Star Performers"].map((cat) => (
                                     <Button
                                         key={cat}
@@ -196,9 +197,12 @@ const Media = () => {
 
                     {/* Press Release Section */}
                     <section>
-                        <h2 className="font-serif text-3xl font-semibold mb-8 flex items-center gap-2">
-                            <Newspaper className="w-6 h-6 text-accent" /> Press Releases
-                        </h2>
+                        <div className="text-center mb-12">
+                            <span className="text-xs font-medium text-accent uppercase tracking-wider">In The News</span>
+                            <h2 className="font-serif text-3xl font-semibold flex items-center justify-center gap-2 mt-2">
+                                <Newspaper className="w-6 h-6 text-accent" /> Press Releases
+                            </h2>
+                        </div>
                         <div className="grid md:grid-cols-3 gap-6">
                             {allPressItems.length === 0 ? (
                                 <div className="col-span-full text-center py-12 text-muted-foreground">
