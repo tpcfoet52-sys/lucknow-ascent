@@ -286,8 +286,8 @@ const Contact = () => {
                             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
                                 How To Reach Us?
                             </h2>
-                            <p className="text-muted-foreground mt-2 text-sm flex items-center justify-center gap-1">
-                                <MapPin className="w-4 h-4 text-accent" /> Lucknow University New Campus, Sultanpur Village, Jankipuram Extension, Lucknow – 226021
+                            <p className="text-muted-foreground mt-2 text-sm flex items-center justify-center gap-1 text-center">
+                                <MapPin className="w-4 h-4 text-accent flex-shrink-0" /> WWHQ+JC7, Training & Placement Cell, Faculty of Engineering & Technology, New Campus Rd, Sultanpur Village, Jankipuram Extension, Lucknow – 226031
                             </p>
                         </motion.div>
 
