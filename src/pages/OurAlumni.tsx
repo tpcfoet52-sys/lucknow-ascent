@@ -9,7 +9,7 @@ import spChakravarti from "@/assets/sp-chakravarti.jpg";
 import govindBallabhPant from "@/assets/govind-ballabh-pant.jpg";
 import justiceAsAnand from "@/assets/justice-as-anand.jpg";
 import jagdishGandhi from "@/assets/jagdish-gandhi.jpg";
-import qurratulainHyder from "@/assets/qurratulain-hyder.jpg";
+import sureshRaina from "@/assets/suresh-raina.png";
 import vartikaSingh from "@/assets/vartika-singh.jpg";
 import vinodMehta from "@/assets/vinod-mehta.jpg";
 import nareshTrehan from "@/assets/naresh-trehan.jpg";
@@ -68,11 +68,11 @@ const alumniList = [
         description: "Served as the 29th Chief Justice of India and made landmark contributions to constitutional law. His judicial wisdom and commitment to justice have significantly influenced India's legal landscape and upheld the rule of law."
     },
     {
-        name: "Qurratulain Hyder",
-        role: "Jnanpith Awardee Novelist",
-        field: "Literature",
-        image: qurratulainHyder,
-        description: "One of the most influential Urdu writers of the 20th century and recipient of the Jnanpith Award. Her magnum opus 'Aag Ka Darya' is considered a masterpiece of Indo-Persian literature, chronicling 2,500 years of Indian history."
+        name: "Suresh Raina",
+        role: "Indian International Cricketer",
+        field: "Sports",
+        image: sureshRaina,
+        description: "Suresh Raina is an Indian former international cricketer. He played for the India national team and represented Uttar Pradesh in domestic cricket. He was an aggressive left-handed middle-order batsman and who occasionally bowled right-arm off-spin."
     },
     {
         name: "Vinod Mehta",
