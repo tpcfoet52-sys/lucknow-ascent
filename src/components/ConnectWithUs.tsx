@@ -7,7 +7,7 @@ const ConnectWithUs = () => {
                 <div className="absolute inset-0 bg-grid-slate-200/50 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.6))] dark:bg-grid-slate-800/50 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))] -z-10" />
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
                     <div>
-                        <h3 className="font-serif text-xl md:text-2xl font-semibold mb-2 flex items-center gap-2 justify-center md:justify-start">
+                        <h3 className="font-serif text-2xl md:text-3xl font-semibold mb-2 flex items-center gap-2 justify-center md:justify-start">
                             <Share2 className="w-5 h-5 text-accent" /> Connect with Us
                         </h3>
                         <p className="text-muted-foreground text-center md:text-left">
