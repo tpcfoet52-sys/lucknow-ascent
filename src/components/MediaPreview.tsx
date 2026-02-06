@@ -80,6 +80,7 @@ const MediaPreview = () => {
                                     src={item.src}
                                     alt={item.title}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    style={{ objectPosition: "top", scale: 1.1 }}
                                 />
                                 {/* Overlay gradient on hover */}
                                 {/* Gradient overlay on hover - Removed */}
@@ -133,7 +134,6 @@ const MediaPreview = () => {
                                     src={selectedItem.src}
                                     alt={selectedItem.title}
                                     className="max-w-full max-h-full object-contain"
-                                    style={{ objectPosition: "top", scale: 1.1 }}
                                 />
                             </div>
 
