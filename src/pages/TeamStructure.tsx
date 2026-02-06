@@ -207,8 +207,8 @@ const teams: Team[] = [
     name: "Web Dev & Design Team",
     description: "Technical infrastructure & design",
     icon: Code,
-    keyPoints: ["Website development", "Technical support", "Database management", "UI/UX design"],
-    members: [
+    keyPoints: ["Videography", "Flyers & Poster design", "Database management", "UI/UX design"],
+    members: [0
       { id: 1, name: "Tejas Bharadwaj", role: "Team Lead", year: "3rd Year", branch: "B.Tech ECE", linkedin: "https://www.linkedin.com/in/tejasbharadwaj05/" },
       { id: 2, name: "Sivasti Awasthi", role: "Team Lead", year: "3rd Year", branch: "B.Tech ECE" },
       { id: 3, name: "Aditya Sharma", role: "Co-Lead", year: "3rd Year", branch: "B.Tech CSE", linkedin: "https://www.linkedin.com/in/imadityaxd/" },
