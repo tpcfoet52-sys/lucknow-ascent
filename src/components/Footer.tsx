@@ -19,11 +19,11 @@ const Footer = () => {
     <footer id="contact" className="bg-primary text-primary-foreground">
       {/* Main Footer */}
       <div className="container-narrow py-8">
-        <div className="grid md:grid-cols-2 lg:flex lg:justify-between gap-6 lg:gap-10 text-center md:text-left">
+        <div className="grid md:grid-cols-2 lg:flex lg:justify-between gap-6 lg:gap-10 text-left">
           {/* About & Socials */}
-          <div className="flex flex-col items-center md:items-start lg:max-w-xs">
+          <div className="flex flex-col items-start lg:max-w-xs">
             <div>
-              <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
+              <div className="flex items-center justify-start gap-3 mb-3">
                 <img
                   src={uolLogo}
                   alt="University of Lucknow"
@@ -34,16 +34,16 @@ const Footer = () => {
                   <p className="text-xs text-primary-foreground/70">FoET, University of Lucknow</p>
                 </div>
               </div>
-              <p className="text-primary-foreground/80 text-xs leading-relaxed max-w-xs mx-auto md:mx-0">
+              <p className="text-primary-foreground/80 text-xs leading-relaxed max-w-xs">
                 Connecting Engineering Education with Industry Excellence since 2017.
               </p>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-start">
             <h4 className="font-serif font-semibold text-sm mb-3">Quick Links</h4>
-            <ul className="space-y-1.5 flex flex-col items-center md:items-start">
+            <ul className="space-y-1.5 flex flex-col items-start">
               {[
                 { name: "About TPC", href: "#about" },
                 { name: "Placement Statistics", href: "#recruiters" },
@@ -62,25 +62,26 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-start">
             <h4 className="font-serif font-semibold text-sm mb-3 md:ml-7">Contact Us</h4>
-            <ul className="space-y-1.5 flex flex-col items-center md:items-start w-full">
-              <li className="flex items-start gap-3 justify-center md:justify-start w-full">
+            <ul className="space-y-1.5 flex flex-col items-start w-full">
+              <li className="flex items-start gap-3 justify-start w-full">
                 <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/80 text-xs text-left">
-                  WWHQ+JC7, Training & Placement Cell,<br />
-                  Faculty of Engineering & Technology University of Lucknow,<br />
-                  New Campus Rd, Sultanpur Village, Jankipuram Extension,<br />
-                  Lucknow, Uttar Pradesh 226031 <a href="https://www.google.com/maps/search/?api=1&query=WWHQ%2BJC7%2C+Training+%26+Placement+Cell%2C+Faculty+of+Engineering+%26+Technology+University+of+Lucknow%2C+New+Campus+Rd%2C+Sultanpur+Village%2C+Jankipuram+Extension%2C+Lucknow%2C+Uttar+Pradesh+226031" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline ml-1 text-[10px]">(Map View)</a>
+                  Training & Placement Cell,<br />
+                  FoET, University of Lucknow,<br />
+                  New Campus Road, Jankipuram Extension,<br />
+                  Lucknow, Uttar Pradesh, 226031 <br />
+                  <a href="https://www.google.com/maps/search/?api=1&query=WWHQ%2BJC7%2C+Training+%26+Placement+Cell%2C+Faculty+of+Engineering+%26+Technology+University+of+Lucknow%2C+New+Campus+Rd%2C+Sultanpur+Village%2C+Jankipuram+Extension%2C+Lucknow%2C+Uttar+Pradesh+226031" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline ml-1 text-[10px]">(Map View)</a>
                 </span>
               </li>
-              <li className="flex items-center gap-3 justify-center md:justify-start w-full">
+              <li className="flex items-center gap-3 justify-start w-full">
                 <Phone className="w-4 h-4 text-accent flex-shrink-0" />
                 <a href="tel:+917005287870" className="text-primary-foreground/80 hover:text-accent transition-colors text-xs">
-                  +91-79052 87870
+                  +91 7905287870
                 </a>
               </li>
-              <li className="flex items-center gap-3 justify-center md:justify-start w-full">
+              <li className="flex items-center gap-3 justify-start w-full">
                 <Mail className="w-4 h-4 text-accent flex-shrink-0" />
                 <span className="flex flex-col text-left">
                   <a href="mailto:trainingfoet@gmail.com" className="text-primary-foreground/80 hover:text-accent transition-colors text-xs">
@@ -95,9 +96,9 @@ const Footer = () => {
           </div>
 
           {/* Developed by - Right-most */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-start">
             <h4 className="font-serif font-semibold text-sm mb-3 md:ml-[1.375rem]">Developed by</h4>
-            <ul className="space-y-1.5 flex flex-col items-center md:items-start">
+            <ul className="space-y-1.5 flex flex-col items-start">
               {[
                 { name: "Akash Singh", linkedin: "https://www.linkedin.com/in/akashsinghmrj64/" },
                 { name: "Srishti Mishra", linkedin: "https://www.linkedin.com/in/mishrasrishti108/" },
