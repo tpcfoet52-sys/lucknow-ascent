@@ -143,7 +143,7 @@ const Contact = () => {
                             <h3 className="font-semibold text-xl md:text-2xl text-foreground mb-4 flex items-center justify-center gap-2">
                                 <Users className="w-5 h-5 text-accent" /> Connect With Us
                             </h3>
-                            <div className="space-y-2">
+                            <div className="grid md:grid-cols-2 gap-4">
                                 {/* Training & Placement Cell Incharge */}
                                 <div className="border border-border rounded-lg overflow-hidden">
                                     <button
