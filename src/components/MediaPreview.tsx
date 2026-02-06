@@ -133,6 +133,7 @@ const MediaPreview = () => {
                                     src={selectedItem.src}
                                     alt={selectedItem.title}
                                     className="max-w-full max-h-full object-contain"
+                                    style={{ objectPosition: "top", scale: 1.1 }}
                                 />
                             </div>
 
