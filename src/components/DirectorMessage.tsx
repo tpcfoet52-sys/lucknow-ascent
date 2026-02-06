@@ -27,7 +27,7 @@ const DirectorMessage = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-card rounded-md p-6 md:p-8 shadow-elevated-sm border border-border/50 mb-10"
+          className="bg-card rounded-md p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 border border-border/50 mb-10"
         >
           <div className="flex flex-col md:flex-row items-start gap-6">
             <div className="group flex-shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-primary/50">
@@ -68,7 +68,7 @@ const DirectorMessage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-card rounded-md p-6 md:p-8 shadow-elevated-sm border border-border/50"
+            className="bg-card rounded-md p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 border border-border/50"
           >
             <div className="flex items-start gap-5 mb-6">
               <div className="group flex-shrink-0 w-20 h-20 rounded-full overflow-hidden border-2 border-accent/50">
@@ -103,7 +103,7 @@ const DirectorMessage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-card rounded-md p-6 md:p-8 shadow-elevated-sm border border-border/50"
+            className="bg-card rounded-md p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 border border-border/50"
           >
             <div className="flex items-start gap-5 mb-6">
               <div className="group flex-shrink-0 w-20 h-20 rounded-full overflow-hidden border-2 border-accent/50">

@@ -508,7 +508,7 @@ const AboutUniversity = () => {
                       <img
                         src={campus.image}
                         alt={campus.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-cover object-top transition-transform duration-500 scale-105 group-hover:scale-110"
                       />
                       {/* Gradient overlay on hover - Removed */}
                     </>

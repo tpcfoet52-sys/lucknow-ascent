@@ -130,7 +130,10 @@ const Header = () => {
   const linkColor = !showSolidHeader ? "text-primary-foreground/80 hover:text-primary-foreground" : "text-muted-foreground hover:text-primary";
 
   return (
-    <header className={`absolute lg:fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}>
+    <header
+      className={`absolute lg:fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}
+      style={{ boxShadow: '0 4px 16px -2px rgba(0, 0, 0, 0.15)' }}
+    >
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-16 md:h-20 gap-4">
           {/* Logo - always visible */}

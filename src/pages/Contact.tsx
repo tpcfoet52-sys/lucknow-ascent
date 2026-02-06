@@ -53,7 +53,7 @@ const Contact = () => {
                             viewport={{ once: true }}
                             className="mb-10"
                         >
-                            <h3 className="font-semibold text-lg text-foreground mb-4 flex items-center justify-center gap-2">
+                            <h3 className="font-semibold text-xl md:text-2xl text-foreground mb-4 flex items-center justify-center gap-2">
                                 <Smartphone className="w-5 h-5 text-accent" /> Social Networks
                             </h3>
                             <div className="grid md:grid-cols-3 gap-4">
@@ -140,7 +140,7 @@ const Contact = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                         >
-                            <h3 className="font-semibold text-lg text-foreground mb-4 flex items-center justify-center gap-2">
+                            <h3 className="font-semibold text-xl md:text-2xl text-foreground mb-4 flex items-center justify-center gap-2">
                                 <Users className="w-5 h-5 text-accent" /> Connect With Us
                             </h3>
                             <div className="space-y-2">
