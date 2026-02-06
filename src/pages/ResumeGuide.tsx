@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, CheckCircle2, XCircle, FileText, Briefcase, Award, PenTool, Download, ChevronRight, User, Settings, Sparkles, AlertTriangle, Search, LayoutTemplate, FileType } from "lucide-react";
+import { CheckCircle2, XCircle, Briefcase, Award, PenTool, Download, ChevronRight, User, Settings, AlertTriangle, Search, LayoutTemplate, FileType } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Link } from "react-router-dom";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Separator } from "@/components/ui/separator";
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+
+
 import ATSChecker from "@/components/ATSChecker";
 
 const ResumeGuide = () => {

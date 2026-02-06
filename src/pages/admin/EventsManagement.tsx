@@ -22,17 +22,17 @@ interface Event {
 
 const EventsManagement = () => {
   const [events, setEvents] = useState<Event[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+
 
   const fetchEvents = async () => {
-    setIsLoading(true);
+    // setIsLoading(true);
     const { data, error } = await supabase
       .from('events')
       .select('*')
       .order('created_at', { ascending: false });
-    
+
     if (!error && data) setEvents(data);
-    setIsLoading(false);
+    // setIsLoading(false);
   };
 
   useEffect(() => { fetchEvents(); }, []);
@@ -117,15 +117,15 @@ const EventsManagement = () => {
           <TabsTrigger value="delete">Deletion Req ({deletionRequests.length})</TabsTrigger>
           <TabsTrigger value="active">Active ({activeEvents.length})</TabsTrigger>
         </TabsList>
-        
+
         <TabsContent value="pending" className="mt-4 space-y-4">
           {pendingEvents.length === 0 ? <p className="text-muted-foreground">No pending approvals.</p> : pendingEvents.map(e => <EventCard key={e.id} event={e} actionType="approve" />)}
         </TabsContent>
-        
+
         <TabsContent value="delete" className="mt-4 space-y-4">
           {deletionRequests.length === 0 ? <p className="text-muted-foreground">No deletion requests.</p> : deletionRequests.map(e => <EventCard key={e.id} event={e} actionType="delete" />)}
         </TabsContent>
-        
+
         <TabsContent value="active" className="mt-4 space-y-4">
           {activeEvents.length === 0 ? <p className="text-muted-foreground">No active events.</p> : activeEvents.map(e => <EventCard key={e.id} event={e} actionType="active" />)}
         </TabsContent>

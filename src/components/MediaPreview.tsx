@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Camera, ArrowRight, Calendar, X } from "lucide-react";
+import { ArrowRight, Calendar, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 
 import smartIndiaHackathon from "@/assets/smart-india-hackathon.jpg";
 import samsungInnovation from "@/assets/samsung-innovation-campus.jpg";
-import { object } from "zod";
+
 
 const mediaItems = [
     {

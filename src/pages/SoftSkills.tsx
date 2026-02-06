@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, MessageSquare, Presentation, Users, Cpu, Mic, BrainCircuit, Globe, Award, Zap, TrendingUp, UserCheck } from "lucide-react";
+import { MessageSquare, Presentation, Users, Cpu, Mic, BrainCircuit, Globe, Award, Zap, TrendingUp, UserCheck } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Link } from "react-router-dom";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 

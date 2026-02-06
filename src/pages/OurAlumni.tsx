@@ -16,20 +16,9 @@ import nareshTrehan from "@/assets/naresh-trehan.jpg";
 import rituKaridhal from "@/assets/ritu-karidhal.jpg";
 import kartikeyGupta from "@/assets/karthik-gupta.png";
 
-const alumniLinks = [
-    { name: "Alumni Network", href: "#network" },
-    { name: "Distinguished Alumni", href: "#distinguished" },
-    { name: "Stories", href: "#stories" },
-];
 
-const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-        opacity: 1,
-        y: 0,
-        transition: { delay: i * 0.1, duration: 0.5 },
-    }),
-};
+
+
 
 const alumniList = [
     {

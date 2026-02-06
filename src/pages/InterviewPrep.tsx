@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, BookOpen, Users, BrainCircuit, CheckCircle2, MessageSquare, Video, FileText, ChevronRight, HelpCircle } from "lucide-react";
+import { BookOpen, BrainCircuit, CheckCircle2, MessageSquare, ChevronRight, HelpCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Link } from "react-router-dom";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const InterviewPrep = () => {

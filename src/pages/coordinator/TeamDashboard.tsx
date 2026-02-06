@@ -1,25 +1,15 @@
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ArrowLeft, LogOut, LayoutDashboard, FileText, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { supabase } from "@/lib/supabase";
-import { useEffect, useState } from "react";
+
+
 import { useLogout } from "@/hooks/useLogout";
 
 const TeamDashboard = () => {
-    const navigate = useNavigate();
-    const { logout } = useLogout();
-    const [teamName, setTeamName] = useState<string>("Team Member");
 
-    useEffect(() => {
-        const getSession = async () => {
-            const { data: { session } } = await supabase.auth.getSession();
-            if (session?.user?.user_metadata?.team) {
-                setTeamName(session.user.user_metadata.team);
-            }
-        };
-        getSession();
-    }, []);
+    const { logout } = useLogout();
+
 
     return (
         // FIXED: Added pt-20 (mobile) and md:pt-28 (desktop) to prevent Header overlap

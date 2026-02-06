@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+
 import { motion } from "framer-motion";
 import {
-  ArrowLeft,
+
   GraduationCap,
   Building,
   Users,
@@ -10,27 +10,25 @@ import {
   Award,
   MapPin,
   Calendar,
-  Library,
-  Microscope,
   Landmark,
   Gavel,
   Briefcase,
   Pill,
   Sun,
   Star,
-  Scroll,
+
   CheckCircle2,
   Building2
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
 import Footer from "@/components/Footer";
 
 import uolLogo from "@/assets/uol-logo.png";
 import heroImage from "@/assets/university-hero-new.jpg";
-import nirfBadge from "@/assets/nirf-ranking-badge.png";
+
 import centenaryLogo from "@/assets/centenary-logo.png";
 import naacBadge from "@/assets/uol-category-1-badge.png";
-import tpcLogo from "@/assets/tpc-logo.jpeg";
+
 import programEngineering from "@/assets/engineering-academic-excellence.jpg";
 import programLaw from "@/assets/law-academic-excellence.jpg";
 import programManagement from "@/assets/management-academic-excellence.jpg";
@@ -43,15 +41,7 @@ import programTourism from "@/assets/tourism-collage.jpg";
 import mainCampus from "@/assets/main-campus.jpg";
 import secondCampus from "@/assets/second-campus.jpg";
 
-const aboutUniversityLinks = [
-  { name: "Our Legacy", href: "#legacy" },
-  { name: "Courses Offered", href: "#programs" },
-  { name: "Quick Facts", href: "#quick-facts" },
-  { name: "Accreditations", href: "#accreditations" },
-  { name: "Campuses", href: "#campuses" },
-  { name: "Faculties", href: "#all-faculties" },
-  { name: "Campus Life", href: "#campus-life" },
-];
+
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -71,19 +61,9 @@ const programs = [
   { name: "Tourism", icon: Globe, students: "400+", image: programTourism, hoverDesc: "Programs in Tourism and Travel Management. Practical training in hospitality, tour operations, and heritage management with industry partnerships." },
 ];
 
-const infrastructure = [
-  { label: "Central Library", value: "5L+ Books", icon: Library },
-  { label: "Research Labs", value: "120+", icon: Microscope },
-  { label: "Smart Classrooms", value: "200+", icon: Building },
-  { label: "Hostels", value: "15", icon: MapPin },
-];
 
-const demographics = [
-  { label: "Total Students", value: "35,000+" },
-  { label: "Faculty Members", value: "1,200+" },
-  { label: "Research Scholars", value: "3,500+" },
-  { label: "International Students", value: "500+" },
-];
+
+
 
 const milestones = [
   {
@@ -131,28 +111,16 @@ const accreditations = [
   { title: "NIRF Top 100 Universities", description: "Ranked 98th in University category, 29th in Law (NIRF 2025)", icon: CheckCircle2 },
 ];
 
-const affiliations = ["UGC", "AIU", "BCI", "NCTE", "AICTE", "PCI"];
+
 
 const campusLocations = [
   { name: "Main Campus", location: "Badshah Bagh, University Road", image: mainCampus, description: "Historic campus on eastern bank of Gomti river with traditional Avadh architecture.", hoverDesc: "Spread across 144 acres with heritage buildings dating back to 1920. Houses Science, Arts, and Commerce faculties. Features the iconic administrative block, central library with 5L+ books, and beautifully landscaped gardens along the Gomti river." },
   { name: "New Campus (2nd)", location: "Jankipuram, Sitapur Road", image: secondCampus, description: "Modern 75-acre campus housing Faculty of Engineering & Technology, Management, and Law.", hoverDesc: "State-of-the-art campus established in 2017 with green building designs. Equipped with modern laboratories, smart classrooms, auditoriums, sports complex, separate hostels, and excellent placement infrastructure for professional programs." },
 ];
 
-const allFaculties = [
-  "Faculty of Arts (27+ Depts)", "Faculty of Science", "Faculty of Commerce",
-  "Faculty of Engineering & Technology", "Faculty of Law", "Faculty of Management Studies",
-  "Faculty of Education", "Faculty of Fine Arts", "Faculty of Ayurveda",
-  "Faculty of Unani", "Faculty of Yoga & Alternative Medicine"
-];
 
-const notableAlumni = [
-  { name: "Dr. Shankar Dayal Sharma", role: "9th President of India" },
-  { name: "Justice A.S. Anand", role: "Chief Justice of India" },
-  { name: "Suresh Raina", role: "Indian Cricketer" },
-  { name: "Dr. Naresh Trehan", role: "Renowned Cardiologist" },
-  { name: "Qurratulain Hyder", role: "Novelist, Padma Bhushan" },
-  { name: "Kamala Nehru", role: "Freedom Fighter" },
-];
+
+
 
 const AboutUniversity = () => {
   return (

@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+
 import { motion } from "framer-motion";
 import {
-  ArrowLeft,
+
   Target,
   Users,
   Briefcase,
@@ -12,19 +12,19 @@ import {
   FileText,
   Download,
   CheckCircle2,
-  ArrowRight
+
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
 import Footer from "@/components/Footer";
 
 import uolLogo from "@/assets/uol-logo.png";
 import naacBadge from "@/assets/uol-category-1-badge.png";
 import heroImage from "@/assets/university-hero-new.jpg";
-import profSpSingh from "@/assets/prof-sp-singh.jpg";
-import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
-import tpcLogo from "@/assets/tpc-logo.jpeg";
+
+
+
 import topRecruiters from "@/assets/top-recruiters.jpg";
-import drdoSeminar from "@/assets/drdo-seminar.jpg";
+
 import drdoOpportunities from "@/assets/drdo-opportunities.jpg";
 import workshopIndustries from "@/assets/workshop-industries.png";
 import navalAviation from "@/assets/naval-aviation.png";
@@ -33,16 +33,7 @@ import mariaKhan from "@/assets/maria-khan.png";
 import karthikGupta from "@/assets/karthik-gupta.png";
 import cloudNetworkingWebinar from "@/assets/cloud-networking-webinar.jpg";
 
-const aboutTPCLinks = [
-  { name: "Vision & Mission", href: "#vision" },
 
-  { name: "Our Services", href: "#services" },
-  { name: "Top Recruiters", href: "#recruiters" },
-  { name: "Training Programs", href: "#training" },
-  { name: "Success Stories", href: "#success" },
-  { name: "Recruitment Process", href: "#recruitment" },
-  { name: "Downloads", href: "#downloads" },
-];
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },

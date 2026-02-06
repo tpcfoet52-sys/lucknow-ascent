@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { format } from "date-fns";
-import { Loader2, FileText, CheckCircle2, XCircle, Plus, UploadCloud, Clock, ImagePlus, Trash2, LogOut } from "lucide-react";
+import { Loader2, CheckCircle2, XCircle, Plus, UploadCloud, Clock, ImagePlus, Trash2, LogOut } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";

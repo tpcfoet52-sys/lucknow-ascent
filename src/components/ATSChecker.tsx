@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Upload, FileText, CheckCircle2, AlertCircle, Loader2, RefreshCw } from "lucide-react";
+import { Upload, CheckCircle2, AlertCircle, Loader2, RefreshCw } from "lucide-react";
 import { Button } from "./ui/button";
 import { Progress } from "./ui/progress";
-import { Card, CardContent } from "./ui/card";
+
 
 const ATSChecker = () => {
     const [file, setFile] = useState<File | null>(null);

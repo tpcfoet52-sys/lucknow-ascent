@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ArrowLeft,
+
   Building2,
   Users,
   Briefcase,
@@ -15,14 +15,14 @@ import {
   Phone,
   X
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
 import Footer from "@/components/Footer";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import uolLogo from "@/assets/uol-logo.png";
 import tpcBadge from "@/assets/uol-category-1-badge.png";
 import heroImage from "@/assets/university-hero-new.jpg";
-import tpcLogo from "@/assets/tpc-logo.jpeg";
+
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
 import erPavanKumarSingh from "@/assets/er-pavan-kumar-singh.jpg";
 import erGauravSrivastava from "@/assets/er-gaurav-srivastava.jpg";
@@ -106,10 +106,7 @@ const facultyMembers = [
   }
 ];
 
-const teamStructureLinks = [
-  { name: "Faculty Coordinators", href: "#faculty-coordinators" },
-  { name: "Student Teams", href: "#student-teams" },
-];
+
 
 interface TeamMember {
   id: number;

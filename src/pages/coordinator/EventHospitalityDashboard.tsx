@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import {
   Plus, Calendar, MapPin, Trash2, Users,
-  Loader2, ArrowLeft, Download, Phone, ImageIcon, LogOut
+  Loader2, ArrowLeft, Download, Phone, LogOut
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/lib/supabase";

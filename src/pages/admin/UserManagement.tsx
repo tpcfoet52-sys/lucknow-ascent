@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
-import { Trash2, Plus, Loader2, UserPlus } from "lucide-react";
+import { Trash2, Loader2, UserPlus } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
 import { Button } from "@/components/ui/button";
@@ -89,7 +89,7 @@ const UserManagement = () => {
         .from('coordinators')
         .select('*')
         .order('created_at', { ascending: false });
-      
+
       if (error) throw error;
       setUsers(data || []);
     } catch (error) {
@@ -148,7 +148,7 @@ const UserManagement = () => {
           <h1 className="text-3xl font-bold tracking-tight text-navy-900 dark:text-white">User Management</h1>
           <p className="text-muted-foreground mt-2">Manage team coordinator access credentials.</p>
         </div>
-        
+
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
             <Button variant="gold" className="gap-2">
@@ -256,9 +256,9 @@ const UserManagement = () => {
                     <TableCell>{user.team_name}</TableCell>
                     <TableCell>{new Date(user.created_at).toLocaleDateString()}</TableCell>
                     <TableCell className="text-right">
-                      <Button 
-                        variant="destructive" 
-                        size="sm" 
+                      <Button
+                        variant="destructive"
+                        size="sm"
                         className="h-8 w-8 p-0"
                         onClick={() => deleteUser(user.id)}
                       >

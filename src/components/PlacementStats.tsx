@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { TrendingUp, Users, Building2, Award } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import gateQualifiers2025 from "@/assets/gate-qualifiers-2025.png";
-import ConnectWithUs from "./ConnectWithUs";
+
 
 const stats = [
   { label: "Highest Package (2023-24)", value: "₹26.0", unit: "LPA", icon: Award, note: "Kartikey Gupta (ECE)" },

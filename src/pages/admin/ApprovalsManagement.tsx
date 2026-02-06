@@ -3,7 +3,7 @@ import { supabase } from "@/lib/supabase";
 import { format } from "date-fns";
 import {
   CheckCircle2, XCircle, Clock, Filter,
-  Calendar, ImageIcon, FileText, Loader2, MessageSquare, Briefcase, Users, Trophy
+  Calendar, FileText, Loader2, MessageSquare, Briefcase, Users, Trophy
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "@/components/ui/use-toast";
-import { Input } from "@/components/ui/input";
+
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -42,7 +42,7 @@ interface ApprovalItem {
 const ApprovalsManagement = () => {
   const [items, setItems] = useState<ApprovalItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [filterType, setFilterType] = useState<string>("all");
+
 
   // Rejection Dialog State
   const [rejectId, setRejectId] = useState<string | null>(null);

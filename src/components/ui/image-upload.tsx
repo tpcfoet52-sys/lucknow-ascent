@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Loader2, Upload, X, Image as ImageIcon } from "lucide-react";
+import { Loader2, Upload, X } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 
 // NOTE: Ensure VITE_CLOUDINARY_CLOUD_NAME and VITE_CLOUDINARY_UPLOAD_PRESET are in your .env
@@ -48,7 +48,7 @@ export const ImageUpload = ({ value, onChange, className, disabled }: ImageUploa
       const data = await response.json();
       onChange(data.secure_url);
       toast({ title: "Success", description: "Image uploaded successfully" });
-    } catch (error) {
+    } catch {
       toast({
         title: "Upload Failed",
         description: "Could not upload image. Please try again.",
@@ -79,9 +79,8 @@ export const ImageUpload = ({ value, onChange, className, disabled }: ImageUploa
       ) : (
         <div
           onClick={() => !disabled && fileInputRef.current?.click()}
-          className={`flex aspect-video w-full max-w-md cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-muted-foreground/25 bg-muted/50 transition-colors hover:bg-muted ${
-            disabled ? "opacity-50 cursor-not-allowed" : ""
-          }`}
+          className={`flex aspect-video w-full max-w-md cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-muted-foreground/25 bg-muted/50 transition-colors hover:bg-muted ${disabled ? "opacity-50 cursor-not-allowed" : ""
+            }`}
         >
           {isUploading ? (
             <Loader2 className="h-10 w-10 animate-spin text-muted-foreground" />
