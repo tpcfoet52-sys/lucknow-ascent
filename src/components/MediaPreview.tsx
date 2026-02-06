@@ -7,6 +7,7 @@ import { Badge } from "./ui/badge";
 
 import smartIndiaHackathon from "@/assets/smart-india-hackathon.jpg";
 import samsungInnovation from "@/assets/samsung-innovation-campus.jpg";
+import { object } from "zod";
 
 const mediaItems = [
     {
