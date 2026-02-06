@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, ExternalLink, Linkedin } from "lucide-react";
 import uolLogo from "@/assets/tpc-logo.jpeg";
 
@@ -35,17 +36,17 @@ const Footer = () => {
             <h4 className="font-serif font-semibold text-sm mb-3">Quick Links</h4>
             <ul className="space-y-1.5 flex flex-col items-start">
               {[
-                { name: "About TPC", href: "#about" },
-                { name: "Placement Statistics", href: "#recruiters" },
-                { name: "Student Resources", href: "#students" },
+                { name: "About TPC", href: "/about-tpc" },
+                { name: "Placement Statistics", href: "/placement-records" },
+                { name: "Student Resources", href: "/students" },
               ].map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-primary-foreground/70 hover:text-accent transition-colors text-xs"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
