@@ -59,9 +59,10 @@ const Footer = () => {
               <li className="flex items-start gap-3 justify-start w-full">
                 <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/80 text-xs text-left">
-                  T&P Cell, FoET, University of Lucknow,<br />
+                  Training & Placement Cell,<br />
+                  FoET, University of Lucknow,<br />
                   New Campus Road, Jankipuram Extension,<br />
-                  Lucknow, Uttar Pradesh, 226031
+                  Lucknow, Uttar Pradesh, 226031 <br />
                   <a href="https://www.google.com/maps/search/?api=1&query=WWHQ%2BJC7%2C+Training+%26+Placement+Cell%2C+Faculty+of+Engineering+%26+Technology+University+of+Lucknow%2C+New+Campus+Rd%2C+Sultanpur+Village%2C+Jankipuram+Extension%2C+Lucknow%2C+Uttar+Pradesh+226031" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline ml-1 text-[10px]">(Map View)</a>
                 </span>
               </li>
