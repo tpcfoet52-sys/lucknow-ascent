@@ -1,66 +1,37 @@
-import { Button } from '@/components/ui/button';
-import { StatsCard } from '@/components/admin/StatsCard';
-import { RecentApplications } from '@/components/admin/RecentApplications';
-import QuickActions from "@/components/admin/QuickActions";
-import { TrendingUp, TrendingDown, Plus } from 'lucide-react';
+import React from 'react';
 
 const DashboardOverview = () => {
   return (
-    <div className="space-y-8">
-      {/* Page Header */}
-      <div className="flex items-center justify-between">
-        <div>
-            <h1 className="text-3xl font-bold tracking-tight">Overview</h1>
-            <p className="text-muted-foreground mt-1">Here's what's happening with your placement cell today.</p>
-        </div>
-        <Button variant="navy" className="gap-2">
-            <Plus className="h-4 w-4" />
-            Add New Post
-        </Button>
+    <div className="flex flex-col items-center justify-center h-[60vh] space-y-6">
+      <div className="text-center space-y-2">
+        <h1 className="text-3xl font-bold tracking-tight text-navy-900 dark:text-white">
+          Dashboard Overview
+        </h1>
+        <p className="text-muted-foreground">
+          This module is currently under development.
+        </p>
       </div>
 
-      {/* Stats Cards Section */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <StatsCard
-          title="Total Users"
-          value="1,234"
-          trend="+12% from last month"
-          trendIcon={TrendingUp}
-          trendDirection="up"
-        />
-        <StatsCard
-          title="Active Jobs"
-          value="56"
-          trend="+4% from last month"
-          trendIcon={TrendingUp}
-          trendDirection="up"
-        />
-        <StatsCard
-          title="Applications"
-          value="892"
-          trend="+8% from last month"
-          trendIcon={TrendingUp}
-          trendDirection="up"
-        />
-        <StatsCard
-          title="Upcoming Events"
-          value="12"
-          trend="-2% from last month"
-          trendIcon={TrendingDown}
-          trendDirection="down"
-        />
-      </div>
-
-      {/* Main Content Grid */}
-      <div className="grid gap-6 md:grid-cols-7">
-        {/* Left Column: Recent Applications */}
-        <div className="col-span-4">
-          <RecentApplications />
+      <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-12 text-center bg-gray-50/50 dark:bg-gray-800/50 w-full max-w-2xl">
+        <div className="rounded-full bg-gray-100 p-3 mb-4 dark:bg-gray-800">
+          <svg
+            className="h-8 w-8 text-gray-400"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+          </svg>
         </div>
-        {/* Right Column: Quick Actions */}
-        <div className="col-span-3">
-          <QuickActions />
-        </div>
+        <h3 className="text-xl font-medium">Coming Soon</h3>
+        <p className="text-sm text-muted-foreground max-w-sm mx-auto mt-2">
+          We are working hard to build a comprehensive dashboard for you. Check back later for updates.
+        </p>
       </div>
     </div>
   );
