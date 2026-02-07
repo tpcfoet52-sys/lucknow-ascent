@@ -95,10 +95,10 @@ const CoordinatorLogin = () => {
   return (
     <div className="min-h-screen relative flex items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8">
       <div className="absolute top-4 left-4 md:top-8 md:left-8">
-        <Link to="/team-structure">
+        <Link to="/">
           <Button variant="ghost" className="gap-2 text-muted-foreground hover:text-foreground">
             <ArrowLeft className="h-4 w-4" />
-            Back to Team
+            Back to Home
           </Button>
         </Link>
       </div>

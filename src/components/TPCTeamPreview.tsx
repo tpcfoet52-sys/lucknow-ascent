@@ -1,50 +1,17 @@
-import { motion } from "framer-motion";
-import { Building2, Users, Briefcase, Code, Camera, Calendar, ArrowRight, Phone, Mail } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Building2, Users, Briefcase, Code, Camera, Calendar, ArrowRight, Phone, Mail, X, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-
-import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
-import erPavanKumarSingh from "@/assets/er-pavan-kumar-singh.jpg";
-import erGauravSrivastava from "@/assets/er-gaurav-srivastava.jpg";
-import erPrashantKumarSingh from "@/assets/dr-prashant-kumar-singh.png";
-import erRoliKushwaha from "@/assets/er-roli-kushwaha.jpg";
-import erSonamSingh from "@/assets/er-sonam-singh.jpg";
-import erMarutiMaurya from "@/assets/er-maruti-maurya.jpg";
-import erNamitaSrivastava from "@/assets/er-namita-srivastava.png";
-import riddhiSingh from "@/assets/riddhi-singh-rathore.jpg";
-import akashSingh from "@/assets/akash-singh-new.jpg";
-import srishtiMishra from "@/assets/srishti-mishra.jpg";
-
-const facultyMembers = [
-    { name: "Dr. Himanshu Pandey", title: "Associate Professor", phone: "7905287870", email: "pandey_himanshu@lkouniv.ac.in", image: drHimanshuPandey },
-    { name: "Er. Pavan Kumar Singh", title: "Assistant Professor", phone: "9406987292", email: "pavanrajawat038@gmail.com", image: erPavanKumarSingh },
-    { name: "Er. Gaurav Srivastava", title: "Assistant Professor", phone: "9717681158", email: "gaurav.ap1793@gmail.com", image: erGauravSrivastava },
-    { name: "Dr. Prashant Kumar Singh", title: "Associate Professor", phone: "9179122557", email: "singh_pk@lkouniv.ac.in", image: erPrashantKumarSingh },
-    { name: "Er. Roli Kushwaha", title: "Assistant Professor", phone: "7007538905", email: "rolikushwaha.academics22@gmail.com", image: erRoliKushwaha },
-    { name: "Er. Sonam Singh", title: "Assistant Professor", phone: "7007928931", email: "ssinghsonam061@gmail.com", image: erSonamSingh },
-    { name: "Er. Maruti Maurya", title: "Assistant Professor", phone: "7020464299", email: "maurya_maruti@lkouniv.ac.in", image: erMarutiMaurya },
-    { name: "Er. Namita Srivastava", title: "Assistant Professor", phone: "9651314977", email: "namitas25@gmail.com", image: erNamitaSrivastava },
-];
-
-const teamLeads = [
-    { name: "Riddhi Singh Rathore", role: "Coordinator Lead", image: riddhiSingh },
-    { name: "Akash Singh", role: "Networking Co-Lead", image: akashSingh },
-    { name: "Srishti Mishra", role: "Networking Team", image: srishtiMishra },
-];
-
-const teamsPreview = [
-    { id: 2, name: "Networking & Outreach", icon: Users, members: 9 },
-    { id: 1, name: "Corporate Connect", icon: Building2, members: 8 },
-    { id: 3, name: "Industry Interface", icon: Briefcase, members: 8 },
-    { id: 4, name: "Web Dev & Design", icon: Code, members: 10 },
-    { id: 5, name: "Content & Media", icon: Camera, members: 8 },
-    { id: 6, name: "Event & Hospitality", icon: Calendar, members: 10 },
-];
+import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog";
+import { teams, facultyMembers, teamLeads, Team } from "@/data/teamData";
 
 const TPCTeamPreview = () => {
+    const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
+
     return (
-        <section className="section-padding bg-secondary/30">
+        <section className="section-padding bg-secondary/30 relative">
             <div className="container-narrow">
                 {/* Section Header */}
                 <motion.div
@@ -63,12 +30,7 @@ const TPCTeamPreview = () => {
                             Meet the dedicated faculty and student coordinators powering our placements
                         </p>
                     </div>
-                    <Link to="/team-structure" className="flex-shrink-0">
-                        <Button className="group bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300">
-                            View Full Team
-                            <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                        </Button>
-                    </Link>
+
                 </motion.div>
 
                 {/* Faculty Coordinators Section */}
@@ -104,6 +66,79 @@ const TPCTeamPreview = () => {
                     </div>
                 </motion.div>
 
+                {/* Student Coordinators Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="bg-card rounded-xl p-5 md:p-6 border border-border/50 mb-6"
+                >
+                    <h3 className="text-sm font-medium text-accent uppercase tracking-wider mb-5 text-center">Student Coordinators 2025-26</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center items-center max-w-4xl mx-auto">
+                        {teamLeads.map((lead, idx) => {
+                            const isGroupPhoto = lead.name === "Student Coordinators";
+
+                            if (isGroupPhoto) {
+                                return (
+                                    <Dialog key={idx}>
+                                        <DialogTrigger asChild>
+                                            <div className="flex flex-col items-center text-center group cursor-pointer w-full max-w-xs">
+                                                <div className="relative mb-3 w-full">
+                                                    <div className="aspect-[4/3] w-full rounded-lg overflow-hidden border-2 border-accent/30 group-hover:border-accent group-hover:shadow-lg transition-all duration-300">
+                                                        <img
+                                                            src={lead.image}
+                                                            alt={lead.name}
+                                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                        />
+                                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                                                            <span className="bg-background/80 text-foreground text-xs px-3 py-1 rounded-full backdrop-blur-sm">View Full Image</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-accent text-white text-[10px] px-3 py-0.5 rounded-full shadow-sm whitespace-nowrap z-10">
+                                                        {lead.role}
+                                                    </div>
+                                                </div>
+                                                <h4 className="text-sm font-semibold text-foreground mt-4">{lead.name}</h4>
+                                            </div>
+                                        </DialogTrigger>
+                                        <DialogContent className="max-w-[90vw] md:max-w-4xl p-0 bg-transparent border-none shadow-none [&>button]:hidden">
+                                            <div className="relative">
+                                                <DialogClose className="absolute -top-12 right-0 md:-right-12 p-2 bg-white text-black hover:bg-accent hover:text-accent-foreground rounded-full shadow-lg border border-border/10 transition-all duration-300 group z-50">
+                                                    <X className="w-6 h-6 transition-transform group-hover:rotate-90" />
+                                                </DialogClose>
+                                                <img
+                                                    src={lead.image}
+                                                    alt={lead.name}
+                                                    className="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl"
+                                                />
+                                            </div>
+                                        </DialogContent>
+                                    </Dialog>
+                                );
+                            }
+
+                            return (
+                                <div key={idx} className="flex flex-col items-center text-center group">
+                                    <div className="relative mb-3">
+                                        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-accent/30 group-hover:border-accent transition-colors duration-300">
+                                            <img
+                                                src={lead.image}
+                                                alt={lead.name}
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                            />
+                                        </div>
+                                        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-accent text-white text-[10px] px-2 py-0.5 rounded-full shadow-sm whitespace-nowrap">
+                                            {lead.role}
+                                        </div>
+                                    </div>
+                                    <h4 className="text-sm font-semibold text-foreground mt-2">{lead.name}</h4>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </motion.div>
+
                 {/* Student Teams Section - Full Width */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -114,12 +149,13 @@ const TPCTeamPreview = () => {
                 >
                     <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-4">Student Teams</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                        {teamsPreview.map((team, idx) => {
+                        {teams.map((team, idx) => {
                             const IconComponent = team.icon;
+                            // Using div instead of Link to open modal
                             return (
-                                <Link
+                                <div
                                     key={idx}
-                                    to={`/team-structure?team=${team.id}`}
+                                    onClick={() => setSelectedTeam(team)}
                                     className="group flex items-center gap-3 p-3 bg-background rounded-lg border border-border/30 hover:border-accent hover:bg-accent/5 hover:shadow-md transition-all cursor-pointer"
                                 >
                                     <div className="w-8 h-8 rounded-md bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center flex-shrink-0 transition-colors">
@@ -127,15 +163,128 @@ const TPCTeamPreview = () => {
                                     </div>
                                     <div className="min-w-0 flex-1">
                                         <p className="text-xs font-medium text-foreground group-hover:text-accent truncate transition-colors">{team.name}</p>
-                                        <p className="text-[10px] text-muted-foreground">{team.members} members</p>
+                                        <p className="text-[10px] text-muted-foreground">{team.members.length} members</p>
                                     </div>
                                     <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all flex-shrink-0" />
-                                </Link>
+                                </div>
                             );
                         })}
                     </div>
                 </motion.div>
             </div>
+
+            {/* Team Dashboard Modal - Copied and adapted from TeamStructure.tsx */}
+            <AnimatePresence>
+                {selectedTeam && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm flex items-center justify-center p-4"
+                        onClick={() => setSelectedTeam(null)}
+                    >
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                            transition={{ duration: 0.3 }}
+                            className="bg-background border border-border rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {/* Dashboard Header */}
+                            <div className="relative p-6 md:p-8 border-b border-border">
+                                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5" />
+                                <div className="relative flex items-start justify-between">
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center">
+                                            <selectedTeam.icon className="h-7 w-7 text-primary" />
+                                        </div>
+                                        <div>
+                                            <h2 className="font-serif text-2xl font-semibold text-foreground">
+                                                {selectedTeam.name}
+                                            </h2>
+                                            <p className="text-muted-foreground">{selectedTeam.description}</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        onClick={() => setSelectedTeam(null)}
+                                        className="p-2 bg-white text-black hover:bg-accent hover:text-accent-foreground rounded-full shadow-lg border border-border/10 transition-all duration-300 group"
+                                    >
+                                        <X className="w-5 h-5 transition-transform group-hover:rotate-90" />
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Key Responsibilities */}
+                            <div className="p-6 md:p-8 border-b border-border bg-muted/10">
+                                <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-4">
+                                    Key Responsibilities
+                                </h3>
+                                <div className="grid sm:grid-cols-2 gap-3">
+                                    {selectedTeam.keyPoints.map((point, idx) => (
+                                        <div key={idx} className="flex items-center gap-3 text-sm text-muted-foreground">
+                                            <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
+                                            <span>{point}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Team Members */}
+                            <div className="p-6 md:p-8">
+                                <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-6">
+                                    Team Members
+                                </h3>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    {selectedTeam.members.map((member, idx) => (
+                                        <motion.div
+                                            key={member.id}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: idx * 0.1 }}
+                                            className="flex flex-col items-center p-6 bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+                                        >
+                                            <Avatar className="w-24 h-24 border-4 border-background shadow-lg mb-4">
+                                                <AvatarImage src={member.image} className="object-cover" />
+                                                <AvatarFallback className="bg-primary text-primary-foreground text-xl font-bold">
+                                                    {member.name.split(' ').map(n => n[0]).join('')}
+                                                </AvatarFallback>
+                                            </Avatar>
+
+                                            <div className="text-center w-full space-y-2 mb-4">
+                                                <h4 className="font-serif text-lg font-bold text-foreground leading-tight">{member.name}</h4>
+                                                <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide">{member.role}</p>
+                                                {(member.branch || member.year) && (
+                                                    <span className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs font-semibold rounded-full border border-accent/20 mt-1">
+                                                        {member.year} {member.year && member.branch && "•"} {member.branch}
+                                                    </span>
+                                                )}
+                                            </div>
+
+                                            <div className="flex items-center gap-3 mt-auto justify-center w-full">
+                                                {member.email && (
+                                                    <a href={`mailto:${member.email}`} className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                                        <Mail className="w-4 h-4" />
+                                                    </a>
+                                                )}
+                                                {member.linkedin ? (
+                                                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                                        <Linkedin className="w-4 h-4" />
+                                                    </a>
+                                                ) : (
+                                                    <button disabled className="p-3 bg-background/50 border border-border/50 rounded-full text-muted-foreground cursor-not-allowed">
+                                                        <Linkedin className="w-4 h-4" />
+                                                    </button>
+                                                )}
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };
