@@ -12,7 +12,7 @@ import adaniLogo from "../assets/adani-cements-logo.png";
 import mothersonLogo from "../assets/motherson-logo.png";
 import allenLogo from "../assets/allen-logo.png";
 import pwLogo from "../assets/pw-logo.png";
-import byjusLogo from "../assets/byjus-logo.png";
+
 import techMahindraLogo from "../assets/tech-mahindra-logo.png";
 import jaroLogo from "../assets/jaro-logo-new.png";
 import relianceLogo from "../assets/reliance-logo.png";
@@ -30,7 +30,7 @@ const companies = [
   { name: "Motherson International", logo: mothersonLogo, scale: 1.25 },
   { name: "Allen", logo: allenLogo },
   { name: "PW", logo: pwLogo },
-  { name: "BYJU’S", logo: byjusLogo, scale: 1.75 },
+
   { name: "Tech Mahindra", logo: techMahindraLogo, scale: 1.45 },
   { name: "Jaro Education", logo: jaroLogo },
   { name: "Reliance Industries Ltd.", logo: relianceLogo },

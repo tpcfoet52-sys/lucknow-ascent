@@ -107,13 +107,13 @@ const HeroSection = () => {
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
-            <Link to="/students">
+            <Link to="/skill-development">
               <Button
                 variant="heroDark"
                 size="lg"
                 className="min-w-[200px] text-base font-medium"
               >
-                For Students
+                Skill Development
               </Button>
             </Link>
           </motion.div>

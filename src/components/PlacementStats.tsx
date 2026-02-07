@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Users, Building2, Award } from "lucide-react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-import gateQualifiers2025 from "@/assets/gate-qualifiers-2025.png";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LabelList } from "recharts";
 
 
 const stats = [
@@ -132,8 +131,8 @@ const PlacementStats = () => {
           </div>
           <div className="h-64 md:h-80">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={foetPlacementData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
+              <BarChart data={foetPlacementData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" vertical={false} />
                 <XAxis
                   dataKey="year"
                   tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }}
@@ -142,18 +141,19 @@ const PlacementStats = () => {
                 <YAxis
                   tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }}
                   axisLine={{ stroke: 'hsl(var(--border))' }}
-                  domain={[0, 450]}
+                  domain={[0, 600]}
                 />
-                <Tooltip content={<CustomTooltip />} />
-                <Line
-                  type="monotone"
+                <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--muted)/0.2)' }} />
+                <Bar
                   dataKey="students"
-                  stroke="hsl(var(--accent))"
-                  strokeWidth={3}
-                  dot={{ fill: 'hsl(var(--accent))', strokeWidth: 2, r: 5 }}
-                  activeDot={{ r: 8, fill: 'hsl(var(--primary))' }}
-                />
-              </LineChart>
+                  fill="hsl(var(--gold))"
+                  radius={[4, 4, 0, 0]}
+                  barSize={40}
+                  animationDuration={1500}
+                >
+                  <LabelList dataKey="students" position="top" fill="hsl(var(--foreground))" fontSize={12} fontWeight="bold" />
+                </Bar>
+              </BarChart>
             </ResponsiveContainer>
           </div>
           <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
@@ -161,7 +161,7 @@ const PlacementStats = () => {
           </div>
         </motion.div>
 
-        {/* Year-wise Highest Package - Enhanced Design */}
+        {/* Year-wise Highest Package */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -201,29 +201,9 @@ const PlacementStats = () => {
                     <p className="text-foreground text-sm font-medium leading-tight">{data.studentName}</p>
                     <p className="text-accent text-xs font-semibold">{data.branch}</p>
                   </div>
-
-
                 </div>
               </motion.div>
             ))}
-          </div>
-        </motion.div>
-
-        {/* GATE Qualifiers 2025 */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-8 bg-card rounded-md p-5 md:p-6 shadow-elevated-sm border border-border/50"
-        >
-          <h3 className="font-serif text-lg font-semibold text-foreground mb-5 text-center">GATE Qualifiers 2025</h3>
-          <div className="w-full rounded-lg overflow-hidden">
-            <img
-              src={gateQualifiers2025}
-              alt="GATE Qualifiers 2025"
-              className="w-full h-auto object-contain"
-            />
           </div>
         </motion.div>
       </div>

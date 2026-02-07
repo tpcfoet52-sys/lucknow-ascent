@@ -18,7 +18,8 @@ import {
   Star,
 
   CheckCircle2,
-  Building2
+  Building2,
+  ExternalLink
 } from "lucide-react";
 
 import Footer from "@/components/Footer";
@@ -114,8 +115,22 @@ const accreditations = [
 
 
 const campusLocations = [
-  { name: "Main Campus", location: "Badshah Bagh, University Road", image: mainCampus, description: "Historic campus on eastern bank of Gomti river with traditional Avadh architecture.", hoverDesc: "Spread across 144 acres with heritage buildings dating back to 1920. Houses Science, Arts, and Commerce faculties. Features the iconic administrative block, central library with 5L+ books, and beautifully landscaped gardens along the Gomti river." },
-  { name: "New Campus (2nd)", location: "Jankipuram, Sitapur Road", image: secondCampus, description: "Modern 75-acre campus housing Faculty of Engineering & Technology, Management, and Law.", hoverDesc: "State-of-the-art campus established in 2017 with green building designs. Equipped with modern laboratories, smart classrooms, auditoriums, sports complex, separate hostels, and excellent placement infrastructure for professional programs." },
+  {
+    name: "Main Campus",
+    location: "Badshah Bagh, University Road",
+    image: mainCampus,
+    mapUrl: "https://maps.app.goo.gl/Xqk1KKwYzpiZrZGe8?g_st=aw",
+    description: "Historic campus on eastern bank of Gomti river with traditional Avadh architecture.",
+    hoverDesc: "Spread across 144 acres with heritage buildings dating back to 1920. Houses Science, Arts, and Commerce faculties. Features the iconic administrative block, central library with 5L+ books, and beautifully landscaped gardens along the Gomti river."
+  },
+  {
+    name: "New Campus (2nd)",
+    location: "Jankipuram, Sitapur Road",
+    image: secondCampus,
+    mapUrl: "https://maps.app.goo.gl/HWSgxAqXMQTMm8ip6?g_st=aw",
+    description: "Modern 75-acre campus housing Faculty of Engineering & Technology, Management, and Law.",
+    hoverDesc: "State-of-the-art campus established in 2017 with green building designs. Equipped with modern laboratories, smart classrooms, auditoriums, sports complex, separate hostels, and excellent placement infrastructure for professional programs."
+  },
 ];
 
 
@@ -490,13 +505,16 @@ const AboutUniversity = () => {
                 {/* Content Section */}
                 <div className="p-4 relative z-10 bg-card">
                   <div className="flex items-start gap-3 mb-2">
-                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <a href={campus.mapUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 hover:bg-primary/20 transition-colors">
                       <MapPin className="h-4 w-4 text-primary" />
-                    </div>
+                    </a>
                     <div className="flex-1">
-                      <h3 className="font-serif font-semibold text-base text-foreground group-hover:text-accent transition-colors">
-                        {campus.name}
-                      </h3>
+                      <a href={campus.mapUrl} target="_blank" rel="noopener noreferrer" className="group-hover:text-accent transition-colors block w-fit">
+                        <h3 className="font-serif font-semibold text-base text-foreground group-hover:text-accent transition-colors inline-flex items-center gap-2">
+                          {campus.name}
+                          <ExternalLink className="w-3 h-3 text-muted-foreground opacity-50 group-hover:opacity-100 transition-opacity" />
+                        </h3>
+                      </a>
                       <p className="text-accent text-xs font-medium">{campus.location}</p>
                     </div>
                   </div>

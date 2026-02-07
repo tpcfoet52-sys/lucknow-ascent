@@ -38,7 +38,7 @@ const Footer = () => {
               {[
                 { name: "About TPC", href: "/about-tpc" },
                 { name: "Placement Statistics", href: "/placement-records" },
-                { name: "Student Resources", href: "/students" },
+                { name: "Skill Development", href: "/skill-development" },
               ].map((link, index) => (
                 <li key={index}>
                   <Link
@@ -95,8 +95,7 @@ const Footer = () => {
                 { name: "Srishti Mishra", linkedin: "https://www.linkedin.com/in/mishrasrishti108/" },
                 { name: "Anurag", linkedin: "https://www.linkedin.com/in/anurag-210a86317/" },
                 { name: "Akash Kumar Yadav", linkedin: "https://www.linkedin.com/in/akash-kumar-yadav-b1a33430b/" },
-                { name: "Rashmi Kushwaha", linkedin: "https://www.linkedin.com/in/rashmikushwaha2005/" },
-                { name: "Aryan Tripathi", linkedin: "https://www.linkedin.com/in/aryan-tripathi-45346a254/" }
+                { name: "Rashmi Kushwaha", linkedin: "https://www.linkedin.com/in/rashmikushwaha2005/" }
               ].map((dev, index) => (
                 <li key={index} className="flex items-center gap-2">
                   <a

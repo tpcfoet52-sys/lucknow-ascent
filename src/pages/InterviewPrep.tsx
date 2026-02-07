@@ -43,44 +43,204 @@ const InterviewPrep = () => {
                             <BookOpen className="w-6 h-6 text-accent" /> Curated Guides
                         </h2>
                         <Tabs defaultValue="technical" className="w-full">
-                            <TabsList className="grid w-full grid-cols-3 max-w-md mx-auto mb-8">
-                                <TabsTrigger value="technical">Technical</TabsTrigger>
-                                <TabsTrigger value="hr">HR & Behavioral</TabsTrigger>
-                                <TabsTrigger value="gd">Group Discussion</TabsTrigger>
+                            <TabsList className="flex flex-wrap justify-center w-full max-w-2xl mx-auto mb-10 bg-background/50 backdrop-blur-sm border border-gold/20 p-1.5 rounded-xl shadow-sm h-auto gap-2">
+                                <TabsTrigger value="technical" className="flex-1 min-w-[120px] rounded-lg data-[state=active]:bg-gold/10 data-[state=active]:text-gold-dark border border-transparent data-[state=active]:border-gold/20 transition-all duration-300 hover:text-gold-dark/80 font-medium px-4 py-2">Technical</TabsTrigger>
+                                <TabsTrigger value="hr" className="flex-1 min-w-[120px] rounded-lg data-[state=active]:bg-gold/10 data-[state=active]:text-gold-dark border border-transparent data-[state=active]:border-gold/20 transition-all duration-300 hover:text-gold-dark/80 font-medium px-4 py-2">HR & Behavioral</TabsTrigger>
+                                <TabsTrigger value="gd" className="flex-1 min-w-[120px] rounded-lg data-[state=active]:bg-gold/10 data-[state=active]:text-gold-dark border border-transparent data-[state=active]:border-gold/20 transition-all duration-300 hover:text-gold-dark/80 font-medium px-4 py-2">Group Discussion</TabsTrigger>
                             </TabsList>
                             <TabsContent value="technical" className="space-y-6">
-                                <div className="grid md:grid-cols-2 gap-6">
-                                    <Card>
-                                        <CardHeader>
-                                            <CardTitle>Data Structures & Algorithms</CardTitle>
-                                            <CardDescription>The backbone of technical interviews.</CardDescription>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <ul className="space-y-2">
-                                                {["Arrays & Strings", "Linked Lists", "Trees & Graphs", "Dynamic Programming"].map((item, i) => (
-                                                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                        <ChevronRight className="w-4 h-4 text-accent" /> {item}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </CardContent>
-                                    </Card>
-                                    <Card>
-                                        <CardHeader>
-                                            <CardTitle>System Design</CardTitle>
-                                            <CardDescription>For senior or backend roles.</CardDescription>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <ul className="space-y-2">
-                                                {["Scalability Basics", "Load Balancing", "Database Sharding", "Caching Strategies"].map((item, i) => (
-                                                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                        <ChevronRight className="w-4 h-4 text-accent" /> {item}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </CardContent>
-                                    </Card>
-                                </div>
+                                <Tabs defaultValue="cse" className="w-full">
+                                    <div className="flex flex-col items-center mb-10">
+                                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">Choose Your Engineering Branch</p>
+                                        <TabsList className="bg-muted/40 p-1.5 rounded-full flex flex-wrap justify-center h-auto gap-1 border border-border/50 w-full max-w-4xl mx-auto">
+                                            <TabsTrigger value="cse" className="rounded-full px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all">CSE</TabsTrigger>
+                                            <TabsTrigger value="ece" className="rounded-full px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all">ECE</TabsTrigger>
+                                            <TabsTrigger value="ee" className="rounded-full px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all">EE</TabsTrigger>
+                                            <TabsTrigger value="me" className="rounded-full px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all">ME</TabsTrigger>
+                                            <TabsTrigger value="ce" className="rounded-full px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all">CE</TabsTrigger>
+                                        </TabsList>
+                                    </div>
+
+                                    {/* CSE Content */}
+                                    <TabsContent value="cse" className="space-y-4">
+                                        <div className="grid md:grid-cols-2 gap-6">
+                                            <Card>
+                                                <CardHeader>
+                                                    <CardTitle>Data Structures & Algorithms</CardTitle>
+                                                    <CardDescription>Core problem-solving skills.</CardDescription>
+                                                </CardHeader>
+                                                <CardContent>
+                                                    <ul className="space-y-2">
+                                                        {["Arrays & Strings", "Linked Lists", "Trees & Graphs", "Dynamic Programming", "Sorting & Searching"].map((item, i) => (
+                                                            <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                <ChevronRight className="w-4 h-4 text-accent" /> {item}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </CardContent>
+                                            </Card>
+                                            <Card>
+                                                <CardHeader>
+                                                    <CardTitle>Core CS Subjects</CardTitle>
+                                                    <CardDescription>Fundamental computer science concepts.</CardDescription>
+                                                </CardHeader>
+                                                <CardContent>
+                                                    <ul className="space-y-2">
+                                                        {["Operating Systems (Deadlocks, Paging)", "DBMS (SQL, Normalization)", "Computer Networks (OSI Model, TCP/IP)", "OOPs Concepts"].map((item, i) => (
+                                                            <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                <ChevronRight className="w-4 h-4 text-accent" /> {item}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </CardContent>
+                                            </Card>
+                                        </div>
+                                    </TabsContent>
+
+                                    {/* ECE Content */}
+                                    <TabsContent value="ece" className="space-y-4">
+                                        <div className="grid md:grid-cols-2 gap-6">
+                                            <Card>
+                                                <CardHeader>
+                                                    <CardTitle>Digital Electronics</CardTitle>
+                                                    <CardDescription>Logic design and circuits.</CardDescription>
+                                                </CardHeader>
+                                                <CardContent>
+                                                    <ul className="space-y-2">
+                                                        {["Logic Gates & Boolean Algebra", "Combinational Circuits (Mux, Decoder)", "Sequential Circuits (Flip-Flops, Counters)", "Microprocessors (8085/8086)"].map((item, i) => (
+                                                            <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                <ChevronRight className="w-4 h-4 text-accent" /> {item}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </CardContent>
+                                            </Card>
+                                            <Card>
+                                                <CardHeader>
+                                                    <CardTitle>Analog & Communication</CardTitle>
+                                                    <CardDescription>Signals and semiconductor physics.</CardDescription>
+                                                </CardHeader>
+                                                <CardContent>
+                                                    <ul className="space-y-2">
+                                                        {["Semiconductor Physics (Diodes, BJTs, FETs)", "Op-Amps & Applications", "Analog Communication (AM, FM)", "Digital Communication (PCM, Modulation)"].map((item, i) => (
+                                                            <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                <ChevronRight className="w-4 h-4 text-accent" /> {item}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </CardContent>
+                                            </Card>
+                                        </div>
+                                    </TabsContent>
+
+                                    {/* EE Content */}
+                                    <TabsContent value="ee" className="space-y-4">
+                                        <div className="grid md:grid-cols-2 gap-6">
+                                            <Card>
+                                                <CardHeader>
+                                                    <CardTitle>Electrical Machines</CardTitle>
+                                                    <CardDescription>Motors, generators and transformers.</CardDescription>
+                                                </CardHeader>
+                                                <CardContent>
+                                                    <ul className="space-y-2">
+                                                        {["Transformers (Efficiency, Regulation)", "DC Machines", "Induction Motors", "Synchronous Machines"].map((item, i) => (
+                                                            <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                <ChevronRight className="w-4 h-4 text-accent" /> {item}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </CardContent>
+                                            </Card>
+                                            <Card>
+                                                <CardHeader>
+                                                    <CardTitle>Power Systems & Circuits</CardTitle>
+                                                    <CardDescription>Grid and circuit analysis.</CardDescription>
+                                                </CardHeader>
+                                                <CardContent>
+                                                    <ul className="space-y-2">
+                                                        {["Transmission & Distribution", "Power System Protection", "Circuit Theory (KCL, KVL, Theorems)", "Control Systems"].map((item, i) => (
+                                                            <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                <ChevronRight className="w-4 h-4 text-accent" /> {item}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </CardContent>
+                                            </Card>
+                                        </div>
+                                    </TabsContent>
+
+                                    {/* ME Content */}
+                                    <TabsContent value="me" className="space-y-4">
+                                        <div className="grid md:grid-cols-2 gap-6">
+                                            <Card>
+                                                <CardHeader>
+                                                    <CardTitle>Thermal Engineering</CardTitle>
+                                                    <CardDescription>Heat and energy systems.</CardDescription>
+                                                </CardHeader>
+                                                <CardContent>
+                                                    <ul className="space-y-2">
+                                                        {["Thermodynamics Laws & Cycles", "Fluid Mechanics (Bernoulli's, Viscosity)", "Heat Transfer", "IC Engines"].map((item, i) => (
+                                                            <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                <ChevronRight className="w-4 h-4 text-accent" /> {item}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </CardContent>
+                                            </Card>
+                                            <Card>
+                                                <CardHeader>
+                                                    <CardTitle>Design & Mechanics</CardTitle>
+                                                    <CardDescription>Structure and motion.</CardDescription>
+                                                </CardHeader>
+                                                <CardContent>
+                                                    <ul className="space-y-2">
+                                                        {["Strength of Materials (Stress-Strain)", "Theory of Machines", "Machine Design", "Manufacturing Processes"].map((item, i) => (
+                                                            <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                <ChevronRight className="w-4 h-4 text-accent" /> {item}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </CardContent>
+                                            </Card>
+                                        </div>
+                                    </TabsContent>
+
+                                    {/* CE Content */}
+                                    <TabsContent value="ce" className="space-y-4">
+                                        <div className="grid md:grid-cols-2 gap-6">
+                                            <Card>
+                                                <CardHeader>
+                                                    <CardTitle>Structural Engineering</CardTitle>
+                                                    <CardDescription>Analysis and construction materials.</CardDescription>
+                                                </CardHeader>
+                                                <CardContent>
+                                                    <ul className="space-y-2">
+                                                        {["Structural Analysis (Forces, Moments)", "Concrete Technology", "Steel Structures", "Building Materials"].map((item, i) => (
+                                                            <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                <ChevronRight className="w-4 h-4 text-accent" /> {item}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </CardContent>
+                                            </Card>
+                                            <Card>
+                                                <CardHeader>
+                                                    <CardTitle>Geotechnical & Environmental</CardTitle>
+                                                    <CardDescription>Soil and water systems.</CardDescription>
+                                                </CardHeader>
+                                                <CardContent>
+                                                    <ul className="space-y-2">
+                                                        {["Soil Mechanics", "Foundation Engineering", "Environmental Engineering (Water Treatment)", "Surveying & Highway Engineering"].map((item, i) => (
+                                                            <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                <ChevronRight className="w-4 h-4 text-accent" /> {item}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </CardContent>
+                                            </Card>
+                                        </div>
+                                    </TabsContent>
+                                </Tabs>
                             </TabsContent>
                             <TabsContent value="hr" className="space-y-6">
                                 <Card>

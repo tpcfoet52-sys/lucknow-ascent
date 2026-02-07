@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -294,6 +295,18 @@ const cardVariants = {
 const TeamStructure = () => {
   const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
   const [showGroupPhoto, setShowGroupPhoto] = useState(false);
+  const [searchParams] = useSearchParams();
+
+  // Auto-open team modal if team ID is in URL
+  useEffect(() => {
+    const teamId = searchParams.get('team');
+    if (teamId) {
+      const team = teams.find(t => t.id === parseInt(teamId));
+      if (team) {
+        setSelectedTeam(team);
+      }
+    }
+  }, [searchParams]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -357,45 +370,26 @@ const TeamStructure = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-12 text-center"
+            className="bg-card rounded-xl p-5 md:p-6 border border-border/50 mb-6"
           >
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-8">
-              Faculty Coordinators
-            </h2>
-            <div className="flex flex-wrap justify-center gap-8">
+            <h3 className="text-sm font-medium text-accent uppercase tracking-wider mb-5 text-center">Faculty Coordinators</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
               {facultyMembers.map((faculty, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center transition-all duration-300 h-full w-full max-w-xs"
-                >
-                  <div className="flex-shrink-0 w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20">
-                    <img
-                      src={faculty.image}
-                      alt={faculty.name}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    />
+                <div key={idx} className="flex flex-col items-center text-center">
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-accent/30 mb-2 overflow-hidden">
+                    <img src={faculty.image} alt={faculty.name} className="w-full h-full object-cover" />
                   </div>
-                  <div className="flex-1 flex flex-col items-center w-full">
-                    <h3 className="font-serif text-sm font-bold text-foreground mb-1 whitespace-nowrap overflow-hidden text-ellipsis w-full text-center">
-                      {faculty.name}
-                    </h3>
-                    <p className="text-accent text-[10px] font-semibold uppercase tracking-wider mb-1 min-h-[1.5rem] flex items-center justify-center">{faculty.title}</p>
-                    <p className="text-muted-foreground text-[10px] font-medium uppercase tracking-wide mb-3 min-h-[1rem] flex items-center justify-center">{faculty.role}</p>
-
-                    <div className="flex items-center gap-3 mt-auto">
-                      <a href={`tel:${faculty.phone}`} className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={faculty.phone}>
-                        <Phone className="w-4 h-4" />
-                      </a>
-                      <a href={`mailto:${faculty.email}`} className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={faculty.email}>
-                        <Mail className="w-4 h-4" />
-                      </a>
-                    </div>
+                  <p className="text-xs font-medium text-foreground leading-tight">{faculty.name}</p>
+                  <p className="text-[10px] text-muted-foreground mt-0.5">{faculty.title}</p>
+                  <div className="flex items-center gap-2 mt-2">
+                    <a href={`tel:${faculty.phone}`} className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={faculty.phone}>
+                      <Phone className="w-3 h-3" />
+                    </a>
+                    <a href={`mailto:${faculty.email}`} className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={faculty.email}>
+                      <Mail className="w-3 h-3" />
+                    </a>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </motion.div>
@@ -620,6 +614,21 @@ const TeamStructure = () => {
 
 
 
+                {/* Key Responsibilities */}
+                <div className="p-6 md:p-8 border-b border-border bg-muted/10">
+                  <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-4">
+                    Key Responsibilities
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {selectedTeam.keyPoints.map((point, idx) => (
+                      <div key={idx} className="flex items-center gap-3 text-sm text-muted-foreground">
+                        <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
+                        <span>{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Team Members */}
                 <div className="p-6 md:p-8">
                   <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-6">
@@ -668,21 +677,6 @@ const TeamStructure = () => {
                           )}
                         </div>
                       </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Key Responsibilities */}
-                <div className="p-6 md:p-8 border-t border-border bg-muted/10">
-                  <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-4">
-                    Key Responsibilities
-                  </h3>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {selectedTeam.keyPoints.map((point, idx) => (
-                      <div key={idx} className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
-                        <span>{point}</span>
-                      </div>
                     ))}
                   </div>
                 </div>
