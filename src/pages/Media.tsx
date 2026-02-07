@@ -41,12 +41,12 @@ const Media = () => {
                     // Map DB types to UI categories
                     type: item.type === 'drive' ? 'Drives' :
                         item.type === 'seminar' ? 'Seminars' :
-                            item.type === 'top_performer' ? 'Star Performers' :
+                            item.type === 'top_performer' ? 'Achievers' :
                                 item.type === 'press_release' ? 'Press' :
                                     // Legacy Fallbacks
                                     (item.title && item.title.includes("Placement Drive")) ? 'Drives' :
                                         (item.title && item.title.includes("Higher Education Opportunities")) ? 'Seminars' :
-                                            item.type === 'achievement' ? 'Star Performers' : 'Events',
+                                            item.type === 'achievement' ? 'Achievers' : 'Events',
                     src: item.image_url,
                     title: item.title,
                     date: new Date(item.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
@@ -134,7 +134,7 @@ const Media = () => {
                             </div>
 
                             <div className="flex flex-wrap justify-center gap-2">
-                                {["All", "Drives", "Events", "Seminars", "Star Performers"].map((cat) => (
+                                {["All", "Drives", "Events", "Seminars", "Achievers"].map((cat) => (
                                     <Button
                                         key={cat}
                                         variant={filter === cat ? "default" : "outline"}
