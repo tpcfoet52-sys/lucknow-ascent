@@ -27,7 +27,7 @@ const LeaderCard = ({ name, role, institution, image, quote, bio, isFullWidth = 
       className="bg-card rounded-md p-4 shadow-sm hover:shadow-md transition-all duration-300 border border-border/50"
     >
       <div className="flex items-start gap-3">
-        <div className={`group flex-shrink-0 ${isFullWidth ? 'w-14 h-14' : 'w-12 h-12'} rounded-full overflow-hidden border-2 ${isFullWidth ? 'border-primary/50' : 'border-accent/50'}`}>
+        <div className={`group flex-shrink-0 w-20 h-20 rounded-full overflow-hidden border-2 ${isFullWidth ? 'border-primary/50' : 'border-accent/50'}`}>
           <img
             src={image}
             alt={name}

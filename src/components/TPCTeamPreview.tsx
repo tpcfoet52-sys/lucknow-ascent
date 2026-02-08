@@ -83,7 +83,7 @@ const TPCTeamPreview = () => {
                                 return (
                                     <Dialog key={idx}>
                                         <DialogTrigger asChild>
-                                            <div className="flex flex-col items-center text-center group cursor-pointer w-full max-w-xs">
+                                            <div className="flex flex-col items-center text-center group cursor-pointer w-full max-w-[150px]">
                                                 <div className="relative mb-3 w-full">
                                                     <div className="aspect-[4/3] w-full rounded-lg overflow-hidden border-2 border-accent/30 group-hover:border-accent group-hover:shadow-lg transition-all duration-300">
                                                         <img
@@ -121,7 +121,7 @@ const TPCTeamPreview = () => {
                             return (
                                 <div key={idx} className="flex flex-col items-center text-center group">
                                     <div className="relative mb-3">
-                                        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-accent/30 group-hover:border-accent transition-colors duration-300">
+                                        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-accent/30 group-hover:border-accent transition-colors duration-300">
                                             <img
                                                 src={lead.image}
                                                 alt={lead.name}
