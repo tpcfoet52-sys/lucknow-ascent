@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import CompanyLogoStrip from "@/components/CompanyLogoStrip";
 import DirectorMessage from "@/components/DirectorMessage";
+import SkillDevelopment from "@/components/SkillDevelopment";
 import TPCTeamPreview from "@/components/TPCTeamPreview";
 import MediaPreview from "@/components/MediaPreview";
 import Footer from "@/components/Footer";
@@ -17,6 +18,7 @@ const Index = () => {
         <section id="about">
           <DirectorMessage />
         </section>
+        <SkillDevelopment />
         <TPCTeamPreview />
         <section id="media">
           <MediaPreview />

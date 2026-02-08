@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Building2, Users, Briefcase, Code, Camera, Calendar, ArrowRight, Phone, Mail, X, Linkedin } from "lucide-react";
+import { ArrowRight, Phone, Mail, X, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
