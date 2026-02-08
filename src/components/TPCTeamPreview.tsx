@@ -19,18 +19,15 @@ const TPCTeamPreview = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="flex flex-row items-center justify-between mb-8 gap-4"
+                    className="text-center mb-10"
                 >
-                    <div>
-                        <span className="text-accent font-medium text-sm uppercase tracking-wider">Our Team</span>
-                        <h2 className="heading-display text-2xl md:text-3xl text-foreground mt-2">
-                            TPC <span className="text-gold-gradient">Team Structure</span>
-                        </h2>
-                        <p className="text-muted-foreground mt-2 max-w-md text-sm">
-                            Meet the dedicated faculty and student coordinators powering our placements
-                        </p>
-                    </div>
-
+                    <span className="text-accent font-medium text-sm uppercase tracking-wider">Our Team</span>
+                    <h2 className="heading-display text-2xl md:text-3xl text-foreground mt-2">
+                        TPC <span className="text-gold-gradient">Team Structure</span>
+                    </h2>
+                    <p className="text-muted-foreground mt-3 max-w-xl mx-auto text-sm">
+                        Meet the dedicated faculty and student coordinators powering our placements
+                    </p>
                 </motion.div>
 
                 {/* Faculty Coordinators Section */}
@@ -133,6 +130,20 @@ const TPCTeamPreview = () => {
                                         </div>
                                     </div>
                                     <h4 className="text-sm font-semibold text-foreground mt-2">{lead.name}</h4>
+                                    {/* Social Icons for Riddhi */}
+                                    {lead.linkedin && (
+                                        <div className="flex items-center gap-2 mt-2">
+                                            <a href={`mailto:${lead.email}`} className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={lead.email}>
+                                                <Mail className="w-3 h-3" />
+                                            </a>
+                                            <a href={lead.linkedin} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title="LinkedIn">
+                                                <Linkedin className="w-3 h-3" />
+                                            </a>
+                                            <a href={lead.twitter} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title="X">
+                                                <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+                                            </a>
+                                        </div>
+                                    )}
                                 </div>
                             );
                         })}
@@ -235,45 +246,49 @@ const TPCTeamPreview = () => {
                                 <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-6">
                                     Team Members
                                 </h3>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                                     {selectedTeam.members.map((member, idx) => (
                                         <motion.div
                                             key={member.id}
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: idx * 0.1 }}
-                                            className="flex flex-col items-center p-6 bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+                                            transition={{ delay: idx * 0.05 }}
+                                            className="flex flex-col items-center p-4 bg-card border border-border rounded-lg shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
                                         >
-                                            <Avatar className="w-24 h-24 border-4 border-background shadow-lg mb-4">
+                                            <Avatar className="w-20 h-20 border-3 border-background shadow-lg mb-3">
                                                 <AvatarImage src={member.image} className="object-cover" />
-                                                <AvatarFallback className="bg-primary text-primary-foreground text-xl font-bold">
+                                                <AvatarFallback className="bg-primary text-primary-foreground text-lg font-bold">
                                                     {member.name.split(' ').map(n => n[0]).join('')}
                                                 </AvatarFallback>
                                             </Avatar>
 
-                                            <div className="text-center w-full space-y-2 mb-4">
-                                                <h4 className="font-serif text-lg font-bold text-foreground leading-tight">{member.name}</h4>
-                                                <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide">{member.role}</p>
+                                            <div className="text-center w-full space-y-1 mb-3">
+                                                <h4 className="font-serif text-sm font-bold text-foreground leading-tight">{member.name}</h4>
+                                                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{member.role}</p>
                                                 {(member.branch || member.year) && (
-                                                    <span className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs font-semibold rounded-full border border-accent/20 mt-1">
+                                                    <span className="inline-block px-2 py-0.5 bg-accent/10 text-accent text-[10px] font-semibold rounded-full border border-accent/20">
                                                         {member.year} {member.year && member.branch && "•"} {member.branch}
                                                     </span>
                                                 )}
                                             </div>
 
-                                            <div className="flex items-center gap-3 mt-auto justify-center w-full">
-                                                {member.email && (
-                                                    <a href={`mailto:${member.email}`} className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
-                                                        <Mail className="w-4 h-4" />
-                                                    </a>
-                                                )}
-                                                {member.linkedin ? (
-                                                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
-                                                        <Linkedin className="w-4 h-4" />
+                                            <div className="flex items-center gap-2 mt-auto justify-center w-full">
+                                                {member.email ? (
+                                                    <a href={`mailto:${member.email}`} className="p-2 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                                        <Mail className="w-3.5 h-3.5" />
                                                     </a>
                                                 ) : (
-                                                    <button disabled className="p-3 bg-background/50 border border-border/50 rounded-full text-muted-foreground cursor-not-allowed">
-                                                        <Linkedin className="w-4 h-4" />
+                                                    <button disabled className="p-2 bg-background/50 border border-border/50 rounded-full text-muted-foreground cursor-not-allowed">
+                                                        <Mail className="w-3.5 h-3.5" />
+                                                    </button>
+                                                )}
+                                                {member.linkedin ? (
+                                                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                                        <Linkedin className="w-3.5 h-3.5" />
+                                                    </a>
+                                                ) : (
+                                                    <button disabled className="p-2 bg-background/50 border border-border/50 rounded-full text-muted-foreground cursor-not-allowed">
+                                                        <Linkedin className="w-3.5 h-3.5" />
                                                     </button>
                                                 )}
                                             </div>

@@ -114,7 +114,7 @@ export const facultyMembers = [
 ];
 
 export const teamLeads = [
-    { name: "Riddhi Singh Rathore", role: "Coordinator Lead", image: riddhiSingh },
+    { name: "Riddhi Singh Rathore", role: "Coordinator Lead", image: riddhiSingh, linkedin: "https://linkedin.com/in/riddhi-singh-rathore-997b962aa", email: "singhrathoreriddhi874@gmail.com", twitter: "https://x.com/riddhi_sin22754" },
     { name: "Student Coordinators", role: "Team 2025-26", image: studentCoordinatorsGroup },
 ];
 

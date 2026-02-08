@@ -62,7 +62,9 @@ const Footer = () => {
             <h4 className="font-serif font-semibold text-sm mb-3">Contact Us</h4>
             <ul className="space-y-1.5 flex flex-col items-start w-full">
               <li className="flex items-start gap-3 justify-start w-full">
-                <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                <a href="https://www.google.com/maps/search/?api=1&query=WWHQ%2BJC7%2C+Training+%26+Placement+Cell%2C+Faculty+of+Engineering+%26+Technology+University+of+Lucknow%2C+New+Campus+Rd%2C+Sultanpur+Village%2C+Jankipuram+Extension%2C+Lucknow%2C+Uttar+Pradesh+226031" target="_blank" rel="noopener noreferrer" className="p-1.5 bg-background/10 border border-primary-foreground/20 rounded-full flex-shrink-0 mt-0.5 group hover:bg-accent hover:border-accent transition-all">
+                  <MapPin className="w-3 h-3 text-primary-foreground group-hover:text-white" />
+                </a>
                 <span className="text-primary-foreground/80 text-xs text-left">
                   T&P Cell, FoET, University of Lucknow,<br />
                   New Campus Road, Jankipuram Extension,<br />
@@ -71,19 +73,25 @@ const Footer = () => {
                 </span>
               </li>
               <li className="flex items-center gap-3 justify-start w-full">
-                <Phone className="w-4 h-4 text-accent flex-shrink-0" />
+                <a href="tel:+917005287870" className="p-1.5 bg-background/10 border border-primary-foreground/20 rounded-full hover:bg-accent hover:border-accent transition-all flex-shrink-0 group">
+                  <Phone className="w-3 h-3 text-primary-foreground group-hover:text-white" />
+                </a>
                 <a href="tel:+917005287870" className="text-primary-foreground/80 hover:text-accent transition-colors text-xs">
                   +91 7905287870
                 </a>
               </li>
               <li className="flex items-center gap-3 justify-start w-full">
-                <Mail className="w-4 h-4 text-accent flex-shrink-0" />
+                <a href="mailto:trainingfoet@gmail.com" className="p-1.5 bg-background/10 border border-primary-foreground/20 rounded-full hover:bg-accent hover:border-accent transition-all flex-shrink-0 group">
+                  <Mail className="w-3 h-3 text-primary-foreground group-hover:text-white" />
+                </a>
                 <a href="mailto:trainingfoet@gmail.com" className="text-primary-foreground/80 hover:text-accent transition-colors text-xs">
                   trainingfoet@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3 justify-start w-full">
-                <Mail className="w-4 h-4 text-accent flex-shrink-0" />
+                <a href="mailto:placement_foet@lkouniv.ac.in" className="p-1.5 bg-background/10 border border-primary-foreground/20 rounded-full hover:bg-accent hover:border-accent transition-all flex-shrink-0 group">
+                  <Mail className="w-3 h-3 text-primary-foreground group-hover:text-white" />
+                </a>
                 <a href="mailto:placement_foet@lkouniv.ac.in" className="text-primary-foreground/80 hover:text-accent transition-colors text-xs">
                   placement_foet@lkouniv.ac.in
                 </a>

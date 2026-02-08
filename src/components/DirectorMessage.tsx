@@ -124,7 +124,7 @@ const DirectorMessage = () => {
         >
           <span className="text-accent font-medium text-sm uppercase tracking-wider">Leadership</span>
           <h2 className="heading-display text-2xl md:text-3xl text-foreground mt-2">
-            Messages from Our Leaders
+            Messages from <span className="text-gold-gradient">Our Leaders</span>
           </h2>
         </motion.div>
 
