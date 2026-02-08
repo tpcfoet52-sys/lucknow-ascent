@@ -131,6 +131,12 @@ const Footer = () => {
 
             {/* Center Links */}
             <div className="flex items-center gap-4 md:gap-6">
+              <Link to="/admin-login" className="text-primary-foreground/40 hover:text-accent transition-colors text-[10px] md:text-xs">
+                Admin Login
+              </Link>
+              <Link to="/coordinator-login" className="text-primary-foreground/40 hover:text-accent transition-colors text-[10px] md:text-xs">
+                Coordinator Login
+              </Link>
               <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors text-[10px] md:text-xs">
                 Privacy Policy
               </a>
