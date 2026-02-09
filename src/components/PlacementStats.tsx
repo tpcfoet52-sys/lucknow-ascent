@@ -51,12 +51,6 @@ const yearlyData = [
     studentName: "Maria Khan",
     branch: "CSE"
   },
-  {
-    year: "2024-25",
-    highestPackage: 22,
-    studentName: "Maria Khan",
-    branch: "CSE"
-  },
 ];
 
 // Year-wise Companies Visited Data (Moved from CompaniesVisited.tsx)

@@ -161,12 +161,12 @@ const OurAlumni = () => {
                         className="text-center mb-12"
                     >
                         <span className="text-xs font-medium text-accent uppercase tracking-wider">Distinguished Alumni</span>
-                        <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
+                        <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mt-2">
                             Leaders Who Walked Our Halls
                         </h2>
                     </motion.div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                         {alumniList.map((alumni, index) => (
                             <motion.div
                                 key={alumni.name}

@@ -36,10 +36,10 @@ const SkillDevelopment = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-10"
+                    className="text-center mb-12"
                 >
                     <span className="text-accent font-semibold text-sm uppercase tracking-wider">Skill Development</span>
-                    <h2 className="heading-display text-2xl md:text-3xl text-foreground mt-2">
+                    <h2 className="heading-display text-3xl md:text-4xl text-foreground mt-2">
                         Tools for Your <span className="text-gold-gradient">Professional Journey</span>
                     </h2>
                     <p className="max-w-2xl mx-auto text-muted-foreground mt-3 text-sm md:text-base">
@@ -48,7 +48,7 @@ const SkillDevelopment = () => {
                 </motion.div>
 
                 {/* Resources Grid - 3 columns */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {resources.map((resource, index) => (
                         <motion.div
                             key={index}
