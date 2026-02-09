@@ -24,27 +24,27 @@ const LeaderCard = ({ name, role, institution, image, quote, bio, isFullWidth = 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="bg-card rounded-md p-4 shadow-sm hover:shadow-md transition-all duration-300 border border-border/50"
+      className="bg-card rounded-md p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border/50"
     >
       <div className="flex items-start gap-3">
-        <div className={`group flex-shrink-0 w-20 h-20 rounded-full overflow-hidden border-2 ${isFullWidth ? 'border-primary/50' : 'border-accent/50'}`}>
+        <div className={`group flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 ${isFullWidth ? 'border-primary/50' : 'border-accent/50'}`}>
           <img
             src={image}
             alt={name}
             className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
         </div>
-        <div className="flex-1 min-w-0">
-          <h3 className="font-serif font-semibold text-sm text-foreground">{name}</h3>
-          <p className="text-muted-foreground text-[11px] leading-tight">{role}</p>
-          <p className="text-accent text-[10px]">{institution}</p>
+        <div className="flex-1 min-w-0 flex flex-col justify-center">
+          <h3 className="font-serif font-semibold text-base md:text-lg text-foreground">{name}</h3>
+          <p className="text-muted-foreground text-xs md:text-sm leading-tight mb-0.5">{role}</p>
+          <p className="text-accent text-[10px] md:text-xs font-medium">{institution}</p>
         </div>
       </div>
 
       <div className="mt-3">
         <div className="relative">
-          <Quote className="absolute -top-0.5 -left-0.5 w-3 h-3 text-accent/30" />
-          <blockquote className={`text-muted-foreground text-[11px] leading-relaxed italic pl-4 border-l border-accent/50 ${!isExpanded ? 'line-clamp-2' : ''}`}>
+          <Quote className="absolute -top-0.5 -left-0.5 w-4 h-4 text-accent/30" />
+          <blockquote className={`text-muted-foreground text-xs md:text-sm leading-relaxed italic pl-5 border-l-2 border-accent/50 ${!isExpanded ? 'line-clamp-2 md:line-clamp-3' : ''}`}>
             "{quote}"
           </blockquote>
         </div>
@@ -129,7 +129,7 @@ const DirectorMessage = () => {
         </motion.div>
 
         {/* All Leaders in Grid */}
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {leaders.map((leader, index) => (
             <LeaderCard key={index} {...leader} />
           ))}

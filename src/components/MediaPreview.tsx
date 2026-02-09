@@ -120,7 +120,7 @@ const MediaPreview = () => {
                 </motion.div>
 
                 {/* Media Grid */}
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 gap-6 md:gap-8">
                     {mediaItems.map((item, index) => (
                         <motion.div
                             key={item.id}
@@ -142,7 +142,7 @@ const MediaPreview = () => {
                                 />
                             </div>
 
-                            <div className="p-5 relative z-10 bg-card flex-1 flex flex-col">
+                            <div className="p-6 relative z-10 bg-card flex-1 flex flex-col">
                                 <div className="flex justify-between items-start mb-3">
                                     <Badge variant="outline" className="text-[10px] uppercase tracking-wider border-accent/20 text-accent">
                                         {item.type}
