@@ -77,7 +77,7 @@ const LeaderCard = ({ name, role, institution, image, quote, bio, isFullWidth = 
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.3 }}
-          className="absolute inset-0 bg-card rounded-md p-6 shadow-xl border-2 border-accent/50 overflow-y-auto max-h-[600px]"
+          className="absolute inset-0 bg-card rounded-md p-6 border-2 border-accent/50 overflow-y-auto max-h-[600px]"
         >
           <div className="flex items-start gap-3">
             <div className={`group flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 ${isFullWidth ? 'border-primary/50' : 'border-accent/50'}`}>
@@ -88,21 +88,21 @@ const LeaderCard = ({ name, role, institution, image, quote, bio, isFullWidth = 
               />
             </div>
             <div className="flex-1 min-w-0 flex flex-col justify-center">
-              <h3 className="font-serif font-semibold text-base md:text-lg text-foreground">{name}</h3>
-              <p className="text-muted-foreground text-xs md:text-sm leading-tight mb-0.5">{role}</p>
-              <p className="text-accent text-[10px] md:text-xs font-medium">{institution}</p>
+              <h3 className="font-serif font-semibold text-lg md:text-xl text-foreground">{name}</h3>
+              <p className="text-muted-foreground text-sm md:text-base leading-tight mb-0.5">{role}</p>
+              <p className="text-accent text-xs md:text-sm font-medium">{institution}</p>
             </div>
           </div>
 
           <div className="mt-3">
             <div className="relative">
               <Quote className="absolute -top-0.5 -left-0.5 w-4 h-4 text-accent/30" />
-              <blockquote className="text-muted-foreground text-xs md:text-sm leading-relaxed italic pl-5 border-l-2 border-accent/50">
+              <blockquote className="text-foreground text-sm md:text-base leading-relaxed pl-5 border-l-2 border-accent/50">
                 "{quote}"
               </blockquote>
             </div>
 
-            <p className="text-foreground leading-relaxed text-[11px] mt-2">
+            <p className="text-foreground leading-relaxed text-sm md:text-base mt-3">
               {bio}
             </p>
 
