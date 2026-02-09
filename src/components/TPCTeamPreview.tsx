@@ -38,17 +38,22 @@ const TPCTeamPreview = () => {
                     transition={{ duration: 0.6 }}
                     className="bg-card rounded-xl p-5 md:p-6 border border-border/50 mb-6"
                 >
-                    <h3 className="text-sm font-medium text-accent uppercase tracking-wider mb-5 text-center">Faculty Coordinators</h3>
+                    <h3 className="text-sm font-medium text-accent uppercase tracking-wider mb-8 text-center">Faculty Coordinators</h3>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                         {facultyMembers.map((faculty, idx) => (
-                            <div key={idx} className="flex flex-col items-center text-center">
-                                <Avatar className="w-20 h-20 md:w-24 md:h-24 border-2 border-accent/30 mb-3">
-                                    <AvatarImage src={faculty.image} className="object-cover" />
-                                    <AvatarFallback className="bg-primary/10 text-primary text-sm font-medium">
-                                        {faculty.name.split(' ').map(n => n[0]).join('')}
-                                    </AvatarFallback>
-                                </Avatar>
-                                <p className="text-sm font-semibold text-foreground leading-tight">{faculty.name}</p>
+                            <div key={idx} className="flex flex-col items-center text-center group">
+                                <div className="relative mb-4">
+                                    <Avatar className="w-20 h-20 md:w-24 md:h-24 border-2 border-accent/30 group-hover:border-accent transition-colors duration-300 shadow-md group-hover:shadow-lg">
+                                        <AvatarImage src={faculty.image} className="object-cover transition-transform duration-500 group-hover:scale-110" />
+                                        <AvatarFallback className="bg-primary/10 text-primary text-sm font-medium">
+                                            {faculty.name.split(' ').map(n => n[0]).join('')}
+                                        </AvatarFallback>
+                                    </Avatar>
+                                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs px-3 py-1 rounded-full shadow-sm whitespace-nowrap">
+                                        {faculty.role}
+                                    </div>
+                                </div>
+                                <p className="text-sm font-semibold text-foreground leading-tight mt-3">{faculty.name}</p>
                                 <p className="text-xs text-muted-foreground mt-1">{faculty.title}</p>
                                 <div className="flex items-center gap-2 mt-2">
                                     <a href={`tel:${faculty.phone}`} className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={faculty.phone}>
