@@ -268,7 +268,7 @@ const AboutTPC = () => {
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeInUp}
-                  className="bg-gradient-to-br from-primary/5 to-accent/5 border border-border rounded-lg p-5 text-center"
+                  className="group bg-gradient-to-br from-primary/5 to-accent/5 border border-border rounded-lg p-6 text-center hover:shadow-md hover:border-accent/30 transition-all duration-300 hover:-translate-y-1"
                 >
                   <p className="font-serif text-2xl md:text-3xl font-bold text-accent">{stat.value}</p>
                   <p className="text-sm font-medium text-foreground mt-1">{stat.label}</p>
@@ -307,18 +307,19 @@ const AboutTPC = () => {
                   initial="initial"
                   whileInView="animate"
 
+                  whileHover="hover"
                   viewport={{ once: true }}
                   variants={{
                     initial: { opacity: 0, y: 30 },
                     animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
-                    hover: { y: -5, transition: { duration: 0.3 } }
+                    hover: { y: -8, transition: { duration: 0.3 } }
                   }}
-                  className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
+                  className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
                 >
 
 
                   {/* Content Section */}
-                  <div className="p-5 relative z-10 bg-card">
+                  <div className="p-6 relative z-10 bg-card">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <IconComponent className="h-5 w-5 text-primary" />
@@ -390,13 +391,14 @@ const AboutTPC = () => {
                 initial="initial"
                 whileInView="animate"
 
+                whileHover="hover"
                 viewport={{ once: true }}
                 variants={{
                   initial: { opacity: 0, y: 30 },
                   animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
-                  hover: { y: -5, transition: { duration: 0.3 } }
+                  hover: { y: -8, transition: { duration: 0.3 } }
                 }}
-                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
+                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
               >
                 {/* Image Section - Icon Placeholder or Actual Image */}
                 <div className="aspect-[4/3] overflow-hidden relative bg-muted">
@@ -410,7 +412,7 @@ const AboutTPC = () => {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-4 relative z-10 bg-card text-center">
+                <div className="p-5 relative z-10 bg-card text-center">
                   <div className="flex justify-center mb-2">
                     <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
                       <GraduationCap className="h-4 w-4 text-accent" />

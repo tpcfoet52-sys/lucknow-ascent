@@ -108,7 +108,7 @@ const PlacementStats = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="bg-card rounded-md p-5 shadow-elevated-sm border border-border/50"
+              className="group bg-card rounded-md p-6 shadow-sm border border-border/50 hover:shadow-md hover:border-accent/30 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="w-8 h-8 rounded bg-accent/10 flex items-center justify-center mb-3">
                 <stat.icon className="w-4 h-4 text-accent" />
@@ -255,7 +255,7 @@ const PlacementStats = () => {
                 transition={{ duration: 0.4, delay: 0.1 * index }}
                 className="relative group"
               >
-                <div className="bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-lg p-4 border border-border/30 hover:border-accent/50 transition-all duration-300 h-full">
+                <div className="bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-lg p-5 border border-border/30 hover:border-accent/50 hover:shadow-md transition-all duration-300 h-full group-hover:-translate-y-1">
                   {/* Year Badge */}
                   <div className="inline-block px-2 py-0.5 bg-accent/10 rounded text-accent text-xs font-semibold mb-3">
                     {data.year}
