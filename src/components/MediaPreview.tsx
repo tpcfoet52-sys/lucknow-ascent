@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Calendar, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
+import { supabase } from "@/lib/supabase";
 
 import smartIndiaHackathon from "@/assets/smart-india-hackathon.jpg";
 import samsungInnovation from "@/assets/samsung-innovation-campus.jpg";
+import sotiLogo from "@/assets/soti-logo.png";
 
+interface MediaItem {
+    id: number;
+    type: string;
+    src: string;
+    title: string;
+    date: string;
+    description: string;
+    summary: string;
+}
 
-const mediaItems = [
+const staticMediaItems: MediaItem[] = [
     {
         id: 1,
         type: "Events",
@@ -31,7 +42,54 @@ const mediaItems = [
 ];
 
 const MediaPreview = () => {
-    const [selectedItem, setSelectedItem] = useState<typeof mediaItems[0] | null>(null);
+    const [selectedItem, setSelectedItem] = useState<MediaItem | null>(null);
+    const [mediaItems, setMediaItems] = useState<MediaItem[]>(staticMediaItems);
+
+    // Fetch SOTI image from Supabase
+    useEffect(() => {
+        const fetchSotiImage = async () => {
+            if (!supabase) {
+                // Fallback to logo if Supabase is not available
+                setMediaItems([...staticMediaItems, {
+                    id: 3,
+                    type: "Drives",
+                    src: sotiLogo,
+                    title: "SOTI Selects Students (7.5 LPA)",
+                    date: "Feb 2025",
+                    description: "SOTI, a global leader in mobile and IoT device management, conducted a recruitment drive offering Software Development roles.",
+                    summary: "SOTI Inc., a renowned global company specializing in mobile and IoT device management solutions, successfully conducted a campus recruitment drive at our university. Students were offered Software Development Intern positions with a package of 7.5 LPA. This placement opportunity reflects our university's strong industry connections and the quality of talent we nurture."
+                }]);
+                return;
+            }
+
+            const { data } = await supabase
+                .from('unified_approvals')
+                .select('*')
+                .eq('status', 'approved')
+                .ilike('title', '%SOTI%')
+                .limit(1);
+
+            const sotiImage = data && data.length > 0 ? data[0].image_url : sotiLogo;
+            const sotiDate = data && data.length > 0
+                ? new Date(data[0].created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+                : "Feb 2025";
+            const sotiSummary = data && data.length > 0
+                ? data[0].description
+                : "SOTI Inc., a renowned global company specializing in mobile and IoT device management solutions, successfully conducted a campus recruitment drive at our university. Students were offered Software Development Intern positions with a package of 7.5 LPA. This placement opportunity reflects our university's strong industry connections and the quality of talent we nurture.";
+
+            setMediaItems([...staticMediaItems, {
+                id: 3,
+                type: "Drives",
+                src: sotiImage,
+                title: "SOTI Selects Students (7.5 LPA)",
+                date: sotiDate,
+                description: "SOTI, a global leader in mobile and IoT device management, conducted a recruitment drive offering Software Development roles.",
+                summary: sotiSummary
+            }]);
+        };
+
+        fetchSotiImage();
+    }, []);
 
     return (
         <section className="section-padding bg-background">
@@ -62,7 +120,7 @@ const MediaPreview = () => {
                 </motion.div>
 
                 {/* Media Grid */}
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-3 gap-6">
                     {mediaItems.map((item, index) => (
                         <motion.div
                             key={item.id}
@@ -73,21 +131,18 @@ const MediaPreview = () => {
                                 initial: { opacity: 0, y: 30 },
                                 animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } }
                             }}
-                            className="group relative overflow-hidden rounded-xl border border-border bg-card cursor-pointer transition-all duration-300"
+                            className="group relative overflow-hidden rounded-xl border border-border bg-card cursor-pointer transition-all duration-300 h-full flex flex-col"
                             onClick={() => setSelectedItem(item)}
                         >
-                            <div className="aspect-video overflow-hidden">
+                            <div className="aspect-video overflow-hidden bg-muted">
                                 <img
                                     src={item.src}
                                     alt={item.title}
-                                    className="w-full h-full object-cover"
-                                    style={{ objectPosition: "top", scale: 1.1 }}
+                                    className="w-full h-full object-cover object-center"
                                 />
-                                {/* Overlay gradient on hover */}
-                                {/* Gradient overlay on hover - Removed */}
                             </div>
 
-                            <div className="p-5 relative z-10 bg-card">
+                            <div className="p-5 relative z-10 bg-card flex-1 flex flex-col">
                                 <div className="flex justify-between items-start mb-3">
                                     <Badge variant="outline" className="text-[10px] uppercase tracking-wider border-accent/20 text-accent">
                                         {item.type}
@@ -96,12 +151,12 @@ const MediaPreview = () => {
                                         <Calendar className="w-3 h-3" /> {item.date}
                                     </span>
                                 </div>
-                                <h3 className="text-lg font-bold text-foreground group-hover:text-accent transition-colors leading-tight mb-2">
+                                <h3 className="text-lg font-bold text-foreground group-hover:text-accent transition-colors leading-tight mb-2 line-clamp-2">
                                     {item.title}
                                 </h3>
 
                                 {/* Animated Description Text - Reveal on Hover */}
-                                <div className="mt-2 pt-2 border-t border-border/50">
+                                <div className="mt-auto pt-2 border-t border-border/50">
                                     <p className="text-xs text-accent font-medium flex items-center gap-1">
                                         Click to view summary <ArrowRight className="w-3 h-3" />
                                     </p>
