@@ -43,7 +43,7 @@ const TPCTeamPreview = () => {
                         {facultyMembers.map((faculty, idx) => (
                             <div key={idx} className="flex flex-col items-center text-center group">
                                 <div className="relative mb-4">
-                                    <Avatar className="w-20 h-20 md:w-24 md:h-24 border-2 border-accent/30 group-hover:border-accent transition-colors duration-300 shadow-md group-hover:shadow-lg">
+                                    <Avatar className="w-24 h-24 md:w-28 md:h-28 border-2 border-accent/30 group-hover:border-accent transition-colors duration-300 shadow-md group-hover:shadow-lg">
                                         <AvatarImage src={faculty.image} className="object-cover transition-transform duration-500 group-hover:scale-110" />
                                         <AvatarFallback className="bg-primary/10 text-primary text-sm font-medium">
                                             {faculty.name.split(' ').map(n => n[0]).join('')}
@@ -123,7 +123,7 @@ const TPCTeamPreview = () => {
                             return (
                                 <div key={idx} className="flex flex-col items-center text-center group">
                                     <div className="relative mb-4">
-                                        <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-accent/30 group-hover:border-accent transition-colors duration-300 shadow-md">
+                                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-accent/30 group-hover:border-accent transition-colors duration-300 shadow-md group-hover:shadow-lg">
                                             <img
                                                 src={lead.image}
                                                 alt={lead.name}

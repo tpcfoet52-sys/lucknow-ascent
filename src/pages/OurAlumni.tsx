@@ -185,7 +185,7 @@ const OurAlumni = () => {
                                 {/* Image Section - Circular Profile Photo */}
                                 <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
                                     {alumni.image ? (
-                                        <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 ">
+                                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 ">
                                             <img
                                                 src={alumni.image}
                                                 alt={alumni.name}
@@ -193,7 +193,7 @@ const OurAlumni = () => {
                                             />
                                         </div>
                                     ) : (
-                                        <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
+                                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
                                             <Award className="h-16 w-16 text-primary/40" />
                                         </div>
                                     )}
@@ -244,7 +244,7 @@ const OurAlumni = () => {
                                 {/* Image Section - Circular Profile Photo */}
                                 <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
                                     {alumni.image ? (
-                                        <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300">
+                                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300">
                                             <img
                                                 src={alumni.image}
                                                 alt={alumni.name}
@@ -252,7 +252,7 @@ const OurAlumni = () => {
                                             />
                                         </div>
                                     ) : (
-                                        <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
+                                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
                                             <Award className="h-16 w-16 text-primary/40" />
                                         </div>
                                     )}
