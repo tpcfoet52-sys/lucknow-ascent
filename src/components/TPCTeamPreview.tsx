@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Phone, Mail, X, Linkedin } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Button } from "./ui/button";
+
+
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog";
 import { teams, facultyMembers, teamLeads, Team } from "@/data/teamData";
@@ -42,14 +42,14 @@ const TPCTeamPreview = () => {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                         {facultyMembers.map((faculty, idx) => (
                             <div key={idx} className="flex flex-col items-center text-center">
-                                <Avatar className="w-14 h-14 md:w-16 md:h-16 border-2 border-accent/30 mb-2">
+                                <Avatar className="w-20 h-20 md:w-24 md:h-24 border-2 border-accent/30 mb-3">
                                     <AvatarImage src={faculty.image} className="object-cover" />
                                     <AvatarFallback className="bg-primary/10 text-primary text-sm font-medium">
                                         {faculty.name.split(' ').map(n => n[0]).join('')}
                                     </AvatarFallback>
                                 </Avatar>
-                                <p className="text-xs font-medium text-foreground leading-tight">{faculty.name}</p>
-                                <p className="text-[10px] text-muted-foreground mt-0.5">{faculty.title}</p>
+                                <p className="text-sm font-semibold text-foreground leading-tight">{faculty.name}</p>
+                                <p className="text-xs text-muted-foreground mt-1">{faculty.title}</p>
                                 <div className="flex items-center gap-2 mt-2">
                                     <a href={`tel:${faculty.phone}`} className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={faculty.phone}>
                                         <Phone className="w-3 h-3" />
@@ -71,8 +71,8 @@ const TPCTeamPreview = () => {
                     transition={{ duration: 0.6 }}
                     className="bg-card rounded-xl p-5 md:p-6 border border-border/50 mb-6"
                 >
-                    <h3 className="text-sm font-medium text-accent uppercase tracking-wider mb-5 text-center">Student Coordinators 2025-26</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center items-center max-w-4xl mx-auto">
+                    <h3 className="text-sm font-medium text-accent uppercase tracking-wider mb-8 text-center">Student Coordinators 2025-26</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center items-center mx-auto">
                         {teamLeads.map((lead, idx) => {
                             const isGroupPhoto = lead.name === "Student Coordinators";
 
@@ -80,7 +80,7 @@ const TPCTeamPreview = () => {
                                 return (
                                     <Dialog key={idx}>
                                         <DialogTrigger asChild>
-                                            <div className="flex flex-col items-center text-center group cursor-pointer w-full max-w-[150px]">
+                                            <div className="flex flex-col items-center text-center group cursor-pointer w-full max-w-[280px]">
                                                 <div className="relative mb-3 w-full">
                                                     <div className="aspect-[4/3] w-full rounded-lg overflow-hidden border-2 border-accent/30 group-hover:border-accent group-hover:shadow-lg transition-all duration-300">
                                                         <img
@@ -92,11 +92,11 @@ const TPCTeamPreview = () => {
                                                             <span className="bg-background/80 text-foreground text-xs px-3 py-1 rounded-full backdrop-blur-sm">View Full Image</span>
                                                         </div>
                                                     </div>
-                                                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-accent text-white text-[10px] px-3 py-0.5 rounded-full shadow-sm whitespace-nowrap z-10">
+                                                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs px-4 py-1 rounded-full shadow-sm whitespace-nowrap z-10">
                                                         {lead.role}
                                                     </div>
                                                 </div>
-                                                <h4 className="text-sm font-semibold text-foreground mt-4">{lead.name}</h4>
+                                                <h4 className="text-lg font-bold text-foreground mt-5">{lead.name}</h4>
                                             </div>
                                         </DialogTrigger>
                                         <DialogContent className="max-w-[90vw] md:max-w-4xl p-0 bg-transparent border-none shadow-none [&>button]:hidden">
@@ -117,19 +117,19 @@ const TPCTeamPreview = () => {
 
                             return (
                                 <div key={idx} className="flex flex-col items-center text-center group">
-                                    <div className="relative mb-3">
-                                        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-accent/30 group-hover:border-accent transition-colors duration-300">
+                                    <div className="relative mb-4">
+                                        <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-accent/30 group-hover:border-accent transition-colors duration-300 shadow-md">
                                             <img
                                                 src={lead.image}
                                                 alt={lead.name}
                                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                             />
                                         </div>
-                                        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-accent text-white text-[10px] px-2 py-0.5 rounded-full shadow-sm whitespace-nowrap">
+                                        <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs px-3 py-1 rounded-full shadow-sm whitespace-nowrap">
                                             {lead.role}
                                         </div>
                                     </div>
-                                    <h4 className="text-sm font-semibold text-foreground mt-2">{lead.name}</h4>
+                                    <h4 className="text-lg font-bold text-foreground mt-3">{lead.name}</h4>
                                     {/* Social Icons for Riddhi */}
                                     {lead.linkedin && (
                                         <div className="flex items-center gap-2 mt-2">
