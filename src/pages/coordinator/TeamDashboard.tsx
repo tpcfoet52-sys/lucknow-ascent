@@ -17,8 +17,8 @@ const TeamDashboard = () => {
             {/* Header */}
             <div className="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <Link to="/team-structure" className="flex items-center text-muted-foreground hover:text-primary mb-2">
-                        <ArrowLeft className="h-4 w-4 mr-1" /> Back to Team Structure
+                    <Link to="/" className="flex items-center text-muted-foreground hover:text-primary mb-2">
+                        <ArrowLeft className="h-4 w-4 mr-1" /> Back to Home
                     </Link>
                     <h1 className="text-3xl font-bold text-navy-900">Team Dashboard</h1>
                     <p className="text-muted-foreground">Manage your team's activities and resources</p>

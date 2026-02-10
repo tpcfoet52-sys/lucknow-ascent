@@ -18,11 +18,10 @@ const navLinks: NavLink[] = [
       { name: "About University", href: "/about-university" },
       { name: "About TPC", href: "/about-tpc" },
       { name: "Our Alumni", href: "/our-alumni" },
-      { name: "Our Team", href: "/team-structure" },
+
     ]
   },
   { name: "Events", href: "/events" },
-  { name: "Students", href: "/students" },
   { name: "Media", href: "/media" },
   { name: "Placement Records", href: "/placement-records" },
   { name: "Contact", href: "/contact" },

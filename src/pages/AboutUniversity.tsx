@@ -18,7 +18,8 @@ import {
   Star,
 
   CheckCircle2,
-  Building2
+  Building2,
+  ExternalLink
 } from "lucide-react";
 
 import Footer from "@/components/Footer";
@@ -53,12 +54,12 @@ const fadeInUp = {
 };
 
 const programs = [
-  { name: "Engineering", icon: Building, students: "2500+", image: programEngineering, hoverDesc: "Offering B.Tech (CSE, CSE-AI, ECE, EE, CE and ME), BCA and M.Tech Programs. Focus on practical learning, industry collaboration and placement excellence with state-of-the-art laboratories." },
-  { name: "Law", icon: Gavel, students: "1200+", image: programLaw, hoverDesc: "LLB and LLM programs recognized by Bar Council of India. Comprehensive curriculum covering corporate law, constitutional law, and international law with moot court facilities." },
-  { name: "Management", icon: Briefcase, students: "1800+", image: programManagement, hoverDesc: "MBA programs specializing in Finance, Marketing, HR, and Operations. Industry-oriented curriculum with case studies, internships, and guest lectures from corporate leaders." },
-  { name: "Pharmacy", icon: Pill, students: "800+", image: programPharmacy, hoverDesc: "B.Pharm and M.Pharm programs approved by PCI. Focus on pharmaceutical sciences, drug development, and clinical pharmacy with modern research facilities." },
-  { name: "Yoga", icon: Sun, students: "500+", image: programYoga, hoverDesc: "UG and PG programs in Yoga and Alternative Medicine. Traditional wisdom meets modern science with research on therapeutic applications and wellness management." },
-  { name: "Tourism", icon: Globe, students: "400+", image: programTourism, hoverDesc: "Programs in Tourism and Travel Management. Practical training in hospitality, tour operations, and heritage management with industry partnerships." },
+  { name: "Faculty of Engineering & Technology", icon: Building, students: "2500+", image: programEngineering, hoverDesc: "Offering B.Tech (CSE, CSE-AI, ECE, EE, CE and ME), BCA and M.Tech Programs. Focus on practical learning, industry collaboration and placement excellence with state of the art laboratories." },
+  { name: "Faculty of Law", icon: Gavel, students: "1200+", image: programLaw, hoverDesc: "LLB and LLM programs recognized by Bar Council of India. Comprehensive curriculum covering corporate law, constitutional law, and international law with moot court facilities." },
+  { name: "Institute of Management & Sciences", icon: Briefcase, students: "1800+", image: programManagement, hoverDesc: "MBA programs specializing in Finance, Marketing, HR, and Operations. Industry-oriented curriculum with case studies, internships, and guest lectures from corporate leaders." },
+  { name: "Institute of Pharmaceutical Sciences", icon: Pill, students: "800+", image: programPharmacy, hoverDesc: "B.Pharm and M.Pharm programs approved by PCI. Focus on pharmaceutical sciences, drug development, and clinical pharmacy with modern research facilities." },
+  { name: "Faculty of Yoga & Alternative Medicine", icon: Sun, students: "500+", image: programYoga, hoverDesc: "UG and PG programs in Yoga and Alternative Medicine. Traditional wisdom meets modern science with research on therapeutic applications and wellness management." },
+  { name: "Institute of Tourism Studies", icon: Globe, students: "400+", image: programTourism, hoverDesc: "Programs in Tourism and Travel Management. Practical training in hospitality, tour operations, and heritage management with industry partnerships." },
 ];
 
 
@@ -114,8 +115,22 @@ const accreditations = [
 
 
 const campusLocations = [
-  { name: "Main Campus", location: "Badshah Bagh, University Road", image: mainCampus, description: "Historic campus on eastern bank of Gomti river with traditional Avadh architecture.", hoverDesc: "Spread across 144 acres with heritage buildings dating back to 1920. Houses Science, Arts, and Commerce faculties. Features the iconic administrative block, central library with 5L+ books, and beautifully landscaped gardens along the Gomti river." },
-  { name: "New Campus (2nd)", location: "Jankipuram, Sitapur Road", image: secondCampus, description: "Modern 75-acre campus housing Faculty of Engineering & Technology, Management, and Law.", hoverDesc: "State-of-the-art campus established in 2017 with green building designs. Equipped with modern laboratories, smart classrooms, auditoriums, sports complex, separate hostels, and excellent placement infrastructure for professional programs." },
+  {
+    name: "Main Campus",
+    location: "Badshah Bagh, University Road",
+    image: mainCampus,
+    mapUrl: "https://maps.app.goo.gl/Xqk1KKwYzpiZrZGe8?g_st=aw",
+    description: "Historic campus on eastern bank of Gomti river with traditional Avadh architecture.",
+    hoverDesc: "Spread across 144 acres with heritage buildings dating back to 1920. Houses Science, Arts, and Commerce faculties. Features the iconic administrative block, central library with 5L+ books, and beautifully landscaped gardens along the Gomti river."
+  },
+  {
+    name: "New Campus (2nd)",
+    location: "Jankipuram, Sitapur Road",
+    image: secondCampus,
+    mapUrl: "https://maps.app.goo.gl/HWSgxAqXMQTMm8ip6?g_st=aw",
+    description: "Modern 75-acre campus housing Faculty of Engineering & Technology, Management, and Law.",
+    hoverDesc: "State-of-the-art campus established in 2017 with green building designs. Equipped with modern laboratories, smart classrooms, auditoriums, sports complex, separate hostels, and excellent placement infrastructure for professional programs."
+  },
 ];
 
 
@@ -364,8 +379,8 @@ const AboutUniversity = () => {
                   {/* Content Section */}
                   <div className="p-4 relative z-10 bg-card">
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <IconComponent className="h-4 w-4 text-primary" />
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <IconComponent className="h-5 w-5 text-primary" />
                       </div>
                       <div className="flex-1">
                         <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors leading-tight">
@@ -374,9 +389,7 @@ const AboutUniversity = () => {
                       </div>
                     </div>
 
-                    <p className="text-xs text-muted-foreground mb-1">
-                      {program.students} Students Enrolled
-                    </p>
+
 
                     <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed">
                       {program.hoverDesc}
@@ -490,13 +503,16 @@ const AboutUniversity = () => {
                 {/* Content Section */}
                 <div className="p-4 relative z-10 bg-card">
                   <div className="flex items-start gap-3 mb-2">
-                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <a href={campus.mapUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 hover:bg-primary/20 transition-colors">
                       <MapPin className="h-4 w-4 text-primary" />
-                    </div>
+                    </a>
                     <div className="flex-1">
-                      <h3 className="font-serif font-semibold text-base text-foreground group-hover:text-accent transition-colors">
-                        {campus.name}
-                      </h3>
+                      <a href={campus.mapUrl} target="_blank" rel="noopener noreferrer" className="group-hover:text-accent transition-colors block w-fit">
+                        <h3 className="font-serif font-semibold text-base text-foreground group-hover:text-accent transition-colors inline-flex items-center gap-2">
+                          {campus.name}
+                          <ExternalLink className="w-3 h-3 text-muted-foreground opacity-50 group-hover:opacity-100 transition-opacity" />
+                        </h3>
+                      </a>
                       <p className="text-accent text-xs font-medium">{campus.location}</p>
                     </div>
                   </div>

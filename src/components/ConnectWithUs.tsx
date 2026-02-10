@@ -15,7 +15,7 @@ const ConnectWithUs = () => {
                         </p>
                     </div>
                     <div className="flex gap-4">
-                        <a href="https://www.linkedin.com/in/tpcfoet?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                        <a href="https://www.linkedin.com/in/tpcfoet" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
                             <Linkedin className="w-5 h-5" />
                         </a>
                         <a href="https://x.com/PlacementEnggLU" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
@@ -23,7 +23,7 @@ const ConnectWithUs = () => {
                                 <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
                             </svg>
                         </a>
-                        <a href="https://www.instagram.com/tpcfoet?igsh=cm05d2NpbnRoNGNp" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                        <a href="https://www.instagram.com/tpcfoet" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
                             <Instagram className="w-5 h-5" />
                         </a>
                         <a href="mailto:trainingfoet@gmail.com" className="p-3 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title="trainingfoet@gmail.com">

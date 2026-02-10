@@ -26,7 +26,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center px-4 py-32 md:py-40">
+      <div className="relative z-10 container-narrow text-center px-4 py-32 md:py-40">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -107,13 +107,13 @@ const HeroSection = () => {
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
-            <Link to="/students">
+            <Link to="/skill-development">
               <Button
                 variant="heroDark"
                 size="lg"
                 className="min-w-[200px] text-base font-medium"
               >
-                For Students
+                Skill Development
               </Button>
             </Link>
           </motion.div>

@@ -161,12 +161,12 @@ const OurAlumni = () => {
                         className="text-center mb-12"
                     >
                         <span className="text-xs font-medium text-accent uppercase tracking-wider">Distinguished Alumni</span>
-                        <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
+                        <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mt-2">
                             Leaders Who Walked Our Halls
                         </h2>
                     </motion.div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                         {alumniList.map((alumni, index) => (
                             <motion.div
                                 key={alumni.name}
@@ -185,7 +185,7 @@ const OurAlumni = () => {
                                 {/* Image Section - Circular Profile Photo */}
                                 <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
                                     {alumni.image ? (
-                                        <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 ">
+                                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 ">
                                             <img
                                                 src={alumni.image}
                                                 alt={alumni.name}
@@ -193,7 +193,7 @@ const OurAlumni = () => {
                                             />
                                         </div>
                                     ) : (
-                                        <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
+                                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
                                             <Award className="h-16 w-16 text-primary/40" />
                                         </div>
                                     )}
@@ -244,7 +244,7 @@ const OurAlumni = () => {
                                 {/* Image Section - Circular Profile Photo */}
                                 <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
                                     {alumni.image ? (
-                                        <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300">
+                                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300">
                                             <img
                                                 src={alumni.image}
                                                 alt={alumni.name}
@@ -252,7 +252,7 @@ const OurAlumni = () => {
                                             />
                                         </div>
                                     ) : (
-                                        <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
+                                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
                                             <Award className="h-16 w-16 text-primary/40" />
                                         </div>
                                     )}

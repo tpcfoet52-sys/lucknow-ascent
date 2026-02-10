@@ -26,7 +26,10 @@ const Footer = () => {
                 </div>
               </div>
               <p className="text-primary-foreground/80 text-xs leading-relaxed max-w-xs">
-                Connecting Engineering Education with Industry Excellence since 2017.
+                Training and Placement Cell
+                Faculty of Engineering and Technology (Est. 2017)
+                University of Lucknow
+                Bridging Engineering Education with Industry Opportunities.
               </p>
             </div>
           </div>
@@ -34,11 +37,13 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="flex flex-col items-start">
             <h4 className="font-serif font-semibold text-sm mb-3">Quick Links</h4>
-            <ul className="space-y-1.5 flex flex-col items-start">
+            <ul className="space-y-1 flex flex-col items-start">
               {[
+                { name: "About University", href: "/about-university" },
                 { name: "About TPC", href: "/about-tpc" },
-                { name: "Placement Statistics", href: "/placement-records" },
-                { name: "Student Resources", href: "/students" },
+                { name: "Skill Development", href: "/skill-development" },
+                { name: "Events", href: "/events" },
+                { name: "Our Alumni", href: "/our-alumni" },
               ].map((link, index) => (
                 <li key={index}>
                   <Link
@@ -54,59 +59,66 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="flex flex-col items-start">
-            <h4 className="font-serif font-semibold text-sm mb-3 md:ml-7">Contact Us</h4>
+            <h4 className="font-serif font-semibold text-sm mb-3">Contact Us</h4>
             <ul className="space-y-1.5 flex flex-col items-start w-full">
               <li className="flex items-start gap-3 justify-start w-full">
-                <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                <a href="https://www.google.com/maps/search/?api=1&query=WWHQ%2BJC7%2C+Training+%26+Placement+Cell%2C+Faculty+of+Engineering+%26+Technology+University+of+Lucknow%2C+New+Campus+Rd%2C+Sultanpur+Village%2C+Jankipuram+Extension%2C+Lucknow%2C+Uttar+Pradesh+226031" target="_blank" rel="noopener noreferrer" className="p-1.5 bg-background/10 border border-primary-foreground/20 rounded-full flex-shrink-0 mt-0.5 group hover:bg-accent hover:border-accent transition-all">
+                  <MapPin className="w-3 h-3 text-primary-foreground group-hover:text-white" />
+                </a>
                 <span className="text-primary-foreground/80 text-xs text-left">
-                  Training & Placement Cell,<br />
-                  FoET, University of Lucknow,<br />
+                  T&P Cell, FoET, University of Lucknow,<br />
                   New Campus Road, Jankipuram Extension,<br />
-                  Lucknow, Uttar Pradesh, 226031 <br />
+                  Lucknow, Uttar Pradesh, 226031
                   <a href="https://www.google.com/maps/search/?api=1&query=WWHQ%2BJC7%2C+Training+%26+Placement+Cell%2C+Faculty+of+Engineering+%26+Technology+University+of+Lucknow%2C+New+Campus+Rd%2C+Sultanpur+Village%2C+Jankipuram+Extension%2C+Lucknow%2C+Uttar+Pradesh+226031" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline ml-1 text-[10px]">(Map View)</a>
                 </span>
               </li>
               <li className="flex items-center gap-3 justify-start w-full">
-                <Phone className="w-4 h-4 text-accent flex-shrink-0" />
+                <a href="tel:+917005287870" className="p-1.5 bg-background/10 border border-primary-foreground/20 rounded-full hover:bg-accent hover:border-accent transition-all flex-shrink-0 group">
+                  <Phone className="w-3 h-3 text-primary-foreground group-hover:text-white" />
+                </a>
                 <a href="tel:+917005287870" className="text-primary-foreground/80 hover:text-accent transition-colors text-xs">
                   +91 7905287870
                 </a>
               </li>
               <li className="flex items-center gap-3 justify-start w-full">
-                <Mail className="w-4 h-4 text-accent flex-shrink-0" />
-                <span className="flex flex-col text-left">
-                  <a href="mailto:trainingfoet@gmail.com" className="text-primary-foreground/80 hover:text-accent transition-colors text-xs">
-                    trainingfoet@gmail.com
-                  </a>
-                  <a href="mailto:placement_foet@lkouniv.ac.in" className="text-primary-foreground/80 hover:text-accent transition-colors text-xs">
-                    placement_foet@lkouniv.ac.in
-                  </a>
-                </span>
+                <a href="mailto:trainingfoet@gmail.com" className="p-1.5 bg-background/10 border border-primary-foreground/20 rounded-full hover:bg-accent hover:border-accent transition-all flex-shrink-0 group">
+                  <Mail className="w-3 h-3 text-primary-foreground group-hover:text-white" />
+                </a>
+                <a href="mailto:trainingfoet@gmail.com" className="text-primary-foreground/80 hover:text-accent transition-colors text-xs">
+                  trainingfoet@gmail.com
+                </a>
+              </li>
+              <li className="flex items-center gap-3 justify-start w-full">
+                <a href="mailto:placement_foet@lkouniv.ac.in" className="p-1.5 bg-background/10 border border-primary-foreground/20 rounded-full hover:bg-accent hover:border-accent transition-all flex-shrink-0 group">
+                  <Mail className="w-3 h-3 text-primary-foreground group-hover:text-white" />
+                </a>
+                <a href="mailto:placement_foet@lkouniv.ac.in" className="text-primary-foreground/80 hover:text-accent transition-colors text-xs">
+                  placement_foet@lkouniv.ac.in
+                </a>
               </li>
             </ul>
           </div>
 
           {/* Developed by - Right-most */}
           <div className="flex flex-col items-start">
-            <h4 className="font-serif font-semibold text-sm mb-3 md:ml-[1.375rem]">Developed by</h4>
-            <ul className="space-y-1.5 flex flex-col items-start">
+            <h4 className="font-serif font-semibold text-sm mb-3">Developed by</h4>
+            <ul className="space-y-1 flex flex-col items-start">
               {[
                 { name: "Akash Singh", linkedin: "https://www.linkedin.com/in/akashsinghmrj64/" },
                 { name: "Srishti Mishra", linkedin: "https://www.linkedin.com/in/mishrasrishti108/" },
                 { name: "Anurag", linkedin: "https://www.linkedin.com/in/anurag-210a86317/" },
                 { name: "Akash Kumar Yadav", linkedin: "https://www.linkedin.com/in/akash-kumar-yadav-b1a33430b/" },
-                { name: "Rashmi Kushwaha", linkedin: "https://www.linkedin.com/in/rashmikushwaha2005/" },
-                { name: "Aryan Tripathi", linkedin: "https://www.linkedin.com/in/aryan-tripathi-45346a254/" }
+                { name: "Rashmi Kushwaha", linkedin: "https://www.linkedin.com/in/rashmikushwaha2005/" }
               ].map((dev, index) => (
                 <li key={index} className="flex items-center gap-2">
                   <a
                     href={dev.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent hover:text-accent/80 transition-colors"
+                    className="p-1.5 bg-background/10 border border-primary-foreground/20 rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110"
                     aria-label={`${dev.name} LinkedIn`}
                   >
-                    <Linkedin className="w-3.5 h-3.5" />
+                    <Linkedin className="w-3 h-3" />
                   </a>
                   <span className="text-primary-foreground/70 text-xs">{dev.name}</span>
                 </li>

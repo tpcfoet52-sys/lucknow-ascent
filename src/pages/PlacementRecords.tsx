@@ -1,7 +1,8 @@
 import PlacementStats from "@/components/PlacementStats";
+
 import RecruiterPortal from "@/components/RecruiterPortal";
+import GateQualifiers from "@/components/GateQualifiers";
 import PlacementGallery from "@/components/PlacementGallery";
-import ConnectWithUs from "@/components/ConnectWithUs";
 import Footer from "@/components/Footer";
 
 const PlacementRecords = () => {
@@ -10,10 +11,11 @@ const PlacementRecords = () => {
 
             <main className="flex-grow pt-20">
                 <PlacementStats />
+
                 <RecruiterPortal />
+                <GateQualifiers />
                 <PlacementGallery />
             </main>
-            <ConnectWithUs />
             <Footer />
         </div>
     );

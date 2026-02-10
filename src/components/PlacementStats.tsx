@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Users, Building2, Award } from "lucide-react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-import gateQualifiers2025 from "@/assets/gate-qualifiers-2025.png";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LabelList } from "recharts";
+import { FileText } from "lucide-react";
 
 
 const stats = [
@@ -53,6 +53,15 @@ const yearlyData = [
   },
 ];
 
+// Year-wise Companies Visited Data (Moved from CompaniesVisited.tsx)
+const companiesVisitedData = [
+  { year: "2024-25", companyCount: 500, pdfUrl: null },
+  { year: "2023-24", companyCount: 350, pdfUrl: null },
+  { year: "2022-23", companyCount: 240, pdfUrl: null },
+  { year: "2021-22", companyCount: 185, pdfUrl: null },
+  { year: "2020-21", companyCount: 120, pdfUrl: null },
+];
+
 const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) => {
   if (active && payload && payload.length) {
     const data = foetPlacementData.find(d => d.year === label);
@@ -99,7 +108,7 @@ const PlacementStats = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="bg-card rounded-md p-5 shadow-elevated-sm border border-border/50"
+              className="group bg-card rounded-md p-6 shadow-sm border border-border/50 hover:shadow-md hover:border-accent/30 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="w-8 h-8 rounded bg-accent/10 flex items-center justify-center mb-3">
                 <stat.icon className="w-4 h-4 text-accent" />
@@ -114,54 +123,116 @@ const PlacementStats = () => {
           ))}
         </div>
 
-        {/* FoET Line Graph */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-card rounded-md p-5 md:p-6 shadow-elevated-sm border border-border/50 mb-8"
-        >
-          <div className="mb-5">
-            <h3 className="font-serif text-lg font-semibold text-foreground">
-              FoET / Engineering (UG 4-Year) Students Placed
-            </h3>
-            <p className="text-sm text-muted-foreground mt-1">
-              University of Lucknow (2020–2025)
-            </p>
-          </div>
-          <div className="h-64 md:h-80">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={foetPlacementData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
-                <XAxis
-                  dataKey="year"
-                  tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }}
-                  axisLine={{ stroke: 'hsl(var(--border))' }}
-                />
-                <YAxis
-                  tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }}
-                  axisLine={{ stroke: 'hsl(var(--border))' }}
-                  domain={[0, 450]}
-                />
-                <Tooltip content={<CustomTooltip />} />
-                <Line
-                  type="monotone"
-                  dataKey="students"
-                  stroke="hsl(var(--accent))"
-                  strokeWidth={3}
-                  dot={{ fill: 'hsl(var(--accent))', strokeWidth: 2, r: 5 }}
-                  activeDot={{ r: 8, fill: 'hsl(var(--primary))' }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-          <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
-            <span className="text-sm text-muted-foreground">5-Year Growth (2020-2025)</span>
-          </div>
-        </motion.div>
+        {/* Graph and Companies Visited Grid */}
+        <div className="grid lg:grid-cols-3 gap-6 mb-12">
+          {/* FoET Line Graph */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-2 bg-card rounded-md p-5 md:p-6 shadow-elevated-sm border border-border/50 h-full flex flex-col"
+          >
+            <div className="mb-5">
+              <h3 className="font-serif text-lg font-semibold text-foreground">
+                Students Placed (UG 4-Year)
+              </h3>
+              <p className="text-sm text-muted-foreground mt-1">
+                University of Lucknow (2020–2025)
+              </p>
+            </div>
+            <div className="h-64 md:h-80 flex-grow">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={foetPlacementData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
+                  <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" vertical={false} />
+                  <XAxis
+                    dataKey="year"
+                    tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }}
+                    axisLine={{ stroke: 'hsl(var(--border))' }}
+                  />
+                  <YAxis
+                    tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }}
+                    axisLine={{ stroke: 'hsl(var(--border))' }}
+                    domain={[0, 600]}
+                  />
+                  <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--muted)/0.2)' }} />
+                  <Bar
+                    dataKey="students"
+                    fill="hsl(var(--gold))"
+                    radius={[4, 4, 0, 0]}
+                    barSize={40}
+                    animationDuration={1500}
+                  >
+                    <LabelList dataKey="students" position="top" fill="hsl(var(--foreground))" fontSize={12} fontWeight="bold" />
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
+              <span className="text-sm text-muted-foreground">5-Year Growth Trajectory</span>
+            </div>
+          </motion.div>
 
-        {/* Year-wise Highest Package - Enhanced Design */}
+          {/* Year-wise Companies Visited (Sidebar) */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-1 bg-card rounded-md shadow-elevated-sm border border-border/50 overflow-hidden flex flex-col h-full"
+          >
+            <div className="p-5 border-b border-border bg-muted/20">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                  <Building2 className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <h3 className="font-serif text-lg font-semibold text-foreground leading-tight">Companies Visited</h3>
+                  <p className="text-xs text-muted-foreground">Recruitment Partners</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-0 flex-grow overflow-y-auto">
+              <div className="divide-y divide-border/50">
+                {companiesVisitedData.map((item, index) => (
+                  <div key={index} className="p-4 hover:bg-muted/10 transition-colors group">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-semibold text-foreground">{item.year}</span>
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-primary/10 text-primary">
+                        {item.companyCount}+
+                      </span>
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-muted-foreground">Recruiting Partners</span>
+                      {item.pdfUrl ? (
+                        <a
+                          href={item.pdfUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 text-[10px] text-accent font-medium hover:underline"
+                          title="Download List"
+                        >
+                          <FileText className="w-3 h-3" /> PDF
+                        </a>
+                      ) : (
+                        <span className="text-[10px] text-muted-foreground/50 italic flex items-center gap-1">
+                          <FileText className="w-3 h-3" /> Stay Tuned
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="p-4 border-t border-border bg-muted/10 text-center">
+              <p className="text-xs text-muted-foreground">Detailed lists available for download soon.</p>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Year-wise Highest Package */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -184,7 +255,7 @@ const PlacementStats = () => {
                 transition={{ duration: 0.4, delay: 0.1 * index }}
                 className="relative group"
               >
-                <div className="bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-lg p-4 border border-border/30 hover:border-accent/50 transition-all duration-300 h-full">
+                <div className="bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-lg p-5 border border-border/30 hover:border-accent/50 hover:shadow-md transition-all duration-300 h-full group-hover:-translate-y-1">
                   {/* Year Badge */}
                   <div className="inline-block px-2 py-0.5 bg-accent/10 rounded text-accent text-xs font-semibold mb-3">
                     {data.year}
@@ -201,29 +272,9 @@ const PlacementStats = () => {
                     <p className="text-foreground text-sm font-medium leading-tight">{data.studentName}</p>
                     <p className="text-accent text-xs font-semibold">{data.branch}</p>
                   </div>
-
-
                 </div>
               </motion.div>
             ))}
-          </div>
-        </motion.div>
-
-        {/* GATE Qualifiers 2025 */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-8 bg-card rounded-md p-5 md:p-6 shadow-elevated-sm border border-border/50"
-        >
-          <h3 className="font-serif text-lg font-semibold text-foreground mb-5 text-center">GATE Qualifiers 2025</h3>
-          <div className="w-full rounded-lg overflow-hidden">
-            <img
-              src={gateQualifiers2025}
-              alt="GATE Qualifiers 2025"
-              className="w-full h-auto object-contain"
-            />
           </div>
         </motion.div>
       </div>

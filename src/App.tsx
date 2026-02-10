@@ -8,7 +8,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import ContentMediaDashboard from "./pages/coordinator/ContentMediaDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Index from "./pages/Index";
-import TeamStructure from "./pages/TeamStructure";
+
 import AboutUniversity from "./pages/AboutUniversity";
 import AboutTPC from "./pages/AboutTPC";
 import AdminLogin from "./pages/AdminLogin";
@@ -78,7 +78,7 @@ const App = () => (
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Index />} />
-          <Route path="/team-structure" element={<TeamStructure />} />
+
           <Route path="/about-university" element={<AboutUniversity />} />
           <Route path="/our-alumni" element={<OurAlumni />} />
           <Route path="/about-tpc" element={<AboutTPC />} />
@@ -90,7 +90,7 @@ const App = () => (
           <Route path="/media" element={<Media />} />
 
           <Route path="/login" element={<Login />} />
-          <Route path="/students" element={<Students />} />
+          <Route path="/skill-development" element={<Students />} />
           <Route path="/placement-records" element={<PlacementRecords />} />
           <Route path="/contact" element={<Contact />} />
 
