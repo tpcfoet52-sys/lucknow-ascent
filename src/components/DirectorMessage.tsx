@@ -24,8 +24,7 @@ const LeaderCard = ({ name, role, institution, image, quote, bio, isFullWidth = 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="bg-card rounded-md p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border/50 relative"
-      style={{ zIndex: isExpanded ? 20 : 1 }}
+      className="bg-card rounded-md p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border/50"
     >
       <div className="flex items-start gap-3">
         <div className={`group flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 ${isFullWidth ? 'border-primary/50' : 'border-accent/50'}`}>
@@ -50,13 +49,21 @@ const LeaderCard = ({ name, role, institution, image, quote, bio, isFullWidth = 
           </blockquote>
         </div>
 
-        <p className={`text-foreground leading-relaxed text-[11px] mt-2 ${!isExpanded ? 'line-clamp-1' : ''}`}>
-          {bio}
-        </p>
+        {!isExpanded && (
+          <p className="text-foreground leading-relaxed text-[11px] mt-2 line-clamp-1">
+            {bio}
+          </p>
+        )}
+
+        {isExpanded && (
+          <p className="text-foreground leading-relaxed text-[11px] mt-2">
+            {bio}
+          </p>
+        )}
 
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="mt-2 flex items-center gap-0.5 text-accent hover:text-accent/80 transition-colors text-[10px] font-medium relative z-10"
+          className="mt-2 flex items-center gap-0.5 text-accent hover:text-accent/80 transition-colors text-[10px] font-medium"
         >
           {isExpanded ? (
             <>
@@ -69,52 +76,6 @@ const LeaderCard = ({ name, role, institution, image, quote, bio, isFullWidth = 
           )}
         </button>
       </div>
-
-      {/* Expanded overlay card */}
-      {isExpanded && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 10 }}
-          transition={{ duration: 0.3 }}
-          className="absolute inset-0 bg-card rounded-md p-6 border-2 border-accent/50 overflow-y-auto max-h-[600px]"
-        >
-          <div className="flex items-start gap-3">
-            <div className={`group flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 ${isFullWidth ? 'border-primary/50' : 'border-accent/50'}`}>
-              <img
-                src={image}
-                alt={name}
-                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <div className="flex-1 min-w-0 flex flex-col justify-center">
-              <h3 className="font-serif font-semibold text-base md:text-lg text-foreground">{name}</h3>
-              <p className="text-muted-foreground text-xs md:text-sm leading-tight mb-0.5">{role}</p>
-              <p className="text-accent text-[10px] md:text-xs font-medium">{institution}</p>
-            </div>
-          </div>
-
-          <div className="mt-3">
-            <div className="relative">
-              <Quote className="absolute -top-0.5 -left-0.5 w-4 h-4 text-accent/30" />
-              <blockquote className="text-muted-foreground text-xs md:text-sm leading-relaxed italic pl-5 border-l-2 border-accent/50">
-                "{quote}"
-              </blockquote>
-            </div>
-
-            <p className="text-foreground leading-relaxed text-[11px] mt-2">
-              {bio}
-            </p>
-
-            <button
-              onClick={() => setIsExpanded(false)}
-              className="mt-2 flex items-center gap-0.5 text-accent hover:text-accent/80 transition-colors text-[10px] font-medium"
-            >
-              View Less <ChevronUp className="w-3 h-3" />
-            </button>
-          </div>
-        </motion.div>
-      )}
     </motion.div>
   );
 };
