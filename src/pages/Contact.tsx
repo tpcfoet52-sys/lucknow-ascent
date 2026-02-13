@@ -19,30 +19,51 @@ const Contact = () => {
     };
 
     return (
-        <div className="min-h-screen bg-background flex flex-col">
-            <main className="flex-grow pt-20">
+        <div className="min-h-screen bg-background flex flex-col relative">
+            {/* Animated Background Blobs */}
+            <div className="absolute top-0 left-0 w-full h-screen pointer-events-none overflow-hidden">
+                <motion.div
+                    className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"
+                    animate={{
+                        x: [0, 30, 0],
+                        y: [0, -20, 0],
+                        scale: [1, 1.1, 1]
+                    }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.div
+                    className="absolute bottom-20 right-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl"
+                    animate={{
+                        x: [0, -30, 0],
+                        y: [0, 20, 0],
+                        scale: [1, 1.2, 1]
+                    }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                />
+            </div>
+
+            <main className="flex-grow pt-20 relative z-10">
                 {/* Hero Section */}
-                <section className="section-padding bg-muted/30">
+                <section className="section-padding bg-muted/20">
                     <div className="container-narrow text-center">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <span className="text-xs font-medium text-accent uppercase tracking-wider">Get In Touch</span>
-                            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-2 mb-4">
-                                Contact Us
+                            <span className="text-primary font-medium text-sm uppercase tracking-wider">Get In Touch</span>
+                            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-4 mb-6 tracking-tight">
+                                Contact <span className="text-gold-gradient">Us</span>
                             </h1>
-                            <p className="text-muted-foreground max-w-2xl mx-auto">
+                            <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
                                 Have questions about placements, training programs, or recruitment? We're here to help.
                             </p>
                         </motion.div>
                     </div>
                 </section>
 
-
                 {/* Coordinators & Connect Section */}
-                <section className="section-padding bg-muted/30">
+                <section className="section-padding bg-background">
                     <div className="container-narrow">
 
 
@@ -51,11 +72,15 @@ const Contact = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="mb-10"
+                            className="mb-12"
                         >
-                            <h3 className="font-semibold text-xl md:text-2xl text-foreground mb-4 flex items-center justify-center gap-2">
-                                <Smartphone className="w-5 h-5 text-accent" /> Social Networks
-                            </h3>
+                            <div className="text-center mb-8">
+                                <span className="text-primary font-medium text-sm uppercase tracking-wider">Follow Us</span>
+                                <h3 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2 flex items-center justify-center gap-2">
+                                    <Smartphone className="w-6 h-6 text-primary" /> Social Networks
+                                </h3>
+                                <p className="text-muted-foreground mt-3">Stay connected with our latest updates and announcements.</p>
+                            </div>
                             <div className="grid md:grid-cols-3 gap-4">
                                 {/* LinkedIn */}
                                 <a
@@ -139,10 +164,15 @@ const Contact = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
+                            className="mt-12"
                         >
-                            <h3 className="font-semibold text-xl md:text-2xl text-foreground mb-4 flex items-center justify-center gap-2">
-                                <Users className="w-5 h-5 text-accent" /> Connect With Us
-                            </h3>
+                            <div className="text-center mb-8">
+                                <span className="text-primary font-medium text-sm uppercase tracking-wider">Team</span>
+                                <h3 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2 flex items-center justify-center gap-2">
+                                    <Users className="w-6 h-6 text-primary" /> Connect With Us
+                                </h3>
+                                <p className="text-muted-foreground mt-3">Reach out to our placement team for assistance.</p>
+                            </div>
                             <div className="grid md:grid-cols-2 gap-4">
                                 {/* Training & Placement Cell Incharge */}
                                 <div className="border border-border rounded-lg overflow-hidden">
@@ -278,20 +308,20 @@ const Contact = () => {
 
 
                 {/* Location & Directions Section - Map + Best Route */}
-                <section className="section-padding">
+                <section className="section-padding bg-muted/20">
                     <div className="container-narrow">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-center mb-8"
+                            className="text-center mb-10"
                         >
-                            <span className="text-xs font-medium text-accent uppercase tracking-wider">Location & Directions</span>
+                            <span className="text-primary font-medium text-sm uppercase tracking-wider">Location & Directions</span>
                             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
                                 How To Reach Us?
                             </h2>
-                            <p className="text-muted-foreground mt-2 text-sm flex items-center justify-center gap-1 text-center">
-                                <MapPin className="w-4 h-4 text-accent flex-shrink-0" /> WWHQ+JC7, Training & Placement Cell, Faculty of Engineering & Technology University of Lucknow, New Campus Rd, Sultanpur Village, Jankipuram Extension, Lucknow, Uttar Pradesh 226031
+                            <p className="text-muted-foreground mt-3 text-sm md:text-base flex items-center justify-center gap-2 max-w-4xl mx-auto">
+                                <MapPin className="w-4 h-4 text-primary flex-shrink-0" /> WWHQ+JC7, Training & Placement Cell, Faculty of Engineering & Technology University of Lucknow, New Campus Rd, Sultanpur Village, Jankipuram Extension, Lucknow, Uttar Pradesh 226031
                             </p>
                         </motion.div>
 

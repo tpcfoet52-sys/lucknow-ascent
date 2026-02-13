@@ -150,8 +150,9 @@ const Events = () => {
   }
 
   return (
-    <section id="events" className="section-padding bg-muted/20">
-      <div className="container-narrow">
+    <section id="events" className="section-padding bg-muted/20 relative">
+      {/* Animated Background Blobs */}
+      <div className="container-narrow absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
         <motion.div
           className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"
           animate={{
@@ -173,7 +174,7 @@ const Events = () => {
       </div>
 
       <div className="container-narrow relative z-10">
-        {/* Hero Section - Monochromatic */}
+        {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -182,10 +183,10 @@ const Events = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-medium text-sm uppercase tracking-wider">Events</span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-2 tracking-tight">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-4 tracking-tight">
             Placement <span className="text-gold-gradient">Events & Activities</span>
           </h2>
-          <p className="max-w-xl mx-auto text-muted-foreground mt-3 text-base md:text-lg leading-relaxed">
+          <p className="max-w-2xl mx-auto text-muted-foreground mt-4 text-base md:text-lg leading-relaxed">
             Stay updated with upcoming placement drives, workshops, and career development sessions.
           </p>
         </motion.div>
