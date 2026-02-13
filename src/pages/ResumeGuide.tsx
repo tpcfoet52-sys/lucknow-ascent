@@ -1,49 +1,54 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, XCircle, Briefcase, Award, PenTool, Download, ChevronRight, User, Settings, AlertTriangle, Search, LayoutTemplate, FileType } from "lucide-react";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-
-
 import ATSChecker from "@/components/ATSChecker";
+import PageBackground from "@/components/PageBackground";
+import heroImage from "@/assets/university-hero-new.jpg";
 
 const ResumeGuide = () => {
     return (
-        <div className="min-h-screen bg-background flex flex-col">
-            <Header />
+        <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
+            <PageBackground />
 
-            <main className="flex-1 pt-24 pb-12">
-                {/* Hero Section */}
-                <section className="relative py-12 md:py-20 mb-2">
-                    <div className="container-narrow text-center relative">
+            {/* Hero Section */}
+            <section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden">
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src={heroImage}
+                        alt="University of Lucknow Campus"
+                        className="w-full h-full object-cover object-[center_20%]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background" />
+                </div>
 
+                <div className="container-narrow text-center relative z-10 pt-8 md:pt-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <span className="text-primary font-medium text-sm uppercase tracking-wider">Career Coaching</span>
+                        <h1 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mt-4 mb-6">
+                            Build an <span className="text-gold-gradient">Impressive Resume</span>
+                        </h1>
+                        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                            Your resume is your first impression. Learn how to craft a professional, ATS-friendly resume that gets you shortlisted by top recruiters.
+                        </p>
+                        <div className="mt-8 flex justify-center gap-4">
+                            <Button variant="gold" size="lg" className="rounded-md" onClick={() => document.getElementById('ats-checker')?.scrollIntoView({ behavior: 'smooth' })}>
+                                Check ATS Score <ChevronRight className="w-4 h-4 ml-2" />
+                            </Button>
+                            <Button size="lg" variant="outline" className="rounded-md" onClick={() => document.getElementById('download-template')?.scrollIntoView({ behavior: 'smooth' })}>
+                                <Download className="w-4 h-4 mr-2" /> Templates
+                            </Button>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <span className="text-accent font-medium text-sm uppercase tracking-wider">Career Coaching</span>
-                            <h1 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mt-4 mb-6">
-                                Build an <span className="text-gold-gradient">Impressive Resume</span>
-                            </h1>
-                            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                                Your resume is your first impression. Learn how to craft a professional, ATS-friendly resume that gets you shortlisted by top recruiters.
-                            </p>
-                            <div className="mt-8 flex justify-center gap-4">
-                                <Button variant="gold" size="lg" className="rounded-md" onClick={() => document.getElementById('ats-checker')?.scrollIntoView({ behavior: 'smooth' })}>
-                                    Check ATS Score <ChevronRight className="w-4 h-4 ml-2" />
-                                </Button>
-                                <Button size="lg" variant="outline" className="rounded-md" onClick={() => document.getElementById('download-template')?.scrollIntoView({ behavior: 'smooth' })}>
-                                    <Download className="w-4 h-4 ml-2" /> Templates
-                                </Button>
-                            </div>
-                        </motion.div>
-                    </div>
-                </section>
+            <main className="flex-grow relative z-10">
 
                 <div className="container-narrow py-6 space-y-16">
 

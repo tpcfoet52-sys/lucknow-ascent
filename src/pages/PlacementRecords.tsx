@@ -1,39 +1,29 @@
 import { motion } from "framer-motion";
 import PlacementStats from "@/components/PlacementStats";
-
 import RecruiterPortal from "@/components/RecruiterPortal";
 import GateQualifiers from "@/components/GateQualifiers";
 import PlacementGallery from "@/components/PlacementGallery";
 import Footer from "@/components/Footer";
+import PageBackground from "@/components/PageBackground";
+import heroImage from "@/assets/university-hero-new.jpg";
 
 const PlacementRecords = () => {
     return (
-        <div className="min-h-screen bg-background flex flex-col relative">
-            {/* Animated Background Blobs */}
-            <div className="absolute top-0 left-0 w-full h-screen pointer-events-none overflow-hidden">
-                <motion.div
-                    className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"
-                    animate={{
-                        x: [0, 30, 0],
-                        y: [0, -20, 0],
-                        scale: [1, 1.1, 1]
-                    }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <motion.div
-                    className="absolute bottom-20 right-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl"
-                    animate={{
-                        x: [0, -30, 0],
-                        y: [0, 20, 0],
-                        scale: [1, 1.2, 1]
-                    }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                />
-            </div>
+        <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
+            <PageBackground />
 
             {/* Hero Section */}
-            <section className="section-padding bg-muted/20 relative z-10 pt-32">
-                <div className="container-narrow text-center">
+            <section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden">
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src={heroImage}
+                        alt="University of Lucknow Campus"
+                        className="w-full h-full object-cover object-[center_20%]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background" />
+                </div>
+
+                <div className="container-narrow text-center relative z-10 pt-8 md:pt-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -52,7 +42,6 @@ const PlacementRecords = () => {
 
             <main className="flex-grow relative z-10">
                 <PlacementStats />
-
                 <RecruiterPortal />
                 <GateQualifiers />
                 <PlacementGallery />

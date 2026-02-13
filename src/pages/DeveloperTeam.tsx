@@ -7,6 +7,8 @@ import rashmiKushwaha from "@/assets/rashmi-kushwaha.jpg";
 import aryanTripathi from "@/assets/aryan-tripathi.jpg";
 import akashKumarYadav from "@/assets/akash-kumar-yadav.jpg";
 import Footer from "@/components/Footer";
+import PageBackground from "@/components/PageBackground";
+import heroImage from "@/assets/university-hero-new.jpg";
 
 const DeveloperTeam = () => {
     const fadeInUp = {
@@ -97,18 +99,27 @@ const DeveloperTeam = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-background flex flex-col">
-            <main className="flex-1 pt-20 pb-12">
+        <div className="min-h-screen bg-background relative overflow-hidden flex flex-col">
+            <PageBackground />
+            <main className="flex-grow relative z-10">
                 {/* Hero Section */}
-                <section className="relative py-12 md:py-16">
-                    <div className="container-narrow">
+                <section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden">
+                    <div className="absolute inset-0 z-0">
+                        <img
+                            src={heroImage}
+                            alt="University of Lucknow"
+                            className="w-full h-full object-cover object-[center_20%]"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background" />
+                    </div>
+
+                    <div className="container-narrow text-center relative z-10 pt-8 md:pt-16">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className="text-center"
                         >
-                            <div className="inline-flex items-center gap-2 mb-4">
+                            <div className="inline-flex items-center justify-center gap-2 mb-4">
                                 <Code2 className="w-6 h-6 text-accent" />
                                 <span className="text-accent font-medium text-sm uppercase tracking-wider">
                                     Behind The Scenes

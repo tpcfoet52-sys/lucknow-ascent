@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Award } from "lucide-react";
 import Footer from "@/components/Footer";
-
+import PageBackground from "@/components/PageBackground";
 import uolLogo from "@/assets/uol-logo.png";
 import heroImage from "@/assets/university-hero-new.jpg";
 import naacBadge from "@/assets/uol-category-1-badge.png";
@@ -99,189 +99,192 @@ const foetAlumniList = [
 
 const OurAlumni = () => {
     return (
-        <div className="min-h-screen bg-background">
-            {/* Header */}
+        <div className="min-h-screen bg-background relative overflow-hidden text-foreground">
+            <PageBackground />
+            <main className="relative z-10">
+                {/* Header */}
 
 
-            {/* Hero Section */}
-            <section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <img
-                        src={heroImage}
-                        alt="University of Lucknow Campus"
-                        className="w-full h-full object-cover object-[center_20%]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background" />
-                </div>
+                {/* Hero Section */}
+                <section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden">
+                    <div className="absolute inset-0 z-0">
+                        <img
+                            src={heroImage}
+                            alt="University of Lucknow Campus"
+                            className="w-full h-full object-cover object-[center_20%]"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background" />
+                    </div>
 
-                <div className="relative z-10 container-narrow pt-8 md:pt-16">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center max-w-3xl mx-auto"
-                    >
-                        {/* Badges Row */}
-                        <div className="flex items-center justify-center gap-6 md:gap-10 mb-8">
-                            <motion.img
-                                src={naacBadge}
-                                alt="NAAC A++ Accreditation"
-                                className="w-20 h-20 md:w-28 md:h-28 object-contain rounded-full"
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.2, duration: 0.5 }}
-                            />
-                            <motion.img
-                                src={uolLogo}
-                                alt="University of Lucknow"
-                                className="w-20 h-20 md:w-28 md:h-28 object-contain"
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.3, duration: 0.5 }}
-                            />
+                    <div className="relative z-10 container-narrow pt-8 md:pt-16">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="text-center max-w-3xl mx-auto"
+                        >
+                            {/* Badges Row */}
+                            <div className="flex items-center justify-center gap-6 md:gap-10 mb-8">
+                                <motion.img
+                                    src={naacBadge}
+                                    alt="NAAC A++ Accreditation"
+                                    className="w-20 h-20 md:w-28 md:h-28 object-contain rounded-full"
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: 0.2, duration: 0.5 }}
+                                />
+                                <motion.img
+                                    src={uolLogo}
+                                    alt="University of Lucknow"
+                                    className="w-20 h-20 md:w-28 md:h-28 object-contain"
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: 0.3, duration: 0.5 }}
+                                />
+                            </div>
+
+                            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 tracking-tight">
+                                Our <span className="text-gold-gradient">Alumni & Achievers</span>
+                            </h1>
+                            <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
+                                Celebrating the achievements of our graduates who have made significant contributions to society and their respective fields.
+                            </p>
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* Alumni Grid Section */}
+                <section id="distinguished" className="section-padding bg-muted/30">
+                    <div className="container-narrow">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-center mb-12"
+                        >
+                            <span className="text-xs font-medium text-accent uppercase tracking-wider">Distinguished Alumni</span>
+                            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mt-2">
+                                Leaders Who Walked Our Halls
+                            </h2>
+                        </motion.div>
+
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                            {alumniList.map((alumni, index) => (
+                                <motion.div
+                                    key={alumni.name}
+                                    custom={index}
+                                    initial="initial"
+                                    whileInView="animate"
+
+                                    viewport={{ once: true }}
+                                    variants={{
+                                        initial: { opacity: 0, y: 30 },
+                                        animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
+                                        hover: { y: -5, transition: { duration: 0.3 } }
+                                    }}
+                                    className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
+                                >
+                                    {/* Image Section - Circular Profile Photo */}
+                                    <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
+                                        {alumni.image ? (
+                                            <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 ">
+                                                <img
+                                                    src={alumni.image}
+                                                    alt={alumni.name}
+                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                />
+                                            </div>
+                                        ) : (
+                                            <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
+                                                <Award className="h-16 w-16 text-primary/40" />
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Content Section */}
+                                    <div className="p-4 relative z-10 bg-card text-center">
+                                        <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors">
+                                            {alumni.name}
+                                        </h3>
+                                        <p className="text-xs text-accent mt-1 font-medium">{alumni.role}</p>
+                                        <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
+
+                                        <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed text-left">
+                                            {alumni.description}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            ))}
                         </div>
-
-                        <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 tracking-tight">
-                            Our <span className="text-gold-gradient">Alumni & Achievers</span>
-                        </h1>
-                        <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
-                            Celebrating the achievements of our graduates who have made significant contributions to society and their respective fields.
-                        </p>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* Alumni Grid Section */}
-            <section id="distinguished" className="section-padding bg-muted/30">
-                <div className="container-narrow">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-12"
-                    >
-                        <span className="text-xs font-medium text-accent uppercase tracking-wider">Distinguished Alumni</span>
-                        <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mt-2">
-                            Leaders Who Walked Our Halls
-                        </h2>
-                    </motion.div>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                        {alumniList.map((alumni, index) => (
-                            <motion.div
-                                key={alumni.name}
-                                custom={index}
-                                initial="initial"
-                                whileInView="animate"
-
-                                viewport={{ once: true }}
-                                variants={{
-                                    initial: { opacity: 0, y: 30 },
-                                    animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
-                                    hover: { y: -5, transition: { duration: 0.3 } }
-                                }}
-                                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
-                            >
-                                {/* Image Section - Circular Profile Photo */}
-                                <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
-                                    {alumni.image ? (
-                                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 ">
-                                            <img
-                                                src={alumni.image}
-                                                alt={alumni.name}
-                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                            />
-                                        </div>
-                                    ) : (
-                                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
-                                            <Award className="h-16 w-16 text-primary/40" />
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* Content Section */}
-                                <div className="p-4 relative z-10 bg-card text-center">
-                                    <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors">
-                                        {alumni.name}
-                                    </h3>
-                                    <p className="text-xs text-accent mt-1 font-medium">{alumni.role}</p>
-                                    <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
-
-                                    <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed text-left">
-                                        {alumni.description}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Engineering Alumni Section */}
-            <section className="section-padding bg-background">
-                <div className="container-narrow">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-12"
-                    >
-                        <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
-                            Faculty of Engineering & Technology Alumni
-                        </h2>
-                    </motion.div>
+                {/* Engineering Alumni Section */}
+                <section className="section-padding bg-background">
+                    <div className="container-narrow">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-center mb-12"
+                        >
+                            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
+                                Faculty of Engineering & Technology Alumni
+                            </h2>
+                        </motion.div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {foetAlumniList.map((alumni, index) => (
-                            <motion.div
-                                key={alumni.name}
-                                custom={index}
-                                initial="initial"
-                                whileInView="animate"
-                                whileHover="hover"
-                                viewport={{ once: true }}
-                                variants={{
-                                    initial: { opacity: 0, y: 30 },
-                                    animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
-                                    hover: { y: -5, transition: { duration: 0.3 } }
-                                }}
-                                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
-                            >
-                                {/* Image Section - Circular Profile Photo */}
-                                <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
-                                    {alumni.image ? (
-                                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300">
-                                            <img
-                                                src={alumni.image}
-                                                alt={alumni.name}
-                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                            />
-                                        </div>
-                                    ) : (
-                                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
-                                            <Award className="h-16 w-16 text-primary/40" />
-                                        </div>
-                                    )}
-                                </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {foetAlumniList.map((alumni, index) => (
+                                <motion.div
+                                    key={alumni.name}
+                                    custom={index}
+                                    initial="initial"
+                                    whileInView="animate"
+                                    whileHover="hover"
+                                    viewport={{ once: true }}
+                                    variants={{
+                                        initial: { opacity: 0, y: 30 },
+                                        animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
+                                        hover: { y: -5, transition: { duration: 0.3 } }
+                                    }}
+                                    className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
+                                >
+                                    {/* Image Section - Circular Profile Photo */}
+                                    <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
+                                        {alumni.image ? (
+                                            <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300">
+                                                <img
+                                                    src={alumni.image}
+                                                    alt={alumni.name}
+                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                />
+                                            </div>
+                                        ) : (
+                                            <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
+                                                <Award className="h-16 w-16 text-primary/40" />
+                                            </div>
+                                        )}
+                                    </div>
 
-                                {/* Content Section */}
-                                <div className="p-4 relative z-10 bg-card text-center">
-                                    <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors">
-                                        {alumni.name}
-                                    </h3>
-                                    <p className="text-xs text-accent mt-1 font-medium">{alumni.role}</p>
-                                    <p className="text-xs text-muted-foreground mt-1">{alumni.company} • Batch {alumni.batch}</p>
+                                    {/* Content Section */}
+                                    <div className="p-4 relative z-10 bg-card text-center">
+                                        <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors">
+                                            {alumni.name}
+                                        </h3>
+                                        <p className="text-xs text-accent mt-1 font-medium">{alumni.role}</p>
+                                        <p className="text-xs text-muted-foreground mt-1">{alumni.company} • Batch {alumni.batch}</p>
 
-                                    <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed text-left">
-                                        {alumni.description}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
+                                        <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed text-left">
+                                            {alumni.description}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
+            </main>
             <Footer />
         </div>
     );

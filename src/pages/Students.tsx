@@ -1,12 +1,13 @@
 import StudentCorner from "@/components/StudentCorner";
-
 import Footer from "@/components/Footer";
+import PageBackground from "@/components/PageBackground";
 
 const Students = () => {
     return (
-        <div className="min-h-screen bg-background flex flex-col">
+        <div className="min-h-screen bg-background relative overflow-hidden flex flex-col">
+            <PageBackground />
 
-            <main className="flex-grow pt-20">
+            <main className="flex-grow pt-20 relative z-10">
                 <StudentCorner />
             </main>
             <Footer />
