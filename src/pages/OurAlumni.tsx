@@ -235,10 +235,16 @@ const OurAlumni = () => {
                         {foetAlumniList.map((alumni, index) => (
                             <motion.div
                                 key={alumni.name}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                custom={index}
+                                initial="initial"
+                                whileInView="animate"
+                                whileHover="hover"
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.1 * index }}
+                                variants={{
+                                    initial: { opacity: 0, y: 30 },
+                                    animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
+                                    hover: { y: -5, transition: { duration: 0.3 } }
+                                }}
                                 className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
                             >
                                 {/* Image Section - Circular Profile Photo */}

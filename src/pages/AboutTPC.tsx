@@ -266,9 +266,10 @@ const AboutTPC = () => {
                   custom={index}
                   initial="hidden"
                   whileInView="visible"
+                  whileHover={{ y: -5 }}
                   viewport={{ once: true }}
                   variants={fadeInUp}
-                  className="group bg-gradient-to-br from-primary/5 to-accent/5 border border-border rounded-xl p-6 text-center hover:shadow-md hover:border-accent/30 transition-all duration-300 hover:-translate-y-1"
+                  className="group bg-gradient-to-br from-primary/5 to-accent/5 border border-border rounded-xl p-6 text-center shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300"
                 >
                   <p className="font-serif text-2xl md:text-3xl font-bold text-accent">{stat.value}</p>
                   <p className="text-sm font-medium text-foreground mt-1">{stat.label}</p>
@@ -634,9 +635,10 @@ const AboutTPC = () => {
                 custom={index}
                 initial="hidden"
                 whileInView="visible"
+                whileHover={{ y: -5 }}
                 viewport={{ once: true }}
                 variants={fadeInUp}
-                className="flex items-center gap-3 bg-background border border-border rounded-xl p-4  hover:bg-accent/5 transition-all text-left group"
+                className="flex items-center gap-3 bg-background border border-border rounded-xl p-4 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 text-left group"
               >
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
                   <FileText className="h-5 w-5 text-primary" />

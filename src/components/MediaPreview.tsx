@@ -126,10 +126,12 @@ const MediaPreview = () => {
                             key={item.id}
                             initial="initial"
                             whileInView="animate"
+                            whileHover="hover"
                             viewport={{ once: true }}
                             variants={{
                                 initial: { opacity: 0, y: 30 },
-                                animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } }
+                                animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
+                                hover: { y: -5, transition: { duration: 0.3 } }
                             }}
                             className="group relative overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md hover:border-accent/30 bg-card cursor-pointer transition-all duration-300 h-full flex flex-col"
                             onClick={() => setSelectedItem(item)}
@@ -138,7 +140,7 @@ const MediaPreview = () => {
                                 <img
                                     src={item.src}
                                     alt={item.title}
-                                    className="w-full h-full object-cover object-center"
+                                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                                 />
                             </div>
 

@@ -348,7 +348,7 @@ const EventCard = ({ event, index, onRegister, isPast = false }: { event: Event,
       hover: { y: -5, transition: { duration: 0.3 } }
     }}
     whileHover="hover"
-    className={`group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card transition-all duration-300 ${isPast ? 'opacity-80' : ''}`}
+    className={`group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30 ${isPast ? 'opacity-80' : ''}`}
   >
     {/* Image Section */}
     <div className="aspect-video overflow-hidden relative bg-muted">

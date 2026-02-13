@@ -83,11 +83,12 @@ const Contact = () => {
                             </div>
                             <div className="grid md:grid-cols-3 gap-4">
                                 {/* LinkedIn */}
-                                <a
+                                <motion.a
+                                    whileHover={{ y: -5 }}
                                     href="https://www.linkedin.com/in/tpcfoet"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block bg-card border border-border rounded-xl overflow-hidden hover:border-[#0A66C2]/50 transition-all hover:shadow-lg group"
+                                    className="block bg-card border border-border rounded-xl overflow-hidden hover:border-[#0A66C2]/50 transition-all hover:shadow-lg group shadow-sm"
                                 >
                                     <div className="p-4 border-b border-border flex flex-col items-center justify-center text-center gap-1">
                                         <p className="font-semibold text-sm text-foreground flex items-center justify-center gap-2">
@@ -105,14 +106,15 @@ const Contact = () => {
                                             className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                                         />
                                     </div>
-                                </a>
+                                </motion.a>
 
                                 {/* Twitter/X */}
-                                <a
+                                <motion.a
+                                    whileHover={{ y: -5 }}
                                     href="https://x.com/PlacementEnggLU"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block bg-card border border-border rounded-xl overflow-hidden hover:border-foreground/30 transition-all hover:shadow-lg group"
+                                    className="block bg-card border border-border rounded-xl overflow-hidden hover:border-foreground/30 transition-all hover:shadow-lg group shadow-sm"
                                 >
                                     <div className="p-4 border-b border-border flex flex-col items-center justify-center text-center gap-1">
                                         <p className="font-semibold text-sm text-foreground flex items-center justify-center gap-2">
@@ -130,14 +132,15 @@ const Contact = () => {
                                             className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
                                         />
                                     </div>
-                                </a>
+                                </motion.a>
 
                                 {/* Instagram */}
-                                <a
+                                <motion.a
+                                    whileHover={{ y: -5 }}
                                     href="https://www.instagram.com/tpcfoet"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block bg-card border border-border rounded-xl overflow-hidden hover:border-pink-500/50 transition-all hover:shadow-lg group"
+                                    className="block bg-card border border-border rounded-xl overflow-hidden hover: पिंक-500/50 transition-all hover:shadow-lg group shadow-sm"
                                 >
                                     <div className="p-4 border-b border-border flex flex-col items-center justify-center text-center gap-1">
                                         <p className="font-semibold text-sm text-foreground flex items-center justify-center gap-2">
@@ -155,7 +158,7 @@ const Contact = () => {
                                             className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                                         />
                                     </div>
-                                </a>
+                                </motion.a>
                             </div>
                         </motion.div>
 
@@ -175,7 +178,7 @@ const Contact = () => {
                             </div>
                             <div className="grid md:grid-cols-2 gap-4">
                                 {/* Training & Placement Cell Incharge */}
-                                <div className="border border-border rounded-lg overflow-hidden">
+                                <div className="border border-border rounded-xl overflow-hidden shadow-sm">
                                     <button
                                         onClick={() => toggleTPO('tpo')}
                                         className="w-full flex items-center justify-between p-4 bg-card hover:bg-muted/50 transition-colors"
@@ -225,7 +228,7 @@ const Contact = () => {
                                 </div>
 
                                 {/* Student Coordinators */}
-                                <div className="border border-border rounded-lg overflow-hidden">
+                                <div className="border border-border rounded-xl overflow-hidden shadow-sm">
                                     <button
                                         onClick={() => toggleTPO('student')}
                                         className="w-full flex items-center justify-between p-4 bg-card hover:bg-muted/50 transition-colors"
@@ -331,6 +334,7 @@ const Contact = () => {
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
+                                whileHover={{ y: -5 }}
                                 className="rounded-xl overflow-hidden border border-border shadow-sm min-h-[400px] lg:min-h-[500px] transition-all duration-300 hover:shadow-md hover:border-accent/30"
                             >
                                 <iframe
@@ -348,14 +352,17 @@ const Contact = () => {
                             {/* Best Route - Stacked Cards */}
                             <motion.div
                                 initial={{ opacity: 0, x: 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 className="flex flex-col gap-4"
                             >
                                 <h3 className="font-semibold text-lg text-foreground text-center">Best Route</h3>
 
                                 {/* By Metro */}
-                                <div className="bg-card border border-border/50 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30">
+                                <motion.div
+                                    whileHover={{ y: -5 }}
+                                    className="bg-card border border-border/50 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30"
+                                >
                                     <div className="flex flex-col items-center justify-center text-center gap-2 mb-2">
                                         <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0">
                                             <Train className="w-4 h-4 text-red-600" />
@@ -365,10 +372,13 @@ const Contact = () => {
                                     <p className="text-muted-foreground text-xs leading-relaxed text-center">
                                         Take the Lucknow Metro (Red Line) → <span className="font-medium text-foreground">IT College</span> or <span className="font-medium text-foreground">Vishwavidyalaya</span> station → e-rickshaw/auto to New Campus (10–15 min).
                                     </p>
-                                </div>
+                                </motion.div>
 
                                 {/* By Train (from Charbagh) */}
-                                <div className="bg-card border border-border/50 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30">
+                                <motion.div
+                                    whileHover={{ y: -5 }}
+                                    className="bg-card border border-border/50 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30"
+                                >
                                     <div className="flex flex-col items-center justify-center text-center gap-2 mb-2">
                                         <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
                                             <Train className="w-4 h-4 text-blue-600" />
@@ -381,10 +391,13 @@ const Contact = () => {
                                         <p>Get down at <span className="font-medium text-foreground">IT College</span> or <span className="font-medium text-foreground">Vishwavidyalaya</span>.</p>
                                         <p>Take an e-rickshaw/auto to <span className="font-medium text-foreground">"Lucknow University New Campus, Jankipuram Extension"</span>.</p>
                                     </div>
-                                </div>
+                                </motion.div>
 
                                 {/* By Cab */}
-                                <div className="bg-card border border-border/50 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30">
+                                <motion.div
+                                    whileHover={{ y: -5 }}
+                                    className="bg-card border border-border/50 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30"
+                                >
                                     <div className="flex flex-col items-center justify-center text-center gap-2 mb-2">
                                         <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
                                             <Car className="w-4 h-4 text-green-600" />
@@ -394,18 +407,18 @@ const Contact = () => {
                                     <p className="text-muted-foreground text-xs leading-relaxed text-center">
                                         Book <span className="font-medium text-foreground">Ola/Uber</span> → Enter: <span className="font-medium text-foreground">"Lucknow University New Campus, Jankipuram Extension"</span> → Main gate drop.
                                     </p>
-                                </div>
+                                </motion.div>
 
                                 {/* Office Info */}
                                 <div className="grid grid-cols-2 gap-3 mt-2">
-                                    <div className="bg-muted/50 border border-border rounded-lg p-3 flex flex-col items-center justify-center text-center">
+                                    <div className="bg-muted/50 border border-border rounded-xl p-3 flex flex-col items-center justify-center text-center">
                                         <div className="flex flex-col items-center justify-center gap-1 mb-1">
                                             <Building2 className="h-4 w-4 text-primary" />
                                             <span className="font-semibold text-xs text-foreground">Office</span>
                                         </div>
                                         <p className="text-muted-foreground text-xs text-center">TPC Office, FoET Building</p>
                                     </div>
-                                    <div className="bg-muted/50 border border-border rounded-lg p-3 flex flex-col items-center justify-center text-center">
+                                    <div className="bg-muted/50 border border-border rounded-xl p-3 flex flex-col items-center justify-center text-center">
                                         <div className="flex flex-col items-center justify-center gap-1 mb-1">
                                             <Clock className="h-4 w-4 text-accent" />
                                             <span className="font-semibold text-xs text-foreground">Hours</span>
@@ -423,7 +436,7 @@ const Contact = () => {
             </main>
 
             <Footer />
-        </div >
+        </div>
     );
 };
 

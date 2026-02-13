@@ -52,10 +52,16 @@ const SkillDevelopment = () => {
                     {resources.map((resource, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial="initial"
+                            whileInView="animate"
+                            whileHover="hover"
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.1 * index }}
+                            variants={{
+                                initial: { opacity: 0, y: 20 },
+                                animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
+                                hover: { y: -5, transition: { duration: 0.3 } }
+                            }}
+                            className="h-full"
                         >
                             <Link
                                 to={resource.link}

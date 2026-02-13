@@ -178,7 +178,7 @@ const Media = () => {
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {filteredGallery.length === 0 ? (
-                                <div className="col-span-full text-center py-12 text-muted-foreground bg-card rounded-lg border border-dashed border-border">
+                                <div className="col-span-full text-center py-12 text-muted-foreground bg-card rounded-xl border border-dashed border-border shadow-sm">
                                     No items found in this category.
                                 </div>
                             ) : (
@@ -240,7 +240,7 @@ const Media = () => {
                         </motion.div>
                         <div className="grid md:grid-cols-3 gap-6">
                             {allPressItems.length === 0 ? (
-                                <div className="col-span-full text-center py-12 text-muted-foreground bg-card rounded-lg border border-dashed border-border">
+                                <div className="col-span-full text-center py-12 text-muted-foreground bg-card rounded-xl border border-dashed border-border shadow-sm">
                                     No press releases available yet.
                                 </div>
                             ) : (
