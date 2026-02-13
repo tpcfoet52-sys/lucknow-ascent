@@ -55,7 +55,7 @@ const Testimonials = () => {
               className="relative"
             >
               {/* Quote Card */}
-              <div className="bg-card rounded-sm p-8 shadow-elevated-sm border border-border/50 h-full flex flex-col">
+              <div className="bg-card rounded-xl p-6 shadow-elevated-sm border border-border/50 h-full flex flex-col">
                 {/* Quote Icon */}
                 <div className="absolute -top-4 left-6">
                   <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
@@ -87,11 +87,10 @@ const Testimonials = () => {
 
                 {/* Type Badge */}
                 <div className="absolute top-6 right-6">
-                  <span className={`text-xs font-medium px-2 py-1 rounded-full ${
-                    testimonial.type === "alumni" 
-                      ? "bg-secondary text-secondary-foreground" 
+                  <span className={`text-xs font-medium px-2 py-1 rounded-full ${testimonial.type === "alumni"
+                      ? "bg-secondary text-secondary-foreground"
                       : "bg-accent/10 text-accent"
-                  }`}>
+                    }`}>
                     {testimonial.type === "alumni" ? "Alumni" : "Recruiter"}
                   </span>
                 </div>

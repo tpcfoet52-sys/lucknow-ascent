@@ -131,7 +131,7 @@ const MediaPreview = () => {
                                 initial: { opacity: 0, y: 30 },
                                 animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } }
                             }}
-                            className="group relative overflow-hidden rounded-xl border border-border bg-card cursor-pointer transition-all duration-300 h-full flex flex-col"
+                            className="group relative overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md hover:border-accent/30 bg-card cursor-pointer transition-all duration-300 h-full flex flex-col"
                             onClick={() => setSelectedItem(item)}
                         >
                             <div className="aspect-video overflow-hidden bg-muted">
@@ -142,7 +142,7 @@ const MediaPreview = () => {
                                 />
                             </div>
 
-                            <div className="p-6 relative z-10 bg-card flex-1 flex flex-col">
+                            <div className="p-4 relative z-10 bg-card flex-1 flex flex-col">
                                 <div className="flex justify-between items-start mb-3">
                                     <Badge variant="outline" className="text-[10px] uppercase tracking-wider border-accent/20 text-accent">
                                         {item.type}
