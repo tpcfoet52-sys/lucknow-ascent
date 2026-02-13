@@ -28,7 +28,7 @@ const Students = () => {
                     >
                         <span className="text-primary font-medium text-sm uppercase tracking-wider">Student Resources</span>
                         <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-4 mb-6 tracking-tight">
-                            Tools for Your <span className="text-gold-gradient">Professional Journey</span>
+                            Roadmap for Your <span className="text-gold-gradient">Professional Journey</span>
                         </h1>
                         <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
                             Access comprehensive resources designed to help you excel in interviews and secure your ideal placement.

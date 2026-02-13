@@ -174,23 +174,6 @@ const Events = () => {
       </div>
 
       <div className="container-narrow relative z-10">
-        {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
-        >
-          <span className="text-primary font-medium text-sm uppercase tracking-wider">Events</span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-4 tracking-tight">
-            Placement <span className="text-gold-gradient">Events & Activities</span>
-          </h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground mt-4 text-base md:text-lg leading-relaxed">
-            Stay updated with upcoming placement drives, workshops, and career development sessions.
-          </p>
-        </motion.div>
-
         <div className="mb-12">
           <h3 className="font-serif text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
             <Calendar className="w-5 h-5 text-primary" />

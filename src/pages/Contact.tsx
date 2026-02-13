@@ -353,13 +353,13 @@ const Contact = () => {
                                     whileHover={{ y: -5 }}
                                     className="bg-card border border-border/50 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30"
                                 >
-                                    <div className="flex flex-col items-center justify-center text-center gap-2 mb-2">
+                                    <div className="flex flex-col items-start justify-start text-left gap-2 mb-2">
                                         <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0">
                                             <Train className="w-4 h-4 text-red-600" />
                                         </div>
                                         <h4 className="font-semibold text-sm text-foreground">By Metro</h4>
                                     </div>
-                                    <p className="text-muted-foreground text-xs leading-relaxed text-center">
+                                    <p className="text-muted-foreground text-xs leading-relaxed text-left">
                                         Take the Lucknow Metro (Red Line) → <span className="font-medium text-foreground">IT College</span> or <span className="font-medium text-foreground">Vishwavidyalaya</span> station → e-rickshaw/auto to New Campus (10–15 min).
                                     </p>
                                 </motion.div>
@@ -369,13 +369,13 @@ const Contact = () => {
                                     whileHover={{ y: -5 }}
                                     className="bg-card border border-border/50 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30"
                                 >
-                                    <div className="flex flex-col items-center justify-center text-center gap-2 mb-2">
+                                    <div className="flex flex-col items-start justify-start text-left gap-2 mb-2">
                                         <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
                                             <Train className="w-4 h-4 text-blue-600" />
                                         </div>
                                         <h4 className="font-semibold text-sm text-foreground">By Train (from Charbagh)</h4>
                                     </div>
-                                    <div className="text-muted-foreground text-xs leading-relaxed text-center space-y-1">
+                                    <div className="text-muted-foreground text-xs leading-relaxed text-left space-y-1">
                                         <p className="font-medium text-foreground">Charbagh Railway Station → LU New Campus</p>
                                         <p>From Charbagh, take the Metro (Red Line) towards <span className="font-medium text-foreground">IT College</span>.</p>
                                         <p>Get down at <span className="font-medium text-foreground">IT College</span> or <span className="font-medium text-foreground">Vishwavidyalaya</span>.</p>
@@ -388,13 +388,13 @@ const Contact = () => {
                                     whileHover={{ y: -5 }}
                                     className="bg-card border border-border/50 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30"
                                 >
-                                    <div className="flex flex-col items-center justify-center text-center gap-2 mb-2">
+                                    <div className="flex flex-col items-start justify-start text-left gap-2 mb-2">
                                         <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
                                             <Car className="w-4 h-4 text-green-600" />
                                         </div>
                                         <h4 className="font-semibold text-sm text-foreground">By Cab</h4>
                                     </div>
-                                    <p className="text-muted-foreground text-xs leading-relaxed text-center">
+                                    <p className="text-muted-foreground text-xs leading-relaxed text-left">
                                         Book <span className="font-medium text-foreground">Ola/Uber</span> → Enter: <span className="font-medium text-foreground">"Lucknow University New Campus, Jankipuram Extension"</span> → Main gate drop.
                                     </p>
                                 </motion.div>
@@ -403,23 +403,23 @@ const Contact = () => {
                                 <div className="grid grid-cols-2 gap-3 mt-2">
                                     <motion.div
                                         whileHover={{ y: -5 }}
-                                        className="bg-muted/50 border border-border rounded-xl p-3 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-md hover:border-accent/30"
+                                        className="bg-muted/50 border border-border rounded-xl p-3 flex flex-col items-start justify-start text-left transition-all duration-300 hover:shadow-md hover:border-accent/30"
                                     >
-                                        <div className="flex flex-col items-center justify-center gap-1 mb-1">
+                                        <div className="flex flex-col items-start justify-start gap-1 mb-1">
                                             <Building2 className="h-4 w-4 text-primary" />
                                             <span className="font-semibold text-xs text-foreground">Office</span>
                                         </div>
-                                        <p className="text-muted-foreground text-xs text-center">TPC Office, FoET Building</p>
+                                        <p className="text-muted-foreground text-xs text-left">TPC Office, FoET Building</p>
                                     </motion.div>
                                     <motion.div
                                         whileHover={{ y: -5 }}
-                                        className="bg-muted/50 border border-border rounded-xl p-3 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-md hover:border-accent/30"
+                                        className="bg-muted/50 border border-border rounded-xl p-3 flex flex-col items-start justify-start text-left transition-all duration-300 hover:shadow-md hover:border-accent/30"
                                     >
-                                        <div className="flex flex-col items-center justify-center gap-1 mb-1">
+                                        <div className="flex flex-col items-start justify-start gap-1 mb-1">
                                             <Clock className="h-4 w-4 text-accent" />
                                             <span className="font-semibold text-xs text-foreground">Hours</span>
                                         </div>
-                                        <p className="text-muted-foreground text-xs text-center">Mon-Fri: 10AM-5PM • Sat: 10AM-2PM</p>
+                                        <p className="text-muted-foreground text-xs text-left">Mon-Fri: 10AM-5PM • Sat: 10AM-2PM</p>
                                     </motion.div>
                                 </div>
                             </motion.div>

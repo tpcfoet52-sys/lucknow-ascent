@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FileText, BookOpen, UserCheck, ExternalLink, ChevronRight } from "lucide-react";
+import { FileText, BookOpen, UserCheck, Layers, ExternalLink, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const resources = [
@@ -12,7 +12,7 @@ const resources = [
     },
     {
         icon: BookOpen,
-        title: "Interview Preparation",
+        title: "Interview Prepration",
         description: "Curated guides, mock interviews, and aptitude test resources.",
         link: "/interview-prep",
         features: ["HR Round Tips", "Technical Questions", "Mock Interviews"]
@@ -21,8 +21,15 @@ const resources = [
         icon: UserCheck,
         title: "Soft Skills Training",
         description: "Communication, presentation, and leadership development programs.",
-        link: "/skill-development",
+        link: "/soft-skills",
         features: ["Communication Skills", "Leadership Traits", "Tech Trends"]
+    },
+    {
+        icon: Layers,
+        title: "Notes & Content",
+        description: "Subject-wise study notes and curated content for placement preparation.",
+        link: "/notes-content",
+        features: ["Subject-wise Notes", "Aptitude Material", "Download PDFs"]
     },
 ];
 
@@ -40,7 +47,7 @@ const SkillDevelopment = () => {
                 >
                     <span className="text-accent font-semibold text-sm uppercase tracking-wider">Skill Development</span>
                     <h2 className="heading-display text-3xl md:text-4xl text-foreground mt-2">
-                        Tools for Your <span className="text-gold-gradient">Professional Journey</span>
+                        Roadmap for Your <span className="text-gold-gradient">Professional Journey</span>
                     </h2>
                     <p className="max-w-2xl mx-auto text-muted-foreground mt-3 text-sm md:text-base">
                         Access comprehensive resources designed to help you excel in interviews and secure your ideal placement.
@@ -48,7 +55,7 @@ const SkillDevelopment = () => {
                 </motion.div>
 
                 {/* Resources Grid - 3 columns */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                     {resources.map((resource, index) => (
                         <motion.div
                             key={index}

@@ -3,7 +3,7 @@ import { CheckCircle2, XCircle, Briefcase, Award, PenTool, Download, ChevronRigh
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import ATSChecker from "@/components/ATSChecker";
+
 import PageBackground from "@/components/PageBackground";
 import heroImage from "@/assets/university-hero-new.jpg";
 
@@ -37,9 +37,6 @@ const ResumeGuide = () => {
                             Your resume is your first impression. Learn how to craft a professional, ATS-friendly resume that gets you shortlisted by top recruiters.
                         </p>
                         <div className="mt-8 flex justify-center gap-4">
-                            <Button variant="gold" size="lg" className="rounded-md" onClick={() => document.getElementById('ats-checker')?.scrollIntoView({ behavior: 'smooth' })}>
-                                Check ATS Score <ChevronRight className="w-4 h-4 ml-2" />
-                            </Button>
                             <Button size="lg" variant="outline" className="rounded-md" onClick={() => document.getElementById('download-template')?.scrollIntoView({ behavior: 'smooth' })}>
                                 <Download className="w-4 h-4 mr-2" /> Templates
                             </Button>
@@ -52,8 +49,7 @@ const ResumeGuide = () => {
 
                 <div className="container-narrow py-6 space-y-16">
 
-                    {/* ATS Checker Portal */}
-                    <ATSChecker />
+
 
                     {/* Why It Matters */}
                     <section className="grid md:grid-cols-2 gap-12 items-center">
@@ -238,8 +234,8 @@ const ResumeGuide = () => {
                         </div>
 
                         {/* Action Verbs Banner */}
-                        <div className="rounded-2xl bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 p-8 text-center border border-accent/20 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 p-32 bg-accent/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+                        <div className="rounded-2xl bg-secondary/30 p-8 text-center border border-border/50 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 p-32 bg-secondary/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
                             <h3 className="font-serif text-xl font-semibold mb-4 flex items-center justify-center gap-2 relative z-10">
                                 Power Up with Action Verbs
                             </h3>

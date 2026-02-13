@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
-import { BookOpen, BrainCircuit, CheckCircle2, MessageSquare, ChevronRight, HelpCircle } from "lucide-react";
+import { BookOpen, BrainCircuit, CheckCircle2, MessageSquare, ChevronRight, HelpCircle, Users, Briefcase, Cpu, UserCheck } from "lucide-react";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
 import PageBackground from "@/components/PageBackground";
 import heroImage from "@/assets/university-hero-new.jpg";
 
@@ -41,7 +43,7 @@ const InterviewPrep = () => {
 
             <main className="flex-grow relative z-10">
 
-                <div className="container-narrow space-y-20">
+                <div className="container-narrow space-y-20 pb-20">
 
                     {/* Preparation Guides */}
                     <section>
@@ -68,233 +70,466 @@ const InterviewPrep = () => {
                                     </div>
 
                                     {/* CSE Content */}
-                                    <TabsContent value="cse" className="space-y-4">
-                                        <div className="grid md:grid-cols-2 gap-6">
-                                            <motion.div whileHover={{ y: -5 }} className="h-full">
-                                                <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
-                                                    <CardHeader>
-                                                        <CardTitle>Data Structures & Algorithms</CardTitle>
-                                                        <CardDescription>Core problem-solving skills.</CardDescription>
-                                                    </CardHeader>
-                                                    <CardContent>
-                                                        <ul className="space-y-2">
-                                                            {["Arrays & Strings", "Linked Lists", "Trees & Graphs", "Dynamic Programming", "Sorting & Searching"].map((item, i) => (
-                                                                <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                                    <ChevronRight className="w-4 h-4 text-accent" /> {item}
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </CardContent>
-                                                </Card>
-                                            </motion.div>
-                                            <motion.div whileHover={{ y: -5 }} className="h-full">
-                                                <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
-                                                    <CardHeader>
-                                                        <CardTitle>Core CS Subjects</CardTitle>
-                                                        <CardDescription>Fundamental computer science concepts.</CardDescription>
-                                                    </CardHeader>
-                                                    <CardContent>
-                                                        <ul className="space-y-2">
-                                                            {["Operating Systems (Deadlocks, Paging)", "DBMS (SQL, Normalization)", "Computer Networks (OSI Model, TCP/IP)", "OOPs Concepts"].map((item, i) => (
-                                                                <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                                    <ChevronRight className="w-4 h-4 text-accent" /> {item}
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </CardContent>
-                                                </Card>
-                                            </motion.div>
+                                    <TabsContent value="cse" className="space-y-6">
+                                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                            {[
+                                                {
+                                                    title: "Data Structures & Algorithms",
+                                                    topics: ["Arrays, Linked Lists", "Stacks, Queues", "Trees, Graphs", "Sorting & Searching", "Recursion", "Time & Space Complexity"]
+                                                },
+                                                {
+                                                    title: "Programming Languages",
+                                                    topics: ["C / C++ / Java / Python", "OOPS Concepts", "Exception Handling", "Memory Management"]
+                                                },
+                                                {
+                                                    title: "Database Management Systems",
+                                                    topics: ["Normalization", "SQL Queries", "Joins & Indexing", "Transactions & ACID Properties"]
+                                                },
+                                                {
+                                                    title: "Operating Systems",
+                                                    topics: ["Process vs Thread", "Deadlock", "Scheduling Algorithms", "Memory Management"]
+                                                },
+                                                {
+                                                    title: "Computer Networks",
+                                                    topics: ["OSI & TCP/IP Models", "Routing & Switching", "HTTP / HTTPS", "Subnetting"]
+                                                },
+                                                {
+                                                    title: "Software Engineering",
+                                                    topics: ["SDLC Models", "Agile Methodology", "Version Control (Git)"]
+                                                }
+                                            ].map((card, idx) => (
+                                                <motion.div key={idx} whileHover={{ y: -3 }} className="h-full">
+                                                    <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
+                                                        <CardHeader className="pb-3">
+                                                            <CardTitle className="text-base text-accent">{card.title}</CardTitle>
+                                                        </CardHeader>
+                                                        <CardContent className="pt-0">
+                                                            <ul className="space-y-1.5">
+                                                                {card.topics.map((t, i) => (
+                                                                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                        <ChevronRight className="w-3.5 h-3.5 text-accent flex-shrink-0" /> {t}
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </CardContent>
+                                                    </Card>
+                                                </motion.div>
+                                            ))}
+                                        </div>
+                                        <div className="rounded-xl bg-secondary/30 border border-border/50 p-5">
+                                            <h4 className="font-semibold text-accent mb-3">Practical Expectations</h4>
+                                            <ul className="grid sm:grid-cols-2 gap-2">
+                                                {["Write optimized code on board/system", "Explain logic clearly", "Debug small programs", "Discuss academic projects in depth"].map((item, i) => (
+                                                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                        <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0" /> {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
                                     </TabsContent>
 
                                     {/* ECE Content */}
-                                    <TabsContent value="ece" className="space-y-4">
-                                        <div className="grid md:grid-cols-2 gap-6">
-                                            <motion.div whileHover={{ y: -5 }} className="h-full">
-                                                <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
-                                                    <CardHeader>
-                                                        <CardTitle>Digital Electronics</CardTitle>
-                                                        <CardDescription>Logic design and circuits.</CardDescription>
-                                                    </CardHeader>
-                                                    <CardContent>
-                                                        <ul className="space-y-2">
-                                                            {["Logic Gates & Boolean Algebra", "Combinational Circuits (Mux, Decoder)", "Sequential Circuits (Flip-Flops, Counters)", "Microprocessors (8085/8086)"].map((item, i) => (
-                                                                <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                                    <ChevronRight className="w-4 h-4 text-accent" /> {item}
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </CardContent>
-                                                </Card>
-                                            </motion.div>
-                                            <motion.div whileHover={{ y: -5 }} className="h-full">
-                                                <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
-                                                    <CardHeader>
-                                                        <CardTitle>Analog & Communication</CardTitle>
-                                                        <CardDescription>Signals and semiconductor physics.</CardDescription>
-                                                    </CardHeader>
-                                                    <CardContent>
-                                                        <ul className="space-y-2">
-                                                            {["Semiconductor Physics (Diodes, BJTs, FETs)", "Op-Amps & Applications", "Analog Communication (AM, FM)", "Digital Communication (PCM, Modulation)"].map((item, i) => (
-                                                                <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                                    <ChevronRight className="w-4 h-4 text-accent" /> {item}
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </CardContent>
-                                                </Card>
-                                            </motion.div>
+                                    <TabsContent value="ece" className="space-y-6">
+                                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                            {[
+                                                {
+                                                    title: "Analog Electronics",
+                                                    topics: ["Diodes & Transistors", "BJT & MOSFET", "Amplifiers", "Operational Amplifiers"]
+                                                },
+                                                {
+                                                    title: "Digital Electronics",
+                                                    topics: ["Logic Gates", "Flip-Flops", "Counters", "Combinational & Sequential Circuits"]
+                                                },
+                                                {
+                                                    title: "Signals & Systems",
+                                                    topics: ["Fourier Transform", "Laplace Transform", "System Stability"]
+                                                },
+                                                {
+                                                    title: "Communication Systems",
+                                                    topics: ["Modulation & Demodulation", "AM, FM, PCM", "Noise Analysis"]
+                                                },
+                                                {
+                                                    title: "Microprocessors & Microcontrollers",
+                                                    topics: ["8086 Architecture", "Instruction Set", "Interrupts"]
+                                                }
+                                            ].map((card, idx) => (
+                                                <motion.div key={idx} whileHover={{ y: -3 }} className="h-full">
+                                                    <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
+                                                        <CardHeader className="pb-3">
+                                                            <CardTitle className="text-base text-accent">{card.title}</CardTitle>
+                                                        </CardHeader>
+                                                        <CardContent className="pt-0">
+                                                            <ul className="space-y-1.5">
+                                                                {card.topics.map((t, i) => (
+                                                                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                        <ChevronRight className="w-3.5 h-3.5 text-accent flex-shrink-0" /> {t}
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </CardContent>
+                                                    </Card>
+                                                </motion.div>
+                                            ))}
+                                        </div>
+                                        <div className="rounded-xl bg-secondary/30 border border-border/50 p-5">
+                                            <h4 className="font-semibold text-accent mb-3">Practical Expectations</h4>
+                                            <ul className="grid sm:grid-cols-2 gap-2">
+                                                {["Circuit analysis", "Numerical problem solving", "Block diagram explanation", "Final year project understanding"].map((item, i) => (
+                                                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                        <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0" /> {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
                                     </TabsContent>
 
                                     {/* EE Content */}
-                                    <TabsContent value="ee" className="space-y-4">
-                                        <div className="grid md:grid-cols-2 gap-6">
-                                            <motion.div whileHover={{ y: -5 }} className="h-full">
-                                                <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
-                                                    <CardHeader>
-                                                        <CardTitle>Electrical Machines</CardTitle>
-                                                        <CardDescription>Motors, generators and transformers.</CardDescription>
-                                                    </CardHeader>
-                                                    <CardContent>
-                                                        <ul className="space-y-2">
-                                                            {["Transformers (Efficiency, Regulation)", "DC Machines", "Induction Motors", "Synchronous Machines"].map((item, i) => (
-                                                                <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                                    <ChevronRight className="w-4 h-4 text-accent" /> {item}
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </CardContent>
-                                                </Card>
-                                            </motion.div>
-                                            <motion.div whileHover={{ y: -5 }} className="h-full">
-                                                <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
-                                                    <CardHeader>
-                                                        <CardTitle>Power Systems & Circuits</CardTitle>
-                                                        <CardDescription>Grid and circuit analysis.</CardDescription>
-                                                    </CardHeader>
-                                                    <CardContent>
-                                                        <ul className="space-y-2">
-                                                            {["Transmission & Distribution", "Power System Protection", "Circuit Theory (KCL, KVL, Theorems)", "Control Systems"].map((item, i) => (
-                                                                <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                                    <ChevronRight className="w-4 h-4 text-accent" /> {item}
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </CardContent>
-                                                </Card>
-                                            </motion.div>
+                                    <TabsContent value="ee" className="space-y-6">
+                                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                            {[
+                                                {
+                                                    title: "Electrical Machines",
+                                                    topics: ["Transformers", "Induction Motors", "Synchronous Machines", "DC Machines"]
+                                                },
+                                                {
+                                                    title: "Power Systems",
+                                                    topics: ["Generation, Transmission & Distribution", "Load Flow Analysis", "Fault Analysis"]
+                                                },
+                                                {
+                                                    title: "Power Electronics",
+                                                    topics: ["Converters", "Inverters", "Choppers", "Thyristors"]
+                                                },
+                                                {
+                                                    title: "Control Systems",
+                                                    topics: ["Transfer Functions", "Stability Criteria", "Root Locus", "PID Controllers"]
+                                                },
+                                                {
+                                                    title: "Network Theory",
+                                                    topics: ["KCL & KVL", "Thevenin & Norton Theorems", "Transient Analysis"]
+                                                }
+                                            ].map((card, idx) => (
+                                                <motion.div key={idx} whileHover={{ y: -3 }} className="h-full">
+                                                    <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
+                                                        <CardHeader className="pb-3">
+                                                            <CardTitle className="text-base text-accent">{card.title}</CardTitle>
+                                                        </CardHeader>
+                                                        <CardContent className="pt-0">
+                                                            <ul className="space-y-1.5">
+                                                                {card.topics.map((t, i) => (
+                                                                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                        <ChevronRight className="w-3.5 h-3.5 text-accent flex-shrink-0" /> {t}
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </CardContent>
+                                                    </Card>
+                                                </motion.div>
+                                            ))}
+                                        </div>
+                                        <div className="rounded-xl bg-secondary/30 border border-border/50 p-5">
+                                            <h4 className="font-semibold text-accent mb-3">Practical Expectations</h4>
+                                            <ul className="grid sm:grid-cols-2 gap-2">
+                                                {["Numerical accuracy", "Diagram drawing", "Real-world application explanation", "Industry exposure awareness"].map((item, i) => (
+                                                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                        <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0" /> {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
                                     </TabsContent>
 
                                     {/* ME Content */}
-                                    <TabsContent value="me" className="space-y-4">
-                                        <div className="grid md:grid-cols-2 gap-6">
-                                            <motion.div whileHover={{ y: -5 }} className="h-full">
-                                                <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
-                                                    <CardHeader>
-                                                        <CardTitle>Thermal Engineering</CardTitle>
-                                                        <CardDescription>Heat and energy systems.</CardDescription>
-                                                    </CardHeader>
-                                                    <CardContent>
-                                                        <ul className="space-y-2">
-                                                            {["Thermodynamics Laws & Cycles", "Fluid Mechanics (Bernoulli's, Viscosity)", "Heat Transfer", "IC Engines"].map((item, i) => (
-                                                                <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                                    <ChevronRight className="w-4 h-4 text-accent" /> {item}
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </CardContent>
-                                                </Card>
-                                            </motion.div>
-                                            <motion.div whileHover={{ y: -5 }} className="h-full">
-                                                <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
-                                                    <CardHeader>
-                                                        <CardTitle>Design & Mechanics</CardTitle>
-                                                        <CardDescription>Structure and motion.</CardDescription>
-                                                    </CardHeader>
-                                                    <CardContent>
-                                                        <ul className="space-y-2">
-                                                            {["Strength of Materials (Stress-Strain)", "Theory of Machines", "Machine Design", "Manufacturing Processes"].map((item, i) => (
-                                                                <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                                    <ChevronRight className="w-4 h-4 text-accent" /> {item}
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </CardContent>
-                                                </Card>
-                                            </motion.div>
+                                    <TabsContent value="me" className="space-y-6">
+                                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                            {[
+                                                {
+                                                    title: "Thermodynamics",
+                                                    topics: ["Laws of Thermodynamics", "Entropy", "Thermodynamic Cycles"]
+                                                },
+                                                {
+                                                    title: "Fluid Mechanics",
+                                                    topics: ["Bernoulli's Theorem", "Reynolds Number", "Flow Measurement"]
+                                                },
+                                                {
+                                                    title: "Strength of Materials",
+                                                    topics: ["Stress & Strain", "Bending Moment", "Torsion"]
+                                                },
+                                                {
+                                                    title: "Theory of Machines",
+                                                    topics: ["Gears", "Cam Mechanisms", "Vibrations"]
+                                                },
+                                                {
+                                                    title: "Manufacturing Processes",
+                                                    topics: ["Casting", "Welding", "Machining", "CNC Basics"]
+                                                }
+                                            ].map((card, idx) => (
+                                                <motion.div key={idx} whileHover={{ y: -3 }} className="h-full">
+                                                    <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
+                                                        <CardHeader className="pb-3">
+                                                            <CardTitle className="text-base text-accent">{card.title}</CardTitle>
+                                                        </CardHeader>
+                                                        <CardContent className="pt-0">
+                                                            <ul className="space-y-1.5">
+                                                                {card.topics.map((t, i) => (
+                                                                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                        <ChevronRight className="w-3.5 h-3.5 text-accent flex-shrink-0" /> {t}
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </CardContent>
+                                                    </Card>
+                                                </motion.div>
+                                            ))}
+                                        </div>
+                                        <div className="rounded-xl bg-secondary/30 border border-border/50 p-5">
+                                            <h4 className="font-semibold text-accent mb-3">Practical Expectations</h4>
+                                            <ul className="grid sm:grid-cols-2 gap-2">
+                                                {["Derivations & numerical solving", "Free body diagrams", "Application-based reasoning", "Project model explanation"].map((item, i) => (
+                                                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                        <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0" /> {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
                                     </TabsContent>
 
                                     {/* CE Content */}
-                                    <TabsContent value="ce" className="space-y-4">
-                                        <div className="grid md:grid-cols-2 gap-6">
-                                            <motion.div whileHover={{ y: -5 }} className="h-full">
-                                                <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
-                                                    <CardHeader>
-                                                        <CardTitle>Structural Engineering</CardTitle>
-                                                        <CardDescription>Analysis and construction materials.</CardDescription>
-                                                    </CardHeader>
-                                                    <CardContent>
-                                                        <ul className="space-y-2">
-                                                            {["Structural Analysis (Forces, Moments)", "Concrete Technology", "Steel Structures", "Building Materials"].map((item, i) => (
-                                                                <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                                    <ChevronRight className="w-4 h-4 text-accent" /> {item}
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </CardContent>
-                                                </Card>
-                                            </motion.div>
-                                            <motion.div whileHover={{ y: -5 }} className="h-full">
-                                                <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
-                                                    <CardHeader>
-                                                        <CardTitle>Geotechnical & Environmental</CardTitle>
-                                                        <CardDescription>Soil and water systems.</CardDescription>
-                                                    </CardHeader>
-                                                    <CardContent>
-                                                        <ul className="space-y-2">
-                                                            {["Soil Mechanics", "Foundation Engineering", "Environmental Engineering (Water Treatment)", "Surveying & Highway Engineering"].map((item, i) => (
-                                                                <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                                    <ChevronRight className="w-4 h-4 text-accent" /> {item}
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </CardContent>
-                                                </Card>
-                                            </motion.div>
+                                    <TabsContent value="ce" className="space-y-6">
+                                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                            {[
+                                                {
+                                                    title: "Structural Engineering",
+                                                    topics: ["Bending Moment & Shear Force", "RCC Concepts", "Steel Structures"]
+                                                },
+                                                {
+                                                    title: "Geotechnical Engineering",
+                                                    topics: ["Soil Mechanics", "Bearing Capacity", "Compaction"]
+                                                },
+                                                {
+                                                    title: "Environmental Engineering",
+                                                    topics: ["Water Treatment", "Wastewater Management", "Air Pollution Control"]
+                                                },
+                                                {
+                                                    title: "Transportation Engineering",
+                                                    topics: ["Highway Design", "Traffic Flow Characteristics"]
+                                                },
+                                                {
+                                                    title: "Fluid Mechanics",
+                                                    topics: ["Open Channel Flow", "Hydrology Basics"]
+                                                }
+                                            ].map((card, idx) => (
+                                                <motion.div key={idx} whileHover={{ y: -3 }} className="h-full">
+                                                    <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
+                                                        <CardHeader className="pb-3">
+                                                            <CardTitle className="text-base text-accent">{card.title}</CardTitle>
+                                                        </CardHeader>
+                                                        <CardContent className="pt-0">
+                                                            <ul className="space-y-1.5">
+                                                                {card.topics.map((t, i) => (
+                                                                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                                        <ChevronRight className="w-3.5 h-3.5 text-accent flex-shrink-0" /> {t}
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </CardContent>
+                                                    </Card>
+                                                </motion.div>
+                                            ))}
+                                        </div>
+                                        <div className="rounded-xl bg-secondary/30 border border-border/50 p-5">
+                                            <h4 className="font-semibold text-accent mb-3">Practical Expectations</h4>
+                                            <ul className="grid sm:grid-cols-2 gap-2">
+                                                {["Drawing diagrams clearly", "Site-based scenario discussion", "IS Code awareness", "Final year project depth"].map((item, i) => (
+                                                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                        <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0" /> {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
                                     </TabsContent>
                                 </Tabs>
                             </TabsContent>
                             <TabsContent value="hr" className="space-y-6">
-                                <motion.div whileHover={{ y: -5 }}>
-                                    <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
-                                        <CardHeader>
-                                            <CardTitle>Common HR Questions</CardTitle>
-                                            <CardDescription>Prepare structured answers using the STAR method (Situation, Task, Action, Result).</CardDescription>
-                                        </CardHeader>
-                                        <CardContent className="grid gap-4">
-                                            {[
+                                <div className="text-center mb-2">
+                                    <h3 className="text-xl font-semibold">Common HR Interview Questions</h3>
+                                    <p className="text-sm text-muted-foreground mt-1">Prepare structured answers for each category. Use the STAR method for behavioural questions.</p>
+                                </div>
+                                <div className="grid md:grid-cols-2 gap-4">
+                                    {[
+                                        {
+                                            num: 1,
+                                            title: "Introduction & Background",
+                                            questions: [
                                                 "Tell me about yourself.",
-                                                "What are your greatest strengths and weaknesses?",
-                                                "Describe a time you faced a challenge and how you overcame it.",
-                                                "Why do you want to join our company?"
-                                            ].map((q, i) => (
-                                                <div key={i} className="p-3 bg-secondary/20 rounded-md border border-border/50">
-                                                    <p className="font-medium text-foreground">{q}</p>
-                                                </div>
-                                            ))}
-                                        </CardContent>
-                                    </Card>
-                                </motion.div>
+                                                "Walk me through your resume.",
+                                                "Describe your academic journey.",
+                                                "Why did you choose this field of study?"
+                                            ]
+                                        },
+                                        {
+                                            num: 2,
+                                            title: "Strengths & Weaknesses",
+                                            questions: [
+                                                "What are your strengths?",
+                                                "What is your greatest weakness?",
+                                                "How are you working to improve your weaknesses?",
+                                                "What differentiates you from other candidates?"
+                                            ]
+                                        },
+                                        {
+                                            num: 3,
+                                            title: "Career Goals & Motivation",
+                                            questions: [
+                                                "Where do you see yourself in five years?",
+                                                "What are your short-term and long-term goals?",
+                                                "Why do you want to join our organization?",
+                                                "What motivates you to perform better?"
+                                            ]
+                                        },
+                                        {
+                                            num: 4,
+                                            title: "Behavioral & Situational Questions",
+                                            questions: [
+                                                "Describe a challenging situation you faced and how you handled it.",
+                                                "Tell me about a time you worked in a team.",
+                                                "Have you ever faced a conflict in a team? How did you resolve it?",
+                                                "Give an example of a leadership experience.",
+                                                "Describe a failure and what you learned from it."
+                                            ]
+                                        },
+                                        {
+                                            num: 5,
+                                            title: "Work Ethic & Professionalism",
+                                            questions: [
+                                                "How do you handle pressure?",
+                                                "Are you comfortable with relocation?",
+                                                "How do you manage deadlines?",
+                                                "What does professionalism mean to you?"
+                                            ]
+                                        },
+                                        {
+                                            num: 6,
+                                            title: "Company & Role-Specific",
+                                            questions: [
+                                                "What do you know about our company?",
+                                                "Why should we hire you?",
+                                                "What value will you bring to this role?",
+                                                "Are you applying to other companies?"
+                                            ]
+                                        },
+                                        {
+                                            num: 7,
+                                            title: "Adaptability & Learning",
+                                            questions: [
+                                                "How do you adapt to change?",
+                                                "How do you handle criticism?",
+                                                "Describe a time when you had to learn something quickly.",
+                                                "How do you keep yourself updated with industry trends?"
+                                            ]
+                                        },
+                                        {
+                                            num: 8,
+                                            title: "Salary & Final Round Questions",
+                                            questions: [
+                                                "What are your salary expectations?",
+                                                "When can you join?",
+                                                "Do you have any questions for us?"
+                                            ]
+                                        }
+                                    ].map((section) => (
+                                        <motion.div
+                                            key={section.num}
+                                            initial={{ opacity: 0, y: 10 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            whileHover={{ y: -3 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.4, delay: section.num * 0.05 }}
+                                        >
+                                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30 h-full">
+                                                <CardHeader className="pb-3">
+                                                    <CardTitle className="text-base flex items-center gap-2.5">
+                                                        <span className="flex items-center justify-center w-7 h-7 rounded-full bg-accent/10 text-accent text-xs font-bold flex-shrink-0">
+                                                            {section.num}
+                                                        </span>
+                                                        <span className="text-accent">{section.title}</span>
+                                                    </CardTitle>
+                                                </CardHeader>
+                                                <CardContent className="pt-0">
+                                                    <ul className="space-y-2">
+                                                        {section.questions.map((q, i) => (
+                                                            <li key={i} className="flex items-start gap-2 text-sm text-foreground/80">
+                                                                <ChevronRight className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" /> {q}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </CardContent>
+                                            </Card>
+                                        </motion.div>
+                                    ))}
+                                </div>
                             </TabsContent>
-                            <TabsContent value="gd">
+                            <TabsContent value="gd" className="space-y-8">
+                                <div className="grid md:grid-cols-2 gap-8">
+                                    <div className="space-y-6">
+                                        <h3 className="text-xl font-semibold flex items-center gap-2">
+                                            <Users className="w-5 h-5 text-accent" /> GD Essentials
+                                        </h3>
+                                        <Accordion type="single" collapsible className="w-full">
+                                            <AccordionItem value="gd-1">
+                                                <AccordionTrigger>Initiating the Discussion</AccordionTrigger>
+                                                <AccordionContent>
+                                                    Start with a clear definition or a relevant statistic. A strong opening sets the tone and demonstrates preparedness.
+                                                </AccordionContent>
+                                            </AccordionItem>
+                                            <AccordionItem value="gd-2">
+                                                <AccordionTrigger>Building on Others' Points</AccordionTrigger>
+                                                <AccordionContent>
+                                                    Acknowledge previous speakers before presenting your view. Use phrases such as "Building on that point" or "To add a different perspective" to stay constructive.
+                                                </AccordionContent>
+                                            </AccordionItem>
+                                            <AccordionItem value="gd-3">
+                                                <AccordionTrigger>Summarising Effectively</AccordionTrigger>
+                                                <AccordionContent>
+                                                    Conclude by synthesising key viewpoints discussed. A well-structured summary demonstrates analytical thinking and leadership.
+                                                </AccordionContent>
+                                            </AccordionItem>
+                                        </Accordion>
+                                    </div>
+
+                                    <div className="space-y-6">
+                                        <h3 className="text-xl font-semibold flex items-center gap-2">
+                                            <MessageSquare className="w-5 h-5 text-accent" /> Evaluation Criteria
+                                        </h3>
+                                        <div className="grid gap-4">
+                                            {[
+                                                { title: "Content Quality", desc: "Present factual, relevant, and well-structured arguments supported by examples or data." },
+                                                { title: "Communication Clarity", desc: "Speak clearly, maintain moderate pace, and use precise language to convey ideas." },
+                                                { title: "Team Behaviour", desc: "Demonstrate respect for differing opinions, avoid interrupting, and encourage quieter members to contribute." }
+                                            ].map((skill, i) => (
+                                                <motion.div
+                                                    key={i}
+                                                    initial={{ opacity: 0, y: 15 }}
+                                                    whileInView={{ opacity: 1, y: 0 }}
+                                                    whileHover={{ y: -5 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ delay: i * 0.1 }}
+                                                >
+                                                    <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30 h-full">
+                                                        <CardContent className="p-4">
+                                                            <h4 className="font-semibold text-foreground mb-1">{skill.title}</h4>
+                                                            <p className="text-sm text-muted-foreground">{skill.desc}</p>
+                                                        </CardContent>
+                                                    </Card>
+                                                </motion.div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <motion.div whileHover={{ y: -5 }}>
                                     <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                         <CardHeader>
-                                            <CardTitle>Acing Group Discussions</CardTitle>
+                                            <CardTitle>Quick Tips for Group Discussions</CardTitle>
                                             <CardDescription>Stand out without being aggressive.</CardDescription>
                                         </CardHeader>
                                         <CardContent>
@@ -317,48 +552,6 @@ const InterviewPrep = () => {
                                 </motion.div>
                             </TabsContent>
                         </Tabs>
-                    </section>
-
-
-
-                    {/* Aptitude Resources */}
-                    <section>
-                        <h2 className="font-serif text-3xl font-semibold mb-8 flex items-center gap-2">
-                            <BrainCircuit className="w-6 h-6 text-accent" /> Aptitude & Logic
-                        </h2>
-                        <div className="grid md:grid-cols-3 gap-6">
-                            {[
-                                { title: "Quantitative Aptitude", icon: HelpCircle, topics: ["Time & Work", "Probability", "Permutation & Combination", "Percentage"] },
-                                { title: "Logical Reasoning", icon: BrainCircuit, topics: ["Blood Relations", "Coding-Decoding", "Seating Arrangement", "Syllogism"] },
-                                { title: "Verbal Ability", icon: MessageSquare, topics: ["Reading Comprehension", "Sentence Correction", "Synonyms & Antonyms", "Grammar"] }
-                            ].map((cat, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 15 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    whileHover={{ y: -5 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: 0.1 * i }}
-                                    className="h-full"
-                                >
-                                    <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
-                                        <CardHeader>
-                                            <cat.icon className="w-8 h-8 text-accent mb-2" />
-                                            <CardTitle>{cat.title}</CardTitle>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <ul className="space-y-2">
-                                                {cat.topics.map((topic, j) => (
-                                                    <li key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
-                                                        <div className="w-1.5 h-1.5 rounded-full bg-accent/50" /> {topic}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </CardContent>
-                                    </Card>
-                                </motion.div>
-                            ))}
-                        </div>
                     </section>
 
                 </div>

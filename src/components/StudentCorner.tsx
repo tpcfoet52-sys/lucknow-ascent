@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FileText, BookOpen, UserCheck, ExternalLink } from "lucide-react";
+import { FileText, BookOpen, UserCheck, Layers, ExternalLink } from "lucide-react";
 
 const resources = [
   {
@@ -19,6 +19,12 @@ const resources = [
     title: "Soft Skills Training",
     description: "Communication, presentation, and leadership development programs.",
     link: "/soft-skills",
+  },
+  {
+    icon: Layers,
+    title: "Notes & Content",
+    description: "Subject-wise study notes and curated content for placement preparation.",
+    link: "/notes-content",
   },
 ];
 
@@ -49,7 +55,7 @@ const StudentCorner = () => {
 
       <div className="container-narrow relative z-10">
         {/* Resources Grid - Now 3 columns */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {resources.map((resource, index) => (
             <motion.a
               key={index}

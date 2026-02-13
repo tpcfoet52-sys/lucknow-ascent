@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { Award } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Award, ChevronDown } from "lucide-react";
 import Footer from "@/components/Footer";
 import PageBackground from "@/components/PageBackground";
 import uolLogo from "@/assets/uol-logo.png";
@@ -168,52 +169,9 @@ const OurAlumni = () => {
                             </h2>
                         </motion.div>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
                             {alumniList.map((alumni, index) => (
-                                <motion.div
-                                    key={alumni.name}
-                                    custom={index}
-                                    initial="initial"
-                                    whileInView="animate"
-                                    whileHover="hover"
-                                    viewport={{ once: true }}
-                                    variants={{
-                                        initial: { opacity: 0, y: 30 },
-                                        animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
-                                        hover: { y: -5, transition: { duration: 0.3 } }
-                                    }}
-                                    className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
-                                >
-                                    {/* Image Section - Circular Profile Photo */}
-                                    <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
-                                        {alumni.image ? (
-                                            <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300 ">
-                                                <img
-                                                    src={alumni.image}
-                                                    alt={alumni.name}
-                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                                />
-                                            </div>
-                                        ) : (
-                                            <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
-                                                <Award className="h-16 w-16 text-primary/40" />
-                                            </div>
-                                        )}
-                                    </div>
-
-                                    {/* Content Section */}
-                                    <div className="p-4 relative z-10 bg-card text-center">
-                                        <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors">
-                                            {alumni.name}
-                                        </h3>
-                                        <p className="text-xs text-accent mt-1 font-medium">{alumni.role}</p>
-                                        <p className="text-xs text-muted-foreground mt-1">{alumni.field}</p>
-
-                                        <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed text-left">
-                                            {alumni.description}
-                                        </p>
-                                    </div>
-                                </motion.div>
+                                <AlumniCard key={alumni.name} alumni={alumni} index={index} />
                             ))}
                         </div>
                     </div>
@@ -233,52 +191,9 @@ const OurAlumni = () => {
                             </h2>
                         </motion.div>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
                             {foetAlumniList.map((alumni, index) => (
-                                <motion.div
-                                    key={alumni.name}
-                                    custom={index}
-                                    initial="initial"
-                                    whileInView="animate"
-                                    whileHover="hover"
-                                    viewport={{ once: true }}
-                                    variants={{
-                                        initial: { opacity: 0, y: 30 },
-                                        animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
-                                        hover: { y: -5, transition: { duration: 0.3 } }
-                                    }}
-                                    className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
-                                >
-                                    {/* Image Section - Circular Profile Photo */}
-                                    <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
-                                        {alumni.image ? (
-                                            <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-accent/40 transition-all duration-300">
-                                                <img
-                                                    src={alumni.image}
-                                                    alt={alumni.name}
-                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                                />
-                                            </div>
-                                        ) : (
-                                            <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-primary/10 flex items-center justify-center border-4 border-accent/20">
-                                                <Award className="h-16 w-16 text-primary/40" />
-                                            </div>
-                                        )}
-                                    </div>
-
-                                    {/* Content Section */}
-                                    <div className="p-4 relative z-10 bg-card text-center">
-                                        <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors">
-                                            {alumni.name}
-                                        </h3>
-                                        <p className="text-xs text-accent mt-1 font-medium">{alumni.role}</p>
-                                        <p className="text-xs text-muted-foreground mt-1">{alumni.company} • Batch {alumni.batch}</p>
-
-                                        <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed text-left">
-                                            {alumni.description}
-                                        </p>
-                                    </div>
-                                </motion.div>
+                                <AlumniCard key={alumni.name} alumni={{ ...alumni, field: `${alumni.company} • Batch ${alumni.batch}` }} index={index} />
                             ))}
                         </div>
                     </div>
@@ -291,3 +206,79 @@ const OurAlumni = () => {
 };
 
 export default OurAlumni;
+
+// Reusable compact alumni card with expandable description
+const AlumniCard = ({ alumni, index }: { alumni: { name: string; role: string; field: string; image: string; description: string }; index: number }) => {
+    const [expanded, setExpanded] = useState(false);
+
+    return (
+        <motion.div
+            custom={index}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={{
+                initial: { opacity: 0, y: 30 },
+                animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.08 * index } },
+            }}
+            className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card hover:shadow-md hover:border-accent/30 transition-all duration-300"
+        >
+            {/* Compact layout: image + name side by side */}
+            <div className="flex items-center gap-4 p-5">
+                {alumni.image ? (
+                    <div className="w-20 h-20 flex-shrink-0 rounded-full overflow-hidden border-3 border-accent/20 group-hover:border-accent/40 transition-all duration-300">
+                        <img
+                            src={alumni.image}
+                            alt={alumni.name}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                    </div>
+                ) : (
+                    <div className="w-20 h-20 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center border-3 border-accent/20">
+                        <Award className="h-8 w-8 text-primary/40" />
+                    </div>
+                )}
+                <div className="min-w-0 flex-1">
+                    <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors leading-tight">
+                        {alumni.name}
+                    </h3>
+                    <p className="text-xs text-accent font-medium mt-1 leading-tight">{alumni.role}</p>
+                    <p className="text-[11px] text-muted-foreground mt-0.5">{alumni.field}</p>
+                </div>
+            </div>
+
+            {/* Expandable description */}
+            <AnimatePresence initial={false}>
+                {expanded && (
+                    <motion.div
+                        key="desc"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1, transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] } }}
+                        exit={{ height: 0, opacity: 0, transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }}
+                        className="overflow-hidden"
+                    >
+                        <div className="px-5 pb-4">
+                            <p className="text-sm text-muted-foreground leading-relaxed border-t border-border/50 pt-3">
+                                {alumni.description}
+                            </p>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* View More / Less toggle */}
+            <button
+                onClick={() => setExpanded(!expanded)}
+                className="w-full flex items-center justify-center gap-1.5 py-2.5 text-xs font-medium text-accent/70 hover:text-accent border-t border-border/30 hover:bg-accent/5 transition-all cursor-pointer"
+            >
+                {expanded ? "View Less" : "View More"}
+                <motion.div
+                    animate={{ rotate: expanded ? 180 : 0 }}
+                    transition={{ duration: 0.25 }}
+                >
+                    <ChevronDown className="w-3.5 h-3.5" />
+                </motion.div>
+            </button>
+        </motion.div>
+    );
+};
