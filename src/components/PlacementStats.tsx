@@ -80,27 +80,33 @@ const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?:
 
 const PlacementStats = () => {
   return (
-    <section id="statistics" className="section-padding bg-cream">
-      <div className="container-narrow">
+    <section id="statistics" className="section-padding bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container-narrow relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <span className="text-accent font-medium text-sm uppercase tracking-wider">Placement Statistics</span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-2 tracking-tight">
+          <span className="text-primary font-medium text-sm uppercase tracking-wider bg-primary/10 px-4 py-1.5 rounded-full inline-block">Placement Statistics</span>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-6 tracking-tight">
             Year-Wise <span className="text-gold-gradient">Placement Growth</span>
           </h2>
-          <p className="max-w-xl mx-auto text-muted-foreground mt-3 text-base md:text-lg leading-relaxed">
-            University of Lucknow's consistent growth in campus placements.
+          <p className="max-w-2xl mx-auto text-muted-foreground mt-4 text-base md:text-lg leading-relaxed">
+            University of Lucknow's consistent growth in campus placements, showcasing our commitment to student success.
           </p>
         </motion.div>
 
         {/* Key Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -108,17 +114,23 @@ const PlacementStats = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="group bg-card rounded-md p-6 shadow-sm border border-border/50 hover:shadow-md hover:border-accent/30 transition-all duration-300 hover:-translate-y-1"
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group relative bg-gradient-to-br from-card to-card/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-border/50 hover:border-primary/50 transition-all duration-500 overflow-hidden"
             >
-              <div className="w-8 h-8 rounded bg-accent/10 flex items-center justify-center mb-3">
-                <stat.icon className="w-4 h-4 text-accent" />
+              {/* Glow effect on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-gold/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <stat.icon className="w-6 h-6 text-primary" />
+                </div>
+                <div className="flex items-baseline gap-1.5 mb-2">
+                  <span className="text-3xl md:text-4xl font-serif font-bold bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">{stat.value}</span>
+                  <span className="text-base font-semibold text-primary">{stat.unit}</span>
+                </div>
+                <p className="text-sm text-muted-foreground font-medium">{stat.label}</p>
+                {stat.note && <p className="text-xs text-primary/70 mt-1.5 font-medium">{stat.note}</p>}
               </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-2xl md:text-3xl font-serif font-semibold text-foreground">{stat.value}</span>
-                <span className="text-sm font-medium text-accent">{stat.unit}</span>
-              </div>
-              <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
-              {stat.note && <p className="text-[10px] text-accent/80 mt-0.5">{stat.note}</p>}
             </motion.div>
           ))}
         </div>
@@ -131,7 +143,7 @@ const PlacementStats = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-2 bg-card rounded-md p-5 md:p-6 shadow-elevated-sm border border-border/50 h-full flex flex-col"
+            className="lg:col-span-2 bg-gradient-to-br from-card to-card/90 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-xl border border-border/50 hover:border-primary/30 h-full flex flex-col transition-all duration-500"
           >
             <div className="mb-5">
               <h3 className="font-serif text-lg font-semibold text-foreground">
@@ -179,7 +191,7 @@ const PlacementStats = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-1 bg-card rounded-md shadow-elevated-sm border border-border/50 overflow-hidden flex flex-col h-full"
+            className="lg:col-span-1 bg-gradient-to-br from-card to-card/90 backdrop-blur-sm rounded-xl shadow-xl border border-border/50 hover:border-primary/30 overflow-hidden flex flex-col h-full transition-all duration-500"
           >
             <div className="p-5 border-b border-border bg-muted/20">
               <div className="flex items-center gap-3">
@@ -238,7 +250,7 @@ const PlacementStats = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-card rounded-md p-5 md:p-6 shadow-elevated-sm border border-border/50"
+          className="bg-gradient-to-br from-card to-card/90 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-xl border border-border/50 hover:border-primary/30 transition-all duration-500"
         >
           <div className="flex items-center justify-between mb-6">
             <h3 className="font-serif text-lg font-semibold text-foreground">Year-wise Highest Package</h3>
@@ -255,7 +267,9 @@ const PlacementStats = () => {
                 transition={{ duration: 0.4, delay: 0.1 * index }}
                 className="relative group"
               >
-                <div className="bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-lg p-5 border border-border/30 hover:border-accent/50 hover:shadow-md transition-all duration-300 h-full group-hover:-translate-y-1">
+                <div className="bg-gradient-to-br from-card via-secondary/30 to-card/80 backdrop-blur-sm rounded-xl p-6 border border-border/30 hover:border-primary/50 hover:shadow-xl transition-all duration-500 h-full group-hover:-translate-y-2 relative overflow-hidden">
+                  {/* Shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   {/* Year Badge */}
                   <div className="inline-block px-2 py-0.5 bg-accent/10 rounded text-accent text-xs font-semibold mb-3">
                     {data.year}
