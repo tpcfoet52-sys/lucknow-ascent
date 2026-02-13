@@ -258,7 +258,7 @@ const TPCTeamPreview = () => {
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: idx * 0.05 }}
-                                            className="flex flex-col items-center p-4 bg-card border border-border rounded-lg shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+                                            className="flex flex-col items-center p-4 bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
                                         >
                                             <Avatar className="w-20 h-20 border-3 border-background shadow-lg mb-3">
                                                 <AvatarImage src={member.image} className="object-cover" />

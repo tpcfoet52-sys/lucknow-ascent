@@ -119,7 +119,7 @@ const ResumeGuide = () => {
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
                                 >
-                                    <Card className="h-full hover:shadow-md transition-all">
+                                    <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                         <CardHeader>
                                             <item.icon className="w-8 h-8 text-accent mb-2" />
                                             <CardTitle className="text-xl">{item.title}</CardTitle>
@@ -206,7 +206,7 @@ const ResumeGuide = () => {
                                     desc: "A text-based PDF is standard. Use .docx if specifically requested. Never use image-based PDFs."
                                 }
                             ].map((tip, i) => (
-                                <Card key={i} className="border-border/50 hover:border-accent/50 transition-colors">
+                                <Card key={i} className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                     <CardHeader>
                                         <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-2">
                                             <tip.icon className="w-5 h-5 text-accent" />

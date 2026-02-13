@@ -192,7 +192,7 @@ const Media = () => {
                                             exit={{ opacity: 0, scale: 0.95 }}
                                             transition={{ duration: 0.4, delay: index * 0.05 }}
                                             whileHover={{ y: -5 }}
-                                            className="group relative overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md bg-card cursor-pointer transition-all duration-300"
+                                            className="group relative overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md hover:border-accent/30 bg-card cursor-pointer transition-all duration-300"
                                             onClick={() => setSelectedItem(item)}
                                         >
                                             <div className="aspect-video overflow-hidden">
@@ -252,7 +252,7 @@ const Media = () => {
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.4, delay: index * 0.1 }}
                                         whileHover={{ y: -5 }}
-                                        className="group relative overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md bg-card cursor-pointer transition-all duration-300"
+                                        className="group relative overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md hover:border-accent/30 bg-card cursor-pointer transition-all duration-300"
                                         onClick={() => setSelectedItem({ ...item, type: "Press" })}
                                     >
                                         <div className="aspect-video overflow-hidden">

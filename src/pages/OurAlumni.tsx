@@ -180,7 +180,7 @@ const OurAlumni = () => {
                                     animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
                                     hover: { y: -5, transition: { duration: 0.3 } }
                                 }}
-                                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
+                                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
                             >
                                 {/* Image Section - Circular Profile Photo */}
                                 <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
@@ -200,7 +200,7 @@ const OurAlumni = () => {
                                 </div>
 
                                 {/* Content Section */}
-                                <div className="p-3 relative z-10 bg-card text-center">
+                                <div className="p-4 relative z-10 bg-card text-center">
                                     <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors">
                                         {alumni.name}
                                     </h3>
@@ -239,7 +239,7 @@ const OurAlumni = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.1 * index }}
-                                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer transition-all duration-300"
+                                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
                             >
                                 {/* Image Section - Circular Profile Photo */}
                                 <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
@@ -259,7 +259,7 @@ const OurAlumni = () => {
                                 </div>
 
                                 {/* Content Section */}
-                                <div className="p-3 relative z-10 bg-card text-center">
+                                <div className="p-4 relative z-10 bg-card text-center">
                                     <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors">
                                         {alumni.name}
                                     </h3>

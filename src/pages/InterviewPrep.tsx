@@ -64,7 +64,7 @@ const InterviewPrep = () => {
                                     {/* CSE Content */}
                                     <TabsContent value="cse" className="space-y-4">
                                         <div className="grid md:grid-cols-2 gap-6">
-                                            <Card>
+                                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                                 <CardHeader>
                                                     <CardTitle>Data Structures & Algorithms</CardTitle>
                                                     <CardDescription>Core problem-solving skills.</CardDescription>
@@ -79,7 +79,7 @@ const InterviewPrep = () => {
                                                     </ul>
                                                 </CardContent>
                                             </Card>
-                                            <Card>
+                                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                                 <CardHeader>
                                                     <CardTitle>Core CS Subjects</CardTitle>
                                                     <CardDescription>Fundamental computer science concepts.</CardDescription>
@@ -100,7 +100,7 @@ const InterviewPrep = () => {
                                     {/* ECE Content */}
                                     <TabsContent value="ece" className="space-y-4">
                                         <div className="grid md:grid-cols-2 gap-6">
-                                            <Card>
+                                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                                 <CardHeader>
                                                     <CardTitle>Digital Electronics</CardTitle>
                                                     <CardDescription>Logic design and circuits.</CardDescription>
@@ -115,7 +115,7 @@ const InterviewPrep = () => {
                                                     </ul>
                                                 </CardContent>
                                             </Card>
-                                            <Card>
+                                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                                 <CardHeader>
                                                     <CardTitle>Analog & Communication</CardTitle>
                                                     <CardDescription>Signals and semiconductor physics.</CardDescription>
@@ -136,7 +136,7 @@ const InterviewPrep = () => {
                                     {/* EE Content */}
                                     <TabsContent value="ee" className="space-y-4">
                                         <div className="grid md:grid-cols-2 gap-6">
-                                            <Card>
+                                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                                 <CardHeader>
                                                     <CardTitle>Electrical Machines</CardTitle>
                                                     <CardDescription>Motors, generators and transformers.</CardDescription>
@@ -151,7 +151,7 @@ const InterviewPrep = () => {
                                                     </ul>
                                                 </CardContent>
                                             </Card>
-                                            <Card>
+                                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                                 <CardHeader>
                                                     <CardTitle>Power Systems & Circuits</CardTitle>
                                                     <CardDescription>Grid and circuit analysis.</CardDescription>
@@ -172,7 +172,7 @@ const InterviewPrep = () => {
                                     {/* ME Content */}
                                     <TabsContent value="me" className="space-y-4">
                                         <div className="grid md:grid-cols-2 gap-6">
-                                            <Card>
+                                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                                 <CardHeader>
                                                     <CardTitle>Thermal Engineering</CardTitle>
                                                     <CardDescription>Heat and energy systems.</CardDescription>
@@ -187,7 +187,7 @@ const InterviewPrep = () => {
                                                     </ul>
                                                 </CardContent>
                                             </Card>
-                                            <Card>
+                                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                                 <CardHeader>
                                                     <CardTitle>Design & Mechanics</CardTitle>
                                                     <CardDescription>Structure and motion.</CardDescription>
@@ -208,7 +208,7 @@ const InterviewPrep = () => {
                                     {/* CE Content */}
                                     <TabsContent value="ce" className="space-y-4">
                                         <div className="grid md:grid-cols-2 gap-6">
-                                            <Card>
+                                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                                 <CardHeader>
                                                     <CardTitle>Structural Engineering</CardTitle>
                                                     <CardDescription>Analysis and construction materials.</CardDescription>
@@ -223,7 +223,7 @@ const InterviewPrep = () => {
                                                     </ul>
                                                 </CardContent>
                                             </Card>
-                                            <Card>
+                                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                                 <CardHeader>
                                                     <CardTitle>Geotechnical & Environmental</CardTitle>
                                                     <CardDescription>Soil and water systems.</CardDescription>
@@ -243,7 +243,7 @@ const InterviewPrep = () => {
                                 </Tabs>
                             </TabsContent>
                             <TabsContent value="hr" className="space-y-6">
-                                <Card>
+                                <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                     <CardHeader>
                                         <CardTitle>Common HR Questions</CardTitle>
                                         <CardDescription>Prepare structured answers using the STAR method (Situation, Task, Action, Result).</CardDescription>
@@ -263,7 +263,7 @@ const InterviewPrep = () => {
                                 </Card>
                             </TabsContent>
                             <TabsContent value="gd">
-                                <Card>
+                                <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                     <CardHeader>
                                         <CardTitle>Acing Group Discussions</CardTitle>
                                         <CardDescription>Stand out without being aggressive.</CardDescription>
@@ -302,7 +302,7 @@ const InterviewPrep = () => {
                                 { title: "Logical Reasoning", icon: BrainCircuit, topics: ["Blood Relations", "Coding-Decoding", "Seating Arrangement", "Syllogism"] },
                                 { title: "Verbal Ability", icon: MessageSquare, topics: ["Reading Comprehension", "Sentence Correction", "Synonyms & Antonyms", "Grammar"] }
                             ].map((cat, i) => (
-                                <Card key={i} className="hover:shadow-md transition-all">
+                                <Card key={i} className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                     <CardHeader>
                                         <cat.icon className="w-8 h-8 text-accent mb-2" />
                                         <CardTitle>{cat.title}</CardTitle>

@@ -268,7 +268,7 @@ const AboutTPC = () => {
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeInUp}
-                  className="group bg-gradient-to-br from-primary/5 to-accent/5 border border-border rounded-lg p-6 text-center hover:shadow-md hover:border-accent/30 transition-all duration-300 hover:-translate-y-1"
+                  className="group bg-gradient-to-br from-primary/5 to-accent/5 border border-border rounded-xl p-6 text-center hover:shadow-md hover:border-accent/30 transition-all duration-300 hover:-translate-y-1"
                 >
                   <p className="font-serif text-2xl md:text-3xl font-bold text-accent">{stat.value}</p>
                   <p className="text-sm font-medium text-foreground mt-1">{stat.label}</p>
@@ -314,7 +314,7 @@ const AboutTPC = () => {
                     animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
                     hover: { y: -8, transition: { duration: 0.3 } }
                   }}
-                  className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
+                  className="group relative overflow-hidden rounded-xl border border-border/50 shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
                 >
 
 
@@ -412,7 +412,7 @@ const AboutTPC = () => {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-5 relative z-10 bg-card text-center">
+                <div className="p-4 relative z-10 bg-card text-center">
                   <div className="flex justify-center mb-2">
                     <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
                       <GraduationCap className="h-4 w-4 text-accent" />
@@ -470,7 +470,7 @@ const AboutTPC = () => {
                   animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
                   hover: { y: -5, transition: { duration: 0.3 } }
                 }}
-                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
+                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
               >
                 {/* Image Section - Icon Placeholder or Actual Image */}
                 <div className="aspect-[4/3] overflow-hidden relative bg-muted">
@@ -532,7 +532,7 @@ const AboutTPC = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-accent/5 border border-accent/20 rounded-lg p-6 md:p-8"
+              className="bg-accent/5 border border-accent/20 rounded-xl p-6 md:p-8"
             >
               <h3 className="font-serif text-xl font-semibold text-foreground mb-4 flex items-center gap-3">
                 <Users className="h-6 w-6 text-accent" />
@@ -551,7 +551,7 @@ const AboutTPC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-background border border-border rounded-lg p-6 relative overflow-hidden"
+                className="bg-background border border-border rounded-xl p-6 relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 p-12 bg-primary/5 rounded-full -mr-6 -mt-6" />
                 <div className="relative z-10">
@@ -569,7 +569,7 @@ const AboutTPC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-background border border-border rounded-lg p-6 relative overflow-hidden"
+                className="bg-background border border-border rounded-xl p-6 relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 p-12 bg-accent/5 rounded-full -mr-6 -mt-6" />
                 <div className="relative z-10">
@@ -589,7 +589,7 @@ const AboutTPC = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-background border border-border rounded-lg p-6 md:p-8"
+              className="bg-background border border-border rounded-xl p-6 md:p-8"
             >
               <h3 className="font-serif text-xl font-semibold text-foreground mb-6 flex items-center gap-3">
                 <CheckCircle2 className="h-6 w-6 text-primary" />
@@ -636,7 +636,7 @@ const AboutTPC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUp}
-                className="flex items-center gap-3 bg-background border border-border rounded-lg p-4  hover:bg-accent/5 transition-all text-left group"
+                className="flex items-center gap-3 bg-background border border-border rounded-xl p-4  hover:bg-accent/5 transition-all text-left group"
               >
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
                   <FileText className="h-5 w-5 text-primary" />

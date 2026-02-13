@@ -24,7 +24,7 @@ const LeaderCard = ({ name, role, institution, image, quote, bio, isFullWidth = 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="bg-card rounded-md p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border/50"
+      className="bg-card rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border/50"
     >
       <div className="flex items-start gap-3">
         <div className={`group flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 ${isFullWidth ? 'border-primary/50' : 'border-accent/50'}`}>

@@ -258,7 +258,7 @@ const AboutUniversity = () => {
                   {/* Desktop Card - Left or Right */}
                   <div className={`flex-1 ${index % 2 === 0 ? "md:pr-8 md:flex md:justify-end" : "md:pl-8 md:flex md:justify-start"} hidden md:block`}>
                     <motion.div
-                      className="bg-background/80 backdrop-blur-sm border border-border/60 rounded-lg p-5 inline-block shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 max-w-md"
+                      className="bg-background/80 backdrop-blur-sm border border-border/60 rounded-xl p-6 inline-block shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 max-w-md"
                       whileHover={{ scale: 1.02 }}
                     >
                       <div className="flex items-center gap-2 mb-2">
@@ -276,7 +276,7 @@ const AboutUniversity = () => {
 
                   {/* Mobile Card */}
                   <div className="flex-1 ml-12 md:hidden">
-                    <div className="bg-background/80 backdrop-blur-sm border border-border/60 rounded-lg p-4 shadow-sm">
+                    <div className="bg-background/80 backdrop-blur-sm border border-border/60 rounded-xl p-4 shadow-sm">
                       <div className="flex items-center gap-2 mb-2">
                         <Calendar className="w-4 h-4 text-accent/70" />
                         <p className="font-serif text-lg font-bold text-accent">{milestone.year}</p>
@@ -356,7 +356,7 @@ const AboutUniversity = () => {
                     animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
                     hover: { y: -5, transition: { duration: 0.3 } }
                   }}
-                  className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
+                  className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
                 >
                   {/* Image Section */}
                   <div className="aspect-video overflow-hidden relative bg-muted">
@@ -419,7 +419,7 @@ const AboutUniversity = () => {
               const IconComponent = fact.icon;
               return (
                 <motion.div key={fact.label} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                  className="bg-card border border-border rounded-lg p-4 text-center hover:border-accent/50 transition-colors duration-300">
+                  className="bg-card border border-border/50 rounded-xl p-6 text-center hover:border-accent/30 hover:shadow-md transition-all duration-300 shadow-sm">
                   <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-3">
                     <IconComponent className="h-5 w-5 text-accent" />
                   </div>
@@ -444,7 +444,7 @@ const AboutUniversity = () => {
               const IconComponent = item.icon;
               return (
                 <motion.div key={item.title} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                  className="bg-card border border-border rounded-lg p-5 hover:border-accent/50 transition-colors duration-300">
+                  className="bg-card border border-border/50 rounded-xl p-6 hover:border-accent/30 hover:shadow-md transition-all duration-300 shadow-sm">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 bg-primary/10">
                     <IconComponent className="h-5 w-5 text-primary" />
                   </div>
@@ -480,7 +480,7 @@ const AboutUniversity = () => {
                   animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
                   hover: { y: -5, transition: { duration: 0.3 } }
                 }}
-                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer   transition-all duration-300"
+                className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
               >
                 {/* Image Section */}
                 <div className="aspect-video overflow-hidden relative bg-muted">

@@ -106,7 +106,7 @@ const SoftSkills = () => {
                                         { title: "Active Listening", desc: "Listen to understand, not just to respond. Paraphrase what you hear." },
                                         { title: "Email Etiquette", desc: "Use clear subject lines, professional greetings, and proofread before sending." }
                                     ].map((skill, i) => (
-                                        <Card key={i} className=" transition-all">
+                                        <Card key={i} className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                             <CardContent className="p-4">
                                                 <h4 className="font-semibold text-foreground mb-1">{skill.title}</h4>
                                                 <p className="text-sm text-muted-foreground">{skill.desc}</p>
@@ -152,7 +152,7 @@ const SoftSkills = () => {
                                     tags: ["Solidity", "Smart Contracts", "DeFi"]
                                 }
                             ].map((tech, i) => (
-                                <Card key={i} className="bg-background border-border/50 shadow-sm  transition-all duration-300 group">
+                                <Card key={i} className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 group hover:shadow-md hover:border-accent/30">
                                     <CardHeader>
                                         <div className={`p-3 rounded-lg bg-secondary w-fit mb-4  transition-transform`}>
                                             <tech.icon className={`w-8 h-8 ${tech.color}`} />
@@ -183,7 +183,7 @@ const SoftSkills = () => {
                         </h2>
 
                         <div className="grid lg:grid-cols-2 gap-12">
-                            <Card className=" transition-all h-full">
+                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 h-full hover:shadow-md hover:border-accent/30">
                                 <CardContent className="p-6 md:p-8">
                                     <div className="flex gap-4">
                                         <div className="flex-shrink-0">
@@ -208,7 +208,7 @@ const SoftSkills = () => {
                                 </CardContent>
                             </Card>
 
-                            <Card className=" transition-all h-full">
+                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 h-full hover:shadow-md hover:border-accent/30">
                                 <CardContent className="p-6 md:p-8">
                                     <div className="flex gap-4">
                                         <div className="flex-shrink-0">
