@@ -165,10 +165,11 @@ const DeveloperTeam = () => {
                                     key={member.name}
                                     initial="hidden"
                                     whileInView="visible"
+                                    whileHover={{ y: -5 }}
                                     viewport={{ once: true }}
                                     custom={memberIndex}
                                     variants={fadeInUp}
-                                    className="bg-card rounded-xl p-4 border border-border flex flex-col items-center gap-3 text-center transition-all duration-300 hover:border-accent/30 hover:shadow-md"
+                                    className="bg-card rounded-xl p-4 border border-border flex flex-col items-center gap-3 text-center transition-all duration-300 hover:border-accent/30 hover:shadow-md shadow-sm"
                                 >
                                     <div className="flex-shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-accent/20 bg-muted flex items-center justify-center">
 
@@ -233,10 +234,11 @@ const DeveloperTeam = () => {
                                     key={member.name}
                                     initial="hidden"
                                     whileInView="visible"
+                                    whileHover={{ y: -5 }}
                                     viewport={{ once: true }}
                                     custom={memberIndex}
                                     variants={fadeInUp}
-                                    className="bg-card rounded-xl p-4 border border-border flex flex-col items-center gap-3 text-center transition-all duration-300 hover:border-accent/30 hover:shadow-md"
+                                    className="bg-card rounded-xl p-4 border border-border flex flex-col items-center gap-3 text-center transition-all duration-300 hover:border-accent/30 hover:shadow-md shadow-sm"
                                 >
                                     <div className="flex-shrink-0 w-28 h-28 rounded-full overflow-hidden border-4 border-accent/20 bg-muted flex items-center justify-center">
 

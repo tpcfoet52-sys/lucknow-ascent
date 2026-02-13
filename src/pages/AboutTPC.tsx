@@ -313,7 +313,7 @@ const AboutTPC = () => {
                     variants={{
                       initial: { opacity: 0, y: 30 },
                       animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
-                      hover: { y: -8, transition: { duration: 0.3 } }
+                      hover: { y: -5, transition: { duration: 0.3 } }
                     }}
                     className="group relative overflow-hidden rounded-xl border border-border/50 shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
                   >
@@ -397,7 +397,7 @@ const AboutTPC = () => {
                   variants={{
                     initial: { opacity: 0, y: 30 },
                     animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
-                    hover: { y: -8, transition: { duration: 0.3 } }
+                    hover: { y: -5, transition: { duration: 0.3 } }
                   }}
                   className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300"
                 >
@@ -551,8 +551,9 @@ const AboutTPC = () => {
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
+                  whileHover={{ y: -5 }}
                   viewport={{ once: true }}
-                  className="bg-background border border-border rounded-xl p-6 relative overflow-hidden"
+                  className="bg-background border border-border rounded-xl p-6 relative overflow-hidden shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300"
                 >
                   <div className="absolute top-0 right-0 p-12 bg-primary/5 rounded-full -mr-6 -mt-6" />
                   <div className="relative z-10">
@@ -569,8 +570,9 @@ const AboutTPC = () => {
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
+                  whileHover={{ y: -5 }}
                   viewport={{ once: true }}
-                  className="bg-background border border-border rounded-xl p-6 relative overflow-hidden"
+                  className="bg-background border border-border rounded-xl p-6 relative overflow-hidden shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300"
                 >
                   <div className="absolute top-0 right-0 p-12 bg-accent/5 rounded-full -mr-6 -mt-6" />
                   <div className="relative z-10">

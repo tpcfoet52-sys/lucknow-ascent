@@ -351,6 +351,7 @@ const AboutUniversity = () => {
                   whileInView="animate"
 
                   viewport={{ once: true }}
+                  whileHover="hover"
                   variants={{
                     initial: { opacity: 0, y: 30 },
                     animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
@@ -475,6 +476,7 @@ const AboutUniversity = () => {
                 whileInView="animate"
 
                 viewport={{ once: true }}
+                whileHover="hover"
                 variants={{
                   initial: { opacity: 0, y: 30 },
                   animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 * index } },
@@ -489,7 +491,7 @@ const AboutUniversity = () => {
                       <img
                         src={campus.image}
                         alt={campus.name}
-                        className="w-full h-full object-cover object-top transition-transform duration-500 scale-110 group-hover:scale-125"
+                        className="w-full h-full object-cover object-top transition-transform duration-500 scale-105 group-hover:scale-110"
                       />
                       {/* Gradient overlay on hover - Removed */}
                     </>

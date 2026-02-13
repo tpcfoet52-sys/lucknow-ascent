@@ -169,12 +169,13 @@ const TPCTeamPreview = () => {
                             const IconComponent = team.icon;
                             // Using div instead of Link to open modal
                             return (
-                                <div
+                                <motion.div
                                     key={idx}
                                     onClick={() => setSelectedTeam(team)}
-                                    className="group flex items-center gap-3 p-3 bg-background rounded-lg border border-border/30 hover:border-accent hover:bg-accent/5 hover:shadow-md transition-all cursor-pointer"
+                                    whileHover={{ y: -5 }}
+                                    className="group flex items-center gap-3 p-3 bg-background rounded-xl border border-border/30 hover:border-accent hover:bg-accent/5 hover:shadow-md transition-all cursor-pointer shadow-sm"
                                 >
-                                    <div className="w-8 h-8 rounded-md bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center flex-shrink-0 transition-colors">
+                                    <div className="w-8 h-8 rounded-lg bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center flex-shrink-0 transition-colors">
                                         <IconComponent className="h-4 w-4 text-primary" />
                                     </div>
                                     <div className="min-w-0 flex-1">
@@ -182,7 +183,7 @@ const TPCTeamPreview = () => {
                                         <p className="text-[10px] text-muted-foreground">{team.members.length} members</p>
                                     </div>
                                     <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all flex-shrink-0" />
-                                </div>
+                                </motion.div>
                             );
                         })}
                     </div>
@@ -257,8 +258,9 @@ const TPCTeamPreview = () => {
                                             key={member.id}
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
+                                            whileHover={{ y: -5 }}
                                             transition={{ delay: idx * 0.05 }}
-                                            className="flex flex-col items-center p-4 bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+                                            className="flex flex-col items-center p-4 bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-all hover:border-accent/30"
                                         >
                                             <Avatar className="w-20 h-20 border-3 border-background shadow-lg mb-3">
                                                 <AvatarImage src={member.image} className="object-cover" />

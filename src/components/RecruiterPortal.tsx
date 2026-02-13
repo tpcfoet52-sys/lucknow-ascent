@@ -80,15 +80,20 @@ const RecruiterPortal = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
         >
           {stats.map((stat, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -5 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
               className="bg-card rounded-xl p-6 text-center shadow-sm border border-border/50 hover:shadow-md hover:border-accent/30 transition-all duration-300"
             >
               <stat.icon className="w-6 h-6 text-accent mx-auto mb-2" />
               <p className="text-xl md:text-2xl font-serif font-semibold text-foreground">{stat.value}</p>
               <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
               {stat.subLabel && <p className="text-[10px] text-accent font-medium mt-0.5">{stat.subLabel}</p>}
-            </div>
+            </motion.div>
           ))}
         </motion.div>
 

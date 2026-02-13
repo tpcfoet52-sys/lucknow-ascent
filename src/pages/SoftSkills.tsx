@@ -112,12 +112,21 @@ const SoftSkills = () => {
                                         { title: "Active Listening", desc: "Listen to understand, not just to respond. Paraphrase what you hear." },
                                         { title: "Email Etiquette", desc: "Use clear subject lines, professional greetings, and proofread before sending." }
                                     ].map((skill, i) => (
-                                        <Card key={i} className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
-                                            <CardContent className="p-4">
-                                                <h4 className="font-semibold text-foreground mb-1">{skill.title}</h4>
-                                                <p className="text-sm text-muted-foreground">{skill.desc}</p>
-                                            </CardContent>
-                                        </Card>
+                                        <motion.div
+                                            key={i}
+                                            initial={{ opacity: 0, y: 15 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            whileHover={{ y: -5 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: i * 0.1 }}
+                                        >
+                                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30 h-full">
+                                                <CardContent className="p-4">
+                                                    <h4 className="font-semibold text-foreground mb-1">{skill.title}</h4>
+                                                    <p className="text-sm text-muted-foreground">{skill.desc}</p>
+                                                </CardContent>
+                                            </Card>
+                                        </motion.div>
                                     ))}
                                 </div>
                             </div>
@@ -158,26 +167,36 @@ const SoftSkills = () => {
                                     tags: ["Solidity", "Smart Contracts", "DeFi"]
                                 }
                             ].map((tech, i) => (
-                                <Card key={i} className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 group hover:shadow-md hover:border-accent/30">
-                                    <CardHeader>
-                                        <div className={`p-3 rounded-lg bg-secondary w-fit mb-4  transition-transform`}>
-                                            <tech.icon className={`w-8 h-8 ${tech.color}`} />
-                                        </div>
-                                        <CardTitle>{tech.title}</CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-                                            {tech.desc}
-                                        </p>
-                                        <div className="flex flex-wrap gap-2">
-                                            {tech.tags.map((tag, j) => (
-                                                <span key={j} className="text-[10px] font-bold uppercase tracking-wider bg-secondary/50 px-2 py-1 rounded text-muted-foreground">
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </CardContent>
-                                </Card>
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 15 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    whileHover={{ y: -5 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                                    className="h-full"
+                                >
+                                    <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 group hover:shadow-md hover:border-accent/30 h-full">
+                                        <CardHeader>
+                                            <div className={`p-3 rounded-lg bg-secondary w-fit mb-4  transition-transform`}>
+                                                <tech.icon className={`w-8 h-8 ${tech.color}`} />
+                                            </div>
+                                            <CardTitle>{tech.title}</CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
+                                                {tech.desc}
+                                            </p>
+                                            <div className="flex flex-wrap gap-2">
+                                                {tech.tags.map((tag, j) => (
+                                                    <span key={j} className="text-[10px] font-bold uppercase tracking-wider bg-secondary/50 px-2 py-1 rounded text-muted-foreground">
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </motion.div>
                             ))}
                         </div>
                     </section>
@@ -189,58 +208,62 @@ const SoftSkills = () => {
                         </h2>
 
                         <div className="grid lg:grid-cols-2 gap-12">
-                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 h-full hover:shadow-md hover:border-accent/30">
-                                <CardContent className="p-6 md:p-8">
-                                    <div className="flex gap-4">
-                                        <div className="flex-shrink-0">
-                                            <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                                                <Zap className="w-5 h-5 text-accent" />
+                            <motion.div whileHover={{ y: -5 }}>
+                                <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 h-full hover:shadow-md hover:border-accent/30">
+                                    <CardContent className="p-6 md:p-8">
+                                        <div className="flex gap-4">
+                                            <div className="flex-shrink-0">
+                                                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                                                    <Zap className="w-5 h-5 text-accent" />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h3 className="text-xl font-semibold text-foreground mb-2">Traits of a Modern Leader</h3>
+                                                <p className="text-muted-foreground mb-4">
+                                                    Leadership isn't about titles. It's about influence, empathy, and driving change.
+                                                </p>
+                                                <ul className="space-y-2">
+                                                    {["Emotional Intelligence (EQ)", "Strategic Thinking", "Adaptability", "Decisiveness"].map((trait, i) => (
+                                                        <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                                                            <UserCheck className="w-4 h-4 text-primary" /> {trait}
+                                                        </li>
+                                                    ))}
+                                                </ul>
                                             </div>
                                         </div>
-                                        <div>
-                                            <h3 className="text-xl font-semibold text-foreground mb-2">Traits of a Modern Leader</h3>
-                                            <p className="text-muted-foreground mb-4">
-                                                Leadership isn't about titles. It's about influence, empathy, and driving change.
-                                            </p>
-                                            <ul className="space-y-2">
-                                                {["Emotional Intelligence (EQ)", "Strategic Thinking", "Adaptability", "Decisiveness"].map((trait, i) => (
-                                                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                                                        <UserCheck className="w-4 h-4 text-primary" /> {trait}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
+                                    </CardContent>
+                                </Card>
+                            </motion.div>
 
-                            <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 h-full hover:shadow-md hover:border-accent/30">
-                                <CardContent className="p-6 md:p-8">
-                                    <div className="flex gap-4">
-                                        <div className="flex-shrink-0">
-                                            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                                <TrendingUp className="w-5 h-5 text-primary" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <h3 className="text-xl font-semibold text-foreground mb-2">Growth Programs</h3>
-                                            <p className="text-muted-foreground mb-4">
-                                                Join our campus initiatives to build your leadership muscle.
-                                            </p>
-                                            <div className="space-y-3">
-                                                <div className="p-3 border rounded-lg bg-secondary/50">
-                                                    <p className="font-medium text-sm">Student Coordinator Program</p>
-                                                    <p className="text-xs text-muted-foreground mt-0.5">Manage placement drives and lead teams.</p>
-                                                </div>
-                                                <div className="p-3 border rounded-lg bg-secondary/50">
-                                                    <p className="font-medium text-sm">Project Lead Experience</p>
-                                                    <p className="text-xs text-muted-foreground mt-0.5">Lead technical projects during hackathons.</p>
+                            <motion.div whileHover={{ y: -5 }}>
+                                <Card className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 h-full hover:shadow-md hover:border-accent/30">
+                                    <CardContent className="p-6 md:p-8">
+                                        <div className="flex gap-4">
+                                            <div className="flex-shrink-0">
+                                                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                                    <TrendingUp className="w-5 h-5 text-primary" />
                                                 </div>
                                             </div>
+                                            <div>
+                                                <h3 className="text-xl font-semibold text-foreground mb-2">Growth Programs</h3>
+                                                <p className="text-muted-foreground mb-4">
+                                                    Join our campus initiatives to build your leadership muscle.
+                                                </p>
+                                                <div className="space-y-3">
+                                                    <div className="p-3 border rounded-lg bg-secondary/50">
+                                                        <p className="font-medium text-sm">Student Coordinator Program</p>
+                                                        <p className="text-xs text-muted-foreground mt-0.5">Manage placement drives and lead teams.</p>
+                                                    </div>
+                                                    <div className="p-3 border rounded-lg bg-secondary/50">
+                                                        <p className="font-medium text-sm">Project Lead Experience</p>
+                                                        <p className="text-xs text-muted-foreground mt-0.5">Lead technical projects during hackathons.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
+                                    </CardContent>
+                                </Card>
+                            </motion.div>
                         </div>
                     </section>
                 </div>

@@ -121,6 +121,7 @@ const ResumeGuide = () => {
                                     key={index}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
+                                    whileHover={{ y: -5 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
                                 >
@@ -211,19 +212,28 @@ const ResumeGuide = () => {
                                     desc: "A text-based PDF is standard. Use .docx if specifically requested. Never use image-based PDFs."
                                 }
                             ].map((tip, i) => (
-                                <Card key={i} className="rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
-                                    <CardHeader>
-                                        <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-2">
-                                            <tip.icon className="w-5 h-5 text-accent" />
-                                        </div>
-                                        <CardTitle className="text-lg">{tip.title}</CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <p className="text-muted-foreground text-sm leading-relaxed">
-                                            {tip.desc}
-                                        </p>
-                                    </CardContent>
-                                </Card>
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 15 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    whileHover={{ y: -5 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
+                                >
+                                    <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
+                                        <CardHeader>
+                                            <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-2">
+                                                <tip.icon className="w-5 h-5 text-accent" />
+                                            </div>
+                                            <CardTitle className="text-lg">{tip.title}</CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <p className="text-muted-foreground text-sm leading-relaxed">
+                                                {tip.desc}
+                                            </p>
+                                        </CardContent>
+                                    </Card>
+                                </motion.div>
                             ))}
                         </div>
 
@@ -244,10 +254,10 @@ const ResumeGuide = () => {
                                 ))}
                             </div>
                         </div>
-                    </section>
+                    </section >
 
                     {/* Common Mistakes */}
-                    <section>
+                    < section >
                         <h2 className="font-serif text-3xl font-semibold mb-8">Common Student Mistakes</h2>
                         <div className="grid md:grid-cols-3 gap-6">
                             {[
@@ -255,19 +265,27 @@ const ResumeGuide = () => {
                                 { title: "Generic Objectives", desc: "Writing 'Looking for a challenging role...' instead of a summary of your skills." },
                                 { title: "Ignoring Soft Skills", desc: "Forgetting to mention communication, teamwork, or leadership, especially for management roles." }
                             ].map((mistake, i) => (
-                                <div key={i} className="flex items-start gap-4 p-4 rounded-lg bg-orange-50 border border-orange-100 dark:bg-orange-900/10 dark:border-orange-900/30">
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 15 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    whileHover={{ y: -5 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
+                                    className="flex items-start gap-4 p-4 rounded-lg bg-orange-50 border border-orange-100 dark:bg-orange-900/10 dark:border-orange-900/30 shadow-sm hover:shadow-md transition-all duration-300"
+                                >
                                     <AlertTriangle className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
                                     <div>
                                         <h4 className="font-semibold text-foreground">{mistake.title}</h4>
                                         <p className="text-sm text-muted-foreground mt-1">{mistake.desc}</p>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
-                    </section>
+                    </section >
 
                     {/* Final Checklist */}
-                    <section id="step-by-step" className="bg-card rounded-xl p-8 border border-border/50 shadow-sm">
+                    < section id="step-by-step" className="bg-card rounded-xl p-8 border border-border/50 shadow-sm" >
                         <h2 className="font-serif text-2xl font-semibold mb-6">Pre-Submission Checklist</h2>
                         <div className="grid sm:grid-cols-2 gap-4">
                             {[
@@ -286,16 +304,16 @@ const ResumeGuide = () => {
                                 </div>
                             ))}
                         </div>
-                    </section>
+                    </section >
 
                     {/* CTA / Download */}
 
 
-                </div>
-            </main>
+                </div >
+            </main >
 
             <Footer />
-        </div>
+        </div >
     );
 };
 

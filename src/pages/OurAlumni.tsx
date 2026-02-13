@@ -175,7 +175,7 @@ const OurAlumni = () => {
                                     custom={index}
                                     initial="initial"
                                     whileInView="animate"
-
+                                    whileHover="hover"
                                     viewport={{ once: true }}
                                     variants={{
                                         initial: { opacity: 0, y: 30 },

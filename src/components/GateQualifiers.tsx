@@ -15,9 +15,10 @@ const GateQualifiers = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -2 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="bg-gradient-to-br from-card to-card/90 backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-2xl border border-border/50 hover:border-primary/30 transition-all duration-500"
+                    className="bg-gradient-to-br from-card to-card/90 backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-md border border-border/50 hover:border-accent/30 transition-all duration-500"
                 >
                     <div className="text-center mb-8">
                         <div className="inline-flex items-center gap-2 bg-gold/10 px-5 py-2 rounded-full mb-4">

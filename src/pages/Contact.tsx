@@ -74,11 +74,11 @@ const Contact = () => {
                             <div className="grid md:grid-cols-3 gap-4">
                                 {/* LinkedIn */}
                                 <motion.a
-                                    whileHover={{ y: -5 }}
+                                    whileHover={{ y: -2 }}
                                     href="https://www.linkedin.com/in/tpcfoet"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block bg-card border border-border rounded-xl overflow-hidden hover:border-[#0A66C2]/50 transition-all hover:shadow-lg group shadow-sm"
+                                    className="block bg-card border border-border rounded-xl overflow-hidden hover:border-accent/30 transition-all hover:shadow-md group shadow-sm"
                                 >
                                     <div className="p-4 border-b border-border flex flex-col items-center justify-center text-center gap-1">
                                         <p className="font-semibold text-sm text-foreground flex items-center justify-center gap-2">
@@ -93,18 +93,18 @@ const Contact = () => {
                                         <img
                                             src={socialLinkedin}
                                             alt="TPC LinkedIn Profile"
-                                            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                                            className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-300"
                                         />
                                     </div>
                                 </motion.a>
 
                                 {/* Twitter/X */}
                                 <motion.a
-                                    whileHover={{ y: -5 }}
+                                    whileHover={{ y: -2 }}
                                     href="https://x.com/PlacementEnggLU"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block bg-card border border-border rounded-xl overflow-hidden hover:border-foreground/30 transition-all hover:shadow-lg group shadow-sm"
+                                    className="block bg-card border border-border rounded-xl overflow-hidden hover:border-accent/30 transition-all hover:shadow-md group shadow-sm"
                                 >
                                     <div className="p-4 border-b border-border flex flex-col items-center justify-center text-center gap-1">
                                         <p className="font-semibold text-sm text-foreground flex items-center justify-center gap-2">
@@ -119,18 +119,18 @@ const Contact = () => {
                                         <img
                                             src={socialTwitter}
                                             alt="TPC Twitter/X Profile"
-                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                                            className="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-300"
                                         />
                                     </div>
                                 </motion.a>
 
                                 {/* Instagram */}
                                 <motion.a
-                                    whileHover={{ y: -5 }}
+                                    whileHover={{ y: -2 }}
                                     href="https://www.instagram.com/tpcfoet"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block bg-card border border-border rounded-xl overflow-hidden hover: पिंक-500/50 transition-all hover:shadow-lg group shadow-sm"
+                                    className="block bg-card border border-border rounded-xl overflow-hidden hover:border-accent/30 transition-all hover:shadow-md group shadow-sm"
                                 >
                                     <div className="p-4 border-b border-border flex flex-col items-center justify-center text-center gap-1">
                                         <p className="font-semibold text-sm text-foreground flex items-center justify-center gap-2">
@@ -145,7 +145,7 @@ const Contact = () => {
                                         <img
                                             src={socialInstagram}
                                             alt="TPC Instagram Profile"
-                                            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                                            className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-300"
                                         />
                                     </div>
                                 </motion.a>
@@ -401,20 +401,26 @@ const Contact = () => {
 
                                 {/* Office Info */}
                                 <div className="grid grid-cols-2 gap-3 mt-2">
-                                    <div className="bg-muted/50 border border-border rounded-xl p-3 flex flex-col items-center justify-center text-center">
+                                    <motion.div
+                                        whileHover={{ y: -5 }}
+                                        className="bg-muted/50 border border-border rounded-xl p-3 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-md hover:border-accent/30"
+                                    >
                                         <div className="flex flex-col items-center justify-center gap-1 mb-1">
                                             <Building2 className="h-4 w-4 text-primary" />
                                             <span className="font-semibold text-xs text-foreground">Office</span>
                                         </div>
                                         <p className="text-muted-foreground text-xs text-center">TPC Office, FoET Building</p>
-                                    </div>
-                                    <div className="bg-muted/50 border border-border rounded-xl p-3 flex flex-col items-center justify-center text-center">
+                                    </motion.div>
+                                    <motion.div
+                                        whileHover={{ y: -5 }}
+                                        className="bg-muted/50 border border-border rounded-xl p-3 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-md hover:border-accent/30"
+                                    >
                                         <div className="flex flex-col items-center justify-center gap-1 mb-1">
                                             <Clock className="h-4 w-4 text-accent" />
                                             <span className="font-semibold text-xs text-foreground">Hours</span>
                                         </div>
                                         <p className="text-muted-foreground text-xs text-center">Mon-Fri: 10AM-5PM • Sat: 10AM-2PM</p>
-                                    </div>
+                                    </motion.div>
                                 </div>
                             </motion.div>
                         </div>
