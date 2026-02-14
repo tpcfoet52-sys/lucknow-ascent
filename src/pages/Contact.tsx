@@ -41,7 +41,7 @@ const Contact = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <span className="text-primary font-medium text-sm uppercase tracking-wider">Get In Touch</span>
+                            <span className="text-accent font-medium text-sm uppercase tracking-wider">Get In Touch</span>
                             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-4 mb-6 tracking-tight">
                                 Contact <span className="text-gold-gradient">Us</span>
                             </h1>
@@ -65,9 +65,9 @@ const Contact = () => {
                             className="mb-12"
                         >
                             <div className="text-center mb-8">
-                                <span className="text-primary font-medium text-sm uppercase tracking-wider">Follow Us</span>
+                                <span className="text-accent font-medium text-sm uppercase tracking-wider">Follow Us</span>
                                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2 flex items-center justify-center gap-2">
-                                    Social Networks
+                                    Social <span className="text-gold-gradient">Networks</span>
                                 </h3>
                                 <p className="text-muted-foreground mt-3">Stay connected with our latest updates and announcements.</p>
                             </div>
@@ -160,9 +160,9 @@ const Contact = () => {
                             className="mt-12"
                         >
                             <div className="text-center mb-8">
-                                <span className="text-primary font-medium text-sm uppercase tracking-wider">Team</span>
+                                <span className="text-accent font-medium text-sm uppercase tracking-wider">Team</span>
                                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2 flex items-center justify-center gap-2">
-                                    <Users className="w-6 h-6 text-primary" /> Connect With Us
+                                    Connect With <span className="text-gold-gradient">Us</span>
                                 </h3>
                                 <p className="text-muted-foreground mt-3">Reach out to our placement team for assistance.</p>
                             </div>
@@ -309,9 +309,9 @@ const Contact = () => {
                             viewport={{ once: true }}
                             className="text-center mb-10"
                         >
-                            <span className="text-primary font-medium text-sm uppercase tracking-wider">Location & Directions</span>
+                            <span className="text-accent font-medium text-sm uppercase tracking-wider">Location & Directions</span>
                             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
-                                How To Reach Us?
+                                How To <span className="text-gold-gradient">Reach Us?</span>
                             </h2>
                             <p className="text-muted-foreground mt-3 text-sm md:text-base flex items-center justify-center gap-2 max-w-4xl mx-auto">
                                 <MapPin className="w-4 h-4 text-primary flex-shrink-0" /> WWHQ+JC7, Training & Placement Cell, Faculty of Engineering & Technology University of Lucknow, New Campus Rd, Sultanpur Village, Jankipuram Extension, Lucknow, Uttar Pradesh 226031
@@ -346,7 +346,7 @@ const Contact = () => {
                                 viewport={{ once: true }}
                                 className="flex flex-col gap-4"
                             >
-                                <h3 className="font-semibold text-lg text-foreground text-center">Best Route</h3>
+                                <h3 className="font-semibold text-lg text-gold-gradient text-center">Best Route</h3>
 
                                 {/* By Metro */}
                                 <motion.div
