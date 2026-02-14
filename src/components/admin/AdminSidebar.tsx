@@ -8,7 +8,8 @@ import {
   CheckSquare,
   FileEdit,
   LogOut,
-  User
+  User,
+  Users
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLogout } from '@/hooks/useLogout';
@@ -18,6 +19,7 @@ const sidebarItems = [
   { icon: Briefcase, label: 'Jobs', href: '/admin/jobs' },
   { icon: FileText, label: 'Applications', href: '/admin/applications' },
   { icon: CheckSquare, label: 'Approvals', href: '/admin/approvals' },
+  { icon: Users, label: 'Users', href: '/admin/users' },
   { icon: FileEdit, label: 'CMS', href: '/admin/cms' },
 ];
 

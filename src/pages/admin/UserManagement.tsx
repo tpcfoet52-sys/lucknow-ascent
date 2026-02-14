@@ -57,14 +57,14 @@ const TEAMS = [
 ];
 
 const formSchema = z.object({
-  username: z.string().min(3, "Username must be at least 3 characters"),
+  email: z.string().email("Please enter a valid email"),
   password: z.string().min(6, "Password must be at least 6 characters"),
   team_name: z.string().min(1, "Team selection is required"),
 });
 
 interface Coordinator {
-  id: number;
-  username: string;
+  id: string;
+  email: string;
   team_name: string;
   created_at: string;
 }
@@ -77,7 +77,7 @@ const UserManagement = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      email: "",
       password: "",
       team_name: "",
     },
@@ -85,16 +85,55 @@ const UserManagement = () => {
 
   const fetchUsers = async () => {
     try {
-      const { data, error } = await supabase
-        .from('coordinators')
-        .select('*')
-        .order('created_at', { ascending: false });
+      if (!supabase) {
+        console.error("Supabase client not initialized");
+        toast.error("Database connection not configured");
+        setIsLoading(false);
+        return;
+      }
 
-      if (error) throw error;
-      setUsers(data || []);
-    } catch (error) {
+      // Get current session token
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (!session) {
+        toast.error("Not authenticated");
+        setIsLoading(false);
+        return;
+      }
+
+      // Call Edge Function to list coordinators
+      // Call Edge Function to list coordinators
+      const { data, error } = await supabase.functions.invoke('list-coordinators', {
+        headers: {
+          Authorization: `Bearer ${session.access_token}`,
+        },
+      });
+
+      if (error) {
+        console.error("Error from Edge Function:", error);
+
+        // Check for specific error types
+        // The Supabase client might wrap the error, so we check the message
+        const errorMessage = error.message || JSON.stringify(error);
+
+        if (errorMessage.includes('Invalid JWT') || errorMessage.includes('401')) {
+          toast.error("Authentication Error: Please check your API keys in .env file. The Anon Key might be incorrect.");
+          console.error("Critical: Invalid JWT Error. Likely incorrect VITE_SUPABASE_ANON_KEY.");
+        } else {
+          toast.error(errorMessage || "Failed to fetch users");
+        }
+
+        throw error;
+      }
+
+      console.log("Coordinators from Edge Function:", data.coordinators);
+      setUsers(data.coordinators || []);
+    } catch (error: any) {
       console.error("Error fetching users:", error);
-      toast.error("Failed to load users");
+      // specific toast already shown above if applicable
+      if (!error.message?.includes('Invalid JWT') && !error.message?.includes('401')) {
+        toast.error(error.message || "Failed to load users");
+      }
     } finally {
       setIsLoading(false);
     }
@@ -106,38 +145,93 @@ const UserManagement = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const { error } = await supabase
-        .from('coordinators')
-        .insert([values]);
+      if (!supabase) {
+        toast.error("Database connection not configured");
+        return;
+      }
 
-      if (error) throw error;
+      // Get current session token
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (!session) {
+        toast.error("Not authenticated");
+        return;
+      }
+
+      // Call Edge Function to create coordinator
+      const { data, error } = await supabase.functions.invoke('create-coordinator', {
+        body: {
+          email: values.email,
+          password: values.password,
+          team_name: values.team_name,
+        },
+        headers: {
+          Authorization: `Bearer ${session.access_token}`,
+        },
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
 
       toast.success("Coordinator added successfully");
       setIsDialogOpen(false);
       form.reset();
       fetchUsers();
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error adding user:", error);
-      toast.error("Failed to add user. Username might be taken.");
+      if (error.message?.includes("already registered") || error.message?.includes("already exists")) {
+        toast.error("Email already registered");
+      } else {
+        toast.error(error.message || "Failed to add user. Please try again.");
+      }
     }
   };
 
-  const deleteUser = async (id: number) => {
-    if (!window.confirm("Are you sure you want to delete this user?")) return;
+  const deleteUser = async (id: string, email: string) => {
+    if (!window.confirm(`Are you sure you want to delete ${email}?`)) return;
 
     try {
-      const { error } = await supabase
-        .from('coordinators')
-        .delete()
-        .eq('id', id);
+      if (!supabase) {
+        toast.error("Database connection not configured");
+        return;
+      }
 
-      if (error) throw error;
+      // Get current session token
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (!session) {
+        toast.error("Not authenticated");
+        return;
+      }
+
+      // Call Edge Function to delete coordinator
+      const { data, error } = await supabase.functions.invoke('delete-coordinator', {
+        body: {
+          user_id: id,
+        },
+        headers: {
+          Authorization: `Bearer ${session.access_token}`,
+        },
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
 
       toast.success("User deleted successfully");
       fetchUsers();
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error deleting user:", error);
-      toast.error("Failed to delete user");
+      toast.error(error.message || "Failed to delete user");
     }
   };
 
@@ -160,19 +254,19 @@ const UserManagement = () => {
             <DialogHeader>
               <DialogTitle>Add New Coordinator</DialogTitle>
               <DialogDescription>
-                Create credentials for a specific team lead or member.
+                Create login credentials for a team coordinator. They will be able to access their team dashboard.
               </DialogDescription>
             </DialogHeader>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 pt-4">
                 <FormField
                   control={form.control}
-                  name="username"
+                  name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Username</FormLabel>
+                      <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="johndoe" {...field} />
+                        <Input placeholder="coordinator@example.com" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -227,8 +321,8 @@ const UserManagement = () => {
 
       <Card>
         <CardHeader>
-          <CardTitle>Registered Coordinators</CardTitle>
-          <CardDescription>List of all active coordinator accounts.</CardDescription>
+          <CardTitle>Registered Coordinators ({users.length})</CardTitle>
+          <CardDescription>List of all active coordinator accounts with team assignments.</CardDescription>
         </CardHeader>
         <CardContent>
           {isLoading ? (
@@ -243,7 +337,7 @@ const UserManagement = () => {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Username</TableHead>
+                  <TableHead>Email</TableHead>
                   <TableHead>Assigned Team</TableHead>
                   <TableHead>Created At</TableHead>
                   <TableHead className="text-right">Actions</TableHead>
@@ -252,7 +346,7 @@ const UserManagement = () => {
               <TableBody>
                 {users.map((user) => (
                   <TableRow key={user.id}>
-                    <TableCell className="font-medium">{user.username}</TableCell>
+                    <TableCell className="font-medium">{user.email}</TableCell>
                     <TableCell>{user.team_name}</TableCell>
                     <TableCell>{new Date(user.created_at).toLocaleDateString()}</TableCell>
                     <TableCell className="text-right">
@@ -260,7 +354,7 @@ const UserManagement = () => {
                         variant="destructive"
                         size="sm"
                         className="h-8 w-8 p-0"
-                        onClick={() => deleteUser(user.id)}
+                        onClick={() => deleteUser(user.id, user.email)}
                       >
                         <Trash2 className="h-4 w-4" />
                         <span className="sr-only">Delete</span>
