@@ -132,8 +132,6 @@ const App = () => (
             {/* Removed Migration Route */}
 
             {/* Placeholder Pages for Sidebar Links */}
-            <Route path="jobs" element={<PlaceholderAdminPage title="Jobs Management" />} />
-            <Route path="applications" element={<PlaceholderAdminPage title="Applications" />} />
             <Route path="users" element={<UserManagement />} />
             <Route path="cms" element={<PlaceholderAdminPage title="Content Management" />} />
           </Route>

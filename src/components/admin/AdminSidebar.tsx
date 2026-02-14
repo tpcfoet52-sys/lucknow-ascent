@@ -2,9 +2,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import {
   LayoutDashboard,
-  Briefcase,
-  FileText,
-
   CheckSquare,
   FileEdit,
   LogOut,
@@ -16,8 +13,6 @@ import { useLogout } from '@/hooks/useLogout';
 
 const sidebarItems = [
   { icon: LayoutDashboard, label: 'Dashboard', href: '/admin/dashboard' },
-  { icon: Briefcase, label: 'Jobs', href: '/admin/jobs' },
-  { icon: FileText, label: 'Applications', href: '/admin/applications' },
   { icon: CheckSquare, label: 'Approvals', href: '/admin/approvals' },
   { icon: Users, label: 'Users', href: '/admin/users' },
   { icon: FileEdit, label: 'CMS', href: '/admin/cms' },
@@ -64,7 +59,7 @@ export const AdminSidebar = () => {
           </div>
           <div>
             <p className="text-sm font-medium">Admin User</p>
-            <p className="text-xs text-muted-foreground">admin@tpc.com</p>
+
           </div>
         </div>
         <Button
