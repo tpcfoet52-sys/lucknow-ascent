@@ -7,6 +7,8 @@ import rashmiKushwaha from "@/assets/rashmi-kushwaha.jpg";
 import aryanTripathi from "@/assets/aryan-tripathi.jpg";
 import akashKumarYadav from "@/assets/akash-kumar-yadav.jpg";
 import Footer from "@/components/Footer";
+import PageBackground from "@/components/PageBackground";
+import heroImage from "@/assets/university-hero-new.jpg";
 
 const DeveloperTeam = () => {
     const fadeInUp = {
@@ -97,18 +99,27 @@ const DeveloperTeam = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-background flex flex-col">
-            <main className="flex-1 pt-20 pb-12">
+        <div className="min-h-screen bg-background relative overflow-hidden flex flex-col">
+            <PageBackground />
+            <main className="flex-grow relative z-10">
                 {/* Hero Section */}
-                <section className="relative py-12 md:py-16">
-                    <div className="container-narrow">
+                <section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden">
+                    <div className="absolute inset-0 z-0">
+                        <img
+                            src={heroImage}
+                            alt="University of Lucknow"
+                            className="w-full h-full object-cover object-[center_20%]"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background" />
+                    </div>
+
+                    <div className="container-narrow text-center relative z-10 pt-8 md:pt-16">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className="text-center"
                         >
-                            <div className="inline-flex items-center gap-2 mb-4">
+                            <div className="inline-flex items-center justify-center gap-2 mb-4">
                                 <Code2 className="w-6 h-6 text-accent" />
                                 <span className="text-accent font-medium text-sm uppercase tracking-wider">
                                     Behind The Scenes
@@ -154,10 +165,11 @@ const DeveloperTeam = () => {
                                     key={member.name}
                                     initial="hidden"
                                     whileInView="visible"
+                                    whileHover={{ y: -5 }}
                                     viewport={{ once: true }}
                                     custom={memberIndex}
                                     variants={fadeInUp}
-                                    className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center transition-all duration-300 hover:border-accent/40 hover:shadow-sm"
+                                    className="bg-card rounded-xl p-4 border border-border flex flex-col items-center gap-3 text-center transition-all duration-300 hover:border-accent/30 hover:shadow-md shadow-sm"
                                 >
                                     <div className="flex-shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-accent/20 bg-muted flex items-center justify-center">
 
@@ -222,10 +234,11 @@ const DeveloperTeam = () => {
                                     key={member.name}
                                     initial="hidden"
                                     whileInView="visible"
+                                    whileHover={{ y: -5 }}
                                     viewport={{ once: true }}
                                     custom={memberIndex}
                                     variants={fadeInUp}
-                                    className="bg-card rounded-xl p-4 border border-border/50 flex flex-col items-center gap-3 text-center transition-all duration-300 hover:border-accent/40 hover:shadow-sm"
+                                    className="bg-card rounded-xl p-4 border border-border flex flex-col items-center gap-3 text-center transition-all duration-300 hover:border-accent/30 hover:shadow-md shadow-sm"
                                 >
                                     <div className="flex-shrink-0 w-28 h-28 rounded-full overflow-hidden border-4 border-accent/20 bg-muted flex items-center justify-center">
 

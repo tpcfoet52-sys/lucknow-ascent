@@ -7,17 +7,23 @@ import { FileText } from "lucide-react";
 const stats = [
   { label: "Highest Package (2023-24)", value: "₹26.0", unit: "LPA", icon: Award, note: "Kartikey Gupta (ECE)" },
   { label: "Average Package (Overall)", value: "₹9.0", unit: "LPA", icon: TrendingUp, note: "" },
-  { label: "Jobs Offered (2025)", value: "543", unit: "+", icon: Users, note: "" },
+  { label: "Jobs Offered (2024-25)", value: "548", unit: "+", icon: Users, note: "" },
   { label: "Partner Companies", value: "500", unit: "+", icon: Building2, note: "" },
 ];
 
+interface PlacementData {
+  year: string;
+  students: number;
+  estimated?: boolean;
+}
+
 // FoET / Engineering (UG 4-Year) Students Placed Data
-const foetPlacementData = [
-  { year: "2021", students: 301 },
-  { year: "2022", students: 465 },
-  { year: "2023", students: 581 },
-  { year: "2024", students: 473 },
-  { year: "2025", students: 543, estimated: true },
+const foetPlacementData: PlacementData[] = [
+  { year: "2021", students: 300 },
+  { year: "2022", students: 468 },
+  { year: "2023", students: 543 },
+  { year: "2024", students: 456 },
+  { year: "2025", students: 548 },
 ];
 
 const yearlyData = [
@@ -55,11 +61,11 @@ const yearlyData = [
 
 // Year-wise Companies Visited Data (Moved from CompaniesVisited.tsx)
 const companiesVisitedData = [
-  { year: "2024-25", companyCount: 500, pdfUrl: null },
-  { year: "2023-24", companyCount: 350, pdfUrl: null },
-  { year: "2022-23", companyCount: 240, pdfUrl: null },
-  { year: "2021-22", companyCount: 185, pdfUrl: null },
-  { year: "2020-21", companyCount: 120, pdfUrl: null },
+  { year: "2024-25", companyCount: 71, pdfUrl: null },
+  { year: "2023-24", companyCount: 56, pdfUrl: null },
+  { year: "2022-23", companyCount: 71, pdfUrl: null },
+  { year: "2021-22", companyCount: 69, pdfUrl: null },
+  { year: "2020-21", companyCount: 68, pdfUrl: null },
 ];
 
 const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) => {
@@ -106,9 +112,10 @@ const PlacementStats = () => {
               key={index}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -5 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="group bg-card rounded-md p-6 shadow-sm border border-border/50 hover:shadow-md hover:border-accent/30 transition-all duration-300 hover:-translate-y-1"
+              className="group bg-card rounded-xl p-6 shadow-sm border border-border/50 hover:shadow-md hover:border-accent/30 transition-all duration-300"
             >
               <div className="w-8 h-8 rounded bg-accent/10 flex items-center justify-center mb-3">
                 <stat.icon className="w-4 h-4 text-accent" />
@@ -131,7 +138,7 @@ const PlacementStats = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-2 bg-card rounded-md p-5 md:p-6 shadow-elevated-sm border border-border/50 h-full flex flex-col"
+            className="lg:col-span-2 bg-card rounded-xl p-5 md:p-6 shadow-elevated-sm border border-border/50 h-full flex flex-col"
           >
             <div className="mb-5">
               <h3 className="font-serif text-lg font-semibold text-foreground">
@@ -179,7 +186,7 @@ const PlacementStats = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-1 bg-card rounded-md shadow-elevated-sm border border-border/50 overflow-hidden flex flex-col h-full"
+            className="lg:col-span-1 bg-card rounded-xl shadow-elevated-sm border border-border/50 overflow-hidden flex flex-col h-full"
           >
             <div className="p-5 border-b border-border bg-muted/20">
               <div className="flex items-center gap-3">
@@ -206,7 +213,7 @@ const PlacementStats = () => {
 
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-muted-foreground">Recruiting Partners</span>
-                      {item.pdfUrl ? (
+                      {item.pdfUrl && (
                         <a
                           href={item.pdfUrl}
                           target="_blank"
@@ -216,19 +223,13 @@ const PlacementStats = () => {
                         >
                           <FileText className="w-3 h-3" /> PDF
                         </a>
-                      ) : (
-                        <span className="text-[10px] text-muted-foreground/50 italic flex items-center gap-1">
-                          <FileText className="w-3 h-3" /> Stay Tuned
-                        </span>
                       )}
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="p-4 border-t border-border bg-muted/10 text-center">
-              <p className="text-xs text-muted-foreground">Detailed lists available for download soon.</p>
-            </div>
+
           </motion.div>
         </div>
 
@@ -238,7 +239,7 @@ const PlacementStats = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-card rounded-md p-5 md:p-6 shadow-elevated-sm border border-border/50"
+          className="bg-card rounded-xl p-5 md:p-6 shadow-elevated-sm border border-border/50"
         >
           <div className="flex items-center justify-between mb-6">
             <h3 className="font-serif text-lg font-semibold text-foreground">Year-wise Highest Package</h3>
@@ -251,11 +252,12 @@ const PlacementStats = () => {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -5 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.1 * index }}
-                className="relative group"
+                className="relative group h-full"
               >
-                <div className="bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-lg p-5 border border-border/30 hover:border-accent/50 hover:shadow-md transition-all duration-300 h-full group-hover:-translate-y-1">
+                <div className="bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-lg p-5 border border-border/30 hover:border-accent/50 hover:shadow-md transition-all duration-300 h-full">
                   {/* Year Badge */}
                   <div className="inline-block px-2 py-0.5 bg-accent/10 rounded text-accent text-xs font-semibold mb-3">
                     {data.year}

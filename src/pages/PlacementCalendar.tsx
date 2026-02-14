@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Calendar, ArrowLeft } from "lucide-react";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import PageBackground from "@/components/PageBackground";
+import heroImage from "@/assets/university-hero-new.jpg";
 
 const PlacementCalendar = () => {
     return (
-        <div className="min-h-screen bg-background flex flex-col">
-            <Header />
+        <div className="min-h-screen bg-background relative overflow-hidden flex flex-col">
+            <PageBackground />
 
-            <main className="flex-1 flex flex-col items-center justify-center p-6 text-center pt-24 md:pt-32 min-h-[60vh]">
+            <main className="flex-grow flex flex-col items-center justify-center p-6 text-center pt-24 md:pt-32 min-h-[60vh] relative z-10">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}

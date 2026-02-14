@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/lib/supabase";
 // Assets (Only Hero and Logo assets if needed, but hero is still used)
 import heroImage from "@/assets/university-hero-new.jpg";
+import PageBackground from "@/components/PageBackground";
 
 interface MediaItem {
     id: string;
@@ -90,9 +91,10 @@ const Media = () => {
         : allGalleryItems.filter(item => item.type === filter);
 
     return (
-        <div className="min-h-screen bg-background flex flex-col">
+        <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
+            <PageBackground />
+            <main className="flex-1 pb-12 relative z-10">
 
-            <main className="flex-1 pb-12">
                 {/* Hero Section */}
                 <section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden mb-0">
                     <div className="absolute inset-0 z-0">
@@ -109,7 +111,7 @@ const Media = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <span className="text-accent font-medium text-sm uppercase tracking-wider">Media & Content</span>
+                            <span className="text-primary font-medium text-sm uppercase tracking-wider">Media & Content</span>
                             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-4 mb-6 tracking-tight">
                                 Campus <span className="text-gold-gradient">Chronicles</span>
                             </h1>
@@ -120,50 +122,56 @@ const Media = () => {
                     </div>
                 </section>
 
-                <div className="container-narrow space-y-12 mt-8">
+                <div className="container-narrow space-y-12 mt-8 relative z-10">
 
                     {/* Photo Gallery with Filters */}
                     <section>
-                        <div className="flex flex-col items-center text-center mb-12 gap-6">
-                            <div>
-                                <span className="text-xs font-medium text-accent uppercase tracking-wider">Visual Tour</span>
-                                <h2 className="font-serif text-3xl font-semibold flex items-center justify-center gap-2 mt-2">
-                                    <Camera className="w-6 h-6 text-accent" /> Photo Gallery
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="flex flex-col md:flex-row items-center md:items-end justify-between mb-12 gap-6"
+                        >
+                            <div className="text-center md:text-left">
+
+                                <h2 className="font-serif text-3xl md:text-4xl font-semibold flex items-center justify-center md:justify-start gap-3 mt-2">
+                                    <Camera className="w-7 h-7 text-accent" /> Photo Gallery
                                 </h2>
-                                <p className="text-muted-foreground mt-2">Highlights from recent campus activities.</p>
+                                <p className="text-muted-foreground mt-3 text-base md:text-lg">Highlights from recent campus activities.</p>
                             </div>
 
-                            <div className="flex flex-wrap justify-center gap-2">
+                            <div className="flex flex-wrap justify-center md:justify-end gap-2">
                                 {["All", "Drives", "Events", "Seminars", "Achievers"].map((cat) => (
                                     <Button
                                         key={cat}
                                         variant={filter === cat ? "default" : "outline"}
                                         size="sm"
                                         onClick={() => setFilter(cat)}
-                                        className="rounded-full"
+                                        className="rounded-full transition-all duration-300"
                                     >
                                         {cat}
                                     </Button>
                                 ))}
                             </div>
-                        </div>
+                        </motion.div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {filteredGallery.length === 0 ? (
-                                <div className="col-span-full text-center py-12 text-muted-foreground">
-                                    No items found.
+                                <div className="col-span-full text-center py-12 text-muted-foreground bg-card rounded-xl border border-dashed border-border shadow-sm">
+                                    No items found in this category.
                                 </div>
                             ) : (
                                 <AnimatePresence mode="popLayout">
-                                    {filteredGallery.map((item) => (
+                                    {filteredGallery.map((item, index) => (
                                         <motion.div
                                             key={item.id}
-                                            layout
-                                            initial={{ opacity: 0, scale: 0.9 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            exit={{ opacity: 0, scale: 0.9 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer"
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, scale: 0.95 }}
+                                            transition={{ duration: 0.4, delay: index * 0.05 }}
+                                            whileHover={{ y: -5 }}
+                                            className="group relative overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md hover:border-accent/30 bg-card cursor-pointer transition-all duration-300"
                                             onClick={() => setSelectedItem(item)}
                                         >
                                             <div className="aspect-video overflow-hidden">
@@ -195,23 +203,35 @@ const Media = () => {
                     </section>
 
                     {/* Press Release Section */}
-                    <section>
-                        <div className="text-center mb-12">
-                            <span className="text-xs font-medium text-accent uppercase tracking-wider">In The News</span>
-                            <h2 className="font-serif text-3xl font-semibold flex items-center justify-center gap-2 mt-2">
-                                <Newspaper className="w-6 h-6 text-accent" /> Press Releases
+                    <section className="pt-8">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="text-center md:text-left mb-12"
+                        >
+                            <span className="text-primary font-medium text-sm uppercase tracking-wider">In The News</span>
+                            <h2 className="font-serif text-3xl md:text-4xl font-semibold flex items-center justify-center md:justify-start gap-3 mt-2">
+                                <Newspaper className="w-7 h-7 text-accent" /> Press Releases
                             </h2>
-                        </div>
+                            <p className="text-muted-foreground mt-3 text-base">Our achievements in the media spotlight.</p>
+                        </motion.div>
                         <div className="grid md:grid-cols-3 gap-6">
                             {allPressItems.length === 0 ? (
-                                <div className="col-span-full text-center py-12 text-muted-foreground">
-                                    No press releases found.
+                                <div className="col-span-full text-center py-12 text-muted-foreground bg-card rounded-xl border border-dashed border-border shadow-sm">
+                                    No press releases available yet.
                                 </div>
                             ) : (
-                                allPressItems.map((item) => (
-                                    <div
+                                allPressItems.map((item, index) => (
+                                    <motion.div
                                         key={item.id}
-                                        className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                                        whileHover={{ y: -5 }}
+                                        className="group relative overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md hover:border-accent/30 bg-card cursor-pointer transition-all duration-300"
                                         onClick={() => setSelectedItem({ ...item, type: "Press" })}
                                     >
                                         <div className="aspect-video overflow-hidden">
@@ -225,7 +245,7 @@ const Media = () => {
                                             </div>
                                             <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">{item.title}</h3>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 ))
                             )}
                         </div>

@@ -1,54 +1,55 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, XCircle, Briefcase, Award, PenTool, Download, ChevronRight, User, Settings, AlertTriangle, Search, LayoutTemplate, FileType } from "lucide-react";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-
-
-import ATSChecker from "@/components/ATSChecker";
+import PageBackground from "@/components/PageBackground";
+import heroImage from "@/assets/university-hero-new.jpg";
 
 const ResumeGuide = () => {
     return (
-        <div className="min-h-screen bg-background flex flex-col">
-            <Header />
+        <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
+            <PageBackground />
 
-            <main className="flex-1 pt-24 pb-12">
-                {/* Hero Section */}
-                <section className="relative py-12 md:py-20 mb-2">
-                    <div className="container-narrow text-center relative">
+            {/* Hero Section */}
+            <section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden">
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src={heroImage}
+                        alt="University of Lucknow Campus"
+                        className="w-full h-full object-cover object-[center_20%]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background" />
+                </div>
 
+                <div className="container-narrow text-center relative z-10 pt-8 md:pt-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <span className="text-primary font-medium text-sm uppercase tracking-wider">Career Coaching</span>
+                        <h1 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mt-4 mb-6">
+                            Build an <span className="text-gold-gradient">Impressive Resume</span>
+                        </h1>
+                        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                            Your resume is your first impression. Learn how to craft a professional, ATS-friendly resume that gets you shortlisted by top recruiters.
+                        </p>
+                        <div className="mt-8 flex justify-center gap-4">
+                            <Button size="lg" variant="outline" className="rounded-md" onClick={() => document.getElementById('download-template')?.scrollIntoView({ behavior: 'smooth' })}>
+                                <Download className="w-4 h-4 mr-2" /> Templates
+                            </Button>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <span className="text-accent font-medium text-sm uppercase tracking-wider">Career Coaching</span>
-                            <h1 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mt-4 mb-6">
-                                Build an <span className="text-gold-gradient">Impressive Resume</span>
-                            </h1>
-                            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                                Your resume is your first impression. Learn how to craft a professional, ATS-friendly resume that gets you shortlisted by top recruiters.
-                            </p>
-                            <div className="mt-8 flex justify-center gap-4">
-                                <Button variant="gold" size="lg" className="rounded-md" onClick={() => document.getElementById('ats-checker')?.scrollIntoView({ behavior: 'smooth' })}>
-                                    Check ATS Score <ChevronRight className="w-4 h-4 ml-2" />
-                                </Button>
-                                <Button size="lg" variant="outline" className="rounded-md" onClick={() => document.getElementById('download-template')?.scrollIntoView({ behavior: 'smooth' })}>
-                                    <Download className="w-4 h-4 ml-2" /> Templates
-                                </Button>
-                            </div>
-                        </motion.div>
-                    </div>
-                </section>
+            <main className="flex-grow relative z-10">
 
                 <div className="container-narrow py-6 space-y-16">
 
-                    {/* ATS Checker Portal */}
-                    <ATSChecker />
+
 
                     {/* Why It Matters */}
                     <section className="grid md:grid-cols-2 gap-12 items-center">
@@ -116,10 +117,11 @@ const ResumeGuide = () => {
                                     key={index}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
+                                    whileHover={{ y: -5 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
                                 >
-                                    <Card className="h-full hover:shadow-md transition-all">
+                                    <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
                                         <CardHeader>
                                             <item.icon className="w-8 h-8 text-accent mb-2" />
                                             <CardTitle className="text-xl">{item.title}</CardTitle>
@@ -206,25 +208,34 @@ const ResumeGuide = () => {
                                     desc: "A text-based PDF is standard. Use .docx if specifically requested. Never use image-based PDFs."
                                 }
                             ].map((tip, i) => (
-                                <Card key={i} className="border-border/50 hover:border-accent/50 transition-colors">
-                                    <CardHeader>
-                                        <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-2">
-                                            <tip.icon className="w-5 h-5 text-accent" />
-                                        </div>
-                                        <CardTitle className="text-lg">{tip.title}</CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <p className="text-muted-foreground text-sm leading-relaxed">
-                                            {tip.desc}
-                                        </p>
-                                    </CardContent>
-                                </Card>
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 15 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    whileHover={{ y: -5 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
+                                >
+                                    <Card className="h-full rounded-xl border border-border/50 shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30">
+                                        <CardHeader>
+                                            <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-2">
+                                                <tip.icon className="w-5 h-5 text-accent" />
+                                            </div>
+                                            <CardTitle className="text-lg">{tip.title}</CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <p className="text-muted-foreground text-sm leading-relaxed">
+                                                {tip.desc}
+                                            </p>
+                                        </CardContent>
+                                    </Card>
+                                </motion.div>
                             ))}
                         </div>
 
                         {/* Action Verbs Banner */}
-                        <div className="rounded-2xl bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 p-8 text-center border border-accent/20 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 p-32 bg-accent/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+                        <div className="rounded-2xl bg-secondary/30 p-8 text-center border border-border/50 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 p-32 bg-secondary/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
                             <h3 className="font-serif text-xl font-semibold mb-4 flex items-center justify-center gap-2 relative z-10">
                                 Power Up with Action Verbs
                             </h3>
@@ -239,10 +250,10 @@ const ResumeGuide = () => {
                                 ))}
                             </div>
                         </div>
-                    </section>
+                    </section >
 
                     {/* Common Mistakes */}
-                    <section>
+                    < section >
                         <h2 className="font-serif text-3xl font-semibold mb-8">Common Student Mistakes</h2>
                         <div className="grid md:grid-cols-3 gap-6">
                             {[
@@ -250,19 +261,27 @@ const ResumeGuide = () => {
                                 { title: "Generic Objectives", desc: "Writing 'Looking for a challenging role...' instead of a summary of your skills." },
                                 { title: "Ignoring Soft Skills", desc: "Forgetting to mention communication, teamwork, or leadership, especially for management roles." }
                             ].map((mistake, i) => (
-                                <div key={i} className="flex items-start gap-4 p-4 rounded-lg bg-orange-50 border border-orange-100 dark:bg-orange-900/10 dark:border-orange-900/30">
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 15 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    whileHover={{ y: -5 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
+                                    className="flex items-start gap-4 p-4 rounded-lg bg-orange-50 border border-orange-100 dark:bg-orange-900/10 dark:border-orange-900/30 shadow-sm hover:shadow-md transition-all duration-300"
+                                >
                                     <AlertTriangle className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
                                     <div>
                                         <h4 className="font-semibold text-foreground">{mistake.title}</h4>
                                         <p className="text-sm text-muted-foreground mt-1">{mistake.desc}</p>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
-                    </section>
+                    </section >
 
                     {/* Final Checklist */}
-                    <section id="step-by-step" className="bg-card rounded-xl p-8 border border-border/50 shadow-sm">
+                    < section id="step-by-step" className="bg-card rounded-xl p-8 border border-border/50 shadow-sm" >
                         <h2 className="font-serif text-2xl font-semibold mb-6">Pre-Submission Checklist</h2>
                         <div className="grid sm:grid-cols-2 gap-4">
                             {[
@@ -281,16 +300,16 @@ const ResumeGuide = () => {
                                 </div>
                             ))}
                         </div>
-                    </section>
+                    </section >
 
                     {/* CTA / Download */}
 
 
-                </div>
-            </main>
+                </div >
+            </main >
 
             <Footer />
-        </div>
+        </div >
     );
 };
 

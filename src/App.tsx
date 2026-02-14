@@ -18,6 +18,7 @@ import CoordinatorLogin from "./pages/CoordinatorLogin";
 import ResumeGuide from "./pages/ResumeGuide";
 import InterviewPrep from "./pages/InterviewPrep";
 import SoftSkills from "./pages/SoftSkills";
+import NotesContent from "./pages/NotesContent";
 import Media from "./pages/Media";
 import Login from "./pages/Login";
 import OurAlumni from "./pages/OurAlumni";
@@ -87,6 +88,7 @@ const App = () => (
           <Route path="/resume-guide" element={<ResumeGuide />} />
           <Route path="/interview-prep" element={<InterviewPrep />} />
           <Route path="/soft-skills" element={<SoftSkills />} />
+          <Route path="/notes-content" element={<NotesContent />} />
           <Route path="/media" element={<Media />} />
 
           <Route path="/login" element={<Login />} />
