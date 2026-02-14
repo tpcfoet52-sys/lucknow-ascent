@@ -64,7 +64,7 @@ const RecruiterPortal = () => {
         >
           <span className="text-accent font-medium text-sm uppercase tracking-wider">For Recruiters</span>
           <h2 className="heading-display text-2xl md:text-3xl lg:text-4xl text-foreground mt-2">
-            Why Recruit from University of Lucknow?
+            Why Recruit from <span className="text-gold-gradient">University of Lucknow?</span>
           </h2>
           <p className="max-w-xl mx-auto text-muted-foreground mt-3 text-base">
             Partner with one of India's most distinguished institutions.
