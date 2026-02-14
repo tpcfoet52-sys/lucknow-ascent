@@ -9,8 +9,8 @@ import { teams, facultyMembers, teamLeads, Team } from "@/data/teamData";
 
 const dropdownVariants = {
     hidden: { height: 0, opacity: 0, overflow: "hidden" as const },
-    visible: { height: "auto", opacity: 1, overflow: "visible" as const, transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] } },
-    exit: { height: 0, opacity: 0, overflow: "hidden" as const, transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] } },
+    visible: { height: "auto", opacity: 1, overflow: "visible" as const, transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] } },
+    exit: { height: 0, opacity: 0, overflow: "hidden" as const, transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] } },
 };
 
 const TPCTeamPreview = () => {

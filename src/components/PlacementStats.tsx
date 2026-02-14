@@ -11,8 +11,14 @@ const stats = [
   { label: "Partner Companies", value: "500", unit: "+", icon: Building2, note: "" },
 ];
 
+interface PlacementData {
+  year: string;
+  students: number;
+  estimated?: boolean;
+}
+
 // FoET / Engineering (UG 4-Year) Students Placed Data
-const foetPlacementData = [
+const foetPlacementData: PlacementData[] = [
   { year: "2021", students: 300 },
   { year: "2022", students: 468 },
   { year: "2023", students: 543 },

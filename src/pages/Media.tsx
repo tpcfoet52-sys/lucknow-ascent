@@ -131,17 +131,17 @@ const Media = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="flex flex-col items-center text-center mb-12 gap-6"
+                            className="flex flex-col md:flex-row items-center md:items-end justify-between mb-12 gap-6"
                         >
-                            <div>
-                                <span className="text-primary font-medium text-sm uppercase tracking-wider">Visual Tour</span>
-                                <h2 className="font-serif text-3xl md:text-4xl font-semibold flex items-center justify-center gap-3 mt-2">
-                                    <Camera className="w-7 h-7 text-primary" /> Photo Gallery
+                            <div className="text-center md:text-left">
+
+                                <h2 className="font-serif text-3xl md:text-4xl font-semibold flex items-center justify-center md:justify-start gap-3 mt-2">
+                                    <Camera className="w-7 h-7 text-accent" /> Photo Gallery
                                 </h2>
                                 <p className="text-muted-foreground mt-3 text-base md:text-lg">Highlights from recent campus activities.</p>
                             </div>
 
-                            <div className="flex flex-wrap justify-center gap-2">
+                            <div className="flex flex-wrap justify-center md:justify-end gap-2">
                                 {["All", "Drives", "Events", "Seminars", "Achievers"].map((cat) => (
                                     <Button
                                         key={cat}
@@ -209,11 +209,11 @@ const Media = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="text-center mb-12"
+                            className="text-center md:text-left mb-12"
                         >
                             <span className="text-primary font-medium text-sm uppercase tracking-wider">In The News</span>
-                            <h2 className="font-serif text-3xl md:text-4xl font-semibold flex items-center justify-center gap-3 mt-2">
-                                <Newspaper className="w-7 h-7 text-primary" /> Press Releases
+                            <h2 className="font-serif text-3xl md:text-4xl font-semibold flex items-center justify-center md:justify-start gap-3 mt-2">
+                                <Newspaper className="w-7 h-7 text-accent" /> Press Releases
                             </h2>
                             <p className="text-muted-foreground mt-3 text-base">Our achievements in the media spotlight.</p>
                         </motion.div>
