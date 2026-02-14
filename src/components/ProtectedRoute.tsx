@@ -15,6 +15,11 @@ const ProtectedRoute = ({ children, requiredTeam }: ProtectedRouteProps) => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
+                if (!supabase) {
+                    console.error("Supabase client not initialized");
+                    navigate("/admin-login");
+                    return;
+                }
                 // Get current session
                 const { data: { session } } = await supabase.auth.getSession();
 
@@ -71,6 +76,8 @@ const ProtectedRoute = ({ children, requiredTeam }: ProtectedRouteProps) => {
         checkAuth();
 
         // Listen for auth changes
+        if (!supabase) return;
+
         const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
             if (event === 'SIGNED_OUT' || !session) {
                 const isScanningAdmin = window.location.pathname.startsWith('/admin');
