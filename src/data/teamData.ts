@@ -66,6 +66,7 @@ export const facultyMembers: TeamMember[] = [
         role: "Faculty Coordinator",
         phone: "9406987292",
         email: "pavanrajawat038@gmail.com",
+        branch: "Electrical Engineering",
         image: erPavanKumarSingh,
         imagePosition: "object-top"
     },
@@ -76,6 +77,7 @@ export const facultyMembers: TeamMember[] = [
         role: "Faculty Coordinator",
         phone: "9717681158",
         email: "gaurav.ap1793@gmail.com",
+        branch: "Civil Engineering",
         image: erGauravSrivastava,
         imagePosition: "object-top"
     },
@@ -86,6 +88,7 @@ export const facultyMembers: TeamMember[] = [
         role: "Faculty Coordinator",
         phone: "+91 7703 876 175",
         email: "singh_pk@lkouniv.ac.in",
+        branch: "Mechanical Engineering",
         image: erPrashantKumarSingh,
         imagePosition: "object-top"
     },
@@ -96,6 +99,7 @@ export const facultyMembers: TeamMember[] = [
         role: "Faculty Coordinator",
         phone: "7007538905",
         email: "rolikushwaha.academics22@gmail.com",
+        branch: "Electronics & Communication Engineering",
         image: erRoliKushwaha,
         imagePosition: "object-top"
     },
@@ -106,6 +110,7 @@ export const facultyMembers: TeamMember[] = [
         role: "Faculty Coordinator",
         phone: "7007928931",
         email: "ssinghsonam061@gmail.com",
+        branch: "Computer Science & Engineering",
         image: erSonamSingh,
         imagePosition: "object-[center_65%]"
     },
@@ -116,6 +121,7 @@ export const facultyMembers: TeamMember[] = [
         role: "Faculty Coordinator",
         phone: "7020464299",
         email: "maurya_maruti@lkouniv.ac.in",
+        branch: "Computer Science & Engineering",
         image: erMarutiMaurya,
         imagePosition: "object-top"
     },
@@ -126,6 +132,7 @@ export const facultyMembers: TeamMember[] = [
         role: "Faculty Coordinator",
         phone: "9651314977",
         email: "namitas25@gmail.com",
+        branch: "Computer Science & Engineering",
         image: erNamitaSrivastava,
         imagePosition: "object-top"
     }

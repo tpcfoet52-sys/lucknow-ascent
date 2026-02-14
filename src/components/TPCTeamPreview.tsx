@@ -88,6 +88,7 @@ const TPCTeamPreview = () => {
                                                 </div>
                                                 <p className="text-sm font-semibold text-foreground leading-tight mt-3">{faculty.name}</p>
                                                 <p className="text-xs text-muted-foreground mt-1">{faculty.title}</p>
+                                                {faculty.branch && <p className="text-[10px] font-medium text-accent mt-0.5 uppercase tracking-tight">{faculty.branch}</p>}
                                                 <div className="flex items-center gap-2 mt-2">
                                                     <a href={`tel:${faculty.phone}`} className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={faculty.phone}>
                                                         <Phone className="w-3 h-3" />
