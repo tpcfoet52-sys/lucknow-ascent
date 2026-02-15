@@ -1,11 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Phone, Mail, X, Linkedin, ChevronDown } from "lucide-react";
 
 
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog";
-import { teams, facultyMembers, teamLeads, Team } from "@/data/teamData";
+// import { teams, facultyMembers, teamLeads, Team } from "@/data/teamData"; // REMOVED
+import { supabase } from "@/lib/supabase";
+import { TeamGroup, TeamMember, TeamGroupWithMembers } from "@/types/team";
+import { Building2, Users, Briefcase, Code, Camera, Calendar } from "lucide-react";
+
+// Helper to map icon names to components
+const IconMap: Record<string, any> = {
+    "Building2": Building2,
+    "Users": Users,
+    "Briefcase": Briefcase,
+    "Code": Code,
+    "Camera": Camera,
+    "Calendar": Calendar,
+};
 
 const dropdownVariants = {
     hidden: { height: 0, opacity: 0, overflow: "hidden" as const },
@@ -14,12 +27,70 @@ const dropdownVariants = {
 };
 
 const TPCTeamPreview = () => {
-    const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
+    // State
+    const [facultyMembers, setFacultyMembers] = useState<TeamMember[]>([]);
+    const [studentLeads, setStudentLeads] = useState<TeamMember[]>([]);
+    const [teams, setTeams] = useState<TeamGroupWithMembers[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    const [selectedTeam, setSelectedTeam] = useState<TeamGroupWithMembers | null>(null);
     const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
 
     const toggleSection = (section: string) => {
         setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));
     };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                // Fetch all groups
+                const { data: groupsData, error: groupsError } = await supabase
+                    .from("team_groups")
+                    .select("*")
+                    .order("order_index");
+
+                if (groupsError) throw groupsError;
+
+                // Fetch all members
+                const { data: membersData, error: membersError } = await supabase
+                    .from("team_members")
+                    .select("*")
+                    .order("order_index");
+
+                if (membersError) throw membersError;
+
+                // Process Data
+                const facultyGroup = groupsData.find((g: TeamGroup) => g.type === 'faculty');
+                const leadGroup = groupsData.find((g: TeamGroup) => g.type === 'lead');
+                const studentGroups = groupsData.filter((g: TeamGroup) => g.type === 'team');
+
+                if (facultyGroup) {
+                    setFacultyMembers(membersData.filter((m: TeamMember) => m.group_id === facultyGroup.id));
+                }
+
+                if (leadGroup) {
+                    setStudentLeads(membersData.filter((m: TeamMember) => m.group_id === leadGroup.id));
+                }
+
+                const processedTeams = studentGroups.map((group: TeamGroup) => ({
+                    ...group,
+                    members: membersData.filter((m: TeamMember) => m.group_id === group.id)
+                }));
+                setTeams(processedTeams);
+
+            } catch (error) {
+                console.error("Error fetching team data:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    if (loading) {
+        return <div className="py-20 text-center"><div className="animate-pulse">Loading Team...</div></div>;
+    }
 
     return (
         <section className="section-padding bg-secondary/30 relative">
@@ -77,7 +148,7 @@ const TPCTeamPreview = () => {
                                             <div key={idx} className="flex flex-col items-center text-center group">
                                                 <div className="relative mb-4">
                                                     <Avatar className="w-24 h-24 md:w-28 md:h-28 border-2 border-accent/30 group-hover:border-accent transition-colors duration-300 shadow-md group-hover:shadow-lg">
-                                                        <AvatarImage src={faculty.image} className={`object-cover ${faculty.imagePosition || ''} transition-transform duration-500 group-hover:scale-110`} />
+                                                        <AvatarImage src={faculty.image} className={`object-cover ${faculty.image_position || ''} transition-transform duration-500 group-hover:scale-110`} />
                                                         <AvatarFallback className="bg-primary/10 text-primary text-sm font-medium">
                                                             {faculty.name.split(' ').map(n => n[0]).join('')}
                                                         </AvatarFallback>
@@ -90,12 +161,16 @@ const TPCTeamPreview = () => {
                                                 <p className="text-xs text-muted-foreground mt-1">{faculty.title}</p>
                                                 {faculty.branch && <p className="text-[10px] font-medium text-accent mt-0.5 uppercase tracking-tight">{faculty.branch}</p>}
                                                 <div className="flex items-center gap-2 mt-2">
-                                                    <a href={`tel:${faculty.phone}`} className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={faculty.phone}>
-                                                        <Phone className="w-3 h-3" />
-                                                    </a>
-                                                    <a href={`mailto:${faculty.email}`} className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={faculty.email}>
-                                                        <Mail className="w-3 h-3" />
-                                                    </a>
+                                                    {faculty.phone && (
+                                                        <a href={`tel:${faculty.phone}`} className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={faculty.phone}>
+                                                            <Phone className="w-3 h-3" />
+                                                        </a>
+                                                    )}
+                                                    {faculty.email && (
+                                                        <a href={`mailto:${faculty.email}`} className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={faculty.email}>
+                                                            <Mail className="w-3 h-3" />
+                                                        </a>
+                                                    )}
                                                 </div>
                                             </div>
                                         ))}
@@ -138,7 +213,7 @@ const TPCTeamPreview = () => {
                             >
                                 <div className="px-5 md:px-6 pb-5 md:pb-6">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center items-center mx-auto">
-                                        {teamLeads.map((lead, idx) => {
+                                        {studentLeads.map((lead, idx) => {
                                             const isGroupPhoto = lead.name === "Student Coordinators";
 
                                             if (isGroupPhoto) {
@@ -187,7 +262,7 @@ const TPCTeamPreview = () => {
                                                             <img
                                                                 src={lead.image}
                                                                 alt={lead.name}
-                                                                className={`w-full h-full object-cover ${lead.imagePosition || ''} transition-transform duration-500 group-hover:scale-110`}
+                                                                className={`w-full h-full object-cover ${lead.image_position || ''} transition-transform duration-500 group-hover:scale-110`}
                                                             />
                                                         </div>
                                                         <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs px-3 py-1 rounded-full shadow-sm whitespace-nowrap">
@@ -196,17 +271,23 @@ const TPCTeamPreview = () => {
                                                     </div>
                                                     <h4 className="text-lg font-bold text-foreground mt-3">{lead.name}</h4>
                                                     {/* Social Icons for Riddhi */}
-                                                    {lead.linkedin && (
+                                                    {(lead.email || lead.linkedin || lead.twitter) && (
                                                         <div className="flex items-center gap-2 mt-2">
-                                                            <a href={`mailto:${lead.email}`} className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={lead.email}>
-                                                                <Mail className="w-3 h-3" />
-                                                            </a>
-                                                            <a href={lead.linkedin} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title="LinkedIn">
-                                                                <Linkedin className="w-3 h-3" />
-                                                            </a>
-                                                            <a href={lead.twitter} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title="X">
-                                                                <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
-                                                            </a>
+                                                            {lead.email && (
+                                                                <a href={`mailto:${lead.email}`} className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={lead.email}>
+                                                                    <Mail className="w-3 h-3" />
+                                                                </a>
+                                                            )}
+                                                            {lead.linkedin && (
+                                                                <a href={lead.linkedin} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title="LinkedIn">
+                                                                    <Linkedin className="w-3 h-3" />
+                                                                </a>
+                                                            )}
+                                                            {lead.twitter && (
+                                                                <a href={lead.twitter} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title="X">
+                                                                    <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+                                                                </a>
+                                                            )}
                                                         </div>
                                                     )}
                                                 </div>
@@ -221,7 +302,7 @@ const TPCTeamPreview = () => {
                                     {/* Student Teams Grid */}
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         {teams.map((team, idx) => {
-                                            const IconComponent = team.icon;
+                                            const IconComponent = team.icon && IconMap[team.icon] ? IconMap[team.icon] : Users;
                                             return (
                                                 <motion.div
                                                     key={idx}
@@ -248,7 +329,7 @@ const TPCTeamPreview = () => {
                 </motion.div>
             </div>
 
-            {/* Team Dashboard Modal - Copied and adapted from TeamStructure.tsx */}
+            {/* Team Dashboard Modal */}
             <AnimatePresence>
                 {selectedTeam && (
                     <motion.div
@@ -272,7 +353,10 @@ const TPCTeamPreview = () => {
                                 <div className="relative flex items-start justify-between">
                                     <div className="flex items-center gap-4">
                                         <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center">
-                                            <selectedTeam.icon className="h-7 w-7 text-primary" />
+                                            {(() => {
+                                                const IconComponent = selectedTeam.icon && IconMap[selectedTeam.icon] ? IconMap[selectedTeam.icon] : Users;
+                                                return <IconComponent className="h-7 w-7 text-primary" />;
+                                            })()}
                                         </div>
                                         <div>
                                             <h2 className="font-serif text-2xl font-semibold text-foreground">
@@ -291,19 +375,21 @@ const TPCTeamPreview = () => {
                             </div>
 
                             {/* Key Responsibilities */}
-                            <div className="p-6 md:p-8 border-b border-border bg-muted/10">
-                                <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-4">
-                                    Key Responsibilities
-                                </h3>
-                                <div className="grid sm:grid-cols-2 gap-3">
-                                    {selectedTeam.keyPoints.map((point, idx) => (
-                                        <div key={idx} className="flex items-center gap-3 text-sm text-muted-foreground">
-                                            <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
-                                            <span>{point}</span>
-                                        </div>
-                                    ))}
+                            {selectedTeam.key_points && selectedTeam.key_points.length > 0 && (
+                                <div className="p-6 md:p-8 border-b border-border bg-muted/10">
+                                    <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-4">
+                                        Key Responsibilities
+                                    </h3>
+                                    <div className="grid sm:grid-cols-2 gap-3">
+                                        {selectedTeam.key_points.map((point: string, idx: number) => (
+                                            <div key={idx} className="flex items-center gap-3 text-sm text-muted-foreground">
+                                                <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
+                                                <span>{point}</span>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
+                            )}
 
                             {/* Team Members */}
                             <div className="p-6 md:p-8">
@@ -321,9 +407,9 @@ const TPCTeamPreview = () => {
                                             className="flex flex-col items-center p-4 bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-all hover:border-accent/30"
                                         >
                                             <Avatar className="w-20 h-20 border-3 border-background shadow-lg mb-3">
-                                                <AvatarImage src={member.image} className={`object-cover ${member.imagePosition || ''}`} />
+                                                <AvatarImage src={member.image} className={`object-cover ${member.image_position || ''}`} />
                                                 <AvatarFallback className="bg-primary text-primary-foreground text-lg font-bold">
-                                                    {member.name.split(' ').map(n => n[0]).join('')}
+                                                    {member.name.split(' ').map(n => n[0]).join('').substring(0, 2)}
                                                 </AvatarFallback>
                                             </Avatar>
 

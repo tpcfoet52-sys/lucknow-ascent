@@ -33,6 +33,7 @@ import EventHospitalityDashboard from "./pages/coordinator/EventHospitalityDashb
 import TeamDashboard from "./pages/coordinator/TeamDashboard";
 import ApprovalsManagement from "./pages/admin/ApprovalsManagement";
 import UserManagement from "./pages/admin/UserManagement";
+import ManageTeam from "./pages/admin/ManageTeam";
 // Removed DataMigration import
 
 const queryClient = new QueryClient();
@@ -128,6 +129,7 @@ const App = () => (
             <Route path="dashboard" element={<DashboardOverview />} />
 
             <Route path="approvals" element={<ApprovalsManagement />} />
+            <Route path="team" element={<ManageTeam />} />
 
             {/* Removed Migration Route */}
 
