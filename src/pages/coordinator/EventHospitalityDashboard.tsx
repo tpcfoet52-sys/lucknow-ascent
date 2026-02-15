@@ -55,6 +55,7 @@ interface Registration {
   student_roll: string;
   branch: string;
   mobile_number: string;
+  student_year?: string;
 }
 
 const EventHospitalityDashboard = () => {
@@ -170,7 +171,7 @@ const EventHospitalityDashboard = () => {
       return;
     }
 
-    const headers = ["Student Name", "Email", "Mobile Number", "Roll Number", "Branch"];
+    const headers = ["Student Name", "Email", "Mobile Number", "Roll Number", "Branch", "Year"];
 
     const csvContent = [
       headers.join(","),
@@ -179,7 +180,8 @@ const EventHospitalityDashboard = () => {
         `"${reg.student_email}"`,
         `"${reg.mobile_number || 'N/A'}"`,
         `"${reg.student_roll}"`,
-        `"${reg.branch}"`
+        `"${reg.branch}"`,
+        `"${reg.student_year || 'N/A'}"`
       ].join(","))
     ].join("\n");
 
@@ -367,7 +369,7 @@ const EventHospitalityDashboard = () => {
                             <div className="text-xs text-muted-foreground">{reg.student_roll}</div>
                           </TableCell>
                           <TableCell>
-                            <div className="text-xs font-medium">{reg.branch}</div>
+                            <div className="text-xs font-medium">{reg.branch} {reg.student_year ? `(${reg.student_year})` : ''}</div>
                             <div className="text-xs text-muted-foreground">{reg.student_email}</div>
                             <div className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
                               <Phone className="h-3 w-3" /> {reg.mobile_number || 'N/A'}

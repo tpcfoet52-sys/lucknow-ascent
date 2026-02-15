@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
 
@@ -36,6 +43,7 @@ const Events = () => {
     phone: "",
     rollNumber: "",
     department: "",
+    year: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -107,13 +115,14 @@ const Events = () => {
           student_email: formData.email,
           student_roll: formData.rollNumber,
           branch: formData.department,
-          mobile_number: formData.phone
+          mobile_number: formData.phone,
+          student_year: formData.year,
         }
       ]);
 
       if (error) throw error;
       setSubmitSuccess(true);
-      setFormData({ name: "", email: "", phone: "", rollNumber: "", department: "" });
+      setFormData({ name: "", email: "", phone: "", rollNumber: "", department: "", year: "" });
       toast.success("Registration successful!");
 
     } catch (error) {
@@ -277,16 +286,49 @@ const Events = () => {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="department">Department *</Label>
-                      <Input
-                        id="department"
-                        value={formData.department}
-                        onChange={(e) => setFormData({ ...formData, department: e.target.value })}
+                      <Label htmlFor="year">Year *</Label>
+                      <Select
+                        value={formData.year}
+                        onValueChange={(value) => setFormData({ ...formData, year: value })}
                         required
-                        placeholder="e.g. CSE"
-                        className="bg-background"
-                      />
+                      >
+                        <SelectTrigger className="bg-background">
+                          <SelectValue placeholder="Select Year" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="1st Year">1st Year</SelectItem>
+                          <SelectItem value="2nd Year">2nd Year</SelectItem>
+                          <SelectItem value="3rd Year">3rd Year</SelectItem>
+                          <SelectItem value="4th Year">4th Year</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="department">Department *</Label>
+                    <Select
+                      value={formData.department}
+                      onValueChange={(value) => setFormData({ ...formData, department: value })}
+                      required
+                    >
+                      <SelectTrigger className="bg-background">
+                        <SelectValue placeholder="Select Department" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="COMPUTER SCIENCE AND ENGINEERING-AI">COMPUTER SCIENCE AND ENGINEERING-AI</SelectItem>
+                        <SelectItem value="COMPUTER SCIENCE AND ENGINEERING">COMPUTER SCIENCE AND ENGINEERING</SelectItem>
+                        <SelectItem value="MECHANICAL ENGINEERING">MECHANICAL ENGINEERING</SelectItem>
+                        <SelectItem value="ELECTRICAL ENGINEERING">ELECTRICAL ENGINEERING</SelectItem>
+                        <SelectItem value="ELECTRONICS AND COMMUNICATION ENGINEERING">ELECTRONICS AND COMMUNICATION ENGINEERING</SelectItem>
+                        <SelectItem value="CIVIL ENGINEERING">CIVIL ENGINEERING</SelectItem>
+                        <SelectItem value="BCA">BCA</SelectItem>
+                        <SelectItem value="MCA">MCA</SelectItem>
+                        <SelectItem value="Pharma">Pharma</SelectItem>
+                        <SelectItem value="BBA">BBA</SelectItem>
+                        <SelectItem value="MBA">MBA</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <div className="flex gap-3 pt-6">

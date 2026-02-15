@@ -9,14 +9,14 @@ const corsHeaders = {
 serve(async (req) => {
     // Handle CORS preflight requests
     if (req.method === 'OPTIONS') {
-        return new Response(null, { headers: corsHeaders })
+        return new Response('ok', { headers: corsHeaders })
     }
 
     try {
         // Create Supabase client with service role key
         const supabaseAdmin = createClient(
             Deno.env.get('SUPABASE_URL') ?? '',
-            Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '',
+            Deno.env.get('MY_SERVICE') ?? '',
             {
                 auth: {
                     autoRefreshToken: false,
