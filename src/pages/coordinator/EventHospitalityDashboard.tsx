@@ -200,19 +200,22 @@ const EventHospitalityDashboard = () => {
 
   return (
     // FIXED: Added pt-20 (mobile) and md:pt-28 (desktop)
-    <div className="min-h-screen bg-gray-50 pt-20 px-4 pb-4 md:pt-28 md:px-8 md:pb-8">
+    <div className="min-h-screen bg-background pt-20 px-4 pb-8 md:pt-28 md:px-8">
       {/* Header */}
       <div className="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <Link to="/team-structure" className="flex items-center text-muted-foreground hover:text-primary mb-2">
+          <Link to="/team-structure" className="flex items-center text-muted-foreground hover:text-accent transition-colors mb-3 text-sm">
             <ArrowLeft className="h-4 w-4 mr-1" /> Back to Team
           </Link>
-          <h1 className="text-3xl font-bold text-navy-900">Event Dashboard</h1>
-          <p className="text-muted-foreground">Manage events and view student registrations</p>
+          <span className="text-accent font-medium text-sm uppercase tracking-wider">Coordinator Panel</span>
+          <h1 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-1">
+            Event <span className="text-gold-gradient">Dashboard</span>
+          </h1>
+          <p className="text-muted-foreground text-sm mt-2">Manage events and view student registrations.</p>
         </div>
 
         <div className="flex items-center gap-3">
-          <Button variant="outline" className="gap-2" onClick={logout}>
+          <Button variant="outline" className="gap-2 border-border hover:border-accent/30 hover:text-accent transition-all" onClick={logout}>
             <LogOut className="h-4 w-4" /> Logout
           </Button>
 
@@ -269,15 +272,15 @@ const EventHospitalityDashboard = () => {
 
         {/* Left Column: Events List */}
         <div className="lg:col-span-2 space-y-6">
-          <h2 className="text-xl font-semibold">Your Events</h2>
+          <h2 className="font-serif text-xl font-semibold text-foreground">Your <span className="text-gold-gradient">Events</span></h2>
           {isLoading ? <Loader2 className="animate-spin" /> : events.length === 0 ? <p className="text-muted-foreground">No events found.</p> : (
             <div className="grid gap-4">
               {events.map((event) => (
-                <Card key={event.id} className={`transition-all ${selectedEventId === event.id ? 'ring-2 ring-primary' : ''}`}>
+                <Card key={event.id} className={`bg-card border border-border/50 rounded-xl transition-all duration-300 hover:shadow-md hover:border-accent/30 ${selectedEventId === event.id ? 'ring-2 ring-accent' : ''}`}>
                   <div className="flex flex-col md:flex-row">
                     {/* Small thumbnail in dashboard view */}
                     {event.banner_url && (
-                      <div className="w-full md:w-32 h-32 md:h-auto bg-gray-100 flex-shrink-0">
+                      <div className="w-full md:w-32 h-32 md:h-auto bg-muted flex-shrink-0">
                         <img src={event.banner_url} alt="Banner" className="w-full h-full object-cover rounded-t-lg md:rounded-l-lg md:rounded-tr-none" />
                       </div>
                     )}
@@ -285,7 +288,7 @@ const EventHospitalityDashboard = () => {
                       <CardHeader className="pb-3">
                         <div className="flex justify-between items-start">
                           <div>
-                            <CardTitle>{event.title}</CardTitle>
+                            <CardTitle className="font-serif">{event.title}</CardTitle>
                             <CardDescription className="flex items-center gap-2 mt-1">
                               <Calendar className="h-3 w-3" /> {new Date(event.event_date).toLocaleString()}
                               <MapPin className="h-3 w-3 ml-2" /> {event.location}
@@ -328,10 +331,10 @@ const EventHospitalityDashboard = () => {
         {/* Right Column: Registrations View */}
         <div className="lg:col-span-1">
           {/* FIXED: Changed from top-8 to top-28 to clear the fixed header */}
-          <Card className="h-full sticky top-28 flex flex-col">
+          <Card className="h-full sticky top-28 flex flex-col bg-card border border-border/50 rounded-xl">
             <CardHeader className="bg-muted/30 pb-4">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-lg">Student Registrations</CardTitle>
+                <CardTitle className="text-lg font-serif">Student <span className="text-gold-gradient">Registrations</span></CardTitle>
                 {selectedEventId && registrations.length > 0 && (
                   <Button variant="outline" size="icon" onClick={downloadCSV} title="Download CSV">
                     <Download className="h-4 w-4" />

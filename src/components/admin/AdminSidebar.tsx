@@ -27,12 +27,9 @@ export const AdminSidebar = () => {
   return (
     <div className="flex h-full flex-col justify-between bg-card border-r border-border">
       <div className="px-4 py-6">
-        {/* Logo / Brand */}
+        {/* Brand */}
         <div className="mb-6 px-2">
-          <h2 className="font-serif text-lg font-semibold tracking-tight text-foreground">
-            Lucknow <span className="text-gold-gradient">Ascent</span>
-          </h2>
-          <p className="text-[11px] text-muted-foreground mt-0.5 uppercase tracking-wider">
+          <p className="text-accent font-medium text-sm uppercase tracking-wider">
             Admin Panel
           </p>
         </div>
