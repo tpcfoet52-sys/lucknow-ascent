@@ -25,11 +25,19 @@ export const AdminSidebar = () => {
   const { logout } = useLogout();
 
   return (
-    <div className="flex h-full flex-col justify-between border-r bg-gray-100/40 dark:bg-gray-800/40">
+    <div className="flex h-full flex-col justify-between bg-card border-r border-border">
       <div className="px-4 py-6">
-        <h2 className="mb-6 px-2 text-lg font-semibold tracking-tight text-navy-900 dark:text-white">
-          Lucknow Ascent
-        </h2>
+        {/* Logo / Brand */}
+        <div className="mb-6 px-2">
+          <h2 className="font-serif text-lg font-semibold tracking-tight text-foreground">
+            Lucknow <span className="text-gold-gradient">Ascent</span>
+          </h2>
+          <p className="text-[11px] text-muted-foreground mt-0.5 uppercase tracking-wider">
+            Admin Panel
+          </p>
+        </div>
+
+        {/* Navigation */}
         <nav className="space-y-1">
           {sidebarItems.map((item) => {
             const isActive = location.pathname.startsWith(item.href);
@@ -40,13 +48,13 @@ export const AdminSidebar = () => {
               >
                 <span
                   className={cn(
-                    "group flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                    "group flex items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
                     isActive
-                      ? "bg-navy-100 text-navy-900 dark:bg-navy-800 dark:text-navy-50"
-                      : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                      ? "bg-primary/10 text-primary border border-primary/15"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground border border-transparent"
                   )}
                 >
-                  <item.icon className={cn("mr-2 h-4 w-4", isActive ? "text-navy-700 dark:text-navy-300" : "")} />
+                  <item.icon className={cn("mr-2.5 h-4 w-4", isActive ? "text-accent" : "")} />
                   {item.label}
                 </span>
               </Link>
@@ -54,19 +62,20 @@ export const AdminSidebar = () => {
           })}
         </nav>
       </div>
-      <div className="px-4 py-6 border-t">
+
+      {/* Footer */}
+      <div className="px-4 py-5 border-t border-border">
         <div className="flex items-center gap-3 mb-4 px-2">
-          <div className="h-8 w-8 rounded-full bg-navy-100 dark:bg-navy-800 flex items-center justify-center">
-            <User className="h-4 w-4 text-navy-700 dark:text-navy-300" />
+          <div className="h-8 w-8 rounded-full bg-accent/10 flex items-center justify-center">
+            <User className="h-4 w-4 text-accent" />
           </div>
           <div>
-            <p className="text-sm font-medium">Admin User</p>
-
+            <p className="text-sm font-medium text-foreground">Admin User</p>
           </div>
         </div>
         <Button
           variant="ghost"
-          className="w-full justify-start text-muted-foreground hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20"
+          className="w-full justify-start text-muted-foreground hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg"
           onClick={logout}
         >
           <LogOut className="mr-2 h-4 w-4" />

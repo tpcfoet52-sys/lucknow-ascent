@@ -1,37 +1,143 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+import {
+  CheckSquare,
+  UserCog,
+  Users,
+  FileEdit,
+  Shield,
+  Calendar,
+  ArrowRight,
+} from 'lucide-react';
+
+const adminAccess = [
+  {
+    title: 'Approvals',
+    href: '/admin/approvals',
+    icon: <CheckSquare className="w-5 h-5" />,
+    items: [
+      'Approve / Reject placement drives, seminars & press releases',
+      'Approve / Reject top performer submissions',
+      'Handle content deletion requests from coordinators',
+    ],
+  },
+  {
+    title: 'Manage Team',
+    href: '/admin/team',
+    icon: <UserCog className="w-5 h-5" />,
+    items: [
+      'Add, edit & remove team members',
+      'Create & manage team groups / sections',
+    ],
+  },
+  {
+    title: 'User Management',
+    href: '/admin/users',
+    icon: <Users className="w-5 h-5" />,
+    items: [
+      'Create & delete coordinator accounts',
+      'Assign coordinators to teams',
+    ],
+  },
+  {
+    title: 'Events',
+    href: '/admin/approvals',
+    icon: <Calendar className="w-5 h-5" />,
+    items: [
+      'Approve / Reject event creation requests',
+      'Handle event deletion requests',
+    ],
+  },
+  {
+    title: 'CMS & Media',
+    href: '/admin/cms',
+    icon: <FileEdit className="w-5 h-5" />,
+    items: [
+      'Review & approve media submissions',
+    ],
+  },
+];
+
+const teams = [
+  'Corporate Connect',
+  'Networking & Outreach',
+  'Industry Interface',
+  'Web Dev & Design',
+  'Content & Media',
+  'Event & Hospitality',
+];
 
 const DashboardOverview = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-[60vh] space-y-6">
-      <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight text-navy-900 dark:text-white">
-          Dashboard Overview
+    <div className="space-y-8">
+      {/* Header — matches website section headers */}
+      <div className="text-center">
+        <span className="text-accent font-medium text-sm uppercase tracking-wider">
+          Admin Panel
+        </span>
+        <h1 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mt-2">
+          Dashboard <span className="text-gold-gradient">Overview</span>
         </h1>
-        <p className="text-muted-foreground">
-          This module is currently under development.
+        <p className="text-muted-foreground mt-3 text-sm md:text-base max-w-xl mx-auto">
+          Complete access to manage content, team structure, users, events & media.
         </p>
       </div>
 
-      <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-12 text-center bg-gray-50/50 dark:bg-gray-800/50 w-full max-w-2xl">
-        <div className="rounded-full bg-gray-100 p-3 mb-4 dark:bg-gray-800">
-          <svg
-            className="h-8 w-8 text-gray-400"
-            fill="none"
-            height="24"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            width="24"
+      {/* Access Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {adminAccess.map((section) => (
+          <div
+            key={section.title}
+            className="bg-card border border-border/50 rounded-xl p-5 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300"
           >
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-          </svg>
+            {/* Card Header */}
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <span className="text-primary">{section.icon}</span>
+                </div>
+                <h3 className="font-serif font-semibold text-foreground text-base">
+                  {section.title}
+                </h3>
+              </div>
+              <Link
+                to={section.href}
+                className="flex items-center gap-1 text-xs font-medium text-accent hover:text-accent/80 transition-colors"
+              >
+                Open <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            {/* Capabilities */}
+            <ul className="space-y-2 pl-1">
+              {section.items.map((item, i) => (
+                <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground leading-relaxed">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-[7px] shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      {/* Teams */}
+      <div className="bg-muted/30 border border-border rounded-xl p-5">
+        <div className="flex items-center gap-2 mb-3">
+          <Shield className="w-4 h-4 text-accent" />
+          <span className="font-serif font-semibold text-sm text-foreground">
+            Coordinator Teams Under Admin
+          </span>
         </div>
-        <h3 className="text-xl font-medium">Coming Soon</h3>
-        <p className="text-sm text-muted-foreground max-w-sm mx-auto mt-2">
-          We are working hard to build a comprehensive dashboard for you. Check back later for updates.
-        </p>
+        <div className="flex flex-wrap gap-2">
+          {teams.map((team) => (
+            <span
+              key={team}
+              className="inline-block text-xs font-medium text-primary bg-primary/8 border border-primary/15 px-3 py-1.5 rounded-full"
+            >
+              {team}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
