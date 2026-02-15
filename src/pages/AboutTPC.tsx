@@ -157,10 +157,10 @@ const successStories = [
 ];
 
 const downloads = [
-  { name: "Placement Brochure 2024-25", type: "PDF" },
-  { name: "Training Calendar", type: "PDF" },
-  { name: "Placement Statistics Report", type: "PDF" },
-  { name: "Company Registration Form", type: "DOCX" },
+  { name: "Placement Brochure 2024-25", type: "PDF", url: "/pdfs/TPC_Placement_Brochure.pdf" },
+  { name: "Training Calendar", type: "PDF", url: "#" },
+  { name: "Placement Statistics Report", type: "PDF", url: "#" },
+  { name: "Company Registration Form", type: "DOCX", url: "#" },
 ];
 
 const AboutTPC = () => {
@@ -632,15 +632,19 @@ const AboutTPC = () => {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
               {downloads.map((item, index) => (
-                <motion.button
+                <motion.a
                   key={item.name}
+                  href={item.url}
+                  download={item.url !== "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   custom={index}
                   initial="hidden"
                   whileInView="visible"
                   whileHover={{ y: -5 }}
                   viewport={{ once: true }}
                   variants={fadeInUp}
-                  className="flex items-center gap-3 bg-background border border-border rounded-xl p-4 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 text-left group"
+                  className="flex items-center gap-3 bg-background border border-border rounded-xl p-4 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 text-left group cursor-pointer"
                 >
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
                     <FileText className="h-5 w-5 text-primary" />
@@ -650,7 +654,7 @@ const AboutTPC = () => {
                     <p className="text-xs text-muted-foreground">{item.type}</p>
                   </div>
                   <Download className="h-4 w-4 text-muted-foreground group-hover:text-accent transition-colors" />
-                </motion.button>
+                </motion.a>
               ))}
             </div>
           </div>

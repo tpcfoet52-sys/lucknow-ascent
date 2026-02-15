@@ -61,11 +61,11 @@ const yearlyData = [
 
 // Year-wise Companies Visited Data (Moved from CompaniesVisited.tsx)
 const companiesVisitedData = [
-  { year: "2024-25", companyCount: 71, pdfUrl: null },
-  { year: "2023-24", companyCount: 56, pdfUrl: null },
-  { year: "2022-23", companyCount: 71, pdfUrl: null },
-  { year: "2021-22", companyCount: 69, pdfUrl: null },
-  { year: "2020-21", companyCount: 68, pdfUrl: null },
+  { year: "2024-25", companyCount: 71, pdfUrl: "/pdfs/companies-2024-25.pdf" },
+  { year: "2023-24", companyCount: 56, pdfUrl: "/pdfs/placement-data-2023-24.pdf" },
+  { year: "2022-23", companyCount: 71, pdfUrl: "/pdfs/placement-data-2022-23.pdf" },
+  { year: "2021-22", companyCount: 69, pdfUrl: "/pdfs/placement-data-2021-22.pdf" },
+  { year: "2020-21", companyCount: 68, pdfUrl: "/pdfs/placement-data-2020-21.pdf" },
 ];
 
 const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) => {
@@ -86,7 +86,7 @@ const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?:
 
 const PlacementStats = () => {
   return (
-    <section id="statistics" className="section-padding bg-cream">
+    <section id="statistics" className="py-12 bg-cream">
       <div className="container-narrow">
         {/* Section Header */}
         <motion.div
@@ -194,8 +194,8 @@ const PlacementStats = () => {
                   <Building2 className="w-5 h-5 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg font-semibold text-foreground leading-tight">Companies Visited</h3>
-                  <p className="text-xs text-muted-foreground">Recruitment Partners</p>
+                  <h3 className="font-serif text-lg font-semibold text-foreground leading-tight">Industry Hiring Partners</h3>
+                  <p className="text-xs text-muted-foreground">Placement Statistics</p>
                 </div>
               </div>
             </div>
@@ -212,7 +212,7 @@ const PlacementStats = () => {
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-muted-foreground">Recruiting Partners</span>
+                      <span className="text-xs text-muted-foreground">Placement Statistics</span>
                       {item.pdfUrl && (
                         <a
                           href={item.pdfUrl}
@@ -221,7 +221,7 @@ const PlacementStats = () => {
                           className="flex items-center gap-1 text-[10px] text-accent font-medium hover:underline"
                           title="Download List"
                         >
-                          <FileText className="w-3 h-3" /> PDF
+                          <FileText className="w-3 h-3" /> Download List
                         </a>
                       )}
                     </div>

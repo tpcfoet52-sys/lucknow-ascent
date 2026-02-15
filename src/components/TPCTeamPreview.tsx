@@ -77,7 +77,7 @@ const TPCTeamPreview = () => {
                                             <div key={idx} className="flex flex-col items-center text-center group">
                                                 <div className="relative mb-4">
                                                     <Avatar className="w-24 h-24 md:w-28 md:h-28 border-2 border-accent/30 group-hover:border-accent transition-colors duration-300 shadow-md group-hover:shadow-lg">
-                                                        <AvatarImage src={faculty.image} className="object-cover transition-transform duration-500 group-hover:scale-110" />
+                                                        <AvatarImage src={faculty.image} className={`object-cover ${faculty.imagePosition || ''} transition-transform duration-500 group-hover:scale-110`} />
                                                         <AvatarFallback className="bg-primary/10 text-primary text-sm font-medium">
                                                             {faculty.name.split(' ').map(n => n[0]).join('')}
                                                         </AvatarFallback>
@@ -88,6 +88,7 @@ const TPCTeamPreview = () => {
                                                 </div>
                                                 <p className="text-sm font-semibold text-foreground leading-tight mt-3">{faculty.name}</p>
                                                 <p className="text-xs text-muted-foreground mt-1">{faculty.title}</p>
+                                                {faculty.branch && <p className="text-[10px] font-medium text-accent mt-0.5 uppercase tracking-tight">{faculty.branch}</p>}
                                                 <div className="flex items-center gap-2 mt-2">
                                                     <a href={`tel:${faculty.phone}`} className="p-1.5 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110" title={faculty.phone}>
                                                         <Phone className="w-3 h-3" />
@@ -186,7 +187,7 @@ const TPCTeamPreview = () => {
                                                             <img
                                                                 src={lead.image}
                                                                 alt={lead.name}
-                                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                                className={`w-full h-full object-cover ${lead.imagePosition || ''} transition-transform duration-500 group-hover:scale-110`}
                                                             />
                                                         </div>
                                                         <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs px-3 py-1 rounded-full shadow-sm whitespace-nowrap">
@@ -320,7 +321,7 @@ const TPCTeamPreview = () => {
                                             className="flex flex-col items-center p-4 bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-all hover:border-accent/30"
                                         >
                                             <Avatar className="w-20 h-20 border-3 border-background shadow-lg mb-3">
-                                                <AvatarImage src={member.image} className="object-cover" />
+                                                <AvatarImage src={member.image} className={`object-cover ${member.imagePosition || ''}`} />
                                                 <AvatarFallback className="bg-primary text-primary-foreground text-lg font-bold">
                                                     {member.name.split(' ').map(n => n[0]).join('')}
                                                 </AvatarFallback>

@@ -9,7 +9,7 @@ import {
 
 import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
 import erPavanKumarSingh from "@/assets/er-pavan-kumar-singh.jpg";
-import erGauravSrivastava from "@/assets/er-gaurav-srivastava.jpg";
+import erGauravSrivastava from "@/assets/er-gaurav-srivastava-new.jpg";
 import erPrashantKumarSingh from "@/assets/dr-prashant-kumar-singh.png";
 import riddhiSingh from "@/assets/riddhi-singh-rathore.jpg";
 import studentCoordinatorsGroup from "@/assets/student-coordinators-2025-26.jpg";
@@ -20,8 +20,8 @@ import aryanTripathi from "@/assets/aryan-tripathi.jpg";
 import akashKumarYadav from "@/assets/akash-kumar-yadav.jpg";
 import erRoliKushwaha from "@/assets/er-roli-kushwaha.jpg";
 import erSonamSingh from "@/assets/er-sonam-singh.jpg";
-import erMarutiMaurya from "@/assets/er-maruti-maurya.jpg";
-import erNamitaSrivastava from "@/assets/er-namita-srivastava.png";
+import erMarutiMaurya from "@/assets/er-maruti-maurya-new.jpg";
+import erNamitaSrivastava from "@/assets/er-namita-srivastava-new.jpg";
 
 export interface TeamMember {
     id: number;
@@ -34,6 +34,8 @@ export interface TeamMember {
     branch?: string;
     year?: string;
     title?: string; // For faculty
+    twitter?: string;
+    imagePosition?: string;
 }
 
 export interface Team {
@@ -46,76 +48,99 @@ export interface Team {
     stats: { label: string; value: string }[];
 }
 
-export const facultyMembers = [
+export const facultyMembers: TeamMember[] = [
     {
+        id: 1,
         name: "Dr. Himanshu Pandey",
         title: "Associate Professor",
         role: "T&P Cell Incharge",
         phone: "7905287870",
         email: "pandey_himanshu@lkouniv.ac.in",
-        image: drHimanshuPandey
+        image: drHimanshuPandey,
+        imagePosition: "object-top"
     },
     {
+        id: 2,
         name: "Er. Pavan Kumar Singh",
         title: "Assistant Professor",
         role: "Faculty Coordinator",
         phone: "9406987292",
         email: "pavanrajawat038@gmail.com",
-        image: erPavanKumarSingh
+        branch: "Electrical Engineering",
+        image: erPavanKumarSingh,
+        imagePosition: "object-top"
     },
     {
+        id: 3,
         name: "Er. Gaurav Srivastava",
         title: "Assistant Professor",
         role: "Faculty Coordinator",
         phone: "9717681158",
         email: "gaurav.ap1793@gmail.com",
-        image: erGauravSrivastava
+        branch: "Civil Engineering",
+        image: erGauravSrivastava,
+        imagePosition: "object-top"
     },
     {
+        id: 4,
         name: "Dr. Prashant Kumar Singh",
         title: "Associate Professor",
         role: "Faculty Coordinator",
-        phone: "9179122557",
+        phone: "+91 7703 876 175",
         email: "singh_pk@lkouniv.ac.in",
-        image: erPrashantKumarSingh
+        branch: "Mechanical Engineering",
+        image: erPrashantKumarSingh,
+        imagePosition: "object-top"
     },
     {
+        id: 5,
         name: "Er. Roli Kushwaha",
         title: "Assistant Professor",
         role: "Faculty Coordinator",
         phone: "7007538905",
         email: "rolikushwaha.academics22@gmail.com",
-        image: erRoliKushwaha
+        branch: "Electronics & Communication Engineering",
+        image: erRoliKushwaha,
+        imagePosition: "object-top"
     },
     {
+        id: 6,
         name: "Er. Sonam Singh",
         title: "Assistant Professor",
         role: "Faculty Coordinator",
         phone: "7007928931",
         email: "ssinghsonam061@gmail.com",
-        image: erSonamSingh
+        branch: "Computer Science & Engineering",
+        image: erSonamSingh,
+        imagePosition: "object-[center_65%]"
     },
     {
+        id: 7,
         name: "Er. Maruti Maurya",
         title: "Assistant Professor",
         role: "Faculty Coordinator",
         phone: "7020464299",
         email: "maurya_maruti@lkouniv.ac.in",
-        image: erMarutiMaurya
+        branch: "Computer Science & Engineering",
+        image: erMarutiMaurya,
+        imagePosition: "object-top"
     },
     {
+        id: 8,
         name: "Er. Namita Srivastava",
         title: "Assistant Professor",
         role: "Faculty Coordinator",
         phone: "9651314977",
         email: "namitas25@gmail.com",
-        image: erNamitaSrivastava
+        branch: "Computer Science & Engineering",
+        image: erNamitaSrivastava,
+        imagePosition: "object-top"
     }
 ];
 
-export const teamLeads = [
-    { name: "Riddhi Singh Rathore", role: "Coordinator Lead", image: riddhiSingh, linkedin: "https://linkedin.com/in/riddhi-singh-rathore-997b962aa", email: "singhrathoreriddhi874@gmail.com", twitter: "https://x.com/riddhi_sin22754" },
-    { name: "Student Coordinators", role: "Team 2025-26", image: studentCoordinatorsGroup },
+export const teamLeads: TeamMember[] = [
+    { id: 101, name: "Riddhi Singh Rathore", role: "Coordinator Lead", image: riddhiSingh, linkedin: "https://linkedin.com/in/riddhi-singh-rathore-997b962aa", email: "singhrathoreriddhi874@gmail.com", twitter: "https://x.com/riddhi_sin22754" },
+    { id: 102, name: "Student Coordinators", role: "Team 2025-26", image: studentCoordinatorsGroup },
 ];
 
 

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Plus, Users, Calendar, FileText, Settings } from "lucide-react";
+import { Users, Calendar, FileText, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const QuickActions = () => {
@@ -10,13 +10,6 @@ const QuickActions = () => {
         <p className="text-sm text-muted-foreground">Common tasks and shortcuts.</p>
       </div>
       <div className="p-6 flex flex-col gap-3">
-        <Link to="/admin/jobs">
-          <Button className="w-full justify-start gap-3" size="lg">
-            <Plus className="h-5 w-5" />
-            Post New Job
-          </Button>
-        </Link>
-        
         <Link to="/admin/users">
           <Button variant="outline" className="w-full justify-start gap-3" size="lg">
             <Users className="h-5 w-5" />
@@ -37,12 +30,12 @@ const QuickActions = () => {
             Manage Content
           </Button>
         </Link>
-        
+
         <Link to="/admin/settings">
-            <Button variant="ghost" className="w-full justify-start gap-3 text-muted-foreground hover:text-foreground">
-                <Settings className="h-5 w-5" />
-                Settings
-            </Button>
+          <Button variant="ghost" className="w-full justify-start gap-3 text-muted-foreground hover:text-foreground">
+            <Settings className="h-5 w-5" />
+            Settings
+          </Button>
         </Link>
       </div>
     </div>
