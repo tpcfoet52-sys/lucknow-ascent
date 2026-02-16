@@ -10,6 +10,11 @@ import { supabase } from "@/lib/supabase";
 import { TeamGroup, TeamMember, TeamGroupWithMembers } from "@/types/team";
 import { Building2, Users, Briefcase, Code, Camera, Calendar } from "lucide-react";
 
+import sonamSingh from "@/assets/er-sonam-singh.jpg";
+import gauravSrivastava from "@/assets/er-gaurav-srivastava-new.jpg";
+import pavanKumarSingh from "@/assets/er-pavan-kumar-singh.jpg";
+import namitaSrivastava from "@/assets/er-namita-srivastava-new.jpg";
+
 // Helper to map icon names to components
 const IconMap: Record<string, any> = {
     "Building2": Building2,
@@ -18,6 +23,13 @@ const IconMap: Record<string, any> = {
     "Code": Code,
     "Camera": Camera,
     "Calendar": Calendar,
+};
+
+const facultyImages: Record<string, string> = {
+    "Er. Sonam Singh": sonamSingh,
+    "Er. Gaurav Srivastava": gauravSrivastava,
+    "Er. Pavan Kumar Singh": pavanKumarSingh,
+    "Er. Namita Srivastava": namitaSrivastava,
 };
 
 const dropdownVariants = {
@@ -148,7 +160,7 @@ const TPCTeamPreview = () => {
                                             <div key={idx} className="flex flex-col items-center text-center group">
                                                 <div className="relative mb-4">
                                                     <Avatar className="w-24 h-24 md:w-28 md:h-28 border-2 border-accent/30 group-hover:border-accent transition-colors duration-300 shadow-md group-hover:shadow-lg">
-                                                        <AvatarImage src={faculty.image} className={`object-cover ${faculty.image_position || ''} transition-transform duration-500 group-hover:scale-110`} />
+                                                        <AvatarImage src={facultyImages[faculty.name] || faculty.image} className={`object-cover ${faculty.image_position || ''} transition-transform duration-500 group-hover:scale-110`} />
                                                         <AvatarFallback className="bg-primary/10 text-primary text-sm font-medium">
                                                             {faculty.name.split(' ').map(n => n[0]).join('')}
                                                         </AvatarFallback>
