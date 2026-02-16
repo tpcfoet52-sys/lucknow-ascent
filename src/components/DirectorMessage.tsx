@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Quote, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
-import drHimanshuPandey from "@/assets/dr-himanshu-pandey.jpg";
-import profSpSingh from "@/assets/prof-sp-singh.jpg";
-import profJaiPrakashSaini from "@/assets/prof-jai-prakash-saini.png";
+import drHimanshuPandey from "@/assets/dr-himanshu-pandey-new.png";
+import profSpSingh from "@/assets/prof-sp-singh-new.png";
+import profJaiPrakashSaini from "@/assets/prof-jai-prakash-saini-new.png";
 
 interface LeaderCardProps {
   name: string;
@@ -13,9 +13,10 @@ interface LeaderCardProps {
   quote: string;
   bio: string;
   isFullWidth?: boolean;
+  imageClassName?: string;
 }
 
-const LeaderCard = ({ name, role, institution, image, quote, bio }: LeaderCardProps) => {
+const LeaderCard = ({ name, role, institution, image, quote, bio, imageClassName }: LeaderCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -25,7 +26,7 @@ const LeaderCard = ({ name, role, institution, image, quote, bio }: LeaderCardPr
       whileHover={{ y: -5 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300 flex flex-col"
+      className="group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card cursor-pointer hover:shadow-md hover:border-accent/30 transition-all duration-300 flex flex-col h-full"
     >
       {/* Image Section - Circular Profile Photo */}
       <div className="overflow-hidden relative bg-card flex items-center justify-center pt-6 pb-2">
@@ -33,7 +34,7 @@ const LeaderCard = ({ name, role, institution, image, quote, bio }: LeaderCardPr
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            className={`w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 ${imageClassName || ''}`}
           />
         </div>
         {/* Decorative elements behind photo */}
@@ -95,6 +96,7 @@ const DirectorMessage = () => {
       image: profJaiPrakashSaini,
       quote: "Our goal is to blend our rich academic heritage with modern technological advancement. We are committed to nurturing industry-ready professionals through research-driven education and robust industry partnerships.",
       bio: "Prof. Jai Prakash Saini is the Vice-Chancellor of the University of Lucknow. An eminent academician in Electronics & Communication Engineering and an alumnus of IIT Kanpur, he brings over 38 years of expertise to the role.",
+      imageClassName: "scale-[1.15] -translate-y-1 group-hover:scale-[1.2]",
     },
     {
       name: "Prof. Satendra Pal Singh",
@@ -131,11 +133,21 @@ const DirectorMessage = () => {
           </h2>
         </motion.div>
 
-        {/* All Leaders in Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-start">
-          {leaders.map((leader, index) => (
-            <LeaderCard key={index} {...leader} />
-          ))}
+        {/* Leaders Layout: VC and Dean on first line, others centered below */}
+        <div className="flex flex-col gap-6 md:gap-8 max-w-5xl mx-auto">
+          {/* Top Row: VC and Dean */}
+          <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
+            {leaders.slice(0, 2).map((leader, index) => (
+              <LeaderCard key={index} {...leader} />
+            ))}
+          </div>
+
+          {/* Bottom Row: Associate Professor / TPC Incharge */}
+          <div className="flex justify-center">
+            <div className="w-full sm:w-1/2">
+              <LeaderCard {...leaders[2]} />
+            </div>
+          </div>
         </div>
       </div>
     </section>

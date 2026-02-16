@@ -11,9 +11,13 @@ import { TeamGroup, TeamMember, TeamGroupWithMembers } from "@/types/team";
 import { Building2, Users, Briefcase, Code, Camera, Calendar } from "lucide-react";
 
 import sonamSingh from "@/assets/er-sonam-singh.jpg";
-import gauravSrivastava from "@/assets/er-gaurav-srivastava-updated.png";
-import pavanKumarSingh from "@/assets/er-pavan-kumar-singh.jpg";
-import namitaSrivastava from "@/assets/er-namita-srivastava-new.jpg";
+import gauravSrivastava from "@/assets/er-gaurav-srivastava-updated-v2.png";
+import pavanKumarSingh from "@/assets/er-pavan-kumar-singh-updated.png";
+import namitaSrivastava from "@/assets/er-namita-srivastava-updated.png";
+import himanshupandey from "@/assets/dr-himanshu-pandey-new.png";
+import roliKushwaha from "@/assets/er-roli-kushwaha-new.png";
+import marutiMaurya from "@/assets/er-maruti-maurya-new.png";
+import prashantKumarSingh from "@/assets/dr-prashant-kumar-singh-updated.png";
 
 // Helper to map icon names to components
 const IconMap: Record<string, any> = {
@@ -30,6 +34,14 @@ const facultyImages: Record<string, string> = {
     "Er. Gaurav Srivastava": gauravSrivastava,
     "Er. Pavan Kumar Singh": pavanKumarSingh,
     "Er. Namita Srivastava": namitaSrivastava,
+    "Dr. Himanshu Pandey": himanshupandey,
+    "Er. Roli Kushwaha": roliKushwaha,
+    "Er. Maruti Maurya": marutiMaurya,
+    "Dr. Prashant Kumar Singh": prashantKumarSingh,
+};
+
+const facultyCustomStyles: Record<string, string> = {
+    "Er. Sonam Singh": "scale-[1.2] translate-y-3 group-hover:scale-[1.3]",
 };
 
 const dropdownVariants = {
@@ -160,7 +172,7 @@ const TPCTeamPreview = () => {
                                             <div key={idx} className="flex flex-col items-center text-center group">
                                                 <div className="relative mb-4">
                                                     <Avatar className="w-24 h-24 md:w-28 md:h-28 border-2 border-accent/30 group-hover:border-accent transition-colors duration-300 shadow-md group-hover:shadow-lg">
-                                                        <AvatarImage src={facultyImages[faculty.name] || faculty.image} className={`object-cover ${faculty.image_position || ''} transition-transform duration-500 group-hover:scale-110`} />
+                                                        <AvatarImage src={facultyImages[faculty.name] || faculty.image} className={`object-cover ${faculty.image_position || ''} transition-transform duration-500 ${facultyCustomStyles[faculty.name] || 'group-hover:scale-110'}`} />
                                                         <AvatarFallback className="bg-primary/10 text-primary text-sm font-medium">
                                                             {faculty.name.split(' ').map(n => n[0]).join('')}
                                                         </AvatarFallback>
