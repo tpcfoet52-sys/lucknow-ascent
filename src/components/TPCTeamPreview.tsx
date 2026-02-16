@@ -11,7 +11,7 @@ import { TeamGroup, TeamMember, TeamGroupWithMembers } from "@/types/team";
 import { Building2, Users, Briefcase, Code, Camera, Calendar } from "lucide-react";
 
 import sonamSingh from "@/assets/er-sonam-singh.jpg";
-import gauravSrivastava from "@/assets/er-gaurav-srivastava-new.jpg";
+import gauravSrivastava from "@/assets/er-gaurav-srivastava-updated.png";
 import pavanKumarSingh from "@/assets/er-pavan-kumar-singh.jpg";
 import namitaSrivastava from "@/assets/er-namita-srivastava-new.jpg";
 
