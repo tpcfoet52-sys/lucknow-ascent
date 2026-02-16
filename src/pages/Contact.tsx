@@ -13,10 +13,16 @@ import socialInstagram from "@/assets/social-instagram.jpg";
 
 
 const Contact = () => {
-    const [openTPO, setOpenTPO] = useState<string | null>(null);
+    const [openTPO, setOpenTPO] = useState<string[]>([]);
 
     const toggleTPO = (id: string) => {
-        setOpenTPO(openTPO === id ? null : id);
+        setOpenTPO(prev => prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]);
+    };
+
+    const [openRoute, setOpenRoute] = useState<string | null>(null);
+
+    const toggleRoute = (id: string) => {
+        setOpenRoute(openRoute === id ? null : id);
     };
 
     return (
@@ -166,7 +172,7 @@ const Contact = () => {
                                 </h3>
                                 <p className="text-muted-foreground mt-3">Reach out to our placement team for assistance.</p>
                             </div>
-                            <div className="grid md:grid-cols-2 gap-4">
+                            <div className="grid md:grid-cols-2 gap-4 items-start">
                                 {/* Training & Placement Cell Incharge */}
                                 <div className="border border-border rounded-xl overflow-hidden shadow-sm">
                                     <button
@@ -182,10 +188,10 @@ const Contact = () => {
                                                 <p className="text-xs text-accent">Training & Placement Cell Incharge</p>
                                             </div>
                                         </div>
-                                        <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-200 ${openTPO === 'tpo' ? 'rotate-180' : ''}`} />
+                                        <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-200 ${openTPO.includes('tpo') ? 'rotate-180' : ''}`} />
                                     </button>
                                     <AnimatePresence>
-                                        {openTPO === 'tpo' && (
+                                        {openTPO.includes('tpo') && (
                                             <motion.div
                                                 initial={{ height: 0, opacity: 0 }}
                                                 animate={{ height: 'auto', opacity: 1 }}
@@ -194,22 +200,22 @@ const Contact = () => {
                                                 className="overflow-hidden"
                                             >
                                                 <div className="px-4 pb-4 pt-2 bg-muted/30 border-t border-border">
-                                                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                                                    <div className="flex items-center justify-between text-sm text-muted-foreground">
                                                         <a href="tel:+917905287870" className="hover:text-accent transition-colors flex items-center gap-1">
                                                             <Phone className="w-3 h-3" /> +91-79052 87870
                                                         </a>
-                                                        <a href="https://www.linkedin.com/in/himanshu-pandey-272a55ab/" target="_blank" rel="noopener noreferrer" className="hover:text-[#0A66C2] transition-colors flex items-center gap-1">
-                                                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                                            </svg>
-                                                            LinkedIn
-                                                        </a>
-                                                        <a href="https://x.com/hpandey010" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors flex items-center gap-1">
-                                                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                                                            </svg>
-                                                            X
-                                                        </a>
+                                                        <div className="flex items-center gap-4">
+                                                            <a href="https://www.linkedin.com/in/himanshu-pandey-272a55ab/" target="_blank" rel="noopener noreferrer" className="hover:text-[#0A66C2] transition-colors flex items-center gap-1">
+                                                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                                                </svg>
+                                                            </a>
+                                                            <a href="https://x.com/hpandey010" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors flex items-center gap-1">
+                                                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                                                </svg>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </motion.div>
@@ -232,10 +238,10 @@ const Contact = () => {
                                                 <p className="text-xs text-accent">3 Members</p>
                                             </div>
                                         </div>
-                                        <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-200 ${openTPO === 'student' ? 'rotate-180' : ''}`} />
+                                        <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-200 ${openTPO.includes('student') ? 'rotate-180' : ''}`} />
                                     </button>
                                     <AnimatePresence>
-                                        {openTPO === 'student' && (
+                                        {openTPO.includes('student') && (
                                             <motion.div
                                                 initial={{ height: 0, opacity: 0 }}
                                                 animate={{ height: 'auto', opacity: 1 }}
@@ -245,13 +251,12 @@ const Contact = () => {
                                             >
                                                 <div className="px-4 pb-4 pt-2 bg-muted/30 border-t border-border">
                                                     <div className="space-y-3">
+                                                        {/* Riddhi Singh */}
                                                         <div className="flex items-center justify-between">
-                                                            <div className="flex items-center gap-2">
-                                                                <span className="text-sm text-foreground font-medium">Riddhi Singh</span>
-                                                            </div>
+                                                            <span className="text-sm font-medium text-foreground">Riddhi Singh</span>
                                                             <div className="flex items-center gap-3">
-                                                                <a href="tel:+917310324848" className="text-sm text-muted-foreground hover:text-accent transition-colors flex items-center gap-1">
-                                                                    <Phone className="w-3 h-3" /> +91 73103 24848
+                                                                <a href="tel:+917310324848" className="text-sm text-muted-foreground hover:text-accent transition-colors flex items-center gap-2 tabular-nums">
+                                                                    <Phone className="w-3 h-3" /> <span>+91 73103 24848</span>
                                                                 </a>
                                                                 <a href="https://www.linkedin.com/in/riddhi-singh-rathore-997b962aa/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[#0A66C2] transition-colors">
                                                                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -260,12 +265,13 @@ const Contact = () => {
                                                                 </a>
                                                             </div>
                                                         </div>
+
                                                         {/* Aryan Tripathi */}
                                                         <div className="flex items-center justify-between">
-                                                            <span className="text-sm text-foreground">Aryan Tripathi</span>
+                                                            <span className="text-sm font-medium text-foreground">Aryan Tripathi</span>
                                                             <div className="flex items-center gap-3">
-                                                                <a href="tel:+916392469229" className="text-sm text-muted-foreground hover:text-accent transition-colors flex items-center gap-1">
-                                                                    <Phone className="w-3 h-3" /> +91 63924 69229
+                                                                <a href="tel:+916392469229" className="text-sm text-muted-foreground hover:text-accent transition-colors flex items-center gap-2 tabular-nums">
+                                                                    <Phone className="w-3 h-3" /> <span>+91 63924 69229</span>
                                                                 </a>
                                                                 <a href="https://www.linkedin.com/in/aryan-tripathi-45346a254/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[#0A66C2] transition-colors">
                                                                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -274,12 +280,13 @@ const Contact = () => {
                                                                 </a>
                                                             </div>
                                                         </div>
+
                                                         {/* Abhinav Singh */}
                                                         <div className="flex items-center justify-between">
-                                                            <span className="text-sm text-foreground">Abhinav Singh</span>
+                                                            <span className="text-sm font-medium text-foreground">Abhinav Singh</span>
                                                             <div className="flex items-center gap-3">
-                                                                <a href="tel:+918112910276" className="text-sm text-muted-foreground hover:text-accent transition-colors flex items-center gap-1">
-                                                                    <Phone className="w-3 h-3" /> +91 81129 10276
+                                                                <a href="tel:+918112910276" className="text-sm text-muted-foreground hover:text-accent transition-colors flex items-center gap-2 tabular-nums">
+                                                                    <Phone className="w-3 h-3" /> <span>+91 81129 10276</span>
                                                                 </a>
                                                                 <a href="https://www.linkedin.com/in/abhinavatwork/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[#0A66C2] transition-colors">
                                                                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -349,55 +356,103 @@ const Contact = () => {
                                 <h3 className="font-semibold text-lg text-gold-gradient text-center">Best Route</h3>
 
                                 {/* By Metro */}
-                                <motion.div
-                                    whileHover={{ y: -5 }}
-                                    className="bg-card border border-border/50 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30"
-                                >
-                                    <div className="flex flex-col items-start justify-start text-left gap-2 mb-2">
-                                        <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                            <Train className="w-4 h-4 text-primary" />
+                                <div className="bg-card border border-border/50 rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30">
+                                    <button
+                                        onClick={() => toggleRoute('metro')}
+                                        className="w-full flex items-center justify-between p-4 text-left"
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                                <Train className="w-4 h-4 text-primary" />
+                                            </div>
+                                            <h4 className="font-semibold text-sm text-foreground">By Metro</h4>
                                         </div>
-                                        <h4 className="font-semibold text-sm text-foreground">By Metro</h4>
-                                    </div>
-                                    <p className="text-muted-foreground text-xs leading-relaxed text-left">
-                                        Take the Lucknow Metro (Red Line) → <span className="font-medium text-foreground">IT College</span> or <span className="font-medium text-foreground">Vishwavidyalaya</span> station → e-rickshaw/auto to New Campus (10–15 min).
-                                    </p>
-                                </motion.div>
+                                        <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${openRoute === 'metro' ? 'rotate-180' : ''}`} />
+                                    </button>
+                                    <AnimatePresence>
+                                        {openRoute === 'metro' && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: 'auto', opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.2 }}
+                                            >
+                                                <div className="px-4 pb-4 pt-0">
+                                                    <p className="text-muted-foreground text-xs leading-relaxed pl-[44px]">
+                                                        Take the Lucknow Metro (Red Line) → <span className="font-medium text-foreground">IT College</span> or <span className="font-medium text-foreground">Vishwavidyalaya</span> station → e-rickshaw/auto to New Campus (10–15 min).
+                                                    </p>
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
 
                                 {/* By Train (from Charbagh) */}
-                                <motion.div
-                                    whileHover={{ y: -5 }}
-                                    className="bg-card border border-border/50 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30"
-                                >
-                                    <div className="flex flex-col items-start justify-start text-left gap-2 mb-2">
-                                        <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                            <Train className="w-4 h-4 text-primary" />
+                                <div className="bg-card border border-border/50 rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30">
+                                    <button
+                                        onClick={() => toggleRoute('train')}
+                                        className="w-full flex items-center justify-between p-4 text-left"
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                                <Train className="w-4 h-4 text-primary" />
+                                            </div>
+                                            <h4 className="font-semibold text-sm text-foreground">By Train (from Charbagh)</h4>
                                         </div>
-                                        <h4 className="font-semibold text-sm text-foreground">By Train (from Charbagh)</h4>
-                                    </div>
-                                    <div className="text-muted-foreground text-xs leading-relaxed text-left space-y-1">
-                                        <p className="font-medium text-foreground">Charbagh Railway Station → LU New Campus</p>
-                                        <p>From Charbagh, take the Metro (Red Line) towards <span className="font-medium text-foreground">IT College</span>.</p>
-                                        <p>Get down at <span className="font-medium text-foreground">IT College</span> or <span className="font-medium text-foreground">Vishwavidyalaya</span>.</p>
-                                        <p>Take an e-rickshaw/auto to <span className="font-medium text-foreground">"Lucknow University New Campus, Jankipuram Extension"</span>.</p>
-                                    </div>
-                                </motion.div>
+                                        <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${openRoute === 'train' ? 'rotate-180' : ''}`} />
+                                    </button>
+                                    <AnimatePresence>
+                                        {openRoute === 'train' && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: 'auto', opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.2 }}
+                                            >
+                                                <div className="px-4 pb-4 pt-0">
+                                                    <div className="text-muted-foreground text-xs leading-relaxed space-y-1 pl-[44px]">
+                                                        <p className="font-medium text-foreground">Charbagh Railway Station → LU New Campus</p>
+                                                        <p>From Charbagh, take the Metro (Red Line) towards <span className="font-medium text-foreground">IT College</span>.</p>
+                                                        <p>Get down at <span className="font-medium text-foreground">IT College</span> or <span className="font-medium text-foreground">Vishwavidyalaya</span>.</p>
+                                                        <p>Take an e-rickshaw/auto to <span className="font-medium text-foreground">"Lucknow University New Campus, Jankipuram Extension"</span>.</p>
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
 
                                 {/* By Cab */}
-                                <motion.div
-                                    whileHover={{ y: -5 }}
-                                    className="bg-card border border-border/50 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30"
-                                >
-                                    <div className="flex flex-col items-start justify-start text-left gap-2 mb-2">
-                                        <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                            <Car className="w-4 h-4 text-primary" />
+                                <div className="bg-card border border-border/50 rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30">
+                                    <button
+                                        onClick={() => toggleRoute('cab')}
+                                        className="w-full flex items-center justify-between p-4 text-left"
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                                <Car className="w-4 h-4 text-primary" />
+                                            </div>
+                                            <h4 className="font-semibold text-sm text-foreground">By Cab</h4>
                                         </div>
-                                        <h4 className="font-semibold text-sm text-foreground">By Cab</h4>
-                                    </div>
-                                    <p className="text-muted-foreground text-xs leading-relaxed text-left">
-                                        Book <span className="font-medium text-foreground">Ola/Uber</span> → Enter: <span className="font-medium text-foreground">"Lucknow University New Campus, Jankipuram Extension"</span> → Main gate drop.
-                                    </p>
-                                </motion.div>
+                                        <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${openRoute === 'cab' ? 'rotate-180' : ''}`} />
+                                    </button>
+                                    <AnimatePresence>
+                                        {openRoute === 'cab' && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: 'auto', opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.2 }}
+                                            >
+                                                <div className="px-4 pb-4 pt-0">
+                                                    <p className="text-muted-foreground text-xs leading-relaxed pl-[44px]">
+                                                        Book <span className="font-medium text-foreground">Ola/Uber</span> → Enter: <span className="font-medium text-foreground">"Lucknow University New Campus, Jankipuram Extension"</span> → Main gate drop.
+                                                    </p>
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
 
                                 {/* Office Info */}
                                 <div className="grid grid-cols-2 gap-3 mt-2">

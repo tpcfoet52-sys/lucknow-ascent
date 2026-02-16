@@ -178,7 +178,7 @@ const TPCTeamPreview = () => {
                                                         </AvatarFallback>
                                                     </Avatar>
                                                     <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs px-3 py-1 rounded-full shadow-sm whitespace-nowrap">
-                                                        {faculty.role}
+                                                        {faculty.role === "T&P Cell Incharge" ? "TPC Incharge" : faculty.role}
                                                     </div>
                                                 </div>
                                                 <p className="text-sm font-semibold text-foreground leading-tight mt-3">{faculty.name}</p>
