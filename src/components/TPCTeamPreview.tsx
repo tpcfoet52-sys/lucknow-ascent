@@ -429,54 +429,66 @@ const TPCTeamPreview = () => {
                                     Team Members
                                 </h3>
                                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                                    {selectedTeam.members.map((member, idx) => (
-                                        <motion.div
-                                            key={member.id}
-                                            initial={{ opacity: 0, y: 20 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            whileHover={{ y: -5 }}
-                                            transition={{ delay: idx * 0.05 }}
-                                            className="flex flex-col items-center p-4 bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-all hover:border-accent/30"
-                                        >
-                                            <Avatar className="w-20 h-20 border-3 border-background shadow-lg mb-3">
-                                                <AvatarImage src={member.image} className={`object-cover ${member.image_position || ''}`} />
-                                                <AvatarFallback className="bg-primary text-primary-foreground text-lg font-bold">
-                                                    {member.name.split(' ').map(n => n[0]).join('').substring(0, 2)}
-                                                </AvatarFallback>
-                                            </Avatar>
+                                    {selectedTeam.members
+                                        .slice()
+                                        .sort((a, b) => {
+                                            const getPriority = (role: string) => {
+                                                const r = role.toLowerCase();
+                                                if (r.includes('lead') && !r.includes('co')) return 1;
+                                                if (r.includes('co-lead') || r.includes('colead')) return 2;
+                                                if (r.includes('member')) return 3;
+                                                return 4;
+                                            };
+                                            return getPriority(a.role) - getPriority(b.role);
+                                        })
+                                        .map((member, idx) => (
+                                            <motion.div
+                                                key={member.id}
+                                                initial={{ opacity: 0, y: 20 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                whileHover={{ y: -5 }}
+                                                transition={{ delay: idx * 0.05 }}
+                                                className="flex flex-col items-center p-4 bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-all hover:border-accent/30"
+                                            >
+                                                <Avatar className="w-20 h-20 border-3 border-background shadow-lg mb-3">
+                                                    <AvatarImage src={member.image} className={`object-cover ${member.image_position || ''}`} />
+                                                    <AvatarFallback className="bg-primary text-primary-foreground text-lg font-bold">
+                                                        {member.name.split(' ').map(n => n[0]).join('').substring(0, 2)}
+                                                    </AvatarFallback>
+                                                </Avatar>
 
-                                            <div className="text-center w-full space-y-1 mb-3">
-                                                <h4 className="font-serif text-sm font-bold text-foreground leading-tight">{member.name}</h4>
-                                                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{member.role}</p>
-                                                {(member.branch || member.year) && (
-                                                    <span className="inline-block px-2 py-0.5 bg-accent/10 text-accent text-[10px] font-semibold rounded-full border border-accent/20">
-                                                        {member.year} {member.year && member.branch && "•"} {member.branch}
-                                                    </span>
-                                                )}
-                                            </div>
+                                                <div className="text-center w-full space-y-1 mb-3">
+                                                    <h4 className="font-serif text-sm font-bold text-foreground leading-tight">{member.name}</h4>
+                                                    <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{member.role}</p>
+                                                    {(member.branch || member.year) && (
+                                                        <span className="inline-block px-2 py-0.5 bg-accent/10 text-accent text-[10px] font-semibold rounded-full border border-accent/20">
+                                                            {member.year} {member.year && member.branch && "•"} {member.branch}
+                                                        </span>
+                                                    )}
+                                                </div>
 
-                                            <div className="flex items-center gap-2 mt-auto justify-center w-full">
-                                                {member.email ? (
-                                                    <a href={`mailto:${member.email}`} className="p-2 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
-                                                        <Mail className="w-3.5 h-3.5" />
-                                                    </a>
-                                                ) : (
-                                                    <button disabled className="p-2 bg-background/50 border border-border/50 rounded-full text-muted-foreground cursor-not-allowed">
-                                                        <Mail className="w-3.5 h-3.5" />
-                                                    </button>
-                                                )}
-                                                {member.linkedin ? (
-                                                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
-                                                        <Linkedin className="w-3.5 h-3.5" />
-                                                    </a>
-                                                ) : (
-                                                    <button disabled className="p-2 bg-background/50 border border-border/50 rounded-full text-muted-foreground cursor-not-allowed">
-                                                        <Linkedin className="w-3.5 h-3.5" />
-                                                    </button>
-                                                )}
-                                            </div>
-                                        </motion.div>
-                                    ))}
+                                                <div className="flex items-center gap-2 mt-auto justify-center w-full">
+                                                    {member.email ? (
+                                                        <a href={`mailto:${member.email}`} className="p-2 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                                            <Mail className="w-3.5 h-3.5" />
+                                                        </a>
+                                                    ) : (
+                                                        <button disabled className="p-2 bg-background/50 border border-border/50 rounded-full text-muted-foreground cursor-not-allowed">
+                                                            <Mail className="w-3.5 h-3.5" />
+                                                        </button>
+                                                    )}
+                                                    {member.linkedin ? (
+                                                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-background border border-border rounded-full hover:bg-accent hover:text-white transition-all hover:scale-110">
+                                                            <Linkedin className="w-3.5 h-3.5" />
+                                                        </a>
+                                                    ) : (
+                                                        <button disabled className="p-2 bg-background/50 border border-border/50 rounded-full text-muted-foreground cursor-not-allowed">
+                                                            <Linkedin className="w-3.5 h-3.5" />
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            </motion.div>
+                                        ))}
                                 </div>
                             </div>
                         </motion.div>
