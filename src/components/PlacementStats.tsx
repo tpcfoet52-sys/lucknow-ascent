@@ -86,7 +86,7 @@ const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?:
 
 const PlacementStats = () => {
   return (
-    <section id="statistics" className="py-12 bg-cream">
+    <section id="statistics" className="pb-12 pt-6 bg-cream">
       <div className="container-narrow">
         {/* Section Header */}
         <motion.div
@@ -94,10 +94,9 @@ const PlacementStats = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <span className="text-accent font-medium text-sm uppercase tracking-wider">Placement Statistics</span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-2 tracking-tight">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-0 tracking-tight">
             Year-Wise <span className="text-gold-gradient">Placement Growth</span>
           </h2>
           <p className="max-w-xl mx-auto text-muted-foreground mt-3 text-base md:text-lg leading-relaxed">

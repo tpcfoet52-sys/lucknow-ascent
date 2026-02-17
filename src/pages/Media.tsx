@@ -185,10 +185,8 @@ const Media = () => {
                                             </div>
                                             <div className="p-3">
                                                 <div className="flex justify-between items-start mb-2">
-                                                    <Badge variant="secondary" className="text-[10px] px-1.5 py-0.5">{item.type}</Badge>
-                                                    <span className="text-[10px] text-muted-foreground flex items-center gap-1">
-                                                        <Calendar className="w-3 h-3" /> {item.date}
-                                                    </span>
+                                                    <Badge className="bg-accent/10 text-accent border border-accent/20 hover:bg-accent/20 text-[10px] px-2 py-0.5 shadow-sm transition-colors duration-300">{item.type}</Badge>
+
                                                 </div>
                                                 <h3 className="font-semibold text-sm text-foreground group-hover:text-accent transition-colors line-clamp-2 leading-tight mb-2">{item.title}</h3>
                                                 <div className="text-[10px] font-medium text-accent/80 group-hover:text-accent flex items-center mt-2 transition-colors">
@@ -239,9 +237,7 @@ const Media = () => {
                                         </div>
                                         <div className="p-4">
                                             <div className="flex justify-between items-start mb-2">
-                                                <span className="text-xs text-muted-foreground flex items-center gap-1">
-                                                    <Calendar className="w-3 h-3" /> {item.date}
-                                                </span>
+
                                             </div>
                                             <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mb-2">{item.title}</h3>
                                             <div className="text-xs font-medium text-accent/80 group-hover:text-accent flex items-center mt-3 transition-colors">

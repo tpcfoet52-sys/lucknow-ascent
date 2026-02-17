@@ -226,9 +226,7 @@ const ContentMediaDashboard = () => {
                         <Badge variant="outline" className="uppercase text-[10px] tracking-wider px-1.5 py-0.5">
                           {item.type.replace('_', ' ')}
                         </Badge>
-                        <span className="text-[10px] text-muted-foreground flex items-center gap-1">
-                          {format(new Date(item.created_at), 'MMM d, yyyy')}
-                        </span>
+
                       </div>
                       <h3 className="font-serif font-semibold text-sm text-foreground line-clamp-2 leading-tight mb-2">{item.title}</h3>
 
