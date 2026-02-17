@@ -76,12 +76,20 @@ const TPCTeamPreview = () => {
                 if (groupsError) throw groupsError;
 
                 // Fetch all members
-                const { data: membersData, error: membersError } = await supabase
+                const { data: rawMembersData, error: membersError } = await supabase
                     .from("team_members")
                     .select("*")
                     .order("order_index");
 
                 if (membersError) throw membersError;
+
+                // Data Correction for specific members
+                const membersData = rawMembersData.map((m: TeamMember) => {
+                    if (m.name === "Aayush Aaryan") {
+                        return { ...m, role: "Team Member" };
+                    }
+                    return m;
+                });
 
                 // Process Data
                 const facultyGroup = groupsData.find((g: TeamGroup) => g.type === 'faculty');
