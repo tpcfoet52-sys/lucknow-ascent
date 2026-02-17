@@ -49,13 +49,15 @@ const Media = () => {
                                         (item.title && item.title.includes("Higher Education Opportunities")) ? 'Seminars' :
                                             item.type === 'achievement' ? 'Achievers' : 'Events',
                     src: item.image_url,
-                    title: item.title,
+                    title: item.title.replace("PlanetSpark Selects Students (6.50 LPA)", "PlanetSpark Selected Students"),
                     date: new Date(item.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
                     summary: item.description
                 })).filter(item =>
                     !item.title.toLowerCase().includes("top performer of the month") &&
                     !item.title.toLowerCase().includes("republic day celebration") &&
-                    !item.title.toLowerCase().includes("samsung innovation campus hackathon")
+                    !item.title.toLowerCase().includes("samsung innovation campus hackathon") &&
+                    !item.title.includes("Jaro Education Placement Drive") &&
+                    !item.title.includes("Learning Routes Placement Drive")
                 ).sort((a, b) => {
                     // List of titles to move to the bottom
                     const moveDown = [
@@ -215,7 +217,7 @@ const Media = () => {
                             </h2>
                             <p className="text-muted-foreground mt-3 text-base">Our achievements in the media spotlight.</p>
                         </motion.div>
-                        <div className="grid md:grid-cols-3 gap-6">
+                        <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4">
                             {allPressItems.length === 0 ? (
                                 <div className="col-span-full text-center py-12 text-muted-foreground bg-card rounded-xl border border-dashed border-border shadow-sm">
                                     No press releases available yet.
@@ -227,21 +229,26 @@ const Media = () => {
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
-                                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                                        transition={{ duration: 0.4, delay: index * 0.05 }}
                                         whileHover={{ y: -5 }}
-                                        className="group relative overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md hover:border-accent/30 bg-card cursor-pointer transition-all duration-300"
-                                        onClick={() => setSelectedItem({ ...item, type: "Press" })}
+                                        className="break-inside-avoid mb-4 group relative overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md hover:border-accent/30 bg-card cursor-pointer transition-all duration-300"
+                                        onClick={() => setSelectedItem(item)}
                                     >
-                                        <div className="aspect-video overflow-hidden">
-                                            <img src={item.src} alt={item.title} className="w-full h-full object-cover" />
+                                        <div className="overflow-hidden">
+                                            <img
+                                                loading="lazy"
+                                                src={item.src}
+                                                alt={item.title}
+                                                className="w-full h-auto object-cover"
+                                            />
                                         </div>
-                                        <div className="p-4">
+                                        <div className="p-3">
                                             <div className="flex justify-between items-start mb-2">
-
+                                                <Badge className="bg-accent/10 text-accent border border-accent/20 hover:bg-accent/20 text-[10px] px-2 py-0.5 shadow-sm transition-colors duration-300">{item.type}</Badge>
                                             </div>
-                                            <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mb-2">{item.title}</h3>
-                                            <div className="text-xs font-medium text-accent/80 group-hover:text-accent flex items-center mt-3 transition-colors">
-                                                View More <ArrowRight className="w-3 h-3 ml-1" />
+                                            <h3 className="font-semibold text-sm text-foreground group-hover:text-accent transition-colors line-clamp-2 leading-tight mb-2">{item.title}</h3>
+                                            <div className="text-[10px] font-medium text-accent/80 group-hover:text-accent flex items-center mt-2 transition-colors">
+                                                View More <ArrowRight className="w-2.5 h-2.5 ml-1" />
                                             </div>
                                         </div>
                                     </motion.div>

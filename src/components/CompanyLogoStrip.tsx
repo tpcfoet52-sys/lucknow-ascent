@@ -14,7 +14,7 @@ import allenLogo from "../assets/allen-logo.png";
 import pwLogo from "../assets/pw-logo.png";
 
 import techMahindraLogo from "../assets/tech-mahindra-logo.png";
-import jaroLogo from "../assets/jaro-logo-new.png";
+
 import relianceLogo from "../assets/reliance-logo.png";
 import accentureLogo from "../assets/accenture-logo.png";
 
@@ -32,7 +32,7 @@ const companies = [
   { name: "PW", logo: pwLogo },
 
   { name: "Tech Mahindra", logo: techMahindraLogo, scale: 1.45 },
-  { name: "Jaro Education", logo: jaroLogo },
+
   { name: "Reliance Industries Ltd.", logo: relianceLogo },
   { name: "Accenture", logo: accentureLogo }
 ];

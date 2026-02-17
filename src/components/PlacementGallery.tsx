@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import jaroLogo from "@/assets/jaro-logo-new.png";
-import learningRoutesLogo from "@/assets/learning-routes-logo.jpg";
+
 import wiproLogo from "@/assets/wipro-logo.png";
 import npclLogo from "@/assets/npcl-logo-new.png";
 import sotiLogo from "@/assets/soti-logo.png";
@@ -12,8 +11,7 @@ const companyLogos: Record<string, string> = {
   "NPCL": npclLogo,
   "SOTI": sotiLogo,
   "Wipro": wiproLogo,
-  "Learning Routes": learningRoutesLogo,
-  "Jaro Education": jaroLogo,
+
 };
 
 const galleryItems = [
@@ -38,20 +36,7 @@ const galleryItems = [
     company: "Wipro",
     students: 25,
   },
-  {
-    id: 3,
-    title: "Learning Routes Hiring",
-    description: "Sales and Business Development Associate roles",
-    company: "Learning Routes",
-    students: 18,
-  },
-  {
-    id: 4,
-    title: "Jaro Education Drive",
-    description: "Placement for Career Development and Sales roles",
-    company: "Jaro Education",
-    students: 30,
-  },
+
 ];
 
 const PlacementGallery = () => {

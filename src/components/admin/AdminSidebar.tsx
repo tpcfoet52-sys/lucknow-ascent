@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import {
@@ -11,6 +12,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLogout } from '@/hooks/useLogout';
+import { supabase } from '@/lib/supabase';
 
 const sidebarItems = [
   { icon: LayoutDashboard, label: 'Dashboard', href: '/admin/dashboard' },
@@ -23,6 +25,36 @@ const sidebarItems = [
 export const AdminSidebar = () => {
   const location = useLocation();
   const { logout } = useLogout();
+  const [pendingCount, setPendingCount] = useState(0);
+
+  useEffect(() => {
+    const fetchCount = async () => {
+      if (!supabase) return;
+
+      const { count, error } = await supabase
+        .from('unified_approvals')
+        .select('*', { count: 'exact', head: true })
+        .in('status', ['pending', 'pending_deletion']);
+
+      if (!error && count !== null) {
+        setPendingCount(count);
+      }
+    };
+
+    fetchCount();
+
+    // Subscribe to changes
+    const subscription = supabase
+      .channel('approvals-sidebar-count')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'unified_approvals' }, () => {
+        fetchCount();
+      })
+      .subscribe();
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
 
   return (
     <div className="flex h-full flex-col justify-between bg-card border-r border-border">
@@ -53,6 +85,9 @@ export const AdminSidebar = () => {
                 >
                   <item.icon className={cn("mr-2.5 h-4 w-4", isActive ? "text-accent" : "")} />
                   {item.label}
+                  {item.label === 'Approvals' && pendingCount > 0 && (
+                    <span className="ml-auto w-2 h-2 rounded-full bg-red-500 animate-pulse" title={`${pendingCount} pending approvals`} />
+                  )}
                 </span>
               </Link>
             );
