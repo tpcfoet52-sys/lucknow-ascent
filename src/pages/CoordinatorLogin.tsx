@@ -76,12 +76,14 @@ const CoordinatorLogin = () => {
         toast.success(`Welcome to ${teamName}`);
 
         // Redirect logic based on team
+        // Redirect logic based on team
         if (teamName === "Event & Hospitality Team") {
           navigate("/coordinator/events");
         } else if (teamName === "Content & Media Team") {
           navigate("/coordinator/media");
         } else {
-          navigate("/coordinator/dashboard");
+          toast.error("Access Restricted: Only Event & Media coordinators can login.");
+          await supabase.auth.signOut();
         }
       }
     } catch (err) {

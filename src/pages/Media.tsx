@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calendar, Camera, Newspaper, X } from "lucide-react";
+import { Calendar, Camera, Newspaper, X, ArrowRight } from "lucide-react";
 
 import Footer from "@/components/Footer";
 
@@ -54,7 +54,8 @@ const Media = () => {
                     summary: item.description
                 })).filter(item =>
                     !item.title.toLowerCase().includes("top performer of the month") &&
-                    !item.title.toLowerCase().includes("republic day celebration")
+                    !item.title.toLowerCase().includes("republic day celebration") &&
+                    !item.title.toLowerCase().includes("samsung innovation campus hackathon")
                 ).sort((a, b) => {
                     // List of titles to move to the bottom
                     const moveDown = [
@@ -156,7 +157,7 @@ const Media = () => {
                             </div>
                         </motion.div>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4">
                             {filteredGallery.length === 0 ? (
                                 <div className="col-span-full text-center py-12 text-muted-foreground bg-card rounded-xl border border-dashed border-border shadow-sm">
                                     No items found in this category.
@@ -171,29 +172,28 @@ const Media = () => {
                                             exit={{ opacity: 0, scale: 0.95 }}
                                             transition={{ duration: 0.4, delay: index * 0.05 }}
                                             whileHover={{ y: -5 }}
-                                            className="group relative overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md hover:border-accent/30 bg-card cursor-pointer transition-all duration-300"
+                                            className="break-inside-avoid mb-4 group relative overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md hover:border-accent/30 bg-card cursor-pointer transition-all duration-300"
                                             onClick={() => setSelectedItem(item)}
                                         >
-                                            <div className="aspect-video overflow-hidden">
+                                            <div className="overflow-hidden">
                                                 <img
+                                                    loading="lazy"
                                                     src={item.src}
                                                     alt={item.title}
-                                                    className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${["Higher Education Opportunities", "Jaro Education Placement Drive"].some(t => item.title.includes(t))
-                                                        ? 'object-[50%_65%]'
-                                                        : ["Learning Routes Placement Drive", "Smart India Hackathon 2025", "TPC Student Coordinator Meeting", "Samsung Innovation Campus Program"].some(t => item.title.includes(t))
-                                                            ? 'object-[50%_35%]'
-                                                            : ''
-                                                        }`}
+                                                    className="w-full h-auto object-cover"
                                                 />
                                             </div>
-                                            <div className="p-4">
+                                            <div className="p-3">
                                                 <div className="flex justify-between items-start mb-2">
-                                                    <Badge variant="secondary" className="text-xs">{item.type}</Badge>
-                                                    <span className="text-xs text-muted-foreground flex items-center gap-1">
+                                                    <Badge variant="secondary" className="text-[10px] px-1.5 py-0.5">{item.type}</Badge>
+                                                    <span className="text-[10px] text-muted-foreground flex items-center gap-1">
                                                         <Calendar className="w-3 h-3" /> {item.date}
                                                     </span>
                                                 </div>
-                                                <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">{item.title}</h3>
+                                                <h3 className="font-semibold text-sm text-foreground group-hover:text-accent transition-colors line-clamp-2 leading-tight mb-2">{item.title}</h3>
+                                                <div className="text-[10px] font-medium text-accent/80 group-hover:text-accent flex items-center mt-2 transition-colors">
+                                                    View More <ArrowRight className="w-2.5 h-2.5 ml-1" />
+                                                </div>
                                             </div>
                                         </motion.div>
                                     ))}
@@ -235,7 +235,7 @@ const Media = () => {
                                         onClick={() => setSelectedItem({ ...item, type: "Press" })}
                                     >
                                         <div className="aspect-video overflow-hidden">
-                                            <img src={item.src} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                                            <img src={item.src} alt={item.title} className="w-full h-full object-cover" />
                                         </div>
                                         <div className="p-4">
                                             <div className="flex justify-between items-start mb-2">
@@ -243,7 +243,10 @@ const Media = () => {
                                                     <Calendar className="w-3 h-3" /> {item.date}
                                                 </span>
                                             </div>
-                                            <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">{item.title}</h3>
+                                            <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mb-2">{item.title}</h3>
+                                            <div className="text-xs font-medium text-accent/80 group-hover:text-accent flex items-center mt-3 transition-colors">
+                                                View More <ArrowRight className="w-3 h-3 ml-1" />
+                                            </div>
                                         </div>
                                     </motion.div>
                                 ))

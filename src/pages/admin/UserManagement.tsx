@@ -48,10 +48,6 @@ import {
 } from "@/components/ui/dialog";
 
 const TEAMS = [
-  "Team Corporate Connect",
-  "Networking & Outreach Team",
-  "Team Industry Interface",
-  "Web Dev & Design Team",
   "Content & Media Team",
   "Event & Hospitality Team",
 ];

@@ -247,18 +247,19 @@ const ApprovalsManagement = () => {
               <p className="text-muted-foreground">No pending requests found.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
               {PendingList.map((item) => (
-                <ApprovalCard
-                  key={item.id}
-                  item={item}
-                  onApprove={() => handleApprove(item)}
-                  onReject={() => handleReject(item)}
-                  onConfirmDelete={() => handleDeleteConfirm(item)}
-                  onRejectDelete={() => handleRejectDeletion(item)}
-                  getTypeIcon={getTypeIcon}
-                  getTypeColor={getTypeColor}
-                />
+                <div key={item.id} className="break-inside-avoid">
+                  <ApprovalCard
+                    item={item}
+                    onApprove={() => handleApprove(item)}
+                    onReject={() => handleReject(item)}
+                    onConfirmDelete={() => handleDeleteConfirm(item)}
+                    onRejectDelete={() => handleRejectDeletion(item)}
+                    getTypeIcon={getTypeIcon}
+                    getTypeColor={getTypeColor}
+                  />
+                </div>
               ))}
             </div>
           )}
@@ -328,12 +329,12 @@ interface ApprovalCardProps {
 
 // Helper Component for the Card
 const ApprovalCard = ({ item, onApprove, onReject, onConfirmDelete, onRejectDelete, getTypeIcon, getTypeColor }: ApprovalCardProps) => (
-  <Card className={`flex flex-col overflow-hidden border-l-4 ${item.status === 'pending_deletion' ? 'border-l-red-500' : 'border-l-primary/20'}`}>
-    <div className="aspect-video bg-muted relative overflow-hidden group">
+  <div className={`flex flex-col overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md transition-all bg-card ${item.status === 'pending_deletion' ? 'border-l-4 border-l-red-500' : ''}`}>
+    <div className="relative overflow-hidden group bg-muted">
       {item.image_url ? (
-        <img src={item.image_url} alt={item.title} className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+        <img loading="lazy" src={item.image_url} alt={item.title} className="w-full h-auto object-cover transition-transform group-hover:scale-105" />
       ) : (
-        <div className="flex items-center justify-center h-full text-muted-foreground bg-secondary/50">No Image</div>
+        <div className="flex items-center justify-center h-48 text-muted-foreground bg-secondary/50">No Image</div>
       )}
       <div className="absolute top-2 right-2">
         <Badge className={`shadow-sm ${getTypeColor(item.type)}`}>
@@ -344,50 +345,50 @@ const ApprovalCard = ({ item, onApprove, onReject, onConfirmDelete, onRejectDele
       </div>
       {item.status === 'pending_deletion' && (
         <div className="absolute inset-0 bg-red-500/20 flex items-center justify-center">
-          <Badge variant="destructive" className="text-lg py-1 px-4 shadow-lg border-2 border-white">DELETION REQUESTED</Badge>
+          <Badge variant="destructive" className="text-sm py-1 px-4 shadow-lg border-2 border-white">DELETION REQUESTED</Badge>
         </div>
       )}
     </div>
-    <CardHeader className="pb-3">
+    <div className="p-4">
       <div className="flex justify-between items-start text-xs text-muted-foreground mb-2">
         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {format(new Date(item.created_at), "MMM d, p")}</span>
       </div>
-      <CardTitle className="text-lg leading-tight">{item.title}</CardTitle>
-    </CardHeader>
-    <CardContent className="flex-1 pb-3">
-      <p className="text-sm text-muted-foreground line-clamp-3">{item.description}</p>
+      <h3 className="text-lg font-semibold leading-tight mb-2">{item.title}</h3>
+      <div className="flex-1 mb-4">
+        <p className="text-sm text-muted-foreground line-clamp-3">{item.description}</p>
 
-      {/* Show Event Details if available */}
-      {item.type === 'event' && item.details && typeof item.details === 'object' && (
-        <div className="mt-3 p-2 bg-secondary/50 rounded text-xs space-y-1">
-          {(item.details as EventDetails).venue && <div><strong>Venue:</strong> {(item.details as EventDetails).venue}</div>}
-          {(item.details as EventDetails).date && <div><strong>Date:</strong> {(item.details as EventDetails).date}</div>}
-          {(item.details as EventDetails).team && <div><strong>By:</strong> {(item.details as EventDetails).team}</div>}
-        </div>
-      )}
-    </CardContent>
-    <CardFooter className="pt-0 gap-3 border-t bg-muted/20 p-4">
-      {item.status === 'pending_deletion' ? (
-        <>
-          <Button variant="outline" className="flex-1 hover:bg-blue-50 hover:text-blue-600 border-blue-200" onClick={onRejectDelete}>
-            <XCircle className="w-4 h-4 mr-2" /> Keep Item (Reject)
-          </Button>
-          <Button className="flex-1 bg-red-600 hover:bg-red-700 text-white" onClick={onConfirmDelete}>
-            <CheckCircle2 className="w-4 h-4 mr-2" /> Confirm Delete
-          </Button>
-        </>
-      ) : (
-        <>
-          <Button variant="outline" className="flex-1 hover:bg-red-50 hover:text-red-600 border-red-200" onClick={onReject}>
-            <XCircle className="w-4 h-4 mr-2" /> Reject
-          </Button>
-          <Button className="flex-1 bg-green-600 hover:bg-green-700 text-white" onClick={onApprove}>
-            <CheckCircle2 className="w-4 h-4 mr-2" /> Approve
-          </Button>
-        </>
-      )}
-    </CardFooter>
-  </Card>
+        {/* Show Event Details if available */}
+        {item.type === 'event' && item.details && typeof item.details === 'object' && (
+          <div className="mt-3 p-2 bg-secondary/50 rounded text-xs space-y-1">
+            {(item.details as EventDetails).venue && <div><strong>Venue:</strong> {(item.details as EventDetails).venue}</div>}
+            {(item.details as EventDetails).date && <div><strong>Date:</strong> {(item.details as EventDetails).date}</div>}
+            {(item.details as EventDetails).team && <div><strong>By:</strong> {(item.details as EventDetails).team}</div>}
+          </div>
+        )}
+      </div>
+      <div className="flex gap-2 pt-3 border-t">
+        {item.status === 'pending_deletion' ? (
+          <>
+            <Button size="sm" variant="outline" className="flex-1 hover:bg-blue-50 hover:text-blue-600 border-blue-200" onClick={onRejectDelete}>
+              <XCircle className="w-4 h-4 mr-1" /> Keep
+            </Button>
+            <Button size="sm" className="flex-1 bg-red-600 hover:bg-red-700 text-white" onClick={onConfirmDelete}>
+              <CheckCircle2 className="w-4 h-4 mr-1" /> Delete
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button size="sm" variant="outline" className="flex-1 hover:bg-red-50 hover:text-red-600 border-red-200" onClick={onReject}>
+              <XCircle className="w-4 h-4 mr-1" /> Reject
+            </Button>
+            <Button size="sm" className="flex-1 bg-green-600 hover:bg-green-700 text-white" onClick={onApprove}>
+              <CheckCircle2 className="w-4 h-4 mr-1" /> Approve
+            </Button>
+          </>
+        )}
+      </div>
+    </div>
+  </div>
 );
 
 export default ApprovalsManagement;

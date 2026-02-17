@@ -16,7 +16,7 @@ const sidebarItems = [
   { icon: LayoutDashboard, label: 'Dashboard', href: '/admin/dashboard' },
   { icon: CheckSquare, label: 'Approvals', href: '/admin/approvals' },
   { icon: UserCog, label: 'Manage Team', href: '/admin/team' },
-  { icon: Users, label: 'Users', href: '/admin/users' },
+  { icon: Users, label: 'Coordinators', href: '/admin/users' },
   { icon: FileEdit, label: 'CMS', href: '/admin/cms' },
 ];
 

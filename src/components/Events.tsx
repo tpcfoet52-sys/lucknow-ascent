@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin, ExternalLink } from "lucide-react";
+import { Calendar, Clock, MapPin, ExternalLink, ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -108,6 +108,20 @@ const Events = () => {
     setIsSubmitting(true);
 
     try {
+      // Backend-only registration cap check
+      const { count, error: countError } = await supabase
+        .from('registrations')
+        .select('*', { count: 'exact', head: true })
+        .eq('event_id', selectedEvent.id);
+
+      if (countError) throw countError;
+
+      if (count !== null && count >= 400) {
+        toast.error("Registrations for this event are currently full. Please try again later.");
+        setIsSubmitting(false);
+        return;
+      }
+
       const { error } = await supabase.from('registrations').insert([
         {
           event_id: selectedEvent.id,
@@ -194,7 +208,7 @@ const Events = () => {
               No active events scheduled at the moment.
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="space-y-5">
               {upcomingEvents.map((event, index) => (
                 <EventCard key={event.id} event={event} index={index} onRegister={handleRegister} />
               ))}
@@ -208,7 +222,7 @@ const Events = () => {
               <Clock className="w-5 h-5 text-muted-foreground" />
               Past Events
             </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="space-y-5">
               {pastEvents.map((event, index) => (
                 <EventCard key={event.id} event={event} index={index} onRegister={handleRegister} isPast={true} />
               ))}
@@ -218,13 +232,20 @@ const Events = () => {
       </div>
 
       {selectedEvent && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={closeModal}>
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-24" onClick={closeModal}>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-card rounded-xl p-6 md:p-8 max-w-md w-full shadow-2xl max-h-[90vh] overflow-y-auto border border-border"
+            className="bg-card rounded-xl p-6 md:p-8 max-w-md w-full shadow-2xl max-h-[90vh] overflow-y-auto border border-border relative"
             onClick={(e) => e.stopPropagation()}
           >
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 p-2 md:p-3 bg-white text-black hover:bg-accent hover:text-accent-foreground rounded-full shadow-lg border border-border/10 transition-all duration-300 z-50 group"
+              aria-label="Close modal"
+            >
+              <X className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:rotate-90" />
+            </button>
             {!submitSuccess ? (
               <>
                 <h3 className="font-serif text-2xl font-bold text-foreground mb-1">
@@ -362,103 +383,104 @@ const Events = () => {
   );
 };
 
-// Extracted Event Card Component for consistency
+// Extracted Event Card Component — Horizontal layout: text left, poster right
 const EventCard = ({ event, index, onRegister, isPast = false }: { event: Event, index: number, onRegister: (e: Event) => void, isPast?: boolean }) => (
   <motion.div
-    initial={{ opacity: 0, y: 30 }}
+    initial={{ opacity: 0, y: 12 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    transition={{ duration: 0.5, delay: 0.1 * index }}
-    variants={{
-      hover: { y: -5, transition: { duration: 0.3 } }
-    }}
-    whileHover="hover"
-    className={`group relative overflow-hidden rounded-xl border border-border shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30 ${isPast ? 'opacity-80' : ''}`}
+    transition={{ duration: 0.3, delay: 0.04 * index }}
+    className={`group relative overflow-hidden rounded-lg border border-border shadow-sm bg-card transition-all duration-300 hover:shadow-md hover:border-accent/30 flex flex-col md:flex-row max-w-4xl mx-auto ${isPast ? 'opacity-75' : ''}`}
   >
-    {/* Image Section */}
-    <div className="aspect-video overflow-hidden relative bg-muted">
-      {event.banner_url ? (
-        <>
-          <img
-            src={event.banner_url}
-            alt={event.title}
-            className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${isPast ? 'grayscale' : ''}`}
-          />
-        </>
-      ) : (
-        <div className="w-full h-full flex items-center justify-center bg-primary/5">
-          <Calendar className="h-10 w-10 text-primary/40" />
-        </div>
-      )}
-      {/* Badge overlay */}
-      <div className="absolute top-3 right-3">
-        {event.registrationOpen && !isPast && (
-          <Badge className="bg-green-600 text-white hover:bg-green-700 backdrop-blur-sm shadow-sm font-semibold border-none">
-            Open Now
-          </Badge>
-        )}
-        {isPast && (
-          <Badge variant="secondary" className="backdrop-blur-sm shadow-sm font-semibold">
-            Ended
-          </Badge>
-        )}
-      </div>
-    </div>
-
-    {/* Content Section */}
-    <div className="p-4 relative z-10 bg-card">
-      <div className="flex items-center gap-3 mb-3">
-        <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-          <Calendar className="h-4 w-4 text-primary" />
-        </div>
-        <div className="flex-1">
-          <h3 className="font-serif text-base font-semibold text-foreground group-hover:text-accent transition-colors leading-tight line-clamp-2">
+    {/* Left — Text Details */}
+    <div className="w-full md:w-1/2 p-4 md:p-5 flex flex-col justify-between order-2 md:order-1">
+      <div>
+        {/* Badge + Title */}
+        <div className="flex items-start justify-between gap-2 mb-2">
+          <h3 className="font-serif text-lg md:text-xl font-bold text-foreground group-hover:text-accent transition-colors leading-snug">
             {event.title}
           </h3>
+          <div className="shrink-0 mt-0.5">
+            {event.registrationOpen && !isPast && (
+              <Badge className="bg-green-600/10 text-green-600 border border-green-600/20 font-semibold px-2 py-0.5 text-xs">
+                Open
+              </Badge>
+            )}
+            {isPast && (
+              <Badge variant="secondary" className="font-semibold px-2 py-0.5 text-xs">
+                Ended
+              </Badge>
+            )}
+            {!isPast && !event.registrationOpen && (
+              <Badge variant="outline" className="font-medium px-2 py-0.5 text-xs text-muted-foreground">
+                Closed
+              </Badge>
+            )}
+          </div>
         </div>
+
+        {/* Meta — one per line */}
+        <div className="space-y-1.5 mb-3">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Calendar className="w-4 h-4 text-accent shrink-0" />
+            <span>{event.formattedDate}</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Clock className="w-4 h-4 text-accent shrink-0" />
+            <span>{event.formattedTime}</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <MapPin className="w-4 h-4 text-accent shrink-0" />
+            <span className="line-clamp-1">{event.location}</span>
+          </div>
+        </div>
+
+        {/* Description */}
+        <p className="text-sm text-muted-foreground/80 line-clamp-2 leading-relaxed mb-2">
+          {event.description}
+        </p>
+
       </div>
 
-      <div className="space-y-1.5 mb-3">
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <Calendar className="w-3.5 h-3.5 text-accent" />
-          <span>{event.formattedDate}</span>
-        </div>
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <Clock className="w-3.5 h-3.5 text-accent" />
-          <span>{event.formattedTime}</span>
-        </div>
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <MapPin className="w-3.5 h-3.5 text-accent" />
-          <span className="line-clamp-1">{event.location}</span>
-        </div>
-      </div>
-
-      <p className="text-xs text-muted-foreground mt-2 border-t border-border/50 pt-2 leading-relaxed line-clamp-3">
-        {event.description}
-      </p>
-
-      <div className="mt-3">
+      {/* Action Button */}
+      <div>
         {isPast ? (
-          <Button disabled variant="outline" size="sm" className="w-full">
+          <Button disabled variant="outline" size="sm" className="font-medium px-5 h-8 text-xs">
             Event Ended
           </Button>
         ) : event.registrationOpen ? (
           <Button
             variant="default"
             size="sm"
-            className="w-full shadow-sm hover:shadow-md transition-all font-semibold"
+            className="shadow-sm hover:shadow-md transition-all font-semibold bg-primary hover:bg-primary/90 px-5 h-8 text-xs"
             onClick={() => onRegister(event)}
           >
-            Register Now
+            Register Now <ArrowRight className="w-3.5 h-3.5 ml-1" />
           </Button>
         ) : (
-          <Button disabled variant="secondary" size="sm" className="w-full opacity-70">
+          <Button disabled variant="secondary" size="sm" className="opacity-70 font-medium px-5 h-8 text-xs">
             Registration Closed
           </Button>
         )}
       </div>
     </div>
+
+    {/* Right — Poster Image */}
+    <div className="w-full md:w-1/2 shrink-0 relative overflow-hidden bg-muted order-1 md:order-2">
+      {event.banner_url ? (
+        <img
+          loading="lazy"
+          src={event.banner_url}
+          alt={event.title}
+          className={`w-full h-40 md:h-full object-cover transition-transform duration-500 group-hover:scale-105 ${isPast ? 'grayscale' : ''}`}
+        />
+      ) : (
+        <div className="w-full h-40 md:h-full min-h-[160px] flex items-center justify-center bg-primary/5">
+          <Calendar className="h-10 w-10 text-primary/30" />
+        </div>
+      )}
+    </div>
   </motion.div>
 );
-
+// End of component
 export default Events;

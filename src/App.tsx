@@ -104,11 +104,12 @@ const App = () => (
               <EventHospitalityDashboard />
             </ProtectedRoute>
           } />
-          <Route path="/coordinator/dashboard" element={
+          {/* Generic dashboard removed as per request */}
+          {/* <Route path="/coordinator/dashboard" element={
             <ProtectedRoute>
               <TeamDashboard />
             </ProtectedRoute>
-          } />
+          } /> */}
           <Route path="/coordinator/media" element={
             <ProtectedRoute requiredTeam="Content & Media Team">
               <ContentMediaDashboard />

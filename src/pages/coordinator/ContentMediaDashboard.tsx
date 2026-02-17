@@ -195,73 +195,75 @@ const ContentMediaDashboard = () => {
           </TabsList>
 
           <TabsContent value="submissions" className="mt-6 space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {submissions.map((item) => (
-                <Card key={item.id} className="overflow-hidden group bg-card border border-border/50 rounded-xl hover:shadow-md hover:border-accent/30 transition-all duration-300">
-                  <div className="aspect-video w-full overflow-hidden relative bg-muted">
-                    <img
-                      src={item.image_url}
-                      alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute top-2 right-2">
-                      {getStatusBadge(item.status)}
-                    </div>
-                  </div>
-                  <CardHeader className="pb-2">
-                    <div className="flex justify-between items-start">
-                      <Badge variant="outline" className="uppercase text-[10px] tracking-wider mb-2">
-                        {item.type.replace('_', ' ')}
-                      </Badge>
-                      <span className="text-xs text-muted-foreground">{format(new Date(item.created_at), 'MMM d, yyyy')}</span>
-                    </div>
-                    <CardTitle className="line-clamp-1 text-lg font-serif">{item.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
-                      {item.description}
-                    </p>
-
-                    {item.status === 'approved' && (
-                      <div className="flex justify-end mb-2">
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="text-red-500 hover:text-red-700 hover:bg-red-50 h-8"
-                          onClick={() => {
-                            if (confirm("Are you sure you want to request deletion for this item?")) {
-                              handleDeleteRequest(item.id);
-                            }
-                          }}
-                        >
-                          <Trash2 className="w-4 h-4 mr-2" /> Request Deletion
-                        </Button>
-                      </div>
-                    )}
-
-                    {item.status === 'rejected' && item.feedback && (
-                      <div className="bg-red-50 p-3 rounded-md text-xs text-red-600 border border-red-100">
-                        <strong>Admin Feedback:</strong> {item.feedback}
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
-
-              {/* Empty State with Explicit Button */}
-              {submissions.length === 0 && (
-                <div className="col-span-full flex flex-col items-center justify-center py-16 text-muted-foreground border-2 border-dashed rounded-xl bg-muted/30">
-                  <div className="bg-muted p-4 rounded-full mb-4">
-                    <ImagePlus className="w-8 h-8 opacity-50" />
-                  </div>
-                  <h3 className="text-lg font-medium text-foreground mb-1">No submissions yet</h3>
-                  <p className="mb-6 max-w-sm text-center">Get started by uploading your first press release, gallery photo, or student achievement.</p>
-                  <Button onClick={() => setActiveTab("new")} variant="default">
-                    <Plus className="w-4 h-4 mr-2" /> Create First Submission
-                  </Button>
+            {submissions.length === 0 ? (
+              <div className="flex flex-col items-center justify-center py-16 text-muted-foreground border-2 border-dashed rounded-xl bg-muted/30">
+                <div className="bg-muted p-4 rounded-full mb-4">
+                  <ImagePlus className="w-8 h-8 opacity-50" />
                 </div>
-              )}
-            </div>
+                <h3 className="text-lg font-medium text-foreground mb-1">No submissions yet</h3>
+                <p className="mb-6 max-w-sm text-center">Get started by uploading your first press release, gallery photo, or student achievement.</p>
+                <Button onClick={() => setActiveTab("new")} variant="default">
+                  <Plus className="w-4 h-4 mr-2" /> Create First Submission
+                </Button>
+              </div>
+            ) : (
+              <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+                {submissions.map((item) => (
+                  <div key={item.id} className="break-inside-avoid mb-4 group relative overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md hover:border-accent/30 bg-card transition-all duration-300">
+                    <div className="overflow-hidden relative bg-muted">
+                      <img
+                        loading="lazy"
+                        src={item.image_url}
+                        alt={item.title}
+                        className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute top-2 right-2">
+                        {getStatusBadge(item.status)}
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <div className="flex justify-between items-start mb-2">
+                        <Badge variant="outline" className="uppercase text-[10px] tracking-wider px-1.5 py-0.5">
+                          {item.type.replace('_', ' ')}
+                        </Badge>
+                        <span className="text-[10px] text-muted-foreground flex items-center gap-1">
+                          {format(new Date(item.created_at), 'MMM d, yyyy')}
+                        </span>
+                      </div>
+                      <h3 className="font-serif font-semibold text-sm text-foreground line-clamp-2 leading-tight mb-2">{item.title}</h3>
+
+                      <p className="text-xs text-muted-foreground line-clamp-2 mb-3">
+                        {item.description}
+                      </p>
+
+                      {item.status === 'approved' && (
+                        <div className="flex justify-end pt-2 border-t border-border/50">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="text-red-500 hover:text-red-700 hover:bg-red-50 h-6 text-xs px-2"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              if (confirm("Are you sure you want to request deletion for this item?")) {
+                                handleDeleteRequest(item.id);
+                              }
+                            }}
+                          >
+                            <Trash2 className="w-3 h-3 mr-1" /> Delete
+                          </Button>
+                        </div>
+                      )}
+
+                      {item.status === 'rejected' && item.feedback && (
+                        <div className="bg-red-50 p-2 rounded-md text-[10px] text-red-600 border border-red-100 mt-2">
+                          <strong>Admin Feedback:</strong> {item.feedback}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </TabsContent>
 
           <TabsContent value="new" className="mt-6">
@@ -301,7 +303,7 @@ const ContentMediaDashboard = () => {
                           )}
                         </div>
                       </FormControl>
-                      <FormDescription>Recommended ratio 16:9. Max size 5MB.</FormDescription>
+                      <FormDescription>Max size 5MB.</FormDescription>
                     </FormItem>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -332,10 +334,10 @@ const ContentMediaDashboard = () => {
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="drive">Placement Drive</SelectItem>
-                                <SelectItem value="event">Event</SelectItem>
-                                <SelectItem value="seminar">Seminar</SelectItem>
-                                <SelectItem value="top_performer">Top Performer</SelectItem>
+                                <SelectItem value="drive">Drives</SelectItem>
+                                <SelectItem value="event">Events</SelectItem>
+                                <SelectItem value="seminar">Seminars</SelectItem>
+                                <SelectItem value="top_performer">Achievers</SelectItem>
                                 <SelectItem value="press_release">Press Release</SelectItem>
                               </SelectContent>
                             </Select>
