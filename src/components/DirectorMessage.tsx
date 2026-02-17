@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Quote, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
-import drHimanshuPandey from "@/assets/dr-himanshu-pandey-new.png";
+
 import profSpSingh from "@/assets/prof-sp-singh-new.png";
 import profJaiPrakashSaini from "@/assets/prof-jai-prakash-saini-new.png";
 
@@ -114,14 +114,7 @@ const DirectorMessage = () => {
       quote: "Our mission at FoET is to nurture engineers who are not only technically proficient but also globally competitive. We welcome industry partners to engage with our vibrant talent pool.",
       bio: "Prof. Satendra Pal Singh, Dean of the Faculty of Engineering and Technology, is a distinguished academician with a global outlook. Holding a Ph.D. from IIT (BHU) Varanasi and nearly a decade of research experience at Sejong University.",
     },
-    {
-      name: "Dr. Himanshu Pandey",
-      role: "TPC Incharge",
-      institution: "University of Lucknow",
-      image: drHimanshuPandey,
-      quote: "Our mission is to transform students into industry-ready professionals through a blend of technical mastery and soft-skill development. We are committed to fostering a vibrant recruitment ecosystem.",
-      bio: "Dr. Himanshu Pandey is the Incharge of the Training & Placement Cell (TPC) and an Associate Professor of Computer Science at the University of Lucknow. With extensive experience in Industry-Academia collaboration.",
-    },
+
   ];
 
   const handleToggle = (index: number) => {
@@ -151,9 +144,9 @@ const DirectorMessage = () => {
         </motion.div>
 
         {/* Leaders Layout: All stacked vertically */}
-        <div className="flex flex-col gap-8 w-full mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mx-auto">
           {leaders.map((leader, index) => (
-            <div key={index} className="w-full">
+            <div key={index} className="w-full h-full">
               <LeaderCard
                 {...leader}
                 isExpanded={expandedIndex === index}
