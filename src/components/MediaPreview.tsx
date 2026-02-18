@@ -142,7 +142,7 @@ const MediaPreview = () => {
                                 <img
                                     src={item.src}
                                     alt={item.title}
-                                    className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${(item.title.includes("SOTI") || item.title.includes("Samsung")) ? "object-top" : "object-top"}`}
+                                    className={`w-full h-full object-cover transition-transform duration-500 ${(item.title.includes("SOTI") || item.title.includes("Samsung")) ? "object-top" : "object-top"}`}
 
                                 />
                             </div>

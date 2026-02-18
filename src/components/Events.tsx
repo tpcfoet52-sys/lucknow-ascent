@@ -472,7 +472,7 @@ const EventCard = ({ event, index, onRegister, isPast = false }: { event: Event,
           loading="lazy"
           src={event.banner_url}
           alt={event.title}
-          className={`w-full h-40 md:h-full object-cover transition-transform duration-500 group-hover:scale-105 ${isPast ? 'grayscale' : ''}`}
+          className={`w-full h-auto md:h-full object-cover transition-transform duration-500 group-hover:scale-105 ${isPast ? 'grayscale' : ''}`}
         />
       ) : (
         <div className="w-full h-40 md:h-full min-h-[160px] flex items-center justify-center bg-primary/5">
