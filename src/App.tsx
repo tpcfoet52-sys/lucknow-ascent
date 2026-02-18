@@ -30,11 +30,9 @@ import Contact from "./pages/Contact";
 import AdminLayout from "./components/admin/AdminLayout";
 import DashboardOverview from "./pages/admin/DashboardOverview";
 import EventHospitalityDashboard from "./pages/coordinator/EventHospitalityDashboard";
-import TeamDashboard from "./pages/coordinator/TeamDashboard";
 import ApprovalsManagement from "./pages/admin/ApprovalsManagement";
 import UserManagement from "./pages/admin/UserManagement";
 import ManageTeam from "./pages/admin/ManageTeam";
-// Removed DataMigration import
 
 const queryClient = new QueryClient();
 
@@ -104,12 +102,6 @@ const App = () => (
               <EventHospitalityDashboard />
             </ProtectedRoute>
           } />
-          {/* Generic dashboard removed as per request */}
-          {/* <Route path="/coordinator/dashboard" element={
-            <ProtectedRoute>
-              <TeamDashboard />
-            </ProtectedRoute>
-          } /> */}
           <Route path="/coordinator/media" element={
             <ProtectedRoute requiredTeam="Content & Media Team">
               <ContentMediaDashboard />
@@ -131,8 +123,6 @@ const App = () => (
 
             <Route path="approvals" element={<ApprovalsManagement />} />
             <Route path="team" element={<ManageTeam />} />
-
-            {/* Removed Migration Route */}
 
             {/* Placeholder Pages for Sidebar Links */}
             <Route path="users" element={<UserManagement />} />

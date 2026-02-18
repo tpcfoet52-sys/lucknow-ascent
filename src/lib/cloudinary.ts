@@ -74,11 +74,7 @@ export const deleteFromCloudinary = async (publicId: string): Promise<boolean> =
     console.warn(`Image deletion requested for public_id: ${publicId}`);
     console.warn("Cloudinary deletion requires server-side implementation");
     
-    // TODO: Call your backend endpoint:
-    // const response = await fetch('/api/cloudinary/delete', {
-    //   method: 'POST',
-    //   body: JSON.stringify({ publicId })
-    // });
+    // TODO: Call your backend endpoint to delete the image by publicId.
     
     return true; // Temporary - assumes deletion succeeded
   } catch (error) {

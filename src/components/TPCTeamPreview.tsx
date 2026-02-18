@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Phone, Mail, X, Linkedin, ChevronDown } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog";
-// import { teams, facultyMembers, teamLeads, Team } from "@/data/teamData"; // REMOVED
 import { supabase } from "@/lib/supabase";
 import { TeamGroup, TeamMember, TeamGroupWithMembers } from "@/types/team";
 import { Building2, Users, Briefcase, Code, Camera, Calendar } from "lucide-react";
@@ -20,7 +20,7 @@ import marutiMaurya from "@/assets/er-maruti-maurya-new.png";
 import prashantKumarSingh from "@/assets/dr-prashant-kumar-singh-updated.png";
 
 // Helper to map icon names to components
-const IconMap: Record<string, any> = {
+const IconMap: Record<string, LucideIcon> = {
     "Building2": Building2,
     "Users": Users,
     "Briefcase": Briefcase,

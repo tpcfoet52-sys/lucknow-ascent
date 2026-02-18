@@ -60,7 +60,7 @@ async function listFacultyMembers() {
 }
 
 async function updateFacultyImage(memberId: number, newImageUrl: string) {
-    const { data, error } = await supabase
+    const { error } = await supabase
         .from('team_members')
         .update({ image: newImageUrl })
         .eq('id', memberId)

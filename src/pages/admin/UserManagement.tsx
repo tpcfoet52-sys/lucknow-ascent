@@ -58,6 +58,14 @@ const formSchema = z.object({
   team_name: z.string().min(1, "Team selection is required"),
 });
 
+const getErrorMessage = (error: unknown) => {
+  if (error instanceof Error) return error.message;
+  if (typeof error === "object" && error && "message" in error) {
+    return String((error as { message?: unknown }).message);
+  }
+  return String(error);
+};
+
 interface Coordinator {
   id: string;
   email: string;
@@ -122,13 +130,13 @@ const UserManagement = () => {
         throw error;
       }
 
-      console.log("Coordinators from Edge Function:", data.coordinators);
       setUsers(data.coordinators || []);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error fetching users:", error);
+      const message = getErrorMessage(error);
       // specific toast already shown above if applicable
-      if (!error.message?.includes('Invalid JWT') && !error.message?.includes('401')) {
-        toast.error(error.message || "Failed to load users");
+      if (!message.includes('Invalid JWT') && !message.includes('401')) {
+        toast.error(message || "Failed to load users");
       }
     } finally {
       setIsLoading(false);
@@ -178,12 +186,13 @@ const UserManagement = () => {
       setIsDialogOpen(false);
       form.reset();
       fetchUsers();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error adding user:", error);
-      if (error.message?.includes("already registered") || error.message?.includes("already exists")) {
+      const message = getErrorMessage(error);
+      if (message.includes("already registered") || message.includes("already exists")) {
         toast.error("Email already registered");
       } else {
-        toast.error(error.message || "Failed to add user. Please try again.");
+        toast.error(message || "Failed to add user. Please try again.");
       }
     }
   };
@@ -225,9 +234,10 @@ const UserManagement = () => {
 
       toast.success("User deleted successfully");
       fetchUsers();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error deleting user:", error);
-      toast.error(error.message || "Failed to delete user");
+      const message = getErrorMessage(error);
+      toast.error(message || "Failed to delete user");
     }
   };
 

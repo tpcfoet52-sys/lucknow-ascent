@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Clock, Building2, ChevronDown, Phone, MapPin, Train, Car, Users } from "lucide-react";
+import { Clock, Building2, ChevronDown, Phone, MapPin, Train, Car } from "lucide-react";
 import ConnectWithUs from "@/components/ConnectWithUs";
 import Footer from "@/components/Footer";
 import PageBackground from "@/components/PageBackground";

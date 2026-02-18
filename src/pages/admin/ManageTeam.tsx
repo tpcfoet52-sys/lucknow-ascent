@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Loader2, Plus, Upload, Users, Trash2, Edit } from "lucide-react";
+import { Loader2, Plus, Users, Trash2, Edit } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/lib/supabase";
 import { TeamGroupWithMembers, TeamGroup, TeamMember } from "@/types/team";
@@ -14,6 +14,17 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
+
+type TeamMemberFormValues = Omit<TeamMember, "id" | "group_id" | "created_at">;
+type TeamGroupFormValues = Omit<TeamGroup, "id" | "created_at">;
+
+const getErrorMessage = (error: unknown) => {
+    if (error instanceof Error) return error.message;
+    if (typeof error === "object" && error && "message" in error) {
+        return String((error as { message?: unknown }).message);
+    }
+    return String(error);
+};
 
 const ManageTeam = () => {
     const [groups, setGroups] = useState<TeamGroupWithMembers[]>([]);
@@ -46,14 +57,16 @@ const ManageTeam = () => {
             if (membersError) throw membersError;
 
             // Combine
-            const combined = groupsData.map((group: any) => ({
+            const groups = (groupsData ?? []) as TeamGroup[];
+            const members = (membersData ?? []) as TeamMember[];
+            const combined: TeamGroupWithMembers[] = groups.map((group) => ({
                 ...group,
-                members: membersData.filter((m: any) => m.group_id === group.id)
+                members: members.filter((member) => member.group_id === group.id)
             }));
 
             setGroups(combined);
-        } catch (error: any) {
-            toast({ title: "Error fetching data", description: error.message, variant: "destructive" });
+        } catch (error: unknown) {
+            toast({ title: "Error fetching data", description: getErrorMessage(error), variant: "destructive" });
         } finally {
             setLoading(false);
         }
@@ -83,12 +96,12 @@ const ManageTeam = () => {
             if (error) throw error;
             toast({ title: "Member deleted" });
             fetchData();
-        } catch (error: any) {
-            toast({ title: "Error", description: error.message, variant: "destructive" });
+        } catch (error: unknown) {
+            toast({ title: "Error", description: getErrorMessage(error), variant: "destructive" });
         }
     };
 
-    const handleMemberSubmit = async (values: any) => {
+    const handleMemberSubmit = async (values: TeamMemberFormValues) => {
         setIsMemberFormOpen(false); // Close immediately for better UX or wait? Better wait usually but for simplicity
         try {
             if (editingMember) {
@@ -107,8 +120,8 @@ const ManageTeam = () => {
                 toast({ title: "Member added" });
             }
             fetchData();
-        } catch (error: any) {
-            toast({ title: "Error", description: error.message, variant: "destructive" });
+        } catch (error: unknown) {
+            toast({ title: "Error", description: getErrorMessage(error), variant: "destructive" });
         }
     };
 
@@ -130,12 +143,12 @@ const ManageTeam = () => {
             if (error) throw error;
             toast({ title: "Group deleted" });
             fetchData();
-        } catch (error: any) {
-            toast({ title: "Error", description: error.message, variant: "destructive" });
+        } catch (error: unknown) {
+            toast({ title: "Error", description: getErrorMessage(error), variant: "destructive" });
         }
     };
 
-    const handleGroupSubmit = async (values: any) => {
+    const handleGroupSubmit = async (values: TeamGroupFormValues) => {
         setIsGroupFormOpen(false);
         try {
             if (editingGroup) {
@@ -153,8 +166,8 @@ const ManageTeam = () => {
                 toast({ title: "Group added" });
             }
             fetchData();
-        } catch (error: any) {
-            toast({ title: "Error", description: error.message, variant: "destructive" });
+        } catch (error: unknown) {
+            toast({ title: "Error", description: getErrorMessage(error), variant: "destructive" });
         }
     };
 

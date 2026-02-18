@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
-import { BookOpen, BrainCircuit, CheckCircle2, MessageSquare, ChevronRight, HelpCircle, Users, Briefcase, Cpu, UserCheck } from "lucide-react";
+import { BookOpen, CheckCircle2, MessageSquare, ChevronRight, Users } from "lucide-react";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Badge } from "@/components/ui/badge";
 import PageBackground from "@/components/PageBackground";
 import heroImage from "@/assets/university-hero-new.jpg";
 

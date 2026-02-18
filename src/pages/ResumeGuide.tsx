@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, XCircle, Briefcase, Award, PenTool, Download, ChevronRight, User, Settings, AlertTriangle, Search, LayoutTemplate, FileType } from "lucide-react";
+import { CheckCircle2, XCircle, Briefcase, Award, PenTool, Download, User, Settings, AlertTriangle, Search, LayoutTemplate, FileType } from "lucide-react";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
