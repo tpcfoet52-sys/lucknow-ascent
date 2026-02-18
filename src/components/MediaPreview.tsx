@@ -7,7 +7,9 @@ import { Badge } from "./ui/badge";
 import { supabase } from "@/lib/supabase";
 
 import smartIndiaHackathon from "@/assets/smart-india-hackathon.jpg";
-import samsungInnovation from "@/assets/samsung-innovation-campus.jpg";
+import samsungInnovation from "@/assets/samsung-campus-final.jpg";
+
+
 import sotiLogo from "@/assets/soti-logo.png";
 
 interface MediaItem {
@@ -140,7 +142,8 @@ const MediaPreview = () => {
                                 <img
                                     src={item.src}
                                     alt={item.title}
-                                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                                    className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${(item.title.includes("SOTI") || item.title.includes("Samsung")) ? "object-top" : "object-center"}`}
+
                                 />
                             </div>
 
