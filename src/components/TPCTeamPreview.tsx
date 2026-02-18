@@ -428,7 +428,7 @@ const TPCTeamPreview = () => {
                                 <h3 className="text-xs font-medium text-accent uppercase tracking-wider mb-6">
                                     Team Members
                                 </h3>
-                                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                                     {selectedTeam.members
                                         .slice()
                                         .sort((a, b) => {
