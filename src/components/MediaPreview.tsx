@@ -30,7 +30,7 @@ const staticMediaItems: MediaItem[] = [
         title: "GDSC & AWS Cloud Club Launch",
         date: "Jan 26, 2025",
         description: "The Faculty of Engineering and Technology at UoL hosted the induction ceremony for the Google Developer Student Club (GDSC) and AWS Cloud Club — UP's first AWS Club.",
-        summary: "The Faculty of Engineering and Technology at the University of Lucknow hosted the induction ceremony for the Google Developer Student Club (GDSC) and AWS Cloud Club. This marked a historic moment with the launch of Uttar Pradesh's first AWS Club at the university. Both clubs aim to equip students with modern technical skills, industry exposure, and collaborative learning opportunities. Experienced mentors were introduced to guide students in areas such as Web Development, AI & ML, Android, UI/UX, and Cyber Security. A GitHub repository was also launched to encourage hands-on experimentation and innovation. These initiatives are set to enhance technical excellence and prepare students for future industry challenges."
+        summary: "The University of Lucknow launched the Google Developer Student Club (GDSC) and the first AWS Cloud Club in Uttar Pradesh. These clubs aim to provide students with modern technical skills and industry exposure. Mentors were introduced to guide students in areas like Web Development, AI, Android, and Cyber Security. A GitHub repository was also launched to support hands-on learning and innovation."
     },
     {
         id: 2,
