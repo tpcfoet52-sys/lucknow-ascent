@@ -27,10 +27,10 @@ const staticMediaItems: MediaItem[] = [
         id: 1,
         type: "Events",
         src: smartIndiaHackathon,
-        title: "Smart India Hackathon 2025",
+        title: "GDSC & AWS Cloud Club Launch",
         date: "Jan 26, 2025",
-        description: "Students from our university participated in SIH 2025, working on innovative digital solutions for some of the most pressing problems of our nation.",
-        summary: "Our students showcased exceptional talent at SIH 2025, solving real-world challenges with innovative digital solutions. The event fostered a spirit of entrepreneurship and technical excellence among participants, with several teams receiving commendations from industry experts. This national-level platform allowed our bright minds to interact with mentors and peers from across the country."
+        description: "The Faculty of Engineering and Technology at UoL hosted the induction ceremony for the Google Developer Student Club (GDSC) and AWS Cloud Club — UP's first AWS Club.",
+        summary: "The Faculty of Engineering and Technology at the University of Lucknow hosted the induction ceremony for the Google Developer Student Club (GDSC) and AWS Cloud Club. This marked a historic moment with the launch of Uttar Pradesh's first AWS Club at the university. Both clubs aim to equip students with modern technical skills, industry exposure, and collaborative learning opportunities. Experienced mentors were introduced to guide students in areas such as Web Development, AI & ML, Android, UI/UX, and Cyber Security. A GitHub repository was also launched to encourage hands-on experimentation and innovation. These initiatives are set to enhance technical excellence and prepare students for future industry challenges."
     },
     {
         id: 2,
@@ -142,7 +142,7 @@ const MediaPreview = () => {
                                 <img
                                     src={item.src}
                                     alt={item.title}
-                                    className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${(item.title.includes("SOTI") || item.title.includes("Samsung")) ? "object-top" : "object-center"}`}
+                                    className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${(item.title.includes("SOTI") || item.title.includes("Samsung")) ? "object-top" : "object-top"}`}
 
                                 />
                             </div>
