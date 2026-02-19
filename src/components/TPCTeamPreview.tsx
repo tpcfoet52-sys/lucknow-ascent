@@ -104,10 +104,63 @@ const TPCTeamPreview = () => {
                     setStudentLeads(membersData.filter((m: TeamMember) => m.group_id === leadGroup.id));
                 }
 
-                const processedTeams = studentGroups.map((group: TeamGroup) => ({
-                    ...group,
-                    members: membersData.filter((m: TeamMember) => m.group_id === group.id)
-                }));
+                const processedTeams = studentGroups.map((group: TeamGroup) => {
+                    let key_points = group.key_points || [];
+                    const normalizedName = group.name.trim();
+
+                    if (normalizedName === "Networking & Outreach" || normalizedName === "Networking & Outreach Team") {
+                        key_points = [
+                            "Connection Establishment",
+                            "Commenting For the TPO connections",
+                            "Content Posting on Linkedin",
+                            "Mails & contact extractions",
+                            "Sending Invitation Mails & Checking Reverts"
+                        ];
+                    } else if (normalizedName === "Corporate Connect" || normalizedName === "Team Corporate Connect") {
+                        key_points = [
+                            "Lead Generation: Received from Network & Outreach Team",
+                            "Verification: Company authenticity check",
+                            "Corporate Communication: Contact HR or recruiter",
+                            "JD Collection: Process and circulate Job Descriptions",
+                            "Student Registration: Gather responses through Google Forms"
+                        ];
+                    } else if (normalizedName === "Industry Interface" || normalizedName === "Team Industry Interface") {
+                        key_points = [
+                            "Skill Empowerment",
+                            "Industry Integration",
+                            "Career Preparedness",
+                            "Soft skill training"
+                        ];
+                    } else if (normalizedName === "Web Dev & Design" || normalizedName === "Web Dev & Design Team") {
+                        key_points = [
+                            "LinkedIn Post Designs",
+                            "Banners for Placement Drive",
+                            "Flyers for Seminars",
+                            "Videography",
+                            "Photo Collages"
+                        ];
+                    } else if (normalizedName === "Content & Media" || normalizedName === "Content And Media Team") {
+                        key_points = [
+                            "Social Media Content",
+                            "Proofreading",
+                            "Press Releases",
+                            "Content draft"
+                        ];
+                    } else if (normalizedName === "Event & Hospitality" || normalizedName === "Event & Hospitality Team") {
+                        key_points = [
+                            "Crowd management",
+                            "Coordination",
+                            "Logistics",
+                            "Hospitality"
+                        ];
+                    }
+
+                    return {
+                        ...group,
+                        members: membersData.filter((m: TeamMember) => m.group_id === group.id),
+                        key_points
+                    };
+                });
                 setTeams(processedTeams);
 
             } catch (error) {
