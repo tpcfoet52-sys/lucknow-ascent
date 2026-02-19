@@ -111,18 +111,18 @@ const TPCTeamPreview = () => {
                     if (normalizedName === "Networking & Outreach" || normalizedName === "Networking & Outreach Team") {
                         key_points = [
                             "Connection Establishment",
-                            "Commenting For the TPO connections",
+                            "Commenting",
                             "Content Posting on Linkedin",
                             "Mails & contact extractions",
-                            "Sending Invitation Mails & Checking Reverts"
+                            "Sending Invitation Mails"
                         ];
                     } else if (normalizedName === "Corporate Connect" || normalizedName === "Team Corporate Connect") {
                         key_points = [
-                            "Lead Generation: Received from Network & Outreach Team",
-                            "Verification: Company authenticity check",
-                            "Corporate Communication: Contact HR or recruiter",
-                            "JD Collection: Process and circulate Job Descriptions",
-                            "Student Registration: Gather responses through Google Forms"
+                            "Lead Generation",
+                            "Verification",
+                            "Corporate Communication",
+                            "JD Collection",
+                            "Student Registration"
                         ];
                     } else if (normalizedName === "Industry Interface" || normalizedName === "Team Industry Interface") {
                         key_points = [
@@ -150,7 +150,7 @@ const TPCTeamPreview = () => {
                         key_points = [
                             "Crowd management",
                             "Coordination",
-                            "Logistics",
+                            "Logistics & Planning",
                             "Hospitality"
                         ];
                     }
